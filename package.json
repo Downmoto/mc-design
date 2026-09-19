@@ -3,6 +3,9 @@
   "version": "0.0.0",
   "description": "Shared React design system for Memory Core applications.",
   "type": "module",
+  "sideEffects": [
+    "**/*.css"
+  ],
   "files": [
     "dist"
   ],
@@ -13,7 +16,8 @@
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
-    }
+    },
+    "./styles.css": "./dist/styles.css"
   },
   "scripts": {
     "dev": "vite",

@@ -14,10 +14,10 @@ MC Design is the shared React design system for Memory Core applications. Dither
 
 ## Phase 2: Create the visual foundation
 
-- [ ] Add semantic tokens for colour, typography, spacing, borders, radii, shadows, focus, and motion.
-- [ ] Create the dark default theme.
-- [ ] Add the light-theme structure.
-- [ ] Establish keyboard-focus and disabled-state conventions.
+- [x] Add semantic tokens for colour, typography, spacing, borders, radii, shadows, focus, and motion.
+- [x] Create the dark default theme.
+- [x] Add the light-theme structure.
+- [x] Establish keyboard-focus and disabled-state conventions.
 
 ## Phase 3: Build the initial components
 
