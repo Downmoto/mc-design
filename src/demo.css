@@ -28,6 +28,7 @@ body {
 .demo__eyebrow {
   margin: 0 0 var(--mc-space-3);
   color: var(--mc-colour-accent);
+  font-family: var(--mc-font-family-mono);
   font-size: var(--mc-font-size-xs);
   font-weight: var(--mc-font-weight-semibold);
   letter-spacing: 0.12em;
@@ -36,7 +37,9 @@ body {
 
 .demo__title {
   margin: 0;
+  font-family: var(--mc-font-family-display);
   font-size: var(--mc-font-size-2xl);
+  font-weight: var(--mc-font-weight-regular);
   line-height: var(--mc-line-height-tight);
 }
 
