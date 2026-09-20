@@ -253,6 +253,24 @@ code {
   gap: var(--mc-space-4);
 }
 
+.panel-sample {
+  display: flex;
+  gap: var(--mc-space-6);
+  align-items: center;
+  justify-content: space-between;
+}
+
+.panel-sample h3,
+.panel-sample p {
+  margin: 0;
+}
+
+.panel-sample p {
+  margin-top: var(--mc-space-2);
+  color: var(--mc-colour-text-muted);
+  font-size: var(--mc-font-size-sm);
+}
+
 .field-showcase {
   display: flex;
   flex-wrap: wrap;

@@ -3,6 +3,7 @@ import { useEffect, useState, type CSSProperties, type ReactNode } from "react";
 import { Button } from "./button";
 import { IconButton } from "./icon-button";
 import { NumberField } from "./number-field";
+import { Panel } from "./panel";
 import { Select } from "./select";
 import { Slider } from "./slider";
 
@@ -195,6 +196,7 @@ export default function Demo() {
             ["IconButton", "icon-button"],
             ["Slider", "slider"],
             ["NumberField", "number-field"],
+            ["Panel", "panel"],
             ["Select", "select"],
             ["Typography", "typography"],
             ["Colour", "colour"],
@@ -242,6 +244,20 @@ export default function Demo() {
             </div>
           </section>
         </div>
+      </Group>
+
+      <Group
+        description="A neutral surface for grouping related application content and controls."
+        id="panel"
+        title="Panel"
+      >
+        <Panel className="panel-sample">
+          <div>
+            <h3>Effect settings</h3>
+            <p>Controls for the selected dithering effect.</p>
+          </div>
+          <Button variant="ghost">Reset</Button>
+        </Panel>
       </Group>
 
       <Group

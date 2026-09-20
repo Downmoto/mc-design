@@ -405,6 +405,15 @@
   outline: 0;
 }
 
+.mc-panel {
+  box-sizing: border-box;
+  padding: var(--mc-space-6);
+  border: var(--mc-border-width) solid var(--mc-colour-border);
+  border-radius: var(--mc-radius-lg);
+  color: var(--mc-colour-text);
+  background: var(--mc-colour-surface);
+}
+
 @media (prefers-reduced-motion: reduce) {
   :root {
     --mc-duration-fast: 0ms;

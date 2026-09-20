@@ -26,7 +26,7 @@ MC Design is the shared React design system for Memory Core applications. Dither
 - [x] Select
 - [x] Slider
 - [x] NumberField
-- [ ] Panel
+- [x] Panel
 - [ ] Divider
 - [ ] Tooltip
 - [ ] Container
