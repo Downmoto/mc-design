@@ -284,34 +284,44 @@ export default function Demo() {
       </Group>
 
       <Group
-        description="Native selection behaviour with consistent MC Design styling."
+        description="A custom option list with complete keyboard and focus behaviour."
         id="select"
         title="Select"
       >
         <div className="sample-card field-showcase">
-          <label className="field-sample">
-            <span>Algorithm</span>
-            <Select defaultValue="bayer">
-              <option value="bayer">Bayer</option>
-              <option value="floyd-steinberg">Floyd-Steinberg</option>
-              <option value="atkinson">Atkinson</option>
+          <div className="field-sample">
+            <span id="algorithm-label">Algorithm</span>
+            <Select aria-labelledby="algorithm-label" defaultValue="bayer">
+              <Select.Option value="bayer">Bayer</Select.Option>
+              <Select.Option value="floyd-steinberg">
+                Floyd-Steinberg
+              </Select.Option>
+              <Select.Option value="atkinson">Atkinson</Select.Option>
             </Select>
-          </label>
-          <label className="field-sample">
-            <span>Unavailable</span>
-            <Select defaultValue="locked" disabled>
-              <option value="locked">Requires an image</option>
+          </div>
+          <div className="field-sample">
+            <span id="unavailable-algorithm-label">Unavailable</span>
+            <Select
+              aria-labelledby="unavailable-algorithm-label"
+              defaultValue="locked"
+              disabled
+            >
+              <Select.Option value="locked">Requires an image</Select.Option>
             </Select>
-          </label>
-          <label className="field-sample">
-            <span>Invalid</span>
-            <Select aria-invalid="true" defaultValue="">
-              <option disabled value="">
+          </div>
+          <div className="field-sample">
+            <span id="invalid-algorithm-label">Invalid</span>
+            <Select
+              aria-invalid="true"
+              aria-labelledby="invalid-algorithm-label"
+              defaultValue=""
+            >
+              <Select.Option disabled value="">
                 Choose an algorithm
-              </option>
-              <option value="bayer">Bayer</option>
+              </Select.Option>
+              <Select.Option value="bayer">Bayer</Select.Option>
             </Select>
-          </label>
+          </div>
         </div>
       </Group>
 
