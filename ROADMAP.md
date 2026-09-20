@@ -22,13 +22,16 @@ MC Design is the shared React design system for Memory Core applications. Dither
 ## Phase 3: Build the initial components
 
 - [x] Button
-- [ ] IconButton
+- [x] IconButton
 - [ ] Select
 - [ ] Slider
 - [ ] NumberField
 - [ ] Panel
 - [ ] Divider
 - [ ] Tooltip
+- [ ] Container
+- [ ] Card
+- [ ] Page shell and section composition, with final API named during the workbench build.
 - [ ] Add types, styles, examples, and focused behavioural checks.
 
 ## Phase 4: Build the component workbench
