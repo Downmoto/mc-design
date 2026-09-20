@@ -1,3 +1,3 @@
 import "./styles.css";
 
-export {};
+export { Button, type ButtonProps, type ButtonVariant } from "./button";

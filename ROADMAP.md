@@ -21,7 +21,7 @@ MC Design is the shared React design system for Memory Core applications. Dither
 
 ## Phase 3: Build the initial components
 
-- [ ] Button
+- [x] Button
 - [ ] IconButton
 - [ ] Select
 - [ ] Slider

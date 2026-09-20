@@ -242,6 +242,17 @@ code {
   font-size: var(--mc-font-size-sm);
 }
 
+.button-showcase {
+  display: grid;
+  gap: var(--mc-space-7);
+}
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--mc-space-4);
+}
+
 .token-name {
   display: flex;
   flex-direction: column;
@@ -416,21 +427,6 @@ code {
 
 .motion-row:hover .motion-track span {
   transform: translateX(calc(100% + 6rem));
-}
-
-.demo__button {
-  min-height: var(--mc-control-height);
-  padding: 0 var(--mc-space-5);
-  border: var(--mc-border-width) solid var(--mc-colour-border);
-  border-radius: var(--mc-radius-md);
-  color: var(--mc-colour-text);
-  background: var(--mc-colour-surface-raised);
-  box-shadow: var(--mc-shadow-sm);
-  cursor: pointer;
-}
-
-.demo__button:hover:not(:disabled) {
-  background: var(--mc-colour-surface-hover);
 }
 
 .control-height-sample {

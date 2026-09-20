@@ -1,5 +1,7 @@
 import { useEffect, useState, type CSSProperties, type ReactNode } from "react";
 
+import { Button } from "./button";
+
 type Token = {
   label: string;
   variable: `--mc-${string}`;
@@ -183,6 +185,7 @@ export default function Demo() {
         </p>
         <nav aria-label="Token groups" className="demo__nav">
           {[
+            ["Button", "button"],
             ["Typography", "typography"],
             ["Colour", "colour"],
             ["Spacing", "spacing"],
@@ -197,6 +200,39 @@ export default function Demo() {
           ))}
         </nav>
       </header>
+
+      <Group
+        description="The standard action control in its supported variants and disabled state."
+        id="button"
+        title="Button"
+      >
+        <div className="sample-card button-showcase">
+          <section>
+            <h3>Variants</h3>
+            <div className="button-row">
+              <Button variant="primary">Primary</Button>
+              <Button>Secondary</Button>
+              <Button variant="ghost">Ghost</Button>
+              <Button variant="danger">Danger</Button>
+            </div>
+          </section>
+          <section>
+            <h3>Disabled</h3>
+            <div className="button-row">
+              <Button disabled variant="primary">
+                Primary
+              </Button>
+              <Button disabled>Secondary</Button>
+              <Button disabled variant="ghost">
+                Ghost
+              </Button>
+              <Button disabled variant="danger">
+                Danger
+              </Button>
+            </div>
+          </section>
+        </div>
+      </Group>
 
       <Group
         description="Font families, sizes, weights, and line heights."
@@ -365,9 +401,7 @@ export default function Demo() {
       >
         <div className="sample-grid sample-grid--interaction">
           <article className="sample-card interaction-sample">
-            <button className="mc-focus-ring demo__button" type="button">
-              Tab to focus
-            </button>
+            <Button>Tab to focus</Button>
             <TokenName
               token={{ label: "Focus width", variable: "--mc-focus-width" }}
             />
@@ -376,13 +410,7 @@ export default function Demo() {
             />
           </article>
           <article className="sample-card interaction-sample">
-            <button
-              className="mc-focus-ring demo__button"
-              type="button"
-              disabled
-            >
-              Disabled
-            </button>
+            <Button disabled>Disabled</Button>
             <TokenName
               token={{
                 label: "Disabled opacity",
