@@ -3,6 +3,7 @@ import { useEffect, useState, type CSSProperties, type ReactNode } from "react";
 import { Button } from "./button";
 import { IconButton } from "./icon-button";
 import { Select } from "./select";
+import { Slider } from "./slider";
 
 type Token = {
   label: string;
@@ -154,6 +155,7 @@ function ColourTheme({ theme }: { theme: "dark" | "light" }) {
 
 export default function Demo() {
   const [theme, setTheme] = useState<"dark" | "light">("dark");
+  const [strength, setStrength] = useState(60);
 
   useEffect(() => {
     document.documentElement.dataset.mcTheme = theme;
@@ -189,6 +191,7 @@ export default function Demo() {
           {[
             ["Button", "button"],
             ["IconButton", "icon-button"],
+            ["Slider", "slider"],
             ["Select", "select"],
             ["Typography", "typography"],
             ["Colour", "colour"],
@@ -280,6 +283,37 @@ export default function Demo() {
               </svg>
             </IconButton>
           </section>
+        </div>
+      </Group>
+
+      <Group
+        description="A continuous value control with native keyboard behaviour."
+        id="slider"
+        title="Slider"
+      >
+        <div className="sample-card field-showcase">
+          <div className="field-sample slider-sample">
+            <div className="field-sample__label">
+              <span id="strength-label">Strength</span>
+              <output>{strength}%</output>
+            </div>
+            <Slider
+              aria-labelledby="strength-label"
+              onValueChange={setStrength}
+              value={strength}
+            />
+          </div>
+          <div className="field-sample slider-sample">
+            <div className="field-sample__label">
+              <span id="disabled-strength-label">Unavailable</span>
+              <output>40%</output>
+            </div>
+            <Slider
+              aria-labelledby="disabled-strength-label"
+              defaultValue={40}
+              disabled
+            />
+          </div>
         </div>
       </Group>
 

@@ -266,6 +266,20 @@ code {
   font-size: var(--mc-font-size-sm);
 }
 
+.slider-sample {
+  flex: 1 1 16rem;
+}
+
+.field-sample__label {
+  display: flex;
+  justify-content: space-between;
+}
+
+.field-sample__label output {
+  color: var(--mc-colour-text);
+  font-family: var(--mc-font-family-mono);
+}
+
 .token-name {
   display: flex;
   flex-direction: column;
