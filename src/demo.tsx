@@ -2,6 +2,7 @@ import { useEffect, useState, type CSSProperties, type ReactNode } from "react";
 
 import { Button } from "./button";
 import { IconButton } from "./icon-button";
+import { NumberField } from "./number-field";
 import { Select } from "./select";
 import { Slider } from "./slider";
 
@@ -155,6 +156,7 @@ function ColourTheme({ theme }: { theme: "dark" | "light" }) {
 
 export default function Demo() {
   const [theme, setTheme] = useState<"dark" | "light">("dark");
+  const [pixelSize, setPixelSize] = useState<number | "">(8);
   const [strength, setStrength] = useState(60);
 
   useEffect(() => {
@@ -192,6 +194,7 @@ export default function Demo() {
             ["Button", "button"],
             ["IconButton", "icon-button"],
             ["Slider", "slider"],
+            ["NumberField", "number-field"],
             ["Select", "select"],
             ["Typography", "typography"],
             ["Colour", "colour"],
@@ -238,6 +241,47 @@ export default function Demo() {
               </Button>
             </div>
           </section>
+        </div>
+      </Group>
+
+      <Group
+        description="Precise numeric entry with keyboard input and step controls."
+        id="number-field"
+        title="NumberField"
+      >
+        <div className="sample-card field-showcase">
+          <div className="field-sample">
+            <div className="field-sample__label">
+              <span id="pixel-size-label">Pixel size</span>
+              <output>{pixelSize || "—"} px</output>
+            </div>
+            <NumberField
+              aria-labelledby="pixel-size-label"
+              decrementLabel="Decrease pixel size"
+              incrementLabel="Increase pixel size"
+              max={64}
+              min={1}
+              onValueChange={(nextValue) => setPixelSize(nextValue ?? "")}
+              value={pixelSize}
+            />
+          </div>
+          <div className="field-sample">
+            <span id="disabled-pixel-size-label">Unavailable</span>
+            <NumberField
+              aria-labelledby="disabled-pixel-size-label"
+              defaultValue={4}
+              disabled
+            />
+          </div>
+          <div className="field-sample">
+            <span id="invalid-pixel-size-label">Invalid</span>
+            <NumberField
+              aria-invalid="true"
+              aria-labelledby="invalid-pixel-size-label"
+              defaultValue={0}
+              min={1}
+            />
+          </div>
         </div>
       </Group>
 
