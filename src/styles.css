@@ -126,16 +126,21 @@
 .mc-page {
   box-sizing: border-box;
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
+  height: 100dvh;
+  overflow-x: hidden;
+  overflow-y: auto;
   padding: clamp(var(--mc-space-6), 6vw, 4.5rem) var(--mc-space-6);
   background: var(--mc-colour-page-background);
+  overscroll-behavior-x: none;
+  overscroll-behavior-y: contain;
   transition: background var(--mc-duration-normal) var(--mc-easing-standard);
 }
 
 .mc-page__body {
   box-sizing: border-box;
   width: min(100%, 68rem);
-  min-height: 100vh;
+  min-height: 100%;
   margin-inline: auto;
   padding: clamp(var(--mc-space-7), 5vw, 4rem);
   border: var(--mc-border-width) solid var(--mc-colour-border);

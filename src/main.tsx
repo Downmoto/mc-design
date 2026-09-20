@@ -13,7 +13,7 @@ if (!root) {
 
 createRoot(root).render(
   <StrictMode>
-    <Page.Root>
+    <Page.Root className="demo-root">
       <Demo />
     </Page.Root>
   </StrictMode>,
