@@ -1,6 +1,7 @@
 import { useEffect, useState, type CSSProperties, type ReactNode } from "react";
 
 import { Button } from "./button";
+import { Card } from "./card";
 import { Container } from "./container";
 import { Divider } from "./divider";
 import { IconButton } from "./icon-button";
@@ -204,6 +205,7 @@ export default function Demo() {
             ["Divider", "divider"],
             ["Tooltip", "tooltip"],
             ["Container", "container"],
+            ["Card", "card"],
             ["Select", "select"],
             ["Typography", "typography"],
             ["Colour", "colour"],
@@ -317,6 +319,32 @@ export default function Demo() {
               <code>responsive gutters</code>
             </Panel>
           </Container>
+        </div>
+      </Group>
+
+      <Group
+        description="A raised surface for self-contained content."
+        id="card"
+        title="Card"
+      >
+        <div className="card-showcase">
+          <Card>
+            <Card.Eyebrow>Preset</Card.Eyebrow>
+            <Card.Title>Bayer 8×8</Card.Title>
+            <Card.Body>
+              Ordered dithering with a crisp, repeating texture.
+            </Card.Body>
+            <Card.Footer>
+              <Button variant="primary">Select</Button>
+            </Card.Footer>
+          </Card>
+          <Card>
+            <Card.Eyebrow>Preset</Card.Eyebrow>
+            <Card.Title>Atkinson</Card.Title>
+            <Card.Body>
+              High-contrast diffusion with preserved highlights.
+            </Card.Body>
+          </Card>
         </div>
       </Group>
 

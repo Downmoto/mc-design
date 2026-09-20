@@ -1,6 +1,14 @@
 import "./styles.css";
 
 export { Button, type ButtonProps, type ButtonVariant } from "./button";
+export {
+  Card,
+  type CardBodyProps,
+  type CardEyebrowProps,
+  type CardFooterProps,
+  type CardProps,
+  type CardTitleProps,
+} from "./card";
 export { Container, type ContainerProps } from "./container";
 export { Divider, type DividerOrientation, type DividerProps } from "./divider";
 export { IconButton, type IconButtonProps } from "./icon-button";

@@ -121,6 +121,43 @@
   padding-inline: clamp(var(--mc-space-5), 3vw, var(--mc-space-8));
 }
 
+.mc-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mc-space-4);
+  box-sizing: border-box;
+  padding: var(--mc-space-6);
+  border: var(--mc-border-width) solid var(--mc-colour-border);
+  border-radius: var(--mc-radius-lg);
+  color: var(--mc-colour-text);
+  background: var(--mc-colour-surface-raised);
+  box-shadow: var(--mc-shadow-sm);
+}
+
+.mc-card__eyebrow,
+.mc-card__title {
+  margin: 0;
+}
+
+.mc-card__eyebrow {
+  color: var(--mc-colour-accent);
+  font-family: var(--mc-font-family-mono);
+  font-size: var(--mc-font-size-xs);
+  text-transform: uppercase;
+}
+
+.mc-card__title {
+  font-size: var(--mc-font-size-lg);
+  font-weight: var(--mc-font-weight-semibold);
+  line-height: var(--mc-line-height-tight);
+}
+
+.mc-card__body {
+  color: var(--mc-colour-text-muted);
+  font-size: var(--mc-font-size-sm);
+  line-height: var(--mc-line-height-normal);
+}
+
 .mc-button {
   display: inline-flex;
   align-items: center;
