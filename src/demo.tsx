@@ -7,6 +7,7 @@ import { NumberField } from "./number-field";
 import { Panel } from "./panel";
 import { Select } from "./select";
 import { Slider } from "./slider";
+import { Tooltip } from "./tooltip";
 
 type Token = {
   label: string;
@@ -102,6 +103,7 @@ const shadows: Token[] = [
 const durations: Token[] = [
   { label: "Fast", variable: "--mc-duration-fast" },
   { label: "Normal", variable: "--mc-duration-normal" },
+  { label: "Slow", variable: "--mc-duration-slow" },
 ];
 
 const value = (variable: Token["variable"]) => `var(${variable})`;
@@ -199,6 +201,7 @@ export default function Demo() {
             ["NumberField", "number-field"],
             ["Panel", "panel"],
             ["Divider", "divider"],
+            ["Tooltip", "tooltip"],
             ["Select", "select"],
             ["Typography", "typography"],
             ["Colour", "colour"],
@@ -279,6 +282,25 @@ export default function Demo() {
             <span>After</span>
           </Panel>
         </div>
+      </Group>
+
+      <Group
+        description="Short supporting text revealed by pointer hover or keyboard focus."
+        id="tooltip"
+        title="Tooltip"
+      >
+        <Panel className="tooltip-showcase">
+          <Tooltip content="Add an effect">
+            <IconButton aria-label="Add effect">
+              <svg aria-hidden="true" viewBox="0 0 24 24">
+                <path d="M12 5v14M5 12h14" />
+              </svg>
+            </IconButton>
+          </Tooltip>
+          <Tooltip content="Restore the default settings">
+            <Button>Reset</Button>
+          </Tooltip>
+        </Panel>
       </Group>
 
       <Group

@@ -294,6 +294,13 @@ code {
   justify-content: center;
 }
 
+.tooltip-showcase {
+  display: flex;
+  gap: var(--mc-space-6);
+  align-items: flex-end;
+  min-height: 5rem;
+}
+
 .field-showcase {
   display: flex;
   flex-wrap: wrap;

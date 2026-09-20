@@ -62,7 +62,8 @@
   --mc-shadow-lg: 0 18px 48px rgb(0 0 0 / 40%);
 
   --mc-duration-fast: 100ms;
-  --mc-duration-normal: 160ms;
+  --mc-duration-normal: 250ms;
+  --mc-duration-slow: 500ms;
   --mc-easing-standard: cubic-bezier(0.2, 0, 0, 1);
 
   --mc-focus-width: 2px;
@@ -432,10 +433,47 @@
   min-height: var(--mc-control-height);
 }
 
+.mc-tooltip {
+  position: relative;
+  display: inline-flex;
+}
+
+.mc-tooltip__content {
+  position: absolute;
+  z-index: 20;
+  bottom: calc(100% + var(--mc-space-2));
+  left: 50%;
+  width: max-content;
+  max-width: 16rem;
+  padding: var(--mc-space-2) var(--mc-space-3);
+  border-radius: var(--mc-radius-sm);
+  color: var(--mc-colour-on-accent);
+  font-size: var(--mc-font-size-xs);
+  line-height: var(--mc-line-height-normal);
+  text-align: center;
+  overflow-wrap: anywhere;
+  pointer-events: none;
+  opacity: 0;
+  background: var(--mc-colour-text);
+  box-shadow: var(--mc-shadow-sm);
+  transform: translate(-50%, var(--mc-space-1));
+  transition:
+    opacity var(--mc-duration-fast) var(--mc-easing-standard),
+    transform var(--mc-duration-fast) var(--mc-easing-standard);
+}
+
+.mc-tooltip:hover .mc-tooltip__content,
+.mc-tooltip:focus-within .mc-tooltip__content {
+  opacity: 1;
+  transform: translate(-50%, 0);
+  transition-delay: var(--mc-duration-slow);
+}
+
 @media (prefers-reduced-motion: reduce) {
   :root {
     --mc-duration-fast: 0ms;
     --mc-duration-normal: 0ms;
+    --mc-duration-slow: 0ms;
   }
 }
 
