@@ -113,6 +113,14 @@
   opacity: var(--mc-disabled-opacity);
 }
 
+.mc-container {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 64rem;
+  margin-inline: auto;
+  padding-inline: clamp(var(--mc-space-5), 3vw, var(--mc-space-8));
+}
+
 .mc-button {
   display: inline-flex;
   align-items: center;

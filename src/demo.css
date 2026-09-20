@@ -301,6 +301,27 @@ code {
   min-height: 5rem;
 }
 
+.container-showcase {
+  padding-block: var(--mc-space-7);
+  border: var(--mc-border-width) dashed var(--mc-colour-border-strong);
+  border-radius: var(--mc-radius-lg);
+  background: var(--mc-colour-background);
+}
+
+.container-sample {
+  display: flex;
+  gap: var(--mc-space-5);
+  align-items: center;
+  justify-content: space-between;
+  color: var(--mc-colour-text-muted);
+  font-size: var(--mc-font-size-sm);
+}
+
+.container-sample code {
+  color: var(--mc-colour-text-disabled);
+  font-size: var(--mc-font-size-xs);
+}
+
 .field-showcase {
   display: flex;
   flex-wrap: wrap;

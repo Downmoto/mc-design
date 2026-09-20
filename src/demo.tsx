@@ -1,6 +1,7 @@
 import { useEffect, useState, type CSSProperties, type ReactNode } from "react";
 
 import { Button } from "./button";
+import { Container } from "./container";
 import { Divider } from "./divider";
 import { IconButton } from "./icon-button";
 import { NumberField } from "./number-field";
@@ -202,6 +203,7 @@ export default function Demo() {
             ["Panel", "panel"],
             ["Divider", "divider"],
             ["Tooltip", "tooltip"],
+            ["Container", "container"],
             ["Select", "select"],
             ["Typography", "typography"],
             ["Colour", "colour"],
@@ -301,6 +303,21 @@ export default function Demo() {
             <Button>Reset</Button>
           </Tooltip>
         </Panel>
+      </Group>
+
+      <Group
+        description="A centred content boundary with responsive horizontal gutters."
+        id="container"
+        title="Container"
+      >
+        <div className="container-showcase">
+          <Container>
+            <Panel className="container-sample">
+              <span>Contained content</span>
+              <code>responsive gutters</code>
+            </Panel>
+          </Container>
+        </div>
       </Group>
 
       <Group
