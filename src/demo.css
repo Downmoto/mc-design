@@ -1,6 +1,5 @@
 html {
   scroll-behavior: smooth;
-  background: #687184;
 }
 
 body {
@@ -8,13 +7,6 @@ body {
   min-width: 20rem;
   min-height: 100vh;
   margin: 0;
-  padding: clamp(var(--mc-space-6), 6vw, 4.5rem) var(--mc-space-6);
-  background: #687184;
-  transition: background var(--mc-duration-normal) var(--mc-easing-standard);
-}
-
-[data-mc-theme="light"] body {
-  background: #c8ced8;
 }
 
 a,
@@ -28,23 +20,10 @@ code {
 }
 
 .demo {
-  box-sizing: border-box;
-  width: min(100%, 68rem);
   min-height: 100vh;
-  margin-inline: auto;
-  padding: clamp(var(--mc-space-7), 5vw, 4rem);
-  border: var(--mc-border-width) solid var(--mc-colour-border);
-  border-radius: 0.75rem;
-  color: var(--mc-colour-text);
-  background: var(--mc-colour-canvas);
-  box-shadow: var(--mc-shadow-lg);
-  transition:
-    color var(--mc-duration-normal) var(--mc-easing-standard),
-    background var(--mc-duration-normal) var(--mc-easing-standard);
 }
 
-.demo__hero,
-.token-group {
+.demo__hero {
   width: 100%;
 }
 
@@ -177,6 +156,7 @@ code {
 }
 
 .token-group {
+  width: 100%;
   padding-block: 2.75rem;
   scroll-margin-top: var(--mc-space-6);
 }
@@ -326,6 +306,46 @@ code {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: var(--mc-space-5);
+}
+
+.page-sample {
+  width: 100%;
+  min-height: 20rem;
+  padding: var(--mc-space-7);
+  border-radius: var(--mc-radius-lg);
+}
+
+.page-sample .mc-page__body {
+  min-height: 0;
+  padding: var(--mc-space-7);
+}
+
+.page-sample h3,
+.page-sample p {
+  margin: 0;
+}
+
+.page-sample h3 {
+  margin-bottom: var(--mc-space-2);
+  font-size: var(--mc-font-size-lg);
+}
+
+.page-sample p {
+  color: var(--mc-colour-text-muted);
+  font-size: var(--mc-font-size-sm);
+}
+
+.page-sample__label,
+.page-sample__root-label {
+  display: block;
+  margin-bottom: var(--mc-space-4);
+  color: var(--mc-colour-accent);
+  font-family: var(--mc-font-family-mono);
+  font-size: var(--mc-font-size-xs);
+}
+
+.page-sample__root-label {
+  color: var(--mc-colour-on-accent);
 }
 
 .field-showcase {
@@ -558,15 +578,6 @@ code {
 }
 
 @media (max-width: 42rem) {
-  body {
-    padding: 0;
-  }
-
-  .demo {
-    border-width: 0;
-    border-radius: 0;
-  }
-
   .token-group__header,
   .sample-grid--families,
   .sample-grid--shape,

@@ -1,6 +1,7 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import Demo from "./demo";
+import { Page } from "./page";
 import "./styles.css";
 import "./demo.css";
 
@@ -12,6 +13,8 @@ if (!root) {
 
 createRoot(root).render(
   <StrictMode>
-    <Demo />
+    <Page.Root>
+      <Demo />
+    </Page.Root>
   </StrictMode>,
 );

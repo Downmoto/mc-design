@@ -6,6 +6,7 @@ import { Container } from "./container";
 import { Divider } from "./divider";
 import { IconButton } from "./icon-button";
 import { NumberField } from "./number-field";
+import { Page } from "./page";
 import { Panel } from "./panel";
 import { Select } from "./select";
 import { Slider } from "./slider";
@@ -18,6 +19,7 @@ type Token = {
 
 const colours: Token[] = [
   { label: "Background", variable: "--mc-colour-background" },
+  { label: "Page background", variable: "--mc-colour-page-background" },
   { label: "Canvas", variable: "--mc-colour-canvas" },
   { label: "Surface", variable: "--mc-colour-surface" },
   { label: "Surface raised", variable: "--mc-colour-surface-raised" },
@@ -174,7 +176,7 @@ export default function Demo() {
   }, [theme]);
 
   return (
-    <main className="demo">
+    <Page.Body className="demo" role="main">
       <header className="demo__hero">
         <div className="demo__topbar">
           <p className="demo__eyebrow">Memory Core</p>
@@ -206,6 +208,7 @@ export default function Demo() {
             ["Tooltip", "tooltip"],
             ["Container", "container"],
             ["Card", "card"],
+            ["Page", "page"],
             ["Select", "select"],
             ["Typography", "typography"],
             ["Colour", "colour"],
@@ -346,6 +349,21 @@ export default function Demo() {
             </Card.Body>
           </Card>
         </div>
+      </Group>
+
+      <Group
+        description="A full-page background with a centred, elevated body."
+        id="page"
+        title="Page"
+      >
+        <Page.Root className="page-sample">
+          <span className="page-sample__root-label">Page.Root</span>
+          <Page.Body>
+            <p className="page-sample__label">Page.Body</p>
+            <h3>Effect workspace</h3>
+            <p>The application content floats over the page background.</p>
+          </Page.Body>
+        </Page.Root>
       </Group>
 
       <Group
@@ -702,6 +720,6 @@ export default function Demo() {
           </article>
         </div>
       </Group>
-    </main>
+    </Page.Body>
   );
 }
