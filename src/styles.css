@@ -414,6 +414,24 @@
   background: var(--mc-colour-surface);
 }
 
+.mc-divider {
+  flex: none;
+  margin: 0;
+  border: 0;
+  background: var(--mc-colour-border);
+}
+
+.mc-divider--horizontal {
+  width: 100%;
+  height: var(--mc-border-width);
+}
+
+.mc-divider--vertical {
+  align-self: stretch;
+  width: var(--mc-border-width);
+  min-height: var(--mc-control-height);
+}
+
 @media (prefers-reduced-motion: reduce) {
   :root {
     --mc-duration-fast: 0ms;

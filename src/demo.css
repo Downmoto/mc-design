@@ -271,6 +271,29 @@ code {
   font-size: var(--mc-font-size-sm);
 }
 
+.divider-showcase {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--mc-space-5);
+}
+
+.divider-sample {
+  color: var(--mc-colour-text-muted);
+  font-size: var(--mc-font-size-sm);
+}
+
+.divider-sample--horizontal {
+  display: grid;
+  gap: var(--mc-space-5);
+}
+
+.divider-sample--vertical {
+  display: flex;
+  gap: var(--mc-space-5);
+  align-items: center;
+  justify-content: center;
+}
+
 .field-showcase {
   display: flex;
   flex-wrap: wrap;
@@ -515,6 +538,7 @@ code {
   .sample-grid--shape,
   .sample-grid--elevation,
   .sample-grid--interaction,
+  .divider-showcase,
   .theme-grid,
   .type-details {
     grid-template-columns: 1fr;

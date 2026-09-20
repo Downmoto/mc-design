@@ -1,6 +1,7 @@
 import { useEffect, useState, type CSSProperties, type ReactNode } from "react";
 
 import { Button } from "./button";
+import { Divider } from "./divider";
 import { IconButton } from "./icon-button";
 import { NumberField } from "./number-field";
 import { Panel } from "./panel";
@@ -197,6 +198,7 @@ export default function Demo() {
             ["Slider", "slider"],
             ["NumberField", "number-field"],
             ["Panel", "panel"],
+            ["Divider", "divider"],
             ["Select", "select"],
             ["Typography", "typography"],
             ["Colour", "colour"],
@@ -258,6 +260,25 @@ export default function Demo() {
           </div>
           <Button variant="ghost">Reset</Button>
         </Panel>
+      </Group>
+
+      <Group
+        description="A semantic separator for stacked or side-by-side content."
+        id="divider"
+        title="Divider"
+      >
+        <div className="divider-showcase">
+          <Panel className="divider-sample divider-sample--horizontal">
+            <span>Input</span>
+            <Divider />
+            <span>Output</span>
+          </Panel>
+          <Panel className="divider-sample divider-sample--vertical">
+            <span>Before</span>
+            <Divider orientation="vertical" />
+            <span>After</span>
+          </Panel>
+        </div>
       </Group>
 
       <Group
