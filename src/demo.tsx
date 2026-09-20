@@ -1,30 +1,406 @@
-import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
-import "./styles.css";
-import "./demo.css";
+import { useEffect, useState, type CSSProperties, type ReactNode } from "react";
 
-const root = document.getElementById("root");
+type Token = {
+  label: string;
+  variable: `--mc-${string}`;
+};
 
-if (!root) {
-  throw new Error("Missing #root element");
+const colours: Token[] = [
+  { label: "Background", variable: "--mc-colour-background" },
+  { label: "Canvas", variable: "--mc-colour-canvas" },
+  { label: "Surface", variable: "--mc-colour-surface" },
+  { label: "Surface raised", variable: "--mc-colour-surface-raised" },
+  { label: "Surface hover", variable: "--mc-colour-surface-hover" },
+  { label: "Surface active", variable: "--mc-colour-surface-active" },
+  { label: "Border", variable: "--mc-colour-border" },
+  { label: "Border strong", variable: "--mc-colour-border-strong" },
+  { label: "Text", variable: "--mc-colour-text" },
+  { label: "Text muted", variable: "--mc-colour-text-muted" },
+  { label: "Text disabled", variable: "--mc-colour-text-disabled" },
+  { label: "Accent", variable: "--mc-colour-accent" },
+  { label: "Accent hover", variable: "--mc-colour-accent-hover" },
+  { label: "Accent active", variable: "--mc-colour-accent-active" },
+  { label: "On accent", variable: "--mc-colour-on-accent" },
+  { label: "Danger", variable: "--mc-colour-danger" },
+  { label: "Warning", variable: "--mc-colour-warning" },
+  { label: "Success", variable: "--mc-colour-success" },
+  { label: "Overlay", variable: "--mc-colour-overlay" },
+  { label: "Focus", variable: "--mc-colour-focus" },
+];
+
+const fontFamilies: (Token & { sample: string })[] = [
+  {
+    label: "Interface",
+    variable: "--mc-font-family",
+    sample: "Open Sans keeps controls calm and readable.",
+  },
+  {
+    label: "Monospace",
+    variable: "--mc-font-family-mono",
+    sample: "Geist Mono 0123456789 / pipeline-01",
+  },
+  {
+    label: "Display",
+    variable: "--mc-font-family-display",
+    sample: "Manufacturing Consent",
+  },
+];
+
+const fontSizes: Token[] = [
+  { label: "Extra small", variable: "--mc-font-size-xs" },
+  { label: "Small", variable: "--mc-font-size-sm" },
+  { label: "Medium", variable: "--mc-font-size-md" },
+  { label: "Large", variable: "--mc-font-size-lg" },
+  { label: "Extra large", variable: "--mc-font-size-xl" },
+  { label: "2× extra large", variable: "--mc-font-size-2xl" },
+];
+
+const fontWeights: Token[] = [
+  { label: "Regular", variable: "--mc-font-weight-regular" },
+  { label: "Medium", variable: "--mc-font-weight-medium" },
+  { label: "Semibold", variable: "--mc-font-weight-semibold" },
+];
+
+const lineHeights: Token[] = [
+  { label: "Tight", variable: "--mc-line-height-tight" },
+  { label: "Normal", variable: "--mc-line-height-normal" },
+];
+
+const spacing: Token[] = [
+  { label: "Space 0", variable: "--mc-space-0" },
+  { label: "Space 1", variable: "--mc-space-1" },
+  { label: "Space 2", variable: "--mc-space-2" },
+  { label: "Space 3", variable: "--mc-space-3" },
+  { label: "Space 4", variable: "--mc-space-4" },
+  { label: "Space 5", variable: "--mc-space-5" },
+  { label: "Space 6", variable: "--mc-space-6" },
+  { label: "Space 7", variable: "--mc-space-7" },
+  { label: "Space 8", variable: "--mc-space-8" },
+];
+
+const radii: Token[] = [
+  { label: "Small", variable: "--mc-radius-sm" },
+  { label: "Medium", variable: "--mc-radius-md" },
+  { label: "Large", variable: "--mc-radius-lg" },
+  { label: "Full", variable: "--mc-radius-full" },
+];
+
+const shadows: Token[] = [
+  { label: "Small", variable: "--mc-shadow-sm" },
+  { label: "Medium", variable: "--mc-shadow-md" },
+  { label: "Large", variable: "--mc-shadow-lg" },
+];
+
+const durations: Token[] = [
+  { label: "Fast", variable: "--mc-duration-fast" },
+  { label: "Normal", variable: "--mc-duration-normal" },
+];
+
+const value = (variable: Token["variable"]) => `var(${variable})`;
+
+function TokenName({ token }: { token: Token }) {
+  return (
+    <div className="token-name">
+      <span>{token.label}</span>
+      <code>{token.variable}</code>
+    </div>
+  );
 }
 
-createRoot(root).render(
-  <StrictMode>
-    <main className="demo">
-      <p className="demo__eyebrow">Memory Core</p>
-      <h1 className="demo__title">MC Design</h1>
-      <p className="demo__description">
-        The shared visual foundation for Memory Core applications.
-      </p>
-      <div className="demo__actions">
-        <button className="mc-focus-ring demo__button" type="button">
-          Focus convention
-        </button>
-        <button className="mc-focus-ring demo__button" type="button" disabled>
-          Disabled convention
-        </button>
+function Group({
+  children,
+  description,
+  id,
+  title,
+}: {
+  children: ReactNode;
+  description: string;
+  id: string;
+  title: string;
+}) {
+  return (
+    <section className="token-group" id={id}>
+      <header className="token-group__header">
+        <h2>{title}</h2>
+        <p>{description}</p>
+      </header>
+      {children}
+    </section>
+  );
+}
+
+function ColourTheme({ theme }: { theme: "dark" | "light" }) {
+  return (
+    <section className="theme-sample">
+      <h3>{theme} theme</h3>
+      <div className="swatch-grid" data-mc-theme={theme}>
+        {colours.map((token) => (
+          <article className="swatch" key={token.variable}>
+            <div
+              className="swatch__colour"
+              style={{ background: value(token.variable) }}
+            />
+            <TokenName token={token} />
+          </article>
+        ))}
       </div>
+    </section>
+  );
+}
+
+export default function Demo() {
+  const [theme, setTheme] = useState<"dark" | "light">("dark");
+
+  useEffect(() => {
+    document.documentElement.dataset.mcTheme = theme;
+
+    return () => {
+      delete document.documentElement.dataset.mcTheme;
+    };
+  }, [theme]);
+
+  return (
+    <main className="demo">
+      <header className="demo__hero">
+        <div className="demo__topbar">
+          <p className="demo__eyebrow">Memory Core</p>
+          <button
+            aria-checked={theme === "light"}
+            className="mc-focus-ring theme-toggle"
+            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+            role="switch"
+            type="button"
+          >
+            <span aria-hidden="true" className="theme-toggle__track">
+              <span />
+            </span>
+            Light mode
+          </button>
+        </div>
+        <h1 className="demo__title">MC Design</h1>
+        <p className="demo__description">
+          Every foundational token, rendered in one place.
+        </p>
+        <nav aria-label="Token groups" className="demo__nav">
+          {[
+            ["Typography", "typography"],
+            ["Colour", "colour"],
+            ["Spacing", "spacing"],
+            ["Shape", "shape"],
+            ["Elevation", "elevation"],
+            ["Motion", "motion"],
+            ["Interaction", "interaction"],
+          ].map(([label, anchor]) => (
+            <a className="mc-focus-ring" href={`#${anchor}`} key={anchor}>
+              {label}
+            </a>
+          ))}
+        </nav>
+      </header>
+
+      <Group
+        description="Font families, sizes, weights, and line heights."
+        id="typography"
+        title="Typography"
+      >
+        <div className="sample-grid sample-grid--families">
+          {fontFamilies.map((token) => (
+            <article className="sample-card" key={token.variable}>
+              <TokenName token={token} />
+              <p
+                className="family-sample"
+                style={{ fontFamily: value(token.variable) }}
+              >
+                {token.sample}
+              </p>
+            </article>
+          ))}
+        </div>
+
+        <div className="type-details">
+          <section className="sample-card">
+            <h3>Size</h3>
+            <div className="type-list">
+              {fontSizes.map((token) => (
+                <div className="type-row" key={token.variable}>
+                  <TokenName token={token} />
+                  <span style={{ fontSize: value(token.variable) }}>Ag</span>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section className="sample-card">
+            <h3>Weight</h3>
+            <div className="type-list">
+              {fontWeights.map((token) => (
+                <div className="type-row" key={token.variable}>
+                  <TokenName token={token} />
+                  <span style={{ fontWeight: value(token.variable) }}>
+                    Dithertool
+                  </span>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section className="sample-card">
+            <h3>Line height</h3>
+            <div className="line-height-grid">
+              {lineHeights.map((token) => (
+                <article key={token.variable}>
+                  <TokenName token={token} />
+                  <p style={{ lineHeight: value(token.variable) }}>
+                    Ordered pixels create texture while preserving the image’s
+                    structure and rhythm.
+                  </p>
+                </article>
+              ))}
+            </div>
+          </section>
+        </div>
+      </Group>
+
+      <Group
+        description="Semantic colours shown in both supported themes."
+        id="colour"
+        title="Colour"
+      >
+        <div className="theme-grid">
+          <ColourTheme theme="dark" />
+          <ColourTheme theme="light" />
+        </div>
+      </Group>
+
+      <Group
+        description="A compact scale for controls and desktop layouts."
+        id="spacing"
+        title="Spacing"
+      >
+        <div className="sample-card spacing-list">
+          {spacing.map((token) => (
+            <div className="spacing-row" key={token.variable}>
+              <TokenName token={token} />
+              <div className="spacing-row__track">
+                <span style={{ width: value(token.variable) }} />
+              </div>
+            </div>
+          ))}
+        </div>
+      </Group>
+
+      <Group
+        description="Borders and radii for controls, panels, and pills."
+        id="shape"
+        title="Shape"
+      >
+        <div className="sample-grid sample-grid--shape">
+          {radii.map((token) => (
+            <article className="sample-card shape-sample" key={token.variable}>
+              <div style={{ borderRadius: value(token.variable) }} />
+              <TokenName token={token} />
+            </article>
+          ))}
+          <article className="sample-card border-sample">
+            <div />
+            <TokenName
+              token={{ label: "Border width", variable: "--mc-border-width" }}
+            />
+          </article>
+        </div>
+      </Group>
+
+      <Group
+        description="Elevation is reserved for elements that genuinely float."
+        id="elevation"
+        title="Elevation"
+      >
+        <div className="sample-grid sample-grid--elevation">
+          {shadows.map((token) => (
+            <article
+              className="sample-card elevation-sample"
+              key={token.variable}
+              style={{ boxShadow: value(token.variable) }}
+            >
+              <TokenName token={token} />
+            </article>
+          ))}
+        </div>
+      </Group>
+
+      <Group
+        description="Hover the tracks to compare timing and easing."
+        id="motion"
+        title="Motion"
+      >
+        <div className="sample-card motion-list">
+          {durations.map((token) => (
+            <div className="motion-row" key={token.variable}>
+              <TokenName token={token} />
+              <div className="motion-track">
+                <span
+                  style={
+                    {
+                      transitionDuration: value(token.variable),
+                      transitionTimingFunction: "var(--mc-easing-standard)",
+                    } as CSSProperties
+                  }
+                />
+              </div>
+            </div>
+          ))}
+          <TokenName
+            token={{
+              label: "Standard easing",
+              variable: "--mc-easing-standard",
+            }}
+          />
+        </div>
+      </Group>
+
+      <Group
+        description="Keyboard focus, disabled states, and standard control sizing."
+        id="interaction"
+        title="Interaction"
+      >
+        <div className="sample-grid sample-grid--interaction">
+          <article className="sample-card interaction-sample">
+            <button className="mc-focus-ring demo__button" type="button">
+              Tab to focus
+            </button>
+            <TokenName
+              token={{ label: "Focus width", variable: "--mc-focus-width" }}
+            />
+            <TokenName
+              token={{ label: "Focus offset", variable: "--mc-focus-offset" }}
+            />
+          </article>
+          <article className="sample-card interaction-sample">
+            <button
+              className="mc-focus-ring demo__button"
+              type="button"
+              disabled
+            >
+              Disabled
+            </button>
+            <TokenName
+              token={{
+                label: "Disabled opacity",
+                variable: "--mc-disabled-opacity",
+              }}
+            />
+          </article>
+          <article className="sample-card interaction-sample">
+            <div className="control-height-sample">32</div>
+            <TokenName
+              token={{
+                label: "Control height",
+                variable: "--mc-control-height",
+              }}
+            />
+          </article>
+        </div>
+      </Group>
     </main>
-  </StrictMode>,
-);
+  );
+}
