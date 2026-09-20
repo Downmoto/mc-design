@@ -2,6 +2,7 @@ import { useEffect, useState, type CSSProperties, type ReactNode } from "react";
 
 import { Button } from "./button";
 import { IconButton } from "./icon-button";
+import { Select } from "./select";
 
 type Token = {
   label: string;
@@ -188,6 +189,7 @@ export default function Demo() {
           {[
             ["Button", "button"],
             ["IconButton", "icon-button"],
+            ["Select", "select"],
             ["Typography", "typography"],
             ["Colour", "colour"],
             ["Spacing", "spacing"],
@@ -278,6 +280,38 @@ export default function Demo() {
               </svg>
             </IconButton>
           </section>
+        </div>
+      </Group>
+
+      <Group
+        description="Native selection behaviour with consistent MC Design styling."
+        id="select"
+        title="Select"
+      >
+        <div className="sample-card field-showcase">
+          <label className="field-sample">
+            <span>Algorithm</span>
+            <Select defaultValue="bayer">
+              <option value="bayer">Bayer</option>
+              <option value="floyd-steinberg">Floyd-Steinberg</option>
+              <option value="atkinson">Atkinson</option>
+            </Select>
+          </label>
+          <label className="field-sample">
+            <span>Unavailable</span>
+            <Select defaultValue="locked" disabled>
+              <option value="locked">Requires an image</option>
+            </Select>
+          </label>
+          <label className="field-sample">
+            <span>Invalid</span>
+            <Select aria-invalid="true" defaultValue="">
+              <option disabled value="">
+                Choose an algorithm
+              </option>
+              <option value="bayer">Bayer</option>
+            </Select>
+          </label>
         </div>
       </Group>
 

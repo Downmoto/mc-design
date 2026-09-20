@@ -19,6 +19,7 @@ body {
 
 a,
 button,
+select,
 body {
   font-family: var(--mc-font-family);
 }
@@ -251,6 +252,19 @@ code {
   display: flex;
   flex-wrap: wrap;
   gap: var(--mc-space-4);
+}
+
+.field-showcase {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--mc-space-7);
+}
+
+.field-sample {
+  display: grid;
+  gap: var(--mc-space-3);
+  color: var(--mc-colour-text-muted);
+  font-size: var(--mc-font-size-sm);
 }
 
 .token-name {
