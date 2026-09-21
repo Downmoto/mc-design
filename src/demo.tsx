@@ -4,6 +4,7 @@ import { Button } from "./button";
 import { Card } from "./card";
 import { Container } from "./container";
 import { Divider } from "./divider";
+import { DitherToolDemo } from "./dither-tool-demo";
 import { IconButton } from "./icon-button";
 import { NumberField } from "./number-field";
 import { Page } from "./page";
@@ -209,6 +210,7 @@ export default function Demo() {
             ["Container", "container"],
             ["Card", "card"],
             ["Page", "page"],
+            ["Dither Tool", "dither-tool"],
             ["Select", "select"],
             ["Typography", "typography"],
             ["Colour", "colour"],
@@ -405,6 +407,14 @@ export default function Demo() {
             />
           </div>
         </div>
+      </Group>
+
+      <Group
+        description="A realistic workspace assembled from MC Design components."
+        id="dither-tool"
+        title="Dither Tool"
+      >
+        <DitherToolDemo />
       </Group>
 
       <Group

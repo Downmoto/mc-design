@@ -39,7 +39,7 @@ MC Design is the shared React design system for Memory Core applications. Dither
 - [x] Display every component and its important states.
 - [x] Display token and colour samples.
 - [x] Demonstrate keyboard-focus behaviour.
-- [ ] Include a realistic Dither Tool interface prototype.
+- [x] Include a realistic Dither Tool interface prototype.
 
 ## Phase 5: Prototype Dither Tool
 
