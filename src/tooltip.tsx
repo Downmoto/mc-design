@@ -1,6 +1,7 @@
 import {
   cloneElement,
   useId,
+  useState,
   type HTMLAttributes,
   type ReactElement,
   type ReactNode,
@@ -24,10 +25,14 @@ export function Tooltip({
   children,
   className,
   content,
+  onBlur,
+  onClickCapture,
+  onPointerLeave,
   ref,
   ...props
 }: TooltipProps) {
   const tooltipId = useId();
+  const [dismissed, setDismissed] = useState(false);
   const describedBy = [children.props["aria-describedby"], tooltipId]
     .filter(Boolean)
     .join(" ");
@@ -35,6 +40,22 @@ export function Tooltip({
   return (
     <span
       className={["mc-tooltip", className].filter(Boolean).join(" ")}
+      data-dismissed={dismissed || undefined}
+      onBlur={(event) => {
+        if (!event.currentTarget.contains(event.relatedTarget))
+          setDismissed(false);
+        onBlur?.(event);
+      }}
+      onClickCapture={(event) => {
+        setDismissed(true);
+        onClickCapture?.(event);
+      }}
+      onPointerLeave={(event) => {
+        if (!event.currentTarget.querySelector(":focus-visible")) {
+          setDismissed(false);
+        }
+        onPointerLeave?.(event);
+      }}
       ref={ref}
       {...props}
     >

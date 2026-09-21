@@ -238,6 +238,12 @@ code {
   gap: var(--mc-space-4);
 }
 
+.toggle-button-showcase {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--mc-space-7);
+}
+
 .panel-sample {
   display: flex;
   gap: var(--mc-space-6);

@@ -43,6 +43,8 @@ MC Design is the shared React design system for Memory Core applications. Dither
 
 ## Phase 5: Prototype Dither Tool
 
+- [x] Add an iOS-style ToggleButton for persistent on/off controls.
+- [x] Keep tooltips above neighbouring controls and dismiss them when their trigger is activated.
 - [ ] Add the file and export toolbar.
 - [ ] Add the effect-pipeline sidebar.
 - [ ] Add the image-preview area.

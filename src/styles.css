@@ -262,6 +262,49 @@
   padding: 0;
 }
 
+.mc-toggle-button {
+  display: inline-flex;
+  gap: var(--mc-space-4);
+  align-items: center;
+  justify-content: space-between;
+  min-height: var(--mc-control-height);
+  padding: 0;
+  border: 0;
+  color: var(--mc-colour-text);
+  font: inherit;
+  font-size: var(--mc-font-size-sm);
+  background: transparent;
+  cursor: pointer;
+}
+
+.mc-toggle-button__track {
+  box-sizing: border-box;
+  width: 2.75rem;
+  height: 1.5rem;
+  padding: 0.125rem;
+  border-radius: var(--mc-radius-full);
+  background: var(--mc-colour-surface-active);
+  transition: background var(--mc-duration-fast) var(--mc-easing-standard);
+}
+
+.mc-toggle-button__thumb {
+  display: block;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: var(--mc-shadow-sm);
+  transition: transform var(--mc-duration-fast) var(--mc-easing-standard);
+}
+
+.mc-toggle-button[aria-checked="true"] .mc-toggle-button__track {
+  background: var(--mc-colour-accent);
+}
+
+.mc-toggle-button[aria-checked="true"] .mc-toggle-button__thumb {
+  transform: translateX(1.25rem);
+}
+
 .mc-icon-button > svg {
   width: 1rem;
   height: 1rem;
@@ -515,9 +558,14 @@
   display: inline-flex;
 }
 
+.mc-tooltip:hover,
+.mc-tooltip:focus-within {
+  z-index: 999;
+}
+
 .mc-tooltip__content {
   position: absolute;
-  z-index: 20;
+  z-index: 999;
   bottom: calc(100% + var(--mc-space-2));
   left: 50%;
   width: max-content;
@@ -539,8 +587,8 @@
     transform var(--mc-duration-fast) var(--mc-easing-standard);
 }
 
-.mc-tooltip:hover .mc-tooltip__content,
-.mc-tooltip:focus-within .mc-tooltip__content {
+.mc-tooltip:not([data-dismissed]):hover .mc-tooltip__content,
+.mc-tooltip:not([data-dismissed]):has(:focus-visible) .mc-tooltip__content {
   opacity: 1;
   transform: translate(-50%, 0);
   transition-delay: var(--mc-duration-slow);

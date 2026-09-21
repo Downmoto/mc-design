@@ -12,6 +12,7 @@ import { Panel } from "./panel";
 import { Select } from "./select";
 import { Slider } from "./slider";
 import { Tooltip } from "./tooltip";
+import { ToggleButton } from "./toggle-button";
 
 type Token = {
   label: string;
@@ -201,6 +202,7 @@ export default function Demo() {
         <nav aria-label="Token groups" className="demo__nav">
           {[
             ["Button", "button"],
+            ["ToggleButton", "toggle-button"],
             ["IconButton", "icon-button"],
             ["Slider", "slider"],
             ["NumberField", "number-field"],
@@ -257,6 +259,18 @@ export default function Demo() {
               </Button>
             </div>
           </section>
+        </div>
+      </Group>
+
+      <Group
+        description="A persistent on/off switch with a sliding thumb."
+        id="toggle-button"
+        title="ToggleButton"
+      >
+        <div className="toggle-button-showcase">
+          <ToggleButton defaultChecked>Show grid</ToggleButton>
+          <ToggleButton>Snap to pixels</ToggleButton>
+          <ToggleButton disabled>Unavailable</ToggleButton>
         </div>
       </Group>
 

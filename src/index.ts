@@ -18,3 +18,4 @@ export { Panel, type PanelProps } from "./panel";
 export { Select, type SelectOptionProps, type SelectProps } from "./select";
 export { Slider, type SliderProps } from "./slider";
 export { Tooltip, type TooltipProps } from "./tooltip";
+export { ToggleButton, type ToggleButtonProps } from "./toggle-button";
