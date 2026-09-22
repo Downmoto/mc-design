@@ -12,6 +12,14 @@ export {
 export { Container, type ContainerProps } from "./container";
 export { Divider, type DividerOrientation, type DividerProps } from "./divider";
 export { IconButton, type IconButtonProps } from "./icon-button";
+export {
+  Modal,
+  type ModalCloseProps,
+  type ModalContentProps,
+  type ModalRootProps,
+  type ModalTargetProps,
+  type ModalVariant,
+} from "./modal";
 export { NumberField, type NumberFieldProps } from "./number-field";
 export { Page, type PageBodyProps, type PageRootProps } from "./page";
 export { Panel, type PanelProps } from "./panel";

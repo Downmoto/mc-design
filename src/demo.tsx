@@ -6,6 +6,7 @@ import { Container } from "./container";
 import { Divider } from "./divider";
 import { DitherToolDemo } from "./dither-tool-demo";
 import { IconButton } from "./icon-button";
+import { Modal } from "./modal";
 import { NumberField } from "./number-field";
 import { Page } from "./page";
 import { Panel } from "./panel";
@@ -209,6 +210,7 @@ export default function Demo() {
             ["Panel", "panel"],
             ["Divider", "divider"],
             ["Tooltip", "tooltip"],
+            ["Modal", "modal"],
             ["Container", "container"],
             ["Card", "card"],
             ["Page", "page"],
@@ -324,6 +326,41 @@ export default function Demo() {
             <Button>Reset</Button>
           </Tooltip>
         </Panel>
+      </Group>
+
+      <Group
+        description="A centred dialog or a draggable dialog with a configurable starting position."
+        id="modal"
+        title="Modal"
+      >
+        <div className="sample-card modal-showcase">
+          <Modal.Root>
+            <Modal.Target className="mc-focus-ring mc-button mc-button--secondary">
+              Open centred modal
+            </Modal.Target>
+            <Modal.Content aria-label="Centred modal example">
+              <h3>Centred modal</h3>
+              <p>The page is unavailable until this dialog closes.</p>
+              <Modal.Close className="mc-focus-ring mc-button mc-button--primary">
+                Close
+              </Modal.Close>
+            </Modal.Content>
+          </Modal.Root>
+          <Modal.Root dimBg={false} initialPosition="center" variant="movable">
+            <Modal.Target className="mc-focus-ring mc-button mc-button--secondary">
+              Open movable modal
+            </Modal.Target>
+            <Modal.Content aria-label="Movable modal example">
+              <h3>Movable modal</h3>
+              <p>
+                Drag this dialog around the viewport. Click outside to close.
+              </p>
+              <Modal.Close className="mc-focus-ring mc-button mc-button--primary">
+                Close
+              </Modal.Close>
+            </Modal.Content>
+          </Modal.Root>
+        </div>
       </Group>
 
       <Group

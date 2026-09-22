@@ -535,6 +535,39 @@
   background: var(--mc-colour-surface);
 }
 
+.mc-modal {
+  box-sizing: border-box;
+  max-width: min(32rem, 100vw);
+  max-height: 100vh;
+  padding: var(--mc-space-7);
+  overflow: auto;
+  border: var(--mc-border-width) solid var(--mc-colour-border);
+  border-radius: var(--mc-radius-lg);
+  color: var(--mc-colour-text);
+  background: var(--mc-colour-surface);
+  box-shadow: var(--mc-shadow-lg);
+}
+
+.mc-modal::backdrop {
+  background: transparent;
+}
+
+.mc-modal--dimmed::backdrop {
+  background: var(--mc-colour-overlay);
+}
+
+.mc-modal--centered {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+}
+
+.mc-modal--movable {
+  position: fixed;
+  margin: 0;
+  touch-action: none;
+}
+
 .mc-divider {
   flex: none;
   margin: 0;

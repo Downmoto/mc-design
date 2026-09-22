@@ -292,6 +292,17 @@ code {
   min-height: 5rem;
 }
 
+.modal-showcase {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--mc-space-4);
+}
+
+.mc-modal h3,
+.mc-modal p {
+  margin: 0 0 var(--mc-space-5);
+}
+
 .container-showcase {
   padding-block: var(--mc-space-7);
   border: var(--mc-border-width) dashed var(--mc-colour-border-strong);
