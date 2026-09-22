@@ -305,7 +305,39 @@
   transform: translateX(1.25rem);
 }
 
-.mc-icon-button > svg {
+.mc-toggle-button--icon {
+  width: var(--mc-control-height);
+  padding: 0;
+  border: var(--mc-border-width) solid var(--mc-colour-border);
+  border-radius: var(--mc-radius-md);
+  justify-content: center;
+  background: var(--mc-colour-surface-raised);
+}
+
+.mc-toggle-button--icon:hover:not(:disabled) {
+  background: var(--mc-colour-surface-hover);
+}
+
+.mc-toggle-button--icon[aria-checked="true"] {
+  border-color: var(--mc-colour-accent);
+  color: var(--mc-colour-on-accent);
+  background: var(--mc-colour-accent);
+}
+
+.mc-toggle-button--icon[aria-checked="true"]:hover:not(:disabled) {
+  background: color-mix(
+    in srgb,
+    var(--mc-colour-accent) 60%,
+    var(--mc-colour-accent-active)
+  );
+}
+
+.mc-toggle-button__icon {
+  display: inline-flex;
+}
+
+.mc-icon-button > svg,
+.mc-toggle-button__icon > svg {
   width: 1rem;
   height: 1rem;
   fill: none;

@@ -26,4 +26,21 @@ describe("ToggleButton", () => {
       ),
     ).toContain('aria-checked="false"');
   });
+
+  it("uses an icon instead of the switch track when provided", () => {
+    const markup = renderToStaticMarkup(
+      <ToggleButton aria-label="Pin effect" defaultChecked>
+        Pin effect
+        <ToggleButton.Icon>
+          <svg aria-hidden="true" />
+        </ToggleButton.Icon>
+      </ToggleButton>,
+    );
+
+    expect(markup).toContain("mc-toggle-button--icon");
+    expect(markup).toContain("mc-toggle-button__icon");
+    expect(markup).toContain('aria-checked="true"');
+    expect(markup).not.toContain("mc-toggle-button__track");
+    expect(markup).not.toContain("Pin effect</span>");
+  });
 });

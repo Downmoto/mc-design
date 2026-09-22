@@ -20,6 +20,19 @@ import "@mc-design/react/styles.css";
 Dark mode is the default. Set `data-mc-theme="light"` or
 `data-mc-theme="dark"` on an application root to select a theme explicitly.
 
+## Toggle buttons
+
+Add `ToggleButton.Icon` to render the toggle as an icon control instead of a
+labelled switch. Give icon toggles an accessible name.
+
+```tsx
+<ToggleButton aria-label="Pin effect">
+  <ToggleButton.Icon>
+    <PinIcon />
+  </ToggleButton.Icon>
+</ToggleButton>
+```
+
 ## Modal
 
 `Modal.Root` supports `variant="centered"` (default) and `variant="movable"`.

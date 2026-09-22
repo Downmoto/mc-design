@@ -1,6 +1,9 @@
 import {
+  Children,
+  isValidElement,
   useState,
   type ButtonHTMLAttributes,
+  type HTMLAttributes,
   type MouseEvent,
   type ReactNode,
   type Ref,
@@ -17,7 +20,23 @@ export interface ToggleButtonProps extends Omit<
   ref?: Ref<HTMLButtonElement>;
 }
 
-export function ToggleButton({
+export interface ToggleButtonIconProps extends HTMLAttributes<HTMLSpanElement> {
+  ref?: Ref<HTMLSpanElement>;
+}
+
+function ToggleButtonIcon({ className, ref, ...props }: ToggleButtonIconProps) {
+  return (
+    <span
+      className={["mc-toggle-button__icon", className]
+        .filter(Boolean)
+        .join(" ")}
+      ref={ref}
+      {...props}
+    />
+  );
+}
+
+function ToggleButtonRoot({
   checked,
   children,
   className,
@@ -30,6 +49,9 @@ export function ToggleButton({
 }: ToggleButtonProps) {
   const [internalChecked, setInternalChecked] = useState(defaultChecked);
   const isChecked = checked ?? internalChecked;
+  const icon = Children.toArray(children).find(
+    (child) => isValidElement(child) && child.type === ToggleButtonIcon,
+  );
 
   function handleClick(event: MouseEvent<HTMLButtonElement>) {
     onClick?.(event);
@@ -43,7 +65,12 @@ export function ToggleButton({
   return (
     <button
       aria-checked={isChecked}
-      className={["mc-focus-ring", "mc-toggle-button", className]
+      className={[
+        "mc-focus-ring",
+        "mc-toggle-button",
+        icon && "mc-toggle-button--icon",
+        className,
+      ]
         .filter(Boolean)
         .join(" ")}
       onClick={handleClick}
@@ -52,10 +79,18 @@ export function ToggleButton({
       type={type}
       {...props}
     >
-      <span>{children}</span>
-      <span aria-hidden="true" className="mc-toggle-button__track">
-        <span className="mc-toggle-button__thumb" />
-      </span>
+      {icon ?? (
+        <>
+          <span>{children}</span>
+          <span aria-hidden="true" className="mc-toggle-button__track">
+            <span className="mc-toggle-button__thumb" />
+          </span>
+        </>
+      )}
     </button>
   );
 }
+
+export const ToggleButton = Object.assign(ToggleButtonRoot, {
+  Icon: ToggleButtonIcon,
+});

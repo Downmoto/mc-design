@@ -272,6 +272,13 @@ export default function Demo() {
         <div className="toggle-button-showcase">
           <ToggleButton defaultChecked>Show grid</ToggleButton>
           <ToggleButton>Snap to pixels</ToggleButton>
+          <ToggleButton aria-label="Pin effect" defaultChecked>
+            <ToggleButton.Icon>
+              <svg aria-hidden="true" viewBox="0 0 24 24">
+                <path d="M8 4h8l-1 6 3 3v2H6v-2l3-3-1-6ZM12 15v6" />
+              </svg>
+            </ToggleButton.Icon>
+          </ToggleButton>
           <ToggleButton disabled>Unavailable</ToggleButton>
         </div>
       </Group>
