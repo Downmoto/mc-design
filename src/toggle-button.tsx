@@ -18,6 +18,7 @@ export interface ToggleButtonProps extends Omit<
   defaultChecked?: boolean;
   onCheckedChange?: (checked: boolean) => void;
   ref?: Ref<HTMLButtonElement>;
+  variant?: "default" | "ghost";
 }
 
 export interface ToggleButtonIconProps extends HTMLAttributes<HTMLSpanElement> {
@@ -45,6 +46,7 @@ function ToggleButtonRoot({
   onCheckedChange,
   ref,
   type = "button",
+  variant = "default",
   ...props
 }: ToggleButtonProps) {
   const [internalChecked, setInternalChecked] = useState(defaultChecked);
@@ -69,6 +71,7 @@ function ToggleButtonRoot({
         "mc-focus-ring",
         "mc-toggle-button",
         icon && "mc-toggle-button--icon",
+        `mc-toggle-button--${variant}`,
         className,
       ]
         .filter(Boolean)

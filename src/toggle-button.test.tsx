@@ -43,4 +43,16 @@ describe("ToggleButton", () => {
     expect(markup).not.toContain("mc-toggle-button__track");
     expect(markup).not.toContain("Pin effect</span>");
   });
+
+  it("supports a ghost variant", () => {
+    const markup = renderToStaticMarkup(
+      <ToggleButton aria-label="Link dimensions" variant="ghost">
+        <ToggleButton.Icon>
+          <svg aria-hidden="true" />
+        </ToggleButton.Icon>
+      </ToggleButton>,
+    );
+
+    expect(markup).toContain("mc-toggle-button--ghost");
+  });
 });

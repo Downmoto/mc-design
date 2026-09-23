@@ -279,6 +279,13 @@ export default function Demo() {
               </svg>
             </ToggleButton.Icon>
           </ToggleButton>
+          <ToggleButton aria-label="Link dimensions" variant="ghost">
+            <ToggleButton.Icon>
+              <svg aria-hidden="true" viewBox="0 0 24 24">
+                <path d="M10 13a5 5 0 0 0 7.5.5l2-2a5 5 0 0 0-7-7l-1.1 1M14 11a5 5 0 0 0-7.5-.5l-2 2a5 5 0 0 0 7 7l1.1-1" />
+              </svg>
+            </ToggleButton.Icon>
+          </ToggleButton>
           <ToggleButton disabled>Unavailable</ToggleButton>
         </div>
       </Group>

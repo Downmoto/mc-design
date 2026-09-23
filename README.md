@@ -33,6 +33,9 @@ labelled switch. Give icon toggles an accessible name.
 </ToggleButton>
 ```
 
+Use `variant="ghost"` for a transparent icon toggle. Its icon changes to the
+accent colour when selected.
+
 ## Modal
 
 `Modal.Root` supports `variant="centered"` (default) and `variant="movable"`.
