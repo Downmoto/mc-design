@@ -1,7 +1,7 @@
 import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
 
-import { getNextEnabledIndex, Select } from "./select";
+import { getNextEnabledIndex, Select, shouldOpenUpward } from "./select";
 
 describe("Select", () => {
   it("renders a labelled custom trigger and form value", () => {
@@ -38,5 +38,10 @@ describe("Select", () => {
     expect(getNextEnabledIndex(options, 0, 1)).toBe(2);
     expect(getNextEnabledIndex(options, 2, 1)).toBe(0);
     expect(getNextEnabledIndex(options, 0, -1)).toBe(2);
+  });
+
+  it("opens upward when the listbox would exceed the viewport", () => {
+    expect(shouldOpenUpward(801, 800)).toBe(true);
+    expect(shouldOpenUpward(800, 800)).toBe(false);
   });
 });

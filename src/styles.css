@@ -434,6 +434,11 @@
   list-style: none;
 }
 
+.mc-select__listbox[data-placement="top"] {
+  top: auto;
+  bottom: calc(100% + var(--mc-space-2));
+}
+
 .mc-select__option {
   display: flex;
   gap: var(--mc-space-6);

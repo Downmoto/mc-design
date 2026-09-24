@@ -4,6 +4,7 @@ import {
   useCallback,
   useEffect,
   useId,
+  useLayoutEffect,
   useRef,
   useState,
   type KeyboardEvent,
@@ -51,6 +52,13 @@ export function getNextEnabledIndex(
   return -1;
 }
 
+export function shouldOpenUpward(
+  listboxBottom: number,
+  viewportHeight: number,
+) {
+  return listboxBottom > viewportHeight;
+}
+
 function SelectOption(_props: SelectOptionProps) {
   return null;
 }
@@ -86,6 +94,7 @@ function SelectRoot({
   );
   const [internalValue, setInternalValue] = useState(defaultValue);
   const [open, setOpen] = useState(false);
+  const [openUpward, setOpenUpward] = useState(false);
   const [activeIndex, setActiveIndex] = useState(-1);
   const selectedValue = value ?? internalValue;
   const options: Option[] = Children.toArray(children).flatMap(
@@ -118,10 +127,22 @@ function SelectRoot({
     if (open) listboxRef.current?.focus();
   }, [open]);
 
+  useLayoutEffect(() => {
+    if (!open || !listboxRef.current) return;
+
+    setOpenUpward(
+      shouldOpenUpward(
+        listboxRef.current.getBoundingClientRect().bottom,
+        window.innerHeight,
+      ),
+    );
+  }, [open]);
+
   function openList(direction: 1 | -1 = 1) {
     const start =
       selectedIndex >= 0 ? selectedIndex - direction : direction > 0 ? -1 : 0;
     setActiveIndex(getNextEnabledIndex(options, start, direction));
+    setOpenUpward(false);
     setOpen(true);
   }
 
@@ -249,6 +270,7 @@ function SelectRoot({
         <ul
           aria-activedescendant={options[activeIndex]?.id}
           className="mc-select__listbox"
+          data-placement={openUpward ? "top" : "bottom"}
           id={listboxId}
           onKeyDown={handleListboxKeyDown}
           ref={listboxRef}
