@@ -1,62 +1,70 @@
-# MC Design
+# MemoryCore design
 
-Shared React design system for Memory Core applications.
+`@memorycore/design` is MemoryCore's shared Svelte design library. It provides
+design tokens, theming utilities, and approved interface components for
+memorycore.dev and future MemoryCore products.
+
+The replacement library is currently in foundation development. Components are
+added only after their designs are approved and a consumer requires them.
+
+## Requirements
+
+- Node.js 22.17 or newer
+- npm 11 or newer
+- Svelte 5.57 or newer
 
 ## Development
 
+Install dependencies and run the complete verification suite:
+
 ```sh
 npm install
-npm run dev
+npm run check
 ```
 
-Run every automated check with `npm run check`.
+Regenerate CSS, TypeScript, and documentation from the canonical token source:
 
-Applications load the shared theme with:
+```sh
+npm run tokens:generate
+```
+
+The source is `tokens/tokens.json`. Generated files are committed so package
+consumers and reviewers can inspect changes without running the generator.
+
+## Using tokens
+
+Load the complete foundation, including the approved fonts:
 
 ```ts
-import "@mc-design/react/styles.css";
+import '@memorycore/design/styles.css';
 ```
 
-Dark mode is the default. Set `data-mc-theme="light"` or
-`data-mc-theme="dark"` on an application root to select a theme explicitly.
+Consumers that load fonts separately can import only the token properties:
 
-## Toggle buttons
-
-Add `ToggleButton.Icon` to render the toggle as an icon control instead of a
-labelled switch. Give icon toggles an accessible name.
-
-```tsx
-<ToggleButton aria-label="Pin effect">
-  <ToggleButton.Icon>
-    <PinIcon />
-  </ToggleButton.Icon>
-</ToggleButton>
+```ts
+import '@memorycore/design/tokens.css';
 ```
 
-Use `variant="ghost"` for a transparent icon toggle. Its icon changes to the
-accent colour when selected.
+The default theme is dark. Set `data-mc-theme` on the document root to `dark`,
+`light`, or `system`. The theme helpers persist and apply this setting:
 
-## Modal
+```ts
+import { initialiseTheme, setTheme } from '@memorycore/design';
 
-`Modal.Root` supports `variant="centered"` (default) and `variant="movable"`.
-The movable variant opens at the `Modal.Target` click and can be dragged within
-the viewport. Set `initialPosition="center"` to start a movable modal in the
-centre instead. Both variants close when clicked outside and block background
-interaction and scrolling while open. Set `dimBg={false}` to keep the blocked
-background visible without dimming.
-
-```tsx
-<Modal.Root variant="movable" initialPosition="center" dimBg={false}>
-  <Modal.Target>Open settings</Modal.Target>
-  <Modal.Content aria-label="Settings">
-    <p>Settings go here.</p>
-    <Modal.Close>Close</Modal.Close>
-  </Modal.Content>
-</Modal.Root>
+initialiseTheme();
+setTheme('system');
 ```
 
-Use `open` and `onOpenChange` to control visibility externally, or `defaultOpen`
-for an initially open modal. Give each `Modal.Content` an accessible name with
-`aria-label` or `aria-labelledby`.
+Product themes can override `--mc-product-primary` separately in each theme.
+The shared `--mc-colour-interactive` role uses that value with the MemoryCore
+colour as its fallback.
 
-See [ROADMAP.md](./ROADMAP.md) for the project checklist.
+See [the token reference](./docs/tokens.md) for the complete generated list and
+[the implementation decision](./docs/decisions/0001-implementation-contract.md)
+for the package contract.
+
+## Project direction
+
+`CONTEXT.md` is the design and accessibility authority. `PLAN.md` tracks the
+implementation sequence. The old React package has no compatibility surface in
+this replacement.

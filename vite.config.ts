@@ -1,18 +1,11 @@
-import { fileURLToPath, URL } from "node:url";
-import react from "@vitejs/plugin-react";
-import { defineConfig } from "vite";
+import { svelte } from '@sveltejs/vite-plugin-svelte';
+import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
-  plugins: [react()],
-  build: {
-    lib: {
-      entry: fileURLToPath(new URL("./src/index.ts", import.meta.url)),
-      formats: ["es"],
-      fileName: "index",
-      cssFileName: "styles",
-    },
-    rollupOptions: {
-      external: ["react", "react-dom", "react/jsx-runtime"],
-    },
+  plugins: [svelte()],
+  test: {
+    environment: 'jsdom',
+    include: ['test/**/*.test.ts'],
+    setupFiles: ['./test/setup.ts'],
   },
 });
