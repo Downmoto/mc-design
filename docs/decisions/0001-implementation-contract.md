@@ -35,6 +35,6 @@ component designs exist. This avoids maintaining an empty application surface.
 - `src/lib` is the public package surface
 - There is no React compatibility layer
 - Generated files must match `tokens/tokens.json` for checks to pass
-- Product themes may override `--mc-product-primary` and must verify their own
-  light and dark contrast
+- Registered consumer themes may override `--mc-product-primary` and must
+  verify their own light and dark contrast
 - Release automation and timing require a later decision

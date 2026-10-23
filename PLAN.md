@@ -23,7 +23,8 @@ Token implementation may begin while release automation and documentation choice
 
 - [x] Create one version-controlled structured token source.
 - [x] Add foundation colour tokens.
-- [x] Add the approved website palette-extension tokens.
+- [x] Add the approved website consumer-primary and contextual tokens.
+- [x] Reserve the DitherTool and AethelTool consumer-primary identifiers in registry metadata without value entries or fallbacks.
 - [x] Add light and dark semantic colour aliases.
 - [x] Add typography families, weights, sizes, and line heights.
 - [x] Add spacing, size, radius, border, shadow, motion, breakpoint, and layer tokens.
@@ -36,8 +37,8 @@ Token implementation may begin while release automation and documentation choice
 - [x] Implement dark and light themes.
 - [x] Use dark as the default when no stored selection exists.
 - [x] Add `Dark`, `Light`, and `System` settings support.
-- [x] Map the default MemoryCore interactive role to `colour-site-cobalt` in light mode and `colour-site-cobalt-bright` in dark mode.
-- [x] Support semantic `product-primary` overrides without defining product values.
+- [x] Map the website `colour-interactive` role to `colour-consumer-website-primary-light` and `colour-consumer-website-primary-dark`.
+- [x] Support registered consumer-primary mappings while rejecting reserved pairs without values.
 - [x] Preserve operating-system high-contrast and forced-colour behaviour.
 - [x] Verify every semantic colour pairing against its contrast requirement.
 
@@ -93,6 +94,6 @@ Implement components in design-approval and consumer-need order. Avoid speculati
 
 - DitherTool and AethelTool interface development.
 - Product-specific workspace patterns.
-- Product accent values.
+- Values for the reserved DitherTool and AethelTool consumer-primary tokens.
 - Desktop-shell and platform-packaging choices.
 - Styled public guide pages, which follow the website overhaul.

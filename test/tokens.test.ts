@@ -38,4 +38,56 @@ describe('token source validation', () => {
       /same semantic token names/,
     );
   });
+
+  it('maps the website consumer primary pair to the interactive role', () => {
+    const validated = validateTokenSource(source);
+
+    expect(validated.consumerRegistry.get('website')?.resolved.light).toBe(
+      '#2F6892',
+    );
+    expect(validated.consumerRegistry.get('website')?.resolved.dark).toBe(
+      '#4E8BB7',
+    );
+    expect(
+      validated.resolvedThemes.light.get('colour-interactive')?.value,
+    ).toBe('#2F6892');
+    expect(validated.resolvedThemes.dark.get('colour-interactive')?.value).toBe(
+      '#4E8BB7',
+    );
+  });
+
+  it('keeps reserved consumer primaries out of usable tokens', () => {
+    const validated = validateTokenSource(source);
+
+    expect(validated.consumerRegistry.get('dithertool')?.resolved).toEqual({});
+    expect(validated.consumerRegistry.get('aetheltool')?.resolved).toEqual({});
+    expect(
+      validated.resolvedGlobal.has('colour-consumer-dithertool-primary-light'),
+    ).toBe(false);
+    expect(
+      validated.resolvedGlobal.has('colour-consumer-aetheltool-primary-dark'),
+    ).toBe(false);
+  });
+
+  it('rejects active consumers with missing primary tokens', () => {
+    const invalid = structuredClone(source);
+    invalid.consumerRegistry.website.primaryTokens.light =
+      'colour-consumer-website-primary-missing';
+
+    expect(() => validateTokenSource(invalid)).toThrow(/must register light/);
+  });
+
+  it('rejects values assigned to reserved consumer primaries', () => {
+    const invalid = structuredClone(source);
+    invalid.foundation.push({
+      name: 'colour-consumer-dithertool-primary-light',
+      type: 'colour',
+      value: '#000000',
+      description: 'Invalid reserved value',
+    });
+
+    expect(() => validateTokenSource(invalid)).toThrow(
+      /reserved consumer "dithertool" must not have usable values/,
+    );
+  });
 });

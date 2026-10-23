@@ -11,9 +11,11 @@ export {
 } from './theme.js';
 
 export {
+  consumerRegistry,
   foundationTokens,
   semanticTokens,
   tokens,
+  type ConsumerId,
   type FoundationTokenName,
   type GlobalSemanticTokenName,
   type ThemeTokenName,

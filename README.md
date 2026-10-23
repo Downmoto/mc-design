@@ -55,9 +55,11 @@ initialiseTheme();
 setTheme('system');
 ```
 
-Product themes can override `--mc-product-primary` separately in each theme.
-The shared `--mc-colour-interactive` role uses that value with the MemoryCore
-colour as its fallback.
+The shared `--mc-colour-interactive` role maps to the registered memorycore.dev
+primary pair. Registered consumer themes can set `--mc-product-primary`
+separately for light and dark themes. Apply the packaged website mapping by
+setting `data-mc-product="website"` on the same document element as
+`data-mc-theme`.
 
 See [the token reference](./docs/tokens.md) for the complete generated list and
 [the implementation decision](./docs/decisions/0001-implementation-contract.md)

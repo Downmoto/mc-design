@@ -22,14 +22,14 @@ MemoryCore creates commercial creative software and the open-source Rust librari
 
 ## Current state
 
-- MemoryCore Brand Style Guide 1.1.0 and Unified Product Design Guide 1.0.0 are the approved MVB sources represented in this pack.
+- MemoryCore Brand Style Guide 1.2.0 and Unified Product Design Guide 1.1.0 are the approved MVB sources represented in this pack.
 - Svelte is the accepted interface framework for the library, website, and future Tool frontends.
 - The approved package name is `@memorycore/design`.
 - The replacement design library is in foundation development.
 - The repository is `https://github.com/Downmoto/mc-design`, which is the sole distribution location for the package.
 - The package structure, supported Svelte version, token formats, and initial build, test, and documentation tooling are recorded in the implementation contract.
 - Desktop shells remain an implementation choice for future Tool development.
-- Product-specific Tool patterns and `product-primary` values remain deferred.
+- Product-specific Tool patterns and the values for the reserved DitherTool and AethelTool consumer-primary tokens remain deferred.
 
 ## Decisions and constraints
 
@@ -58,14 +58,14 @@ MemoryCore creates commercial creative software and the open-source Rust librari
 
 ## Token architecture
 
-Canonical token names use lowercase kebab case in the form `category-role-variant`. Generated outputs may add a platform prefix such as `--mc-colour-text-primary`.
+Canonical token names use lowercase kebab case in the form `category-role-variant`. A registered scope appears after the category as `category-scope-role-variant`. Generated outputs may add a platform prefix such as `--mc-colour-text-primary`.
 
 Use four layers:
 
 1. Foundation tokens hold approved raw values.
 2. Semantic tokens assign meaning within light and dark themes.
 3. Component tokens provide narrower roles when a shared component requires them.
-4. Product themes override documented semantic accent roles through `product-primary`.
+4. Consumer themes map documented semantic interactive and accent roles to their registered primary pair.
 
 Rules:
 
@@ -87,35 +87,39 @@ Rules:
 | `brand-warm-muted`    | `#B8AE9D` | Muted warm foreground           |
 | `brand-cool-muted`    | `#8C8791` | Muted cool foreground or accent |
 
-## Website palette extension
+## Consumer primary colours and website contexts
 
-These approved colours support memorycore.dev, the first production consumer. Include them in generated token outputs while keeping website art direction and compositions in the website repository.
+Consumer primary pairs use `colour-consumer-{consumer}-primary-{theme}`. Include approved values in generated token outputs. Reserved tokens remain documented identifiers without values, fallbacks, or usable generated output.
 
-| Token                           | Value     | Role                                                                 |
-| ------------------------------- | --------- | -------------------------------------------------------------------- |
-| `colour-site-cobalt`            | `#2F6892` | Website action on light backgrounds, large fields, and shared accent |
-| `colour-site-cobalt-bright`     | `#4E8BB7` | Website action and focus on dark backgrounds                         |
-| `colour-site-pale-blue`         | `#D3DAE0` | Large supporting field and high-contrast content on dark backgrounds |
-| `colour-resource-cobalt`        | `#1547D2` | Resource action on light backgrounds and Resource art direction      |
-| `colour-resource-cobalt-bright` | `#6D98FF` | Resource action and focus on dark backgrounds                        |
+| Token                                            | Value     | Role                                                                   |
+| ------------------------------------------------ | --------- | ---------------------------------------------------------------------- |
+| `colour-consumer-website-primary-light`          | `#2F6892` | Website primary in the light theme                                     |
+| `colour-consumer-website-primary-dark`           | `#4E8BB7` | Website primary in the dark theme                                      |
+| `colour-consumer-dithertool-primary-light`       | Reserved  | DitherTool primary in the light theme                                  |
+| `colour-consumer-dithertool-primary-dark`        | Reserved  | DitherTool primary in the dark theme                                   |
+| `colour-consumer-aetheltool-primary-light`       | Reserved  | AethelTool primary in the light theme                                  |
+| `colour-consumer-aetheltool-primary-dark`        | Reserved  | AethelTool primary in the dark theme                                   |
+| `colour-consumer-website-supporting-pale-blue`   | `#D3DAE0` | Website supporting field and high-contrast content on dark backgrounds |
+| `colour-consumer-website-resource-primary-light` | `#1547D2` | Resource context primary in the light theme                            |
+| `colour-consumer-website-resource-primary-dark`  | `#6D98FF` | Resource context primary in the dark theme                             |
 
-Use the site pair for default MemoryCore website interactions. Use the Resource pair only within approved Resource contexts. Do not use either darker cobalt as small text on `brand-dark`; use the corresponding bright token.
+Use the website consumer pair for default website interactions. Use the Resource pair only within approved Resource contexts. Do not use light-theme primary values as small text on `brand-dark`; use the corresponding dark-theme token.
 
 ## Semantic colours
 
-| Token                   | Light theme | Dark theme | Purpose                                                                           |
-| ----------------------- | ----------- | ---------- | --------------------------------------------------------------------------------- |
-| `colour-background`     | `#F3EBDD`   | `#050507`  | Root background                                                                   |
-| `colour-surface`        | `#E8E1D2`   | `#1C1A20`  | Panels, cards, menus, and grouped regions                                         |
-| `colour-text-primary`   | `#050507`   | `#E8E1D2`  | Primary text and neutral icons                                                    |
-| `colour-text-secondary` | `#2D2D2D`   | `#B8AE9D`  | Supporting text and neutral icons                                                 |
-| `colour-border`         | `#2D2D2D`   | `#8C8791`  | Meaningful boundaries and separators                                              |
-| `colour-interactive`    | `#2F6892`   | `#4E8BB7`  | Links, active controls, focus, and selected states on MemoryCore website surfaces |
-| `colour-success`        | `#215C38`   | `#7FC99A`  | Successful or valid state                                                         |
-| `colour-warning`        | `#6B4A00`   | `#E5B968`  | Caution or required attention                                                     |
-| `colour-danger`         | `#8F2525`   | `#E08383`  | Errors, destructive actions, or critical failure                                  |
+| Token                   | Light theme           | Dark theme           | Purpose                                            |
+| ----------------------- | --------------------- | -------------------- | -------------------------------------------------- |
+| `colour-background`     | `#F3EBDD`             | `#050507`            | Root background                                    |
+| `colour-surface`        | `#E8E1D2`             | `#1C1A20`            | Panels, cards, menus, and grouped regions          |
+| `colour-text-primary`   | `#050507`             | `#E8E1D2`            | Primary text and neutral icons                     |
+| `colour-text-secondary` | `#2D2D2D`             | `#B8AE9D`            | Supporting text and neutral icons                  |
+| `colour-border`         | `#2D2D2D`             | `#8C8791`            | Meaningful boundaries and separators               |
+| `colour-interactive`    | Website primary light | Website primary dark | Links, active controls, focus, and selected states |
+| `colour-success`        | `#215C38`             | `#7FC99A`            | Successful or valid state                          |
+| `colour-warning`        | `#6B4A00`             | `#E5B968`            | Caution or required attention                      |
+| `colour-danger`         | `#8F2525`             | `#E08383`            | Errors, destructive actions, or critical failure   |
 
-Each Tool replaces `colour-interactive` and other documented accent roles with coordinated light and dark `product-primary` values. Shared neutral and status colours remain consistent. Resource-specific interaction roles may map to the approved Resource pair without changing the default MemoryCore theme.
+Each consumer theme maps `colour-interactive` and other documented accent roles to its approved primary pair. Shared neutral and status colours remain consistent. Resource-specific interaction roles may map to the approved website Resource pair without registering another consumer.
 
 Contrast requirements:
 
@@ -377,7 +381,7 @@ Shared component contract:
 ## Deferred and excluded work
 
 - Product-specific workspace, properties, file, and processing patterns.
-- DitherTool and AethelTool `product-primary` values.
+- Values for the reserved DitherTool and AethelTool consumer-primary tokens.
 - Native mobile applications.
 - Desktop-shell selection.
 - Website layouts and styled guide pages beyond the reusable library surface.
@@ -406,8 +410,9 @@ This pack contains the implementation guidance required by the destination repos
 
 | Upstream source                            | Version or decision date                 |
 | ------------------------------------------ | ---------------------------------------- |
-| MemoryCore Brand Style Guide               | 1.1.0, reviewed 2026-10-21               |
-| MemoryCore Unified Product Design Guide    | 1.0.0, reviewed 2026-10-21               |
+| MemoryCore Brand Style Guide               | 1.2.0, reviewed 2026-10-23               |
+| MemoryCore Unified Product Design Guide    | 1.1.0, reviewed 2026-10-23               |
+| Consumer primary-colour token decision     | Accepted 2026-10-23                      |
 | Product interface framework decision       | Accepted 2026-10-08, reviewed 2026-10-21 |
 | `@memorycore/design` package-name decision | Accepted 2026-10-21                      |
 | Design-system development sequence         | Accepted 2026-10-08                      |

@@ -10,18 +10,18 @@ This repository implements MemoryCore's shared design tokens and Svelte componen
 - Svelte is the approved interface framework.
 - The package name is `@memorycore/design`.
 - `@mc-design/react` is a legacy predecessor and does not define the replacement architecture.
-- MemoryCore Brand Style Guide 1.1.0 and Unified Product Design Guide 1.0.0 govern visual and interaction decisions.
-- Product-specific Tool workspace patterns and product accent values remain deferred.
+- MemoryCore Brand Style Guide 1.2.0 and Unified Product Design Guide 1.1.0 govern visual and interaction decisions.
+- Product-specific Tool workspace patterns and the values for reserved Tool consumer-primary tokens remain deferred.
 
 ## Implementation rules
 
 - Implement foundation tokens before shared components.
 - Keep one version-controlled structured token source and generate consumer formats from it.
 - Use semantic tokens inside components. Do not duplicate foundation values or add raw design values to component styles.
-- Use lowercase kebab-case token names in the form `category-role-variant`.
+- Use lowercase kebab-case token names in the form `category-role-variant`; registered scopes appear after the category.
 - Support dark, light, and system theme settings. Dark is the default when no preference has been stored.
-- Expose product accent overrides through documented semantic roles.
-- Include the approved website colour extension in generated token outputs. Map the default MemoryCore interactive role to the site cobalt pair.
+- Register consumer primaries through `colour-consumer-{consumer}-primary-{theme}` and map them through documented semantic roles.
+- Include the approved website consumer-primary and contextual colours in generated token outputs. Keep reserved Tool tokens valueless until their pairs are approved.
 - Add component tokens only when a shared component needs a narrower semantic role.
 - Add components and variants when an approved design or a real consumer requires them.
 - Implement the website-required shared-component baseline before broader Tool-oriented MVB components.
@@ -29,7 +29,7 @@ This repository implements MemoryCore's shared design tokens and Svelte componen
 - Prefer native semantic controls and established keyboard behaviour.
 - Preserve component dimensions across loading, error, and selected states.
 - Do not add a React compatibility layer without a new approved decision.
-- Keep repository location, distribution approach, build tooling, testing tooling, and desktop-shell choices visible until explicitly decided.
+- Keep repository location, registry, build tooling, testing tooling, and desktop-shell choices visible until explicitly decided.
 
 ## Quality requirements
 

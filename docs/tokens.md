@@ -14,11 +14,11 @@ Generated from `tokens/tokens.json`. Edit the source and run
 | `brand-light-surface` | `--mc-brand-light-surface` | `#F3EBDD` | Alternate light background |
 | `brand-warm-muted` | `--mc-brand-warm-muted` | `#B8AE9D` | Muted warm foreground |
 | `brand-cool-muted` | `--mc-brand-cool-muted` | `#8C8791` | Muted cool foreground or accent |
-| `colour-site-cobalt` | `--mc-colour-site-cobalt` | `#2F6892` | Website action on light backgrounds, large fields, and shared accent |
-| `colour-site-cobalt-bright` | `--mc-colour-site-cobalt-bright` | `#4E8BB7` | Website action and focus on dark backgrounds |
-| `colour-site-pale-blue` | `--mc-colour-site-pale-blue` | `#D3DAE0` | Large supporting field and high-contrast content on dark backgrounds |
-| `colour-resource-cobalt` | `--mc-colour-resource-cobalt` | `#1547D2` | Resource action on light backgrounds and Resource art direction |
-| `colour-resource-cobalt-bright` | `--mc-colour-resource-cobalt-bright` | `#6D98FF` | Resource action and focus on dark backgrounds |
+| `colour-consumer-website-primary-light` | `--mc-colour-consumer-website-primary-light` | `#2F6892` | Website primary in the light theme |
+| `colour-consumer-website-primary-dark` | `--mc-colour-consumer-website-primary-dark` | `#4E8BB7` | Website primary in the dark theme |
+| `colour-consumer-website-supporting-pale-blue` | `--mc-colour-consumer-website-supporting-pale-blue` | `#D3DAE0` | Website supporting field and high-contrast content on dark backgrounds |
+| `colour-consumer-website-resource-primary-light` | `--mc-colour-consumer-website-resource-primary-light` | `#1547D2` | Resource context primary in the light theme |
+| `colour-consumer-website-resource-primary-dark` | `--mc-colour-consumer-website-resource-primary-dark` | `#6D98FF` | Resource context primary in the dark theme |
 | `status-success-light` | `--mc-status-success-light` | `#215C38` | Success foreground on light surfaces |
 | `status-success-dark` | `--mc-status-success-dark` | `#7FC99A` | Success foreground on dark surfaces |
 | `status-warning-light` | `--mc-status-warning-light` | `#6B4A00` | Warning foreground on light surfaces |
@@ -152,7 +152,7 @@ Generated from `tokens/tokens.json`. Edit the source and run
 | `colour-text-primary` | `--mc-colour-text-primary` | `{brand-dark}` | Primary text and neutral icons |
 | `colour-text-secondary` | `--mc-colour-text-secondary` | `{brand-dark-neutral}` | Supporting text and neutral icons |
 | `colour-border` | `--mc-colour-border` | `{brand-dark-neutral}` | Meaningful boundaries and separators |
-| `colour-interactive` | `--mc-colour-interactive` | `{colour-site-cobalt}` | Links, active controls, focus, and selected states |
+| `colour-interactive` | `--mc-colour-interactive` | `{colour-consumer-website-primary-light}` | Links, active controls, focus, and selected states |
 | `colour-success` | `--mc-colour-success` | `{status-success-light}` | Successful or valid state |
 | `colour-warning` | `--mc-colour-warning` | `{status-warning-light}` | Caution or required attention |
 | `colour-danger` | `--mc-colour-danger` | `{status-danger-light}` | Errors, destructive actions, or critical failure |
@@ -166,16 +166,31 @@ Generated from `tokens/tokens.json`. Edit the source and run
 | `colour-text-primary` | `--mc-colour-text-primary` | `{brand-light}` | Primary text and neutral icons |
 | `colour-text-secondary` | `--mc-colour-text-secondary` | `{brand-warm-muted}` | Supporting text and neutral icons |
 | `colour-border` | `--mc-colour-border` | `{brand-cool-muted}` | Meaningful boundaries and separators |
-| `colour-interactive` | `--mc-colour-interactive` | `{colour-site-cobalt-bright}` | Links, active controls, focus, and selected states |
+| `colour-interactive` | `--mc-colour-interactive` | `{colour-consumer-website-primary-dark}` | Links, active controls, focus, and selected states |
 | `colour-success` | `--mc-colour-success` | `{status-success-dark}` | Successful or valid state |
 | `colour-warning` | `--mc-colour-warning` | `{status-warning-dark}` | Caution or required attention |
 | `colour-danger` | `--mc-colour-danger` | `{status-danger-dark}` | Errors, destructive actions, or critical failure |
 
-## Product accent override
+## Consumer primary override
 
-Set `--mc-product-primary` within each product theme. The
-`--mc-colour-interactive` property uses this override and otherwise uses the
-semantic value configured for the active theme.
+The website primary pair is the default mapping for
+`--mc-colour-interactive`. Registered active consumers can set
+`--mc-product-primary` for each theme. Apply a packaged consumer mapping with
+`data-mc-product` on the same element as `data-mc-theme`.
+
+## Consumer registry
+
+Reserved identifiers are registry metadata. They have no values, fallbacks, or
+generated CSS properties.
+
+| Identifier | Consumer | Status | Theme | Primary token |
+|---|---|---|---|---|
+| `website` | memorycore.dev | Active | light | `colour-consumer-website-primary-light` |
+| `website` | memorycore.dev | Active | dark | `colour-consumer-website-primary-dark` |
+| `dithertool` | DitherTool | Reserved | light | `colour-consumer-dithertool-primary-light` |
+| `dithertool` | DitherTool | Reserved | dark | `colour-consumer-dithertool-primary-dark` |
+| `aetheltool` | AethelTool | Reserved | light | `colour-consumer-aetheltool-primary-light` |
+| `aetheltool` | AethelTool | Reserved | dark | `colour-consumer-aetheltool-primary-dark` |
 
 ## Contrast verification
 

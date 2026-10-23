@@ -7,11 +7,11 @@ export const foundationTokens = {
   "brand-light-surface": "#F3EBDD",
   "brand-warm-muted": "#B8AE9D",
   "brand-cool-muted": "#8C8791",
-  "colour-site-cobalt": "#2F6892",
-  "colour-site-cobalt-bright": "#4E8BB7",
-  "colour-site-pale-blue": "#D3DAE0",
-  "colour-resource-cobalt": "#1547D2",
-  "colour-resource-cobalt-bright": "#6D98FF",
+  "colour-consumer-website-primary-light": "#2F6892",
+  "colour-consumer-website-primary-dark": "#4E8BB7",
+  "colour-consumer-website-supporting-pale-blue": "#D3DAE0",
+  "colour-consumer-website-resource-primary-light": "#1547D2",
+  "colour-consumer-website-resource-primary-dark": "#6D98FF",
   "status-success-light": "#215C38",
   "status-success-dark": "#7FC99A",
   "status-warning-light": "#6B4A00",
@@ -159,11 +159,44 @@ export const semanticTokens = {
   }
 } as const;
 
+export const consumerRegistry = {
+  "website": {
+    "name": "memorycore.dev",
+    "reserved": false,
+    "primaryTokens": {
+      "light": "colour-consumer-website-primary-light",
+      "dark": "colour-consumer-website-primary-dark"
+    },
+    "values": {
+      "light": "#2F6892",
+      "dark": "#4E8BB7"
+    }
+  },
+  "dithertool": {
+    "name": "DitherTool",
+    "reserved": true,
+    "primaryTokens": {
+      "light": "colour-consumer-dithertool-primary-light",
+      "dark": "colour-consumer-dithertool-primary-dark"
+    }
+  },
+  "aetheltool": {
+    "name": "AethelTool",
+    "reserved": true,
+    "primaryTokens": {
+      "light": "colour-consumer-aetheltool-primary-light",
+      "dark": "colour-consumer-aetheltool-primary-dark"
+    }
+  }
+} as const;
+
 export const tokens = {
   foundation: foundationTokens,
   semantic: semanticTokens,
+  consumerRegistry,
 } as const;
 
 export type FoundationTokenName = keyof typeof foundationTokens;
 export type GlobalSemanticTokenName = keyof typeof semanticTokens.global;
 export type ThemeTokenName = keyof typeof semanticTokens.light;
+export type ConsumerId = keyof typeof consumerRegistry;

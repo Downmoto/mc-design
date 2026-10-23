@@ -15,6 +15,7 @@ const outputPaths = {
 };
 
 const tokenNamePattern = /^[a-z][a-z0-9]*(?:-[a-z0-9]+)+$/;
+const consumerNamePattern = /^[a-z][a-z0-9]*(?:-[a-z0-9]+)*$/;
 const referencePattern = /^\{([a-z][a-z0-9]*(?:-[a-z0-9]+)+)\}$/;
 
 const valuePatterns = {
@@ -198,6 +199,80 @@ export function validateTokenSource(source) {
     dark: resolveTokens(new Map([...base, ...dark])),
   };
 
+  if (
+    !source.consumerRegistry ||
+    typeof source.consumerRegistry !== 'object' ||
+    Array.isArray(source.consumerRegistry)
+  ) {
+    fail('consumerRegistry must be an object');
+  }
+
+  const consumerRegistry = new Map();
+  for (const [id, consumer] of Object.entries(source.consumerRegistry)) {
+    if (!consumerNamePattern.test(id)) {
+      fail(`consumer registry has invalid identifier "${id}"`);
+    }
+    if (
+      !consumer ||
+      typeof consumer !== 'object' ||
+      typeof consumer.name !== 'string' ||
+      consumer.name.length === 0
+    ) {
+      fail(`consumer "${id}" must include a name`);
+    }
+    if (
+      !consumer.primaryTokens ||
+      typeof consumer.primaryTokens !== 'object' ||
+      Array.isArray(consumer.primaryTokens)
+    ) {
+      fail(`consumer "${id}" must register primary tokens`);
+    }
+
+    const reserved = consumer.reserved === true;
+    const primaryTokens = {};
+    const resolved = {};
+    for (const theme of ['light', 'dark']) {
+      const tokenName = consumer.primaryTokens[theme];
+      const expectedName = `colour-consumer-${id}-primary-${theme}`;
+      if (tokenName !== expectedName) {
+        fail(`consumer "${id}" must register ${theme} as "${expectedName}"`);
+      }
+
+      const target = resolvedGlobal.get(tokenName);
+      if (reserved) {
+        if (target) {
+          fail(`reserved consumer "${id}" must not have usable values`);
+        }
+      } else if (!target) {
+        fail(`consumer "${id}" references missing token "${tokenName}"`);
+      } else if (target.type !== 'colour') {
+        fail(`consumer "${id}" primary tokens must resolve to colours`);
+      } else {
+        resolved[theme] = target.value;
+      }
+      primaryTokens[theme] = tokenName;
+    }
+
+    consumerRegistry.set(id, {
+      name: consumer.name,
+      reserved,
+      primaryTokens,
+      resolved,
+    });
+  }
+
+  const website = consumerRegistry.get('website');
+  if (!website || website.reserved) {
+    fail('website must be an active registered consumer');
+  }
+  for (const theme of ['light', 'dark']) {
+    const expected = `{${website.primaryTokens[theme]}}`;
+    const semantic = theme === 'light' ? light : dark;
+    if (semantic.get('colour-interactive')?.value !== expected) {
+      fail(`${theme} colour-interactive must map to the website primary token`);
+    }
+  }
+
   const checks = source.contrastChecks;
   if (!Array.isArray(checks) || checks.length === 0) {
     fail('contrastChecks must contain at least one check');
@@ -235,6 +310,7 @@ export function validateTokenSource(source) {
     resolvedFoundation,
     resolvedGlobal,
     resolvedThemes,
+    consumerRegistry,
     contrast,
   };
 }
@@ -256,12 +332,36 @@ function cssDeclarations(tokens, prefix) {
     .join('\n');
 }
 
+function generateConsumerCss(validated, prefix) {
+  return [...validated.consumerRegistry.entries()]
+    .filter(([, consumer]) => !consumer.reserved)
+    .map(([id, consumer]) => {
+      const dark = `  --${prefix}-product-primary: var(--${prefix}-${consumer.primaryTokens.dark});`;
+      const light = `  --${prefix}-product-primary: var(--${prefix}-${consumer.primaryTokens.light});`;
+      return `[data-mc-product='${id}'] {
+${dark}
+}
+
+[data-mc-product='${id}'][data-mc-theme='light'] {
+${light}
+}
+
+@media (prefers-color-scheme: light) {
+  [data-mc-product='${id}'][data-mc-theme='system'] {
+    --${prefix}-product-primary: var(--${prefix}-${consumer.primaryTokens.light});
+  }
+}`;
+    })
+    .join('\n\n');
+}
+
 function generateCss(source, validated) {
   const prefix = source.prefix;
   const foundation = cssDeclarations(validated.foundation, prefix);
   const global = cssDeclarations(validated.global, prefix);
   const dark = cssDeclarations(validated.themes.dark, prefix);
   const light = cssDeclarations(validated.themes.light, prefix);
+  const consumers = generateConsumerCss(validated, prefix);
   const reduced = [...validated.foundation.values()]
     .filter((token) => token.reducedValue !== undefined)
     .map(
@@ -299,6 +399,8 @@ ${light
   }
 }
 
+${consumers}
+
 @media (prefers-reduced-motion: reduce) {
   :root {
 ${reduced}
@@ -324,6 +426,23 @@ function generateTypescript(validated) {
   const global = objectFromResolved(validated.resolvedGlobal, globalNames);
   const light = objectFromResolved(validated.resolvedThemes.light, themeNames);
   const dark = objectFromResolved(validated.resolvedThemes.dark, themeNames);
+  const consumerRegistry = Object.fromEntries(
+    [...validated.consumerRegistry.entries()].map(([id, consumer]) => [
+      id,
+      consumer.reserved
+        ? {
+            name: consumer.name,
+            reserved: true,
+            primaryTokens: consumer.primaryTokens,
+          }
+        : {
+            name: consumer.name,
+            reserved: false,
+            primaryTokens: consumer.primaryTokens,
+            values: consumer.resolved,
+          },
+    ]),
+  );
 
   return `// Generated from tokens/tokens.json. Do not edit directly.
 export const foundationTokens = ${JSON.stringify(foundation, null, 2)} as const;
@@ -334,14 +453,22 @@ export const semanticTokens = ${JSON.stringify(
     2,
   )} as const;
 
+export const consumerRegistry = ${JSON.stringify(
+    consumerRegistry,
+    null,
+    2,
+  )} as const;
+
 export const tokens = {
   foundation: foundationTokens,
   semantic: semanticTokens,
+  consumerRegistry,
 } as const;
 
 export type FoundationTokenName = keyof typeof foundationTokens;
 export type GlobalSemanticTokenName = keyof typeof semanticTokens.global;
 export type ThemeTokenName = keyof typeof semanticTokens.light;
+export type ConsumerId = keyof typeof consumerRegistry;
 `;
 }
 
@@ -361,6 +488,13 @@ function generateDocumentation(source, validated) {
   const contrastRows = validated.contrast.map(
     (check) =>
       `| ${check.theme} | \`${check.foreground}\` | \`${check.background}\` | ${check.ratio.toFixed(2)}:1 | ${check.minimum}:1 |`,
+  );
+  const consumerRows = [...validated.consumerRegistry.entries()].flatMap(
+    ([id, consumer]) =>
+      ['light', 'dark'].map(
+        (theme) =>
+          `| \`${id}\` | ${consumer.name} | ${consumer.reserved ? 'Reserved' : 'Active'} | ${theme} | \`${consumer.primaryTokens[theme]}\` |`,
+      ),
   );
 
   return `# Token reference
@@ -384,11 +518,21 @@ ${markdownTable(validated.themes.light, source.prefix)}
 
 ${markdownTable(validated.themes.dark, source.prefix)}
 
-## Product accent override
+## Consumer primary override
 
-Set \`--mc-product-primary\` within each product theme. The
-\`--mc-colour-interactive\` property uses this override and otherwise uses the
-semantic value configured for the active theme.
+The website primary pair is the default mapping for
+\`--mc-colour-interactive\`. Registered active consumers can set
+\`--mc-product-primary\` for each theme. Apply a packaged consumer mapping with
+\`data-mc-product\` on the same element as \`data-mc-theme\`.
+
+## Consumer registry
+
+Reserved identifiers are registry metadata. They have no values, fallbacks, or
+generated CSS properties.
+
+| Identifier | Consumer | Status | Theme | Primary token |
+|---|---|---|---|---|
+${consumerRows.join('\n')}
 
 ## Contrast verification
 
