@@ -4,6 +4,10 @@
   "description": "Shared Svelte design tokens and components for MemoryCore products",
   "type": "module",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Downmoto/mc-design.git"
+  },
   "engines": {
     "node": ">=22.17",
     "npm": ">=11"

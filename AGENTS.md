@@ -2,14 +2,15 @@
 
 ## Purpose
 
-This repository implements MemoryCore's shared design tokens and Svelte components. Read `CONTEXT.md` before making design or architecture decisions. Follow `PLAN.md` for the current implementation sequence.
+This repository implements MemoryCore's shared design tokens and Svelte components as `@memorycore/design`. Read `CONTEXT.md` before making design or architecture decisions. Follow `PLAN.md` for the current implementation sequence.
 
 ## Product role
 
 - The library serves memorycore.dev first, followed by DitherTool and AethelTool.
 - Svelte is the approved interface framework.
+- The package name is `@memorycore/design`.
 - `@mc-design/react` is a legacy predecessor and does not define the replacement architecture.
-- The approved brand and product-design MVB governs visual and interaction decisions.
+- MemoryCore Brand Style Guide 1.1.0 and Unified Product Design Guide 1.0.0 govern visual and interaction decisions.
 - Product-specific Tool workspace patterns and product accent values remain deferred.
 
 ## Implementation rules
@@ -20,12 +21,15 @@ This repository implements MemoryCore's shared design tokens and Svelte componen
 - Use lowercase kebab-case token names in the form `category-role-variant`.
 - Support dark, light, and system theme settings. Dark is the default when no preference has been stored.
 - Expose product accent overrides through documented semantic roles.
+- Include the approved website colour extension in generated token outputs. Map the default MemoryCore interactive role to the site cobalt pair.
 - Add component tokens only when a shared component needs a narrower semantic role.
 - Add components and variants when an approved design or a real consumer requires them.
+- Implement the website-required shared-component baseline before broader Tool-oriented MVB components.
+- Keep website shells, page templates, route-aware wrappers, editorial treatments, and page compositions outside this package.
 - Prefer native semantic controls and established keyboard behaviour.
 - Preserve component dimensions across loading, error, and selected states.
 - Do not add a React compatibility layer without a new approved decision.
-- Keep package naming, build tooling, testing tooling, and desktop-shell choices visible until explicitly decided.
+- Keep repository location, distribution approach, build tooling, testing tooling, and desktop-shell choices visible until explicitly decided.
 
 ## Quality requirements
 

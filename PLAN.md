@@ -1,27 +1,29 @@
 # Plan: MemoryCore design library
 
 Status: Current
-Last reviewed: 2026-10-08
+Last reviewed: 2026-10-23
 Owner: Arad Fadaei
 
 ## Objective
 
-Create the replacement Svelte design library by implementing approved tokens first, then adding shared components as their designs are approved and required by real consumers.
+Create `@memorycore/design` by implementing approved tokens first, then adding shared components as their designs are approved and required by real consumers.
 
 ## Stage 1: Establish the implementation contract
 
-- [x] Confirm the repository and package name before publishing package metadata.
+- [x] Confirm the package name as `@memorycore/design`.
+- [x] Confirm the repository location and GitHub-only distribution approach.
 - [x] Choose and document the supported Svelte version.
 - [x] Choose the minimal package, build, test, and documentation tooling.
 - [x] Choose the structured token source format and generated consumer formats.
 - [x] Record consequential choices in project decision documents.
 
-Token implementation may begin while package publishing and documentation choices are still being resolved.
+Token implementation may begin while release automation and documentation choices are still being resolved.
 
 ## Stage 2: Implement foundation tokens
 
 - [x] Create one version-controlled structured token source.
 - [x] Add foundation colour tokens.
+- [x] Add the approved website palette-extension tokens.
 - [x] Add light and dark semantic colour aliases.
 - [x] Add typography families, weights, sizes, and line heights.
 - [x] Add spacing, size, radius, border, shadow, motion, breakpoint, and layer tokens.
@@ -34,11 +36,27 @@ Token implementation may begin while package publishing and documentation choice
 - [x] Implement dark and light themes.
 - [x] Use dark as the default when no stored selection exists.
 - [x] Add `Dark`, `Light`, and `System` settings support.
+- [x] Map the default MemoryCore interactive role to `colour-site-cobalt` in light mode and `colour-site-cobalt-bright` in dark mode.
 - [x] Support semantic `product-primary` overrides without defining product values.
 - [x] Preserve operating-system high-contrast and forced-colour behaviour.
-- [x] Verify every documented semantic colour pairing against its contrast requirement.
+- [x] Verify every semantic colour pairing against its contrast requirement.
 
 ## Stage 4: Build components as designs are approved
+
+Website-required shared baseline:
+
+- Actions: link, button, icon button, and action-group foundations.
+- Navigation: menu and disclosure.
+- Feedback: dialog or equivalent preview surface, alert, status, progress indicator, and empty state.
+- Structure: card, list, table, and responsive-overflow foundations where approved website designs require them.
+
+Complete MVB inventory for later consumer-driven implementation:
+
+- Actions: link, button, icon button.
+- Inputs: text input, text area, numeric input, select or combobox, checkbox, radio group, switch, slider.
+- Navigation: tabs, menu, disclosure.
+- Feedback: tooltip, alert, toast, progress indicator, dialog.
+- Structure: toolbar, sidebar, panel, card, table or list, empty state.
 
 For each approved component:
 
@@ -50,14 +68,6 @@ For each approved component:
 - [ ] Verify dark, light, standard-density, and applicable compact-density treatments.
 - [ ] Test loading, error, disabled, selected, and responsive behaviour where applicable.
 - [ ] Add usage documentation and focused examples.
-
-MVB component inventory:
-
-- Actions: link, button, icon button.
-- Inputs: text input, text area, numeric input, select or combobox, checkbox, radio group, switch, slider.
-- Navigation: tabs, menu, disclosure.
-- Feedback: tooltip, alert, toast, progress indicator, dialog.
-- Structure: toolbar, sidebar, panel, card, table or list, empty state.
 
 Implement components in design-approval and consumer-need order. Avoid speculative variants.
 
@@ -74,10 +84,10 @@ Implement components in design-approval and consumer-need order. Avoid speculati
 
 ## Stage 6: Prepare the first consumer
 
-- [ ] Publish or link a consumable pre-release of the library.
+- [ ] Tag or link a consumable pre-release of the library from GitHub.
 - [ ] Integrate the baseline into the memorycore.dev overhaul.
 - [ ] Treat website integration findings as input to shared tokens and components.
-- [ ] Stabilise the first public package release after the website validates the baseline.
+- [ ] Stabilise the first public GitHub release after the website validates the baseline.
 
 ## Deferred
 

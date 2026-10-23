@@ -1,12 +1,12 @@
 # Project context: MemoryCore design library
 
 Status: Current
-Last reviewed: 2026-10-08
+Last reviewed: 2026-10-23
 Source: MemoryCore operations wiki
 
 ## Purpose
 
-The project provides the shared design tokens and Svelte components used across MemoryCore interfaces. It turns the approved brand and unified product-design MVB into a reusable implementation package.
+The project provides the shared design tokens and Svelte components used across MemoryCore interfaces as `@memorycore/design`. It turns the approved brand and unified product-design MVB into a reusable implementation package.
 
 The first production consumer is memorycore.dev. DitherTool and AethelTool will consume the library after the website and styled guide pages are complete.
 
@@ -22,15 +22,19 @@ MemoryCore creates commercial creative software and the open-source Rust librari
 
 ## Current state
 
-- The MemoryCore brand style guide and unified product design guide are approved MVB version 1.0.0.
+- MemoryCore Brand Style Guide 1.1.0 and Unified Product Design Guide 1.0.0 are the approved MVB sources represented in this pack.
 - Svelte is the accepted interface framework for the library, website, and future Tool frontends.
-- The replacement design library has not yet been implemented.
-- Package naming, package structure, build tooling, testing tooling, documentation tooling, and desktop shells remain implementation choices.
+- The approved package name is `@memorycore/design`.
+- The replacement design library is in foundation development.
+- The repository is `https://github.com/Downmoto/mc-design`, which is the sole distribution location for the package.
+- The package structure, supported Svelte version, token formats, and initial build, test, and documentation tooling are recorded in the implementation contract.
+- Desktop shells remain an implementation choice for future Tool development.
 - Product-specific Tool patterns and `product-primary` values remain deferred.
 
 ## Decisions and constraints
 
 - Implement the replacement library in Svelte.
+- Keep the shared package named `@memorycore/design` and distribute it solely through GitHub.
 - Keep the approved MVB as the visual, interaction, content, and accessibility authority.
 - Build tokens before shared components.
 - Add components as their designs are approved and real consumers require them.
@@ -71,33 +75,47 @@ Rules:
 - Keep product overrides limited to documented semantic roles.
 - Product repositories consume packaged outputs and do not depend on the MemoryCore operations wiki.
 
-## Foundation colours
+## Core foundation colours
 
-| Token                 | Value     | Role                                                  |
-| --------------------- | --------- | ----------------------------------------------------- |
-| `brand-dark`          | `#050507` | Default dark background                               |
-| `brand-dark-surface`  | `#1C1A20` | Secondary dark surface                                |
-| `brand-dark-neutral`  | `#2D2D2D` | Neutral dark surface                                  |
-| `brand-light`         | `#E8E1D2` | Default light foreground and dark-theme brand primary |
-| `brand-light-surface` | `#F3EBDD` | Alternate light background                            |
-| `brand-warm-muted`    | `#B8AE9D` | Muted warm foreground                                 |
-| `brand-cool-muted`    | `#8C8791` | Muted cool foreground or accent                       |
+| Token                 | Value     | Role                            |
+| --------------------- | --------- | ------------------------------- |
+| `brand-dark`          | `#050507` | Default dark background         |
+| `brand-dark-surface`  | `#1C1A20` | Secondary dark surface          |
+| `brand-dark-neutral`  | `#2D2D2D` | Neutral dark surface            |
+| `brand-light`         | `#E8E1D2` | Default light foreground        |
+| `brand-light-surface` | `#F3EBDD` | Alternate light background      |
+| `brand-warm-muted`    | `#B8AE9D` | Muted warm foreground           |
+| `brand-cool-muted`    | `#8C8791` | Muted cool foreground or accent |
+
+## Website palette extension
+
+These approved colours support memorycore.dev, the first production consumer. Include them in generated token outputs while keeping website art direction and compositions in the website repository.
+
+| Token                           | Value     | Role                                                                 |
+| ------------------------------- | --------- | -------------------------------------------------------------------- |
+| `colour-site-cobalt`            | `#2F6892` | Website action on light backgrounds, large fields, and shared accent |
+| `colour-site-cobalt-bright`     | `#4E8BB7` | Website action and focus on dark backgrounds                         |
+| `colour-site-pale-blue`         | `#D3DAE0` | Large supporting field and high-contrast content on dark backgrounds |
+| `colour-resource-cobalt`        | `#1547D2` | Resource action on light backgrounds and Resource art direction      |
+| `colour-resource-cobalt-bright` | `#6D98FF` | Resource action and focus on dark backgrounds                        |
+
+Use the site pair for default MemoryCore website interactions. Use the Resource pair only within approved Resource contexts. Do not use either darker cobalt as small text on `brand-dark`; use the corresponding bright token.
 
 ## Semantic colours
 
-| Token                   | Light theme | Dark theme | Purpose                                                                   |
-| ----------------------- | ----------- | ---------- | ------------------------------------------------------------------------- |
-| `colour-background`     | `#F3EBDD`   | `#050507`  | Root background                                                           |
-| `colour-surface`        | `#E8E1D2`   | `#1C1A20`  | Panels, cards, menus, and grouped regions                                 |
-| `colour-text-primary`   | `#050507`   | `#E8E1D2`  | Primary text and neutral icons                                            |
-| `colour-text-secondary` | `#2D2D2D`   | `#B8AE9D`  | Supporting text and neutral icons                                         |
-| `colour-border`         | `#2D2D2D`   | `#8C8791`  | Meaningful boundaries and separators                                      |
-| `colour-interactive`    | `#050507`   | `#E8E1D2`  | Links, active controls, focus, and selected states on MemoryCore surfaces |
-| `colour-success`        | `#215C38`   | `#7FC99A`  | Successful or valid state                                                 |
-| `colour-warning`        | `#6B4A00`   | `#E5B968`  | Caution or required attention                                             |
-| `colour-danger`         | `#8F2525`   | `#E08383`  | Errors, destructive actions, or critical failure                          |
+| Token                   | Light theme | Dark theme | Purpose                                                                           |
+| ----------------------- | ----------- | ---------- | --------------------------------------------------------------------------------- |
+| `colour-background`     | `#F3EBDD`   | `#050507`  | Root background                                                                   |
+| `colour-surface`        | `#E8E1D2`   | `#1C1A20`  | Panels, cards, menus, and grouped regions                                         |
+| `colour-text-primary`   | `#050507`   | `#E8E1D2`  | Primary text and neutral icons                                                    |
+| `colour-text-secondary` | `#2D2D2D`   | `#B8AE9D`  | Supporting text and neutral icons                                                 |
+| `colour-border`         | `#2D2D2D`   | `#8C8791`  | Meaningful boundaries and separators                                              |
+| `colour-interactive`    | `#2F6892`   | `#4E8BB7`  | Links, active controls, focus, and selected states on MemoryCore website surfaces |
+| `colour-success`        | `#215C38`   | `#7FC99A`  | Successful or valid state                                                         |
+| `colour-warning`        | `#6B4A00`   | `#E5B968`  | Caution or required attention                                                     |
+| `colour-danger`         | `#8F2525`   | `#E08383`  | Errors, destructive actions, or critical failure                                  |
 
-Each Tool replaces `colour-interactive` and other documented accent roles with coordinated light and dark `product-primary` values. Shared neutral and status colours remain consistent.
+Each Tool replaces `colour-interactive` and other documented accent roles with coordinated light and dark `product-primary` values. Shared neutral and status colours remain consistent. Resource-specific interaction roles may map to the approved Resource pair without changing the default MemoryCore theme.
 
 Contrast requirements:
 
@@ -129,9 +147,11 @@ Approved weights:
 
 Typography rules:
 
-- Use Manufacturing Consent for website display moments and prominent Tool section titles.
+- Use Manufacturing Consent for short website hero phrases, display statements, major editorial moments, and prominent Tool section titles.
+- Do not use Manufacturing Consent for controls, navigation, long titles, or body copy.
 - Use Space Mono for page titles, code, measurements, and aligned technical data.
 - Use Roboto for body copy, controls, labels, and supporting interface text.
+- Applications may define responsive type scales while preserving these roles and usage limits.
 - Keep editable web form controls at 16 px or larger.
 - Do not set interface text below 12 px.
 - Use tabular numerals for tables, measurements, and changing values.
@@ -161,6 +181,8 @@ The base unit is 8 px. The 4 px half-step is reserved for compact details, optic
 | `space-7` | 48 px | Large component regions and page-level transitions |
 | `space-8` | 64 px | Major sections on narrow layouts                   |
 | `space-9` | 96 px | Major website sections on wider layouts            |
+
+Approved website compositions may use 128 px between major editorial sections on large layouts. Keep this application-specific value in the website unless a reusable library requirement establishes a shared token.
 
 Density modes:
 
@@ -228,6 +250,8 @@ Border widths:
 
 Use shadows to communicate depth. Do not apply shadows to flat controls, text, icons, or decorative elements.
 
+Functional masks and fades may use approved colours and transparency. Keep computational textures, dithering, blend modes, filters, decorative display effects, and editorial imagery in consumer compositions. Do not apply these treatments to controls, body text, logos, or information-critical content.
+
 ## Motion
 
 Default easing: `cubic-bezier(0.2, 0, 0, 1)`.
@@ -240,6 +264,8 @@ Default easing: `cubic-bezier(0.2, 0, 0, 1)`.
 | Indeterminate processing | 800 ms loop | Restrained linear rotation             |
 
 Use opacity with no more than 8 px of entrance movement. Reduced-motion mode uses immediate changes or opacity transitions no longer than 100 ms, stops non-essential loops, and removes translation and scale effects.
+
+A single website hero or media entrance may last up to 400 ms as a website-owned composition. Shared component transitions use the 100 ms, 160 ms, and 240 ms scale.
 
 ## Themes
 
@@ -290,13 +316,28 @@ Keyboard conventions:
 
 ## Component scope
 
-MVB inventory:
+### First-consumer baseline
+
+Design and implement these shared capabilities for memorycore.dev before broader Tool-oriented components:
+
+- Actions: link, button, icon button, and action-group foundations.
+- Navigation: menu and disclosure behaviour for small-screen navigation.
+- Feedback: dialog or equivalent accessible preview surface, alert, status, progress indicator, and empty state.
+- Structure: card, list, table, and responsive-overflow foundations where the approved website designs require them.
+
+The package owns each primitive's accessibility behaviour, states, public types, baseline styles, tests, and usage documentation. The website owns its shell, assembled navigation, route-aware wrappers, breadcrumbs, page introductions, action-group compositions, status markers, documentation and Resource compositions, marketing sections, and page templates.
+
+### Complete MVB inventory
+
+The broader approved inventory remains available for implementation when an approved design and current consumer require it:
 
 - Actions: link, button, and icon button.
 - Inputs: text input, text area, numeric input, select or combobox, checkbox, radio group, switch, and slider.
 - Navigation: tabs, menu, and disclosure.
 - Feedback: tooltip, alert, toast, progress indicator, and dialog.
 - Structure: toolbar, sidebar, panel, card, table or list, and empty state.
+
+Do not implement the remaining inventory merely to complete the catalogue.
 
 Shared component contract:
 
@@ -345,11 +386,9 @@ Shared component contract:
 
 ## Open questions
 
-- Repository and package name.
-- Supported Svelte version and package API conventions.
-- Structured token source format and generation approach.
-- Build, test, documentation, and visual-regression tooling.
-- Distribution and release process.
+- Component API conventions as approved components are introduced.
+- Visual-regression tooling when interactive components provide useful scenarios.
+- Release automation and timing.
 - Desktop shell and platform packaging, to be addressed when Tool development resumes.
 
 Record consequential answers in durable decision documents before they become difficult to reverse.
@@ -361,10 +400,15 @@ Record consequential answers in durable decision documents before they become di
 - Keep this export local and versioned in the destination repository.
 - Refresh the pack from the MemoryCore operations wiki when a source decision changes.
 
-## Relevant wiki sources
+## Source provenance
 
-- [MemoryCore brand style guide](../../wiki/brand/brand-style-guide.md)
-- [MemoryCore unified product design guide](../../wiki/brand/product-design-guide.md)
-- [Svelte framework decision](../../wiki/decisions/product-interface-framework.md)
-- [Development sequence decision](../../wiki/decisions/design-system-development-sequence.md)
-- [AethelTool naming decision](../../wiki/decisions/aetheltool-product-name.md)
+This pack contains the implementation guidance required by the destination repository. These source names and dates identify the snapshot without creating dependencies on files outside the copied pack.
+
+| Upstream source                            | Version or decision date                 |
+| ------------------------------------------ | ---------------------------------------- |
+| MemoryCore Brand Style Guide               | 1.1.0, reviewed 2026-10-21               |
+| MemoryCore Unified Product Design Guide    | 1.0.0, reviewed 2026-10-21               |
+| Product interface framework decision       | Accepted 2026-10-08, reviewed 2026-10-21 |
+| `@memorycore/design` package-name decision | Accepted 2026-10-21                      |
+| Design-system development sequence         | Accepted 2026-10-08                      |
+| AethelTool product-name decision           | Accepted 2026-10-08                      |

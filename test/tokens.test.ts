@@ -15,6 +15,14 @@ describe('token source validation', () => {
     expect(() => validateTokenSource(invalid)).toThrow(/duplicate token/);
   });
 
+  it('rejects token names repeated across layers', () => {
+    const invalid = structuredClone(source);
+    invalid.semantic.light[0].name = invalid.foundation[0].name;
+    invalid.semantic.dark[0].name = invalid.foundation[0].name;
+
+    expect(() => validateTokenSource(invalid)).toThrow(/duplicate token/);
+  });
+
   it('rejects missing references', () => {
     const invalid = structuredClone(source);
     invalid.semantic.light[0].value = '{brand-missing}';

@@ -10,10 +10,21 @@ Generated from `tokens/tokens.json`. Edit the source and run
 | `brand-dark` | `--mc-brand-dark` | `#050507` | Default dark background |
 | `brand-dark-surface` | `--mc-brand-dark-surface` | `#1C1A20` | Secondary dark surface |
 | `brand-dark-neutral` | `--mc-brand-dark-neutral` | `#2D2D2D` | Neutral dark surface |
-| `brand-light` | `--mc-brand-light` | `#E8E1D2` | Default light foreground and dark-theme brand primary |
+| `brand-light` | `--mc-brand-light` | `#E8E1D2` | Default light foreground |
 | `brand-light-surface` | `--mc-brand-light-surface` | `#F3EBDD` | Alternate light background |
 | `brand-warm-muted` | `--mc-brand-warm-muted` | `#B8AE9D` | Muted warm foreground |
 | `brand-cool-muted` | `--mc-brand-cool-muted` | `#8C8791` | Muted cool foreground or accent |
+| `colour-site-cobalt` | `--mc-colour-site-cobalt` | `#2F6892` | Website action on light backgrounds, large fields, and shared accent |
+| `colour-site-cobalt-bright` | `--mc-colour-site-cobalt-bright` | `#4E8BB7` | Website action and focus on dark backgrounds |
+| `colour-site-pale-blue` | `--mc-colour-site-pale-blue` | `#D3DAE0` | Large supporting field and high-contrast content on dark backgrounds |
+| `colour-resource-cobalt` | `--mc-colour-resource-cobalt` | `#1547D2` | Resource action on light backgrounds and Resource art direction |
+| `colour-resource-cobalt-bright` | `--mc-colour-resource-cobalt-bright` | `#6D98FF` | Resource action and focus on dark backgrounds |
+| `status-success-light` | `--mc-status-success-light` | `#215C38` | Success foreground on light surfaces |
+| `status-success-dark` | `--mc-status-success-dark` | `#7FC99A` | Success foreground on dark surfaces |
+| `status-warning-light` | `--mc-status-warning-light` | `#6B4A00` | Warning foreground on light surfaces |
+| `status-warning-dark` | `--mc-status-warning-dark` | `#E5B968` | Warning foreground on dark surfaces |
+| `status-danger-light` | `--mc-status-danger-light` | `#8F2525` | Danger foreground on light surfaces |
+| `status-danger-dark` | `--mc-status-danger-dark` | `#E08383` | Danger foreground on dark surfaces |
 | `font-family-manufacturing-consent` | `--mc-font-family-manufacturing-consent` | `'Manufacturing Consent', serif` | Display typeface |
 | `font-family-space-mono` | `--mc-font-family-space-mono` | `'Space Mono', monospace` | Brand heading, code, and data typeface |
 | `font-family-roboto` | `--mc-font-family-roboto` | `Roboto, sans-serif` | Interface and body typeface |
@@ -141,10 +152,10 @@ Generated from `tokens/tokens.json`. Edit the source and run
 | `colour-text-primary` | `--mc-colour-text-primary` | `{brand-dark}` | Primary text and neutral icons |
 | `colour-text-secondary` | `--mc-colour-text-secondary` | `{brand-dark-neutral}` | Supporting text and neutral icons |
 | `colour-border` | `--mc-colour-border` | `{brand-dark-neutral}` | Meaningful boundaries and separators |
-| `colour-interactive` | `--mc-colour-interactive` | `{brand-dark}` | Links, active controls, focus, and selected states |
-| `colour-success` | `--mc-colour-success` | `#215C38` | Successful or valid state |
-| `colour-warning` | `--mc-colour-warning` | `#6B4A00` | Caution or required attention |
-| `colour-danger` | `--mc-colour-danger` | `#8F2525` | Errors, destructive actions, or critical failure |
+| `colour-interactive` | `--mc-colour-interactive` | `{colour-site-cobalt}` | Links, active controls, focus, and selected states |
+| `colour-success` | `--mc-colour-success` | `{status-success-light}` | Successful or valid state |
+| `colour-warning` | `--mc-colour-warning` | `{status-warning-light}` | Caution or required attention |
+| `colour-danger` | `--mc-colour-danger` | `{status-danger-light}` | Errors, destructive actions, or critical failure |
 
 ## Dark theme
 
@@ -155,16 +166,16 @@ Generated from `tokens/tokens.json`. Edit the source and run
 | `colour-text-primary` | `--mc-colour-text-primary` | `{brand-light}` | Primary text and neutral icons |
 | `colour-text-secondary` | `--mc-colour-text-secondary` | `{brand-warm-muted}` | Supporting text and neutral icons |
 | `colour-border` | `--mc-colour-border` | `{brand-cool-muted}` | Meaningful boundaries and separators |
-| `colour-interactive` | `--mc-colour-interactive` | `{brand-light}` | Links, active controls, focus, and selected states |
-| `colour-success` | `--mc-colour-success` | `#7FC99A` | Successful or valid state |
-| `colour-warning` | `--mc-colour-warning` | `#E5B968` | Caution or required attention |
-| `colour-danger` | `--mc-colour-danger` | `#E08383` | Errors, destructive actions, or critical failure |
+| `colour-interactive` | `--mc-colour-interactive` | `{colour-site-cobalt-bright}` | Links, active controls, focus, and selected states |
+| `colour-success` | `--mc-colour-success` | `{status-success-dark}` | Successful or valid state |
+| `colour-warning` | `--mc-colour-warning` | `{status-warning-dark}` | Caution or required attention |
+| `colour-danger` | `--mc-colour-danger` | `{status-danger-dark}` | Errors, destructive actions, or critical failure |
 
 ## Product accent override
 
 Set `--mc-product-primary` within each product theme. The
-`--mc-colour-interactive` property uses this override and falls back to the
-approved MemoryCore interactive colour.
+`--mc-colour-interactive` property uses this override and otherwise uses the
+semantic value configured for the active theme.
 
 ## Contrast verification
 
@@ -174,8 +185,8 @@ approved MemoryCore interactive colour.
 | light | `colour-text-primary` | `colour-surface` | 15.64:1 | 4.5:1 |
 | light | `colour-text-secondary` | `colour-background` | 11.63:1 | 4.5:1 |
 | light | `colour-text-secondary` | `colour-surface` | 10.58:1 | 4.5:1 |
-| light | `colour-interactive` | `colour-background` | 17.20:1 | 4.5:1 |
-| light | `colour-interactive` | `colour-surface` | 15.64:1 | 4.5:1 |
+| light | `colour-interactive` | `colour-background` | 5.04:1 | 4.5:1 |
+| light | `colour-interactive` | `colour-surface` | 4.59:1 | 4.5:1 |
 | light | `colour-border` | `colour-background` | 11.63:1 | 3:1 |
 | light | `colour-border` | `colour-surface` | 10.58:1 | 3:1 |
 | light | `colour-success` | `colour-background` | 6.69:1 | 4.5:1 |
@@ -188,8 +199,8 @@ approved MemoryCore interactive colour.
 | dark | `colour-text-primary` | `colour-surface` | 13.24:1 | 4.5:1 |
 | dark | `colour-text-secondary` | `colour-background` | 9.29:1 | 4.5:1 |
 | dark | `colour-text-secondary` | `colour-surface` | 7.86:1 | 4.5:1 |
-| dark | `colour-interactive` | `colour-background` | 15.64:1 | 4.5:1 |
-| dark | `colour-interactive` | `colour-surface` | 13.24:1 | 4.5:1 |
+| dark | `colour-interactive` | `colour-background` | 5.53:1 | 4.5:1 |
+| dark | `colour-interactive` | `colour-surface` | 4.68:1 | 4.5:1 |
 | dark | `colour-border` | `colour-background` | 5.81:1 | 3:1 |
 | dark | `colour-border` | `colour-surface` | 4.92:1 | 3:1 |
 | dark | `colour-success` | `colour-background` | 10.40:1 | 4.5:1 |

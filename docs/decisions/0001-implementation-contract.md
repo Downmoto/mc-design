@@ -2,20 +2,19 @@
 
 Status: Accepted
 
-Date: 2026-10-09
+Date: 2026-10-23
 
 ## Decision
 
-- Keep the repository name `mc-design` and publish the future package as
-  `@memorycore/design`
+- Keep the repository at `https://github.com/Downmoto/mc-design`
+- Distribute `@memorycore/design` solely from the GitHub repository
+- Keep the package marked private to prevent publication to a package registry
 - Use Svelte 5.57 or newer within the Svelte 5 major version
 - Use npm, Vite, TypeScript, `@sveltejs/package`, Vitest, Testing Library, and
   axe-core
 - Keep `tokens/tokens.json` as the canonical ordered token source
 - Generate version-controlled CSS custom properties, TypeScript values, and a
   Markdown token reference with a small Node.js script
-- Keep the package private until MemoryCore decides the distribution and release
-  process
 - Add an internal Svelte workbench when the first approved components are ready
 - Add Svelte component diagnostics with the first component
 - Add browser-level and visual-regression tooling when interactive components
@@ -38,4 +37,4 @@ component designs exist. This avoids maintaining an empty application surface.
 - Generated files must match `tokens/tokens.json` for checks to pass
 - Product themes may override `--mc-product-primary` and must verify their own
   light and dark contrast
-- The first public version and publishing workflow require a later decision
+- Release automation and timing require a later decision

@@ -176,6 +176,10 @@ export function validateTokenSource(source) {
   }
 
   for (const name of lightNames) {
+    if (foundation.has(name) || global.has(name)) {
+      fail(`semantic themes contain duplicate token "${name}"`);
+    }
+
     const lightToken = light.get(name);
     const darkToken = dark.get(name);
     if (lightToken.type !== darkToken.type) {
@@ -383,8 +387,8 @@ ${markdownTable(validated.themes.dark, source.prefix)}
 ## Product accent override
 
 Set \`--mc-product-primary\` within each product theme. The
-\`--mc-colour-interactive\` property uses this override and falls back to the
-approved MemoryCore interactive colour.
+\`--mc-colour-interactive\` property uses this override and otherwise uses the
+semantic value configured for the active theme.
 
 ## Contrast verification
 
