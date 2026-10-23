@@ -24,7 +24,7 @@ Token implementation may begin while release automation and documentation choice
 - [x] Create one version-controlled structured token source.
 - [x] Add foundation colour tokens.
 - [x] Add the approved website consumer-primary and contextual tokens.
-- [x] Reserve the DitherTool and AethelTool consumer-primary identifiers in registry metadata without value entries or fallbacks.
+- [x] Add the approved DitherTool and AethelTool consumer-primary pairs.
 - [x] Add light and dark semantic colour aliases.
 - [x] Add typography families, weights, sizes, and line heights.
 - [x] Add spacing, size, radius, border, shadow, motion, breakpoint, and layer tokens.
@@ -94,6 +94,5 @@ Implement components in design-approval and consumer-need order. Avoid speculati
 
 - DitherTool and AethelTool interface development.
 - Product-specific workspace patterns.
-- Values for the reserved DitherTool and AethelTool consumer-primary tokens.
 - Desktop-shell and platform-packaging choices.
 - Styled public guide pages, which follow the website overhaul.

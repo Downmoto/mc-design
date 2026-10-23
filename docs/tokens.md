@@ -16,6 +16,10 @@ Generated from `tokens/tokens.json`. Edit the source and run
 | `brand-cool-muted` | `--mc-brand-cool-muted` | `#8C8791` | Muted cool foreground or accent |
 | `colour-consumer-website-primary-light` | `--mc-colour-consumer-website-primary-light` | `#2F6892` | Website primary in the light theme |
 | `colour-consumer-website-primary-dark` | `--mc-colour-consumer-website-primary-dark` | `#4E8BB7` | Website primary in the dark theme |
+| `colour-consumer-dithertool-primary-light` | `--mc-colour-consumer-dithertool-primary-light` | `#506A4B` | DitherTool primary in the light theme |
+| `colour-consumer-dithertool-primary-dark` | `--mc-colour-consumer-dithertool-primary-dark` | `#728E6D` | DitherTool primary in the dark theme |
+| `colour-consumer-aetheltool-primary-light` | `--mc-colour-consumer-aetheltool-primary-light` | `#775591` | AethelTool primary in the light theme |
+| `colour-consumer-aetheltool-primary-dark` | `--mc-colour-consumer-aetheltool-primary-dark` | `#9676AE` | AethelTool primary in the dark theme |
 | `colour-consumer-website-supporting-pale-blue` | `--mc-colour-consumer-website-supporting-pale-blue` | `#D3DAE0` | Website supporting field and high-contrast content on dark backgrounds |
 | `colour-consumer-website-resource-primary-light` | `--mc-colour-consumer-website-resource-primary-light` | `#1547D2` | Resource context primary in the light theme |
 | `colour-consumer-website-resource-primary-dark` | `--mc-colour-consumer-website-resource-primary-dark` | `#6D98FF` | Resource context primary in the dark theme |
@@ -187,10 +191,27 @@ generated CSS properties.
 |---|---|---|---|---|
 | `website` | memorycore.dev | Active | light | `colour-consumer-website-primary-light` |
 | `website` | memorycore.dev | Active | dark | `colour-consumer-website-primary-dark` |
-| `dithertool` | DitherTool | Reserved | light | `colour-consumer-dithertool-primary-light` |
-| `dithertool` | DitherTool | Reserved | dark | `colour-consumer-dithertool-primary-dark` |
-| `aetheltool` | AethelTool | Reserved | light | `colour-consumer-aetheltool-primary-light` |
-| `aetheltool` | AethelTool | Reserved | dark | `colour-consumer-aetheltool-primary-dark` |
+| `dithertool` | DitherTool | Active | light | `colour-consumer-dithertool-primary-light` |
+| `dithertool` | DitherTool | Active | dark | `colour-consumer-dithertool-primary-dark` |
+| `aetheltool` | AethelTool | Active | light | `colour-consumer-aetheltool-primary-light` |
+| `aetheltool` | AethelTool | Active | dark | `colour-consumer-aetheltool-primary-dark` |
+
+## Consumer primary contrast verification
+
+| Consumer | Theme | Foreground | Background | Actual | Required |
+|---|---|---|---|---:|---:|
+| `website` | light | `colour-consumer-website-primary-light` | `colour-background` | 5.04:1 | 4.5:1 |
+| `website` | light | `colour-consumer-website-primary-light` | `colour-surface` | 4.59:1 | 4.5:1 |
+| `website` | dark | `colour-consumer-website-primary-dark` | `colour-background` | 5.53:1 | 4.5:1 |
+| `website` | dark | `colour-consumer-website-primary-dark` | `colour-surface` | 4.68:1 | 4.5:1 |
+| `dithertool` | light | `colour-consumer-dithertool-primary-light` | `colour-background` | 5.06:1 | 4.5:1 |
+| `dithertool` | light | `colour-consumer-dithertool-primary-light` | `colour-surface` | 4.60:1 | 4.5:1 |
+| `dithertool` | dark | `colour-consumer-dithertool-primary-dark` | `colour-background` | 5.63:1 | 4.5:1 |
+| `dithertool` | dark | `colour-consumer-dithertool-primary-dark` | `colour-surface` | 4.77:1 | 4.5:1 |
+| `aetheltool` | light | `colour-consumer-aetheltool-primary-light` | `colour-background` | 5.08:1 | 4.5:1 |
+| `aetheltool` | light | `colour-consumer-aetheltool-primary-light` | `colour-surface` | 4.62:1 | 4.5:1 |
+| `aetheltool` | dark | `colour-consumer-aetheltool-primary-dark` | `colour-background` | 5.33:1 | 4.5:1 |
+| `aetheltool` | dark | `colour-consumer-aetheltool-primary-dark` | `colour-surface` | 4.52:1 | 4.5:1 |
 
 ## Contrast verification
 

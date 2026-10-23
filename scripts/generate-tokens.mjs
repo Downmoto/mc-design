@@ -303,6 +303,33 @@ export function validateTokenSource(source) {
     }
   }
 
+  const consumerContrast = [];
+  const interactiveChecks = checks.filter(
+    (check) => check.foreground === 'colour-interactive',
+  );
+  for (const [id, consumer] of consumerRegistry) {
+    if (consumer.reserved) continue;
+    for (const theme of ['light', 'dark']) {
+      for (const check of interactiveChecks) {
+        const background = resolvedThemes[theme].get(check.background);
+        const ratio = contrastRatio(consumer.resolved[theme], background.value);
+        if (ratio + Number.EPSILON < check.minimum) {
+          fail(
+            `${id} ${theme} primary on ${check.background} is ${ratio.toFixed(2)}:1; ${check.minimum}:1 is required`,
+          );
+        }
+        consumerContrast.push({
+          consumer: id,
+          theme,
+          foreground: consumer.primaryTokens[theme],
+          background: check.background,
+          minimum: check.minimum,
+          ratio,
+        });
+      }
+    }
+  }
+
   return {
     foundation,
     global,
@@ -312,6 +339,7 @@ export function validateTokenSource(source) {
     resolvedThemes,
     consumerRegistry,
     contrast,
+    consumerContrast,
   };
 }
 
@@ -496,6 +524,10 @@ function generateDocumentation(source, validated) {
           `| \`${id}\` | ${consumer.name} | ${consumer.reserved ? 'Reserved' : 'Active'} | ${theme} | \`${consumer.primaryTokens[theme]}\` |`,
       ),
   );
+  const consumerContrastRows = validated.consumerContrast.map(
+    (check) =>
+      `| \`${check.consumer}\` | ${check.theme} | \`${check.foreground}\` | \`${check.background}\` | ${check.ratio.toFixed(2)}:1 | ${check.minimum}:1 |`,
+  );
 
   return `# Token reference
 
@@ -533,6 +565,12 @@ generated CSS properties.
 | Identifier | Consumer | Status | Theme | Primary token |
 |---|---|---|---|---|
 ${consumerRows.join('\n')}
+
+## Consumer primary contrast verification
+
+| Consumer | Theme | Foreground | Background | Actual | Required |
+|---|---|---|---|---:|---:|
+${consumerContrastRows.join('\n')}
 
 ## Contrast verification
 

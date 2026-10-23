@@ -9,6 +9,10 @@
   --mc-brand-cool-muted: #8C8791;
   --mc-colour-consumer-website-primary-light: #2F6892;
   --mc-colour-consumer-website-primary-dark: #4E8BB7;
+  --mc-colour-consumer-dithertool-primary-light: #506A4B;
+  --mc-colour-consumer-dithertool-primary-dark: #728E6D;
+  --mc-colour-consumer-aetheltool-primary-light: #775591;
+  --mc-colour-consumer-aetheltool-primary-dark: #9676AE;
   --mc-colour-consumer-website-supporting-pale-blue: #D3DAE0;
   --mc-colour-consumer-website-resource-primary-light: #1547D2;
   --mc-colour-consumer-website-resource-primary-dark: #6D98FF;
@@ -195,6 +199,34 @@
 @media (prefers-color-scheme: light) {
   [data-mc-product='website'][data-mc-theme='system'] {
     --mc-product-primary: var(--mc-colour-consumer-website-primary-light);
+  }
+}
+
+[data-mc-product='dithertool'] {
+  --mc-product-primary: var(--mc-colour-consumer-dithertool-primary-dark);
+}
+
+[data-mc-product='dithertool'][data-mc-theme='light'] {
+  --mc-product-primary: var(--mc-colour-consumer-dithertool-primary-light);
+}
+
+@media (prefers-color-scheme: light) {
+  [data-mc-product='dithertool'][data-mc-theme='system'] {
+    --mc-product-primary: var(--mc-colour-consumer-dithertool-primary-light);
+  }
+}
+
+[data-mc-product='aetheltool'] {
+  --mc-product-primary: var(--mc-colour-consumer-aetheltool-primary-dark);
+}
+
+[data-mc-product='aetheltool'][data-mc-theme='light'] {
+  --mc-product-primary: var(--mc-colour-consumer-aetheltool-primary-light);
+}
+
+@media (prefers-color-scheme: light) {
+  [data-mc-product='aetheltool'][data-mc-theme='system'] {
+    --mc-product-primary: var(--mc-colour-consumer-aetheltool-primary-light);
   }
 }
 

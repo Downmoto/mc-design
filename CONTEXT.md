@@ -29,7 +29,7 @@ MemoryCore creates commercial creative software and the open-source Rust librari
 - The repository is `https://github.com/Downmoto/mc-design`, which is the sole distribution location for the package.
 - The package structure, supported Svelte version, token formats, and initial build, test, and documentation tooling are recorded in the implementation contract.
 - Desktop shells remain an implementation choice for future Tool development.
-- Product-specific Tool patterns and the values for the reserved DitherTool and AethelTool consumer-primary tokens remain deferred.
+- Product-specific Tool patterns remain deferred.
 
 ## Decisions and constraints
 
@@ -89,16 +89,16 @@ Rules:
 
 ## Consumer primary colours and website contexts
 
-Consumer primary pairs use `colour-consumer-{consumer}-primary-{theme}`. Include approved values in generated token outputs. Reserved tokens remain documented identifiers without values, fallbacks, or usable generated output.
+Consumer primary pairs use `colour-consumer-{consumer}-primary-{theme}`. Include approved values in generated token outputs.
 
 | Token                                            | Value     | Role                                                                   |
 | ------------------------------------------------ | --------- | ---------------------------------------------------------------------- |
 | `colour-consumer-website-primary-light`          | `#2F6892` | Website primary in the light theme                                     |
 | `colour-consumer-website-primary-dark`           | `#4E8BB7` | Website primary in the dark theme                                      |
-| `colour-consumer-dithertool-primary-light`       | Reserved  | DitherTool primary in the light theme                                  |
-| `colour-consumer-dithertool-primary-dark`        | Reserved  | DitherTool primary in the dark theme                                   |
-| `colour-consumer-aetheltool-primary-light`       | Reserved  | AethelTool primary in the light theme                                  |
-| `colour-consumer-aetheltool-primary-dark`        | Reserved  | AethelTool primary in the dark theme                                   |
+| `colour-consumer-dithertool-primary-light`       | `#506A4B` | DitherTool primary in the light theme                                  |
+| `colour-consumer-dithertool-primary-dark`        | `#728E6D` | DitherTool primary in the dark theme                                   |
+| `colour-consumer-aetheltool-primary-light`       | `#775591` | AethelTool primary in the light theme                                  |
+| `colour-consumer-aetheltool-primary-dark`        | `#9676AE` | AethelTool primary in the dark theme                                   |
 | `colour-consumer-website-supporting-pale-blue`   | `#D3DAE0` | Website supporting field and high-contrast content on dark backgrounds |
 | `colour-consumer-website-resource-primary-light` | `#1547D2` | Resource context primary in the light theme                            |
 | `colour-consumer-website-resource-primary-dark`  | `#6D98FF` | Resource context primary in the dark theme                             |
@@ -381,7 +381,6 @@ Shared component contract:
 ## Deferred and excluded work
 
 - Product-specific workspace, properties, file, and processing patterns.
-- Values for the reserved DitherTool and AethelTool consumer-primary tokens.
 - Native mobile applications.
 - Desktop-shell selection.
 - Website layouts and styled guide pages beyond the reusable library surface.

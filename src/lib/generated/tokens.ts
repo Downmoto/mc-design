@@ -9,6 +9,10 @@ export const foundationTokens = {
   "brand-cool-muted": "#8C8791",
   "colour-consumer-website-primary-light": "#2F6892",
   "colour-consumer-website-primary-dark": "#4E8BB7",
+  "colour-consumer-dithertool-primary-light": "#506A4B",
+  "colour-consumer-dithertool-primary-dark": "#728E6D",
+  "colour-consumer-aetheltool-primary-light": "#775591",
+  "colour-consumer-aetheltool-primary-dark": "#9676AE",
   "colour-consumer-website-supporting-pale-blue": "#D3DAE0",
   "colour-consumer-website-resource-primary-light": "#1547D2",
   "colour-consumer-website-resource-primary-dark": "#6D98FF",
@@ -174,18 +178,26 @@ export const consumerRegistry = {
   },
   "dithertool": {
     "name": "DitherTool",
-    "reserved": true,
+    "reserved": false,
     "primaryTokens": {
       "light": "colour-consumer-dithertool-primary-light",
       "dark": "colour-consumer-dithertool-primary-dark"
+    },
+    "values": {
+      "light": "#506A4B",
+      "dark": "#728E6D"
     }
   },
   "aetheltool": {
     "name": "AethelTool",
-    "reserved": true,
+    "reserved": false,
     "primaryTokens": {
       "light": "colour-consumer-aetheltool-primary-light",
       "dark": "colour-consumer-aetheltool-primary-dark"
+    },
+    "values": {
+      "light": "#775591",
+      "dark": "#9676AE"
     }
   }
 } as const;

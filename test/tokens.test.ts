@@ -39,7 +39,7 @@ describe('token source validation', () => {
     );
   });
 
-  it('maps the website consumer primary pair to the interactive role', () => {
+  it('registers consumer primary pairs and maps the website default', () => {
     const validated = validateTokenSource(source);
 
     expect(validated.consumerRegistry.get('website')?.resolved.light).toBe(
@@ -54,19 +54,18 @@ describe('token source validation', () => {
     expect(validated.resolvedThemes.dark.get('colour-interactive')?.value).toBe(
       '#4E8BB7',
     );
-  });
-
-  it('keeps reserved consumer primaries out of usable tokens', () => {
-    const validated = validateTokenSource(source);
-
-    expect(validated.consumerRegistry.get('dithertool')?.resolved).toEqual({});
-    expect(validated.consumerRegistry.get('aetheltool')?.resolved).toEqual({});
+    expect(validated.consumerRegistry.get('dithertool')?.resolved).toEqual({
+      light: '#506A4B',
+      dark: '#728E6D',
+    });
+    expect(validated.consumerRegistry.get('aetheltool')?.resolved).toEqual({
+      light: '#775591',
+      dark: '#9676AE',
+    });
+    expect(validated.consumerContrast).toHaveLength(12);
     expect(
-      validated.resolvedGlobal.has('colour-consumer-dithertool-primary-light'),
-    ).toBe(false);
-    expect(
-      validated.resolvedGlobal.has('colour-consumer-aetheltool-primary-dark'),
-    ).toBe(false);
+      validated.consumerContrast.every((check) => check.ratio >= check.minimum),
+    ).toBe(true);
   });
 
   it('rejects active consumers with missing primary tokens', () => {
@@ -77,14 +76,14 @@ describe('token source validation', () => {
     expect(() => validateTokenSource(invalid)).toThrow(/must register light/);
   });
 
-  it('rejects values assigned to reserved consumer primaries', () => {
+  it('rejects values assigned to a reserved consumer', () => {
     const invalid = structuredClone(source);
-    invalid.foundation.push({
-      name: 'colour-consumer-dithertool-primary-light',
-      type: 'colour',
-      value: '#000000',
-      description: 'Invalid reserved value',
-    });
+    (
+      invalid.consumerRegistry
+        .dithertool as typeof invalid.consumerRegistry.dithertool & {
+        reserved?: boolean;
+      }
+    ).reserved = true;
 
     expect(() => validateTokenSource(invalid)).toThrow(
       /reserved consumer "dithertool" must not have usable values/,

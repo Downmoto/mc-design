@@ -11,7 +11,7 @@ This repository implements MemoryCore's shared design tokens and Svelte componen
 - The package name is `@memorycore/design`.
 - `@mc-design/react` is a legacy predecessor and does not define the replacement architecture.
 - MemoryCore Brand Style Guide 1.2.0 and Unified Product Design Guide 1.1.0 govern visual and interaction decisions.
-- Product-specific Tool workspace patterns and the values for reserved Tool consumer-primary tokens remain deferred.
+- Product-specific Tool workspace patterns remain deferred.
 
 ## Implementation rules
 
@@ -21,7 +21,7 @@ This repository implements MemoryCore's shared design tokens and Svelte componen
 - Use lowercase kebab-case token names in the form `category-role-variant`; registered scopes appear after the category.
 - Support dark, light, and system theme settings. Dark is the default when no preference has been stored.
 - Register consumer primaries through `colour-consumer-{consumer}-primary-{theme}` and map them through documented semantic roles.
-- Include the approved website consumer-primary and contextual colours in generated token outputs. Keep reserved Tool tokens valueless until their pairs are approved.
+- Include the approved website, DitherTool, and AethelTool consumer-primary colours and website contextual colours in generated token outputs.
 - Add component tokens only when a shared component needs a narrower semantic role.
 - Add components and variants when an approved design or a real consumer requires them.
 - Implement the website-required shared-component baseline before broader Tool-oriented MVB components.
