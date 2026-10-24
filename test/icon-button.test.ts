@@ -67,6 +67,22 @@ describe('IconButton', () => {
     expect(button).toHaveAttribute('aria-disabled', 'true');
   });
 
+  it('prevents activation when disabled', async () => {
+    const onclick = vi.fn();
+    const { getByRole } = render(IconButton, {
+      children: icon,
+      disabled: true,
+      label: 'Add item',
+      onclick,
+    });
+    const button = getByRole('button', { name: 'Add item' });
+
+    await fireEvent.click(button);
+
+    expect(button).toBeDisabled();
+    expect(onclick).not.toHaveBeenCalled();
+  });
+
   it('has no automatically detectable accessibility violations', async () => {
     const { container } = render(IconButton, {
       children: icon,

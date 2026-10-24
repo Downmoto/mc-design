@@ -194,6 +194,7 @@
         <li>Uses the label as a native tooltip unless one is provided</li>
         <li>Preserves its accessible name and square geometry while loading</li>
         <li>Uses the native button element and keyboard behaviour</li>
+        <li>Uses a flush 2 px theme-contrasting focus-visible outline</li>
         <li>Respects reduced-motion and forced-colour preferences</li>
       </ul>
     </div>
@@ -322,6 +323,7 @@
               <th scope="row">Boundary</th>
               <td>
                 <code>colour-border</code>,
+                <code>colour-text-primary</code>,
                 <code>border-width-default</code>,
                 <code>border-width-emphasised</code>
               </td>

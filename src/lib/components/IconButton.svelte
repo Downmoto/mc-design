@@ -25,7 +25,7 @@
   function handleClick(
     event: MouseEvent & { currentTarget: HTMLButtonElement },
   ) {
-    if (loading) {
+    if (disabled || loading) {
       event.preventDefault();
       event.stopImmediatePropagation();
       return;
@@ -203,6 +203,7 @@
     .mc-icon-button:disabled {
       color: GrayText;
       border-color: GrayText;
+      opacity: 1;
     }
   }
 </style>

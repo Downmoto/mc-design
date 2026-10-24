@@ -273,7 +273,7 @@
           Preserves the visible label as the accessible name while loading
         </li>
         <li>Prevents repeat activation while loading and retains focus</li>
-        <li>Uses a flush 2 px interactive-colour focus-visible boundary</li>
+        <li>Uses a flush 2 px theme-contrasting focus-visible outline</li>
         <li>Respects reduced-motion and forced-colour preferences</li>
       </ul>
     </div>
@@ -406,6 +406,7 @@
               <th scope="row">Boundary</th>
               <td>
                 <code>colour-border</code>,
+                <code>colour-text-primary</code>,
                 <code>border-width-default</code>,
                 <code>border-width-emphasised</code>
               </td>

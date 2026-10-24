@@ -237,7 +237,7 @@ Border widths:
 
 - Default boundaries: 1 px.
 - Selected, emphasised, and focus-visible boundaries: 2 px.
-- Focus replaces the default boundary with a flush 2 px interactive-colour border and has no offset.
+- Focus uses a flush 2 px theme-contrasting outline with no offset.
 
 | Token           |                          Value | Typical use                                   |
 | --------------- | -----------------------------: | --------------------------------------------- |
@@ -256,7 +256,7 @@ Border widths:
 
 Use shadows to communicate depth. Do not apply shadows to flat controls, text, icons, or decorative elements.
 
-Functional masks and fades may use approved colours and transparency. Keep computational textures, dithering, blend modes, filters, decorative display effects, and editorial imagery in consumer compositions. Do not apply these treatments to controls, body text, logos, or information-critical content.
+Functional masks and fades may use approved colours and transparency. Primary buttons may use a simple brightness filter for hover feedback. Keep computational textures, dithering, blend modes, decorative display effects, and editorial imagery in consumer compositions. Do not apply those decorative treatments to controls, body text, logos, or information-critical content.
 
 ## Motion
 
@@ -304,7 +304,7 @@ Every interactive component defines each applicable state:
 | ------------- | ---------------------------------------------------------------------- |
 | Default       | Neutral surface and a 1 px boundary where needed                       |
 | Hover         | Surface or border change over 100 ms without layout movement           |
-| Focus-visible | Flush 2 px interactive-colour border                                   |
+| Focus-visible | Flush 2 px theme-contrasting outline                                   |
 | Active        | Stronger surface or border while pressed                               |
 | Selected      | Interactive colour paired with text, an icon, or a checkmark           |
 | Disabled      | Muted treatment with no hover or active response                       |

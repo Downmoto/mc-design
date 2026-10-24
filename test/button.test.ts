@@ -70,6 +70,21 @@ describe('Button', () => {
     expect(button).toHaveTextContent('Save changes');
   });
 
+  it('prevents activation when disabled', async () => {
+    const onclick = vi.fn();
+    const { getByRole } = render(Button, {
+      children: label,
+      disabled: true,
+      onclick,
+    });
+    const button = getByRole('button', { name: 'Save changes' });
+
+    await fireEvent.click(button);
+
+    expect(button).toBeDisabled();
+    expect(onclick).not.toHaveBeenCalled();
+  });
+
   it('passes native attributes and events through', async () => {
     const onclick = vi.fn();
     const { getByRole } = render(Button, {

@@ -48,8 +48,8 @@ Required components are tracked in one list. Items marked `website first` form t
 
 - [x] Configuration: Consumer
 - [ ] Actions: Link (`website first`)
-- [ ] Actions: Button (`website first`)
-- [ ] Actions: Icon button (`website first`)
+- [x] Actions: Button (`website first`)
+- [x] Actions: Icon button (`website first`)
 - [ ] Actions: Action group (`website first`)
 - [ ] Structure: Typography
 - [ ] Inputs: Text input
