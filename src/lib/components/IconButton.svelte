@@ -1,6 +1,6 @@
 <script lang="ts">
   import { getConsumerContext } from '../consumer-context.js';
-  import type { IconButtonProps } from './icon-button.types.js';
+  import type { IconButtonProps } from './icon_button.types.js';
   import Spinner from './internal/Spinner.svelte';
 
   let {
