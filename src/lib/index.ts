@@ -20,3 +20,13 @@ export {
   type GlobalSemanticTokenName,
   type ThemeTokenName,
 } from './generated/tokens.js';
+
+export { default as Button } from './components/Button.svelte';
+export {
+  type ButtonAppearance,
+  type ButtonProps,
+  type ButtonSize,
+} from './components/button.types.js';
+
+export { default as IconButton } from './components/IconButton.svelte';
+export { type IconButtonProps } from './components/button.types.js';

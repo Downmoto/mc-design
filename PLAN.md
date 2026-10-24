@@ -44,11 +44,16 @@ Token implementation may begin while release automation and documentation choice
 
 ## Stage 4: Build components as designs are approved
 
+Implemented and documented in the component workbench:
+
+- [x] Button
+- [x] Icon button
+
 Website-required shared baseline:
 
 - Actions: link, button, icon button, and action-group foundations.
 - Navigation: menu and disclosure.
-- Feedback: dialog or equivalent preview surface, alert, status, progress indicator, and empty state.
+- Feedback: dialog or equivalent preview surface, alert, badge, status, progress indicator, and empty state.
 - Structure: card, list, table, and responsive-overflow foundations where approved website designs require them.
 
 Complete MVB inventory for later consumer-driven implementation:
@@ -56,7 +61,7 @@ Complete MVB inventory for later consumer-driven implementation:
 - Actions: link, button, icon button.
 - Inputs: text input, text area, numeric input, select or combobox, checkbox, radio group, switch, slider.
 - Navigation: tabs, menu, disclosure.
-- Feedback: tooltip, alert, toast, progress indicator, dialog.
+- Feedback: tooltip, badge, alert, toast, progress indicator, dialog.
 - Structure: toolbar, sidebar, panel, card, table or list, empty state.
 
 For each approved component:

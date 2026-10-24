@@ -8,6 +8,10 @@
     "type": "git",
     "url": "git+https://github.com/Downmoto/mc-design.git"
   },
+  "imports": {
+    "#lib": "./src/lib/index.js",
+    "#lib/*": "./src/lib/*"
+  },
   "engines": {
     "node": ">=22.17",
     "npm": ">=11"
@@ -39,14 +43,18 @@
   "scripts": {
     "tokens:generate": "node scripts/generate-tokens.mjs",
     "tokens:check": "node scripts/generate-tokens.mjs --check",
-    "build": "npm run tokens:generate && svelte-package",
-    "prepare": "npm run build",
-    "typecheck": "tsc --noEmit",
+    "dev": "vite dev",
+    "build": "vite build",
+    "preview": "vite preview",
+    "package": "npm run tokens:generate && svelte-package",
+    "package:watch": "svelte-package --watch",
+    "prepare": "svelte-kit sync && npm run package",
+    "typecheck": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "test": "vitest run",
     "test:watch": "vitest",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "check": "npm run tokens:check && npm run format:check && npm run typecheck && npm test && npm run build && npm run tokens:check"
+    "check": "npm run tokens:check && npm run format:check && npm run typecheck && npm test && npm run package && npm run build && npm run tokens:check"
   },
   "peerDependencies": {
     "svelte": ">=5.57.1 <6"
@@ -57,6 +65,8 @@
     "@fontsource/space-mono": "^5.3.0"
   },
   "devDependencies": {
+    "@sveltejs/adapter-static": "^4.0.0",
+    "@sveltejs/kit": "^3.1.0",
     "@sveltejs/package": "^3.0.0",
     "@sveltejs/vite-plugin-svelte": "^7.3.1",
     "@testing-library/jest-dom": "^7.0.1",
@@ -66,6 +76,7 @@
     "prettier": "^3.9.9",
     "prettier-plugin-svelte": "^4.1.1",
     "svelte": "^5.57.2",
+    "svelte-check": "^4.7.7",
     "typescript": "^6.0.3",
     "vite": "^8.3.4",
     "vitest": "^5.0.3"
