@@ -233,11 +233,6 @@
       <span class="specimen__label">Loading</span>
       <Button loading>Save changes</Button>
     </div>
-    <div class="specimen specimen--instruction">
-      <span class="specimen__label">Interactive</span>
-      <Button>Try interactions</Button>
-      <p>Hover, press, or use Tab followed by Enter or Space</p>
-    </div>
   </div>
 </section>
 

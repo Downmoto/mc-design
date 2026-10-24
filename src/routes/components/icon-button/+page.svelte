@@ -157,11 +157,6 @@
       <span class="specimen__label">Loading</span>
       <IconButton label="Adding item" loading><PlusIcon /></IconButton>
     </div>
-    <div class="specimen specimen--instruction">
-      <span class="specimen__label">Interactive</span>
-      <IconButton label="Try interactions"><PlusIcon /></IconButton>
-      <p>Hover, press, or use Tab followed by Enter or Space</p>
-    </div>
   </div>
 </section>
 
