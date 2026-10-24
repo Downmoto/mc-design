@@ -96,7 +96,8 @@
       background-color var(--mc-motion-duration-direct)
         var(--mc-motion-easing-default),
       border-color var(--mc-motion-duration-direct)
-        var(--mc-motion-easing-default);
+        var(--mc-motion-easing-default),
+      filter var(--mc-motion-duration-direct) var(--mc-motion-easing-default);
   }
 
   .mc-button[data-size='compact'] {
@@ -130,7 +131,8 @@
     ) {
     color: var(--mc-colour-background);
     background: var(--mc-colour-interactive);
-    border-color: var(--mc-colour-text-secondary);
+    border-color: var(--mc-colour-interactive);
+    filter: brightness(1.15);
   }
 
   .mc-button[data-appearance='secondary']:hover:not(:disabled):not(
@@ -142,9 +144,9 @@
   }
 
   .mc-button:focus-visible {
-    border-color: var(--mc-colour-interactive);
-    border-width: var(--mc-border-width-emphasised);
-    outline: none;
+    outline: var(--mc-border-width-emphasised) solid
+      var(--mc-colour-text-primary);
+    outline-offset: 0;
   }
 
   .mc-button:active:not(:disabled):not([aria-disabled='true']) {
@@ -206,7 +208,7 @@
     }
 
     .mc-button:focus-visible {
-      border-color: Highlight;
+      outline-color: Highlight;
     }
 
     .mc-button:disabled {
