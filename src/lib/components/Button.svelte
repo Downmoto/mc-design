@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { getConsumerContext } from '../consumer-context.js';
   import type { ButtonProps } from './button.types.js';
   import Spinner from './internal/Spinner.svelte';
 
@@ -6,6 +7,7 @@
     appearance = 'primary',
     children,
     class: className = '',
+    consumer,
     disabled = false,
     leadingIcon,
     loading = false,
@@ -15,6 +17,9 @@
     type = 'button',
     ...attributes
   }: ButtonProps = $props();
+
+  const inheritedConsumer = getConsumerContext();
+  let resolvedConsumer = $derived(consumer ?? inheritedConsumer?.());
 
   function handleClick(
     event: MouseEvent & { currentTarget: HTMLButtonElement },
@@ -34,6 +39,7 @@
   class={`mc-button ${className}`.trim()}
   data-appearance={appearance}
   data-loading={loading || undefined}
+  data-mc-product={resolvedConsumer}
   data-size={size}
   {disabled}
   {type}
@@ -77,7 +83,7 @@
     min-inline-size: var(--mc-button-block-size);
     padding-block: 0;
     padding-inline: var(--mc-space-4);
-    border: var(--mc-border-width-default) solid transparent;
+    border: var(--mc-border-width-emphasised) solid transparent;
     border-radius: var(--mc-radius-1);
     font-family: var(--mc-typography-label-family);
     font-size: var(--mc-typography-label-size);

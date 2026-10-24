@@ -145,7 +145,7 @@ export const semanticTokens = {
     "colour-text-primary": "#050507",
     "colour-text-secondary": "#2D2D2D",
     "colour-border": "#2D2D2D",
-    "colour-interactive": "#2F6892",
+    "colour-interactive": "#050507",
     "colour-success": "#215C38",
     "colour-warning": "#6B4A00",
     "colour-danger": "#8F2525"
@@ -156,7 +156,7 @@ export const semanticTokens = {
     "colour-text-primary": "#E8E1D2",
     "colour-text-secondary": "#B8AE9D",
     "colour-border": "#8C8791",
-    "colour-interactive": "#4E8BB7",
+    "colour-interactive": "#E8E1D2",
     "colour-success": "#7FC99A",
     "colour-warning": "#E5B968",
     "colour-danger": "#E08383"

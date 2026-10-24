@@ -1,11 +1,13 @@
 <script lang="ts">
-  import type { IconButtonProps } from './button.types.js';
+  import { getConsumerContext } from '../consumer-context.js';
+  import type { IconButtonProps } from './icon-button.types.js';
   import Spinner from './internal/Spinner.svelte';
 
   let {
     appearance = 'primary',
     children,
     class: className = '',
+    consumer,
     disabled = false,
     label,
     loading = false,
@@ -16,6 +18,9 @@
     type = 'button',
     ...attributes
   }: IconButtonProps = $props();
+
+  const inheritedConsumer = getConsumerContext();
+  let resolvedConsumer = $derived(consumer ?? inheritedConsumer?.());
 
   function handleClick(
     event: MouseEvent & { currentTarget: HTMLButtonElement },
@@ -35,6 +40,7 @@
   class={`mc-icon-button ${className}`.trim()}
   data-appearance={appearance}
   data-loading={loading || undefined}
+  data-mc-product={resolvedConsumer}
   data-size={size}
   {disabled}
   {type}
@@ -73,7 +79,7 @@
     max-inline-size: var(--mc-button-block-size);
     block-size: var(--mc-button-block-size);
     padding: 0;
-    border: var(--mc-border-width-default) solid transparent;
+    border: var(--mc-border-width-emphasised) solid transparent;
     border-radius: var(--mc-radius-1);
     font-family: var(--mc-typography-label-family);
     font-size: var(--mc-typography-label-size);

@@ -37,32 +37,46 @@ Token implementation may begin while release automation and documentation choice
 - [x] Implement dark and light themes.
 - [x] Use dark as the default when no stored selection exists.
 - [x] Add `Dark`, `Light`, and `System` settings support.
-- [x] Map the website `colour-interactive` role to `colour-consumer-website-primary-light` and `colour-consumer-website-primary-dark`.
+- [x] Keep the default `colour-interactive` role neutral and map registered consumers to their primary pairs.
 - [x] Support registered consumer-primary mappings while rejecting reserved pairs without values.
 - [x] Preserve operating-system high-contrast and forced-colour behaviour.
 - [x] Verify every semantic colour pairing against its contrast requirement.
 
 ## Stage 4: Build components as designs are approved
 
-Implemented and documented in the component workbench:
+Required components are tracked in one list. Items marked `website first` form the shared baseline for memorycore.dev; the remaining items follow consumer demand.
 
-- [x] Button
-- [x] Icon button
-
-Website-required shared baseline:
-
-- Actions: link, button, icon button, and action-group foundations.
-- Navigation: menu and disclosure.
-- Feedback: dialog or equivalent preview surface, alert, badge, status, progress indicator, and empty state.
-- Structure: card, list, table, and responsive-overflow foundations where approved website designs require them.
-
-Complete MVB inventory for later consumer-driven implementation:
-
-- Actions: link, button, icon button.
-- Inputs: text input, text area, numeric input, select or combobox, checkbox, radio group, switch, slider.
-- Navigation: tabs, menu, disclosure.
-- Feedback: tooltip, badge, alert, toast, progress indicator, dialog.
-- Structure: toolbar, sidebar, panel, card, table or list, empty state.
+- [x] Configuration: Consumer
+- [ ] Actions: Link (`website first`)
+- [ ] Actions: Button (`website first`)
+- [ ] Actions: Icon button (`website first`)
+- [ ] Actions: Action group (`website first`)
+- [ ] Inputs: Text input
+- [ ] Inputs: Text area
+- [ ] Inputs: Numeric input
+- [ ] Inputs: Select or combobox
+- [ ] Inputs: Checkbox
+- [ ] Inputs: Radio group
+- [ ] Inputs: Switch
+- [ ] Inputs: Slider
+- [ ] Navigation: Tabs
+- [ ] Navigation: Menu (`website first`)
+- [ ] Navigation: Disclosure (`website first`)
+- [ ] Feedback: Tooltip
+- [ ] Feedback: Badge (`website first`)
+- [ ] Feedback: Alert (`website first`)
+- [ ] Feedback: Toast
+- [ ] Feedback: Status (`website first`)
+- [ ] Feedback: Progress indicator (`website first`)
+- [ ] Feedback: Dialog or equivalent preview surface (`website first`)
+- [ ] Structure: Toolbar
+- [ ] Structure: Sidebar
+- [ ] Structure: Panel
+- [ ] Structure: Card (`website first`)
+- [ ] Structure: List (`website first`)
+- [ ] Structure: Table (`website first`)
+- [ ] Structure: Responsive overflow (`website first`, where approved website designs require it)
+- [ ] Structure: Empty state (`website first`)
 
 For each approved component:
 

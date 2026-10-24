@@ -265,11 +265,15 @@ export function validateTokenSource(source) {
   if (!website || website.reserved) {
     fail('website must be an active registered consumer');
   }
+  const defaultInteractiveTokens = {
+    light: 'brand-dark',
+    dark: 'brand-light',
+  };
   for (const theme of ['light', 'dark']) {
-    const expected = `{${website.primaryTokens[theme]}}`;
+    const expected = `{${defaultInteractiveTokens[theme]}}`;
     const semantic = theme === 'light' ? light : dark;
     if (semantic.get('colour-interactive')?.value !== expected) {
-      fail(`${theme} colour-interactive must map to the website primary token`);
+      fail(`${theme} colour-interactive must map to "${expected}" by default`);
     }
   }
 
@@ -360,23 +364,32 @@ function cssDeclarations(tokens, prefix) {
     .join('\n');
 }
 
-function generateConsumerCss(validated, prefix) {
+export function generateConsumerCss(validated, prefix) {
   return [...validated.consumerRegistry.entries()]
     .filter(([, consumer]) => !consumer.reserved)
     .map(([id, consumer]) => {
-      const dark = `  --${prefix}-product-primary: var(--${prefix}-${consumer.primaryTokens.dark});`;
-      const light = `  --${prefix}-product-primary: var(--${prefix}-${consumer.primaryTokens.light});`;
+      const declarations = (
+        token,
+      ) => `  --${prefix}-product-primary: var(--${prefix}-${token});
+  --${prefix}-colour-interactive: var(--${prefix}-product-primary);`;
+      const dark = declarations(consumer.primaryTokens.dark);
+      const light = declarations(consumer.primaryTokens.light);
       return `[data-mc-product='${id}'] {
 ${dark}
 }
 
-[data-mc-product='${id}'][data-mc-theme='light'] {
+[data-mc-product='${id}'][data-mc-theme='light'],
+[data-mc-theme='light'] [data-mc-product='${id}'] {
 ${light}
 }
 
 @media (prefers-color-scheme: light) {
-  [data-mc-product='${id}'][data-mc-theme='system'] {
-    --${prefix}-product-primary: var(--${prefix}-${consumer.primaryTokens.light});
+  [data-mc-product='${id}'][data-mc-theme='system'],
+  [data-mc-theme='system'] [data-mc-product='${id}'] {
+${light
+  .split('\n')
+  .map((line) => `  ${line}`)
+  .join('\n')}
   }
 }`;
     })
@@ -552,10 +565,12 @@ ${markdownTable(validated.themes.dark, source.prefix)}
 
 ## Consumer primary override
 
-The website primary pair is the default mapping for
-\`--mc-colour-interactive\`. Registered active consumers can set
-\`--mc-product-primary\` for each theme. Apply a packaged consumer mapping with
-\`data-mc-product\` on the same element as \`data-mc-theme\`.
+The neutral primary-text pair is the default mapping for
+\`--mc-colour-interactive\`. Registered active consumers map both
+\`--mc-product-primary\` and \`--mc-colour-interactive\` for each theme. Library
+components apply packaged mappings through their \`consumer\` prop or an
+inherited \`Consumer\` provider. Token-only integrations may use
+\`data-mc-product\` within the element that sets \`data-mc-theme\`.
 
 ## Consumer registry
 

@@ -71,6 +71,8 @@ Rules:
 
 - Components reference semantic or component tokens.
 - Consumer formats are generated from one version-controlled structured source.
+- Expose consumer selection through component `consumer` props and the DOM-free `Consumer` provider. Keep generated data attributes internal to the library.
+- Keep direct token overrides available as optional fine-grained control.
 - Add a token for a recurring need, semantic distinction, or documented accessibility requirement.
 - Keep product overrides limited to documented semantic roles.
 - Product repositories consume packaged outputs and do not depend on the MemoryCore operations wiki.
@@ -107,19 +109,19 @@ Use the website consumer pair for default website interactions. Use the Resource
 
 ## Semantic colours
 
-| Token                   | Light theme           | Dark theme           | Purpose                                            |
-| ----------------------- | --------------------- | -------------------- | -------------------------------------------------- |
-| `colour-background`     | `#F3EBDD`             | `#050507`            | Root background                                    |
-| `colour-surface`        | `#E8E1D2`             | `#1C1A20`            | Panels, cards, menus, and grouped regions          |
-| `colour-text-primary`   | `#050507`             | `#E8E1D2`            | Primary text and neutral icons                     |
-| `colour-text-secondary` | `#2D2D2D`             | `#B8AE9D`            | Supporting text and neutral icons                  |
-| `colour-border`         | `#2D2D2D`             | `#8C8791`            | Meaningful boundaries and separators               |
-| `colour-interactive`    | Website primary light | Website primary dark | Links, active controls, focus, and selected states |
-| `colour-success`        | `#215C38`             | `#7FC99A`            | Successful or valid state                          |
-| `colour-warning`        | `#6B4A00`             | `#E5B968`            | Caution or required attention                      |
-| `colour-danger`         | `#8F2525`             | `#E08383`            | Errors, destructive actions, or critical failure   |
+| Token                   | Light theme | Dark theme | Purpose                                            |
+| ----------------------- | ----------- | ---------- | -------------------------------------------------- |
+| `colour-background`     | `#F3EBDD`   | `#050507`  | Root background                                    |
+| `colour-surface`        | `#E8E1D2`   | `#1C1A20`  | Panels, cards, menus, and grouped regions          |
+| `colour-text-primary`   | `#050507`   | `#E8E1D2`  | Primary text and neutral icons                     |
+| `colour-text-secondary` | `#2D2D2D`   | `#B8AE9D`  | Supporting text and neutral icons                  |
+| `colour-border`         | `#2D2D2D`   | `#8C8791`  | Meaningful boundaries and separators               |
+| `colour-interactive`    | `#050507`   | `#E8E1D2`  | Links, active controls, focus, and selected states |
+| `colour-success`        | `#215C38`   | `#7FC99A`  | Successful or valid state                          |
+| `colour-warning`        | `#6B4A00`   | `#E5B968`  | Caution or required attention                      |
+| `colour-danger`         | `#8F2525`   | `#E08383`  | Errors, destructive actions, or critical failure   |
 
-Each consumer theme maps `colour-interactive` and other documented accent roles to its approved primary pair. Shared neutral and status colours remain consistent. Resource-specific interaction roles may map to the approved website Resource pair without registering another consumer.
+Without a consumer theme, `colour-interactive` uses the neutral primary-text pair. Each consumer theme maps `colour-interactive` and other documented accent roles to its approved primary pair. Shared neutral and status colours remain consistent. Resource-specific interaction roles may map to the approved website Resource pair without registering another consumer.
 
 Contrast requirements:
 

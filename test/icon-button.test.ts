@@ -21,6 +21,20 @@ describe('IconButton', () => {
     expect(button).toHaveAttribute('aria-label', 'Add item');
     expect(button).toHaveAttribute('title', 'Add item');
     expect(button).toHaveAttribute('data-size', 'standard');
+    expect(button).not.toHaveAttribute('data-mc-product');
+  });
+
+  it('applies a consumer from its prop', () => {
+    const { getByRole } = render(IconButton, {
+      children: icon,
+      consumer: 'aetheltool',
+      label: 'Add item',
+    });
+
+    expect(getByRole('button', { name: 'Add item' })).toHaveAttribute(
+      'data-mc-product',
+      'aetheltool',
+    );
   });
 
   it('supports a distinct tooltip', () => {

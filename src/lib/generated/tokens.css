@@ -139,7 +139,7 @@
   --mc-colour-text-primary: var(--mc-brand-light);
   --mc-colour-text-secondary: var(--mc-brand-warm-muted);
   --mc-colour-border: var(--mc-brand-cool-muted);
-  --mc-colour-interactive: var(--mc-product-primary, var(--mc-colour-consumer-website-primary-dark));
+  --mc-colour-interactive: var(--mc-product-primary, var(--mc-brand-light));
   --mc-colour-success: var(--mc-status-success-dark);
   --mc-colour-warning: var(--mc-status-warning-dark);
   --mc-colour-danger: var(--mc-status-danger-dark);
@@ -153,7 +153,7 @@
   --mc-colour-text-primary: var(--mc-brand-light);
   --mc-colour-text-secondary: var(--mc-brand-warm-muted);
   --mc-colour-border: var(--mc-brand-cool-muted);
-  --mc-colour-interactive: var(--mc-product-primary, var(--mc-colour-consumer-website-primary-dark));
+  --mc-colour-interactive: var(--mc-product-primary, var(--mc-brand-light));
   --mc-colour-success: var(--mc-status-success-dark);
   --mc-colour-warning: var(--mc-status-warning-dark);
   --mc-colour-danger: var(--mc-status-danger-dark);
@@ -166,7 +166,7 @@
   --mc-colour-text-primary: var(--mc-brand-dark);
   --mc-colour-text-secondary: var(--mc-brand-dark-neutral);
   --mc-colour-border: var(--mc-brand-dark-neutral);
-  --mc-colour-interactive: var(--mc-product-primary, var(--mc-colour-consumer-website-primary-light));
+  --mc-colour-interactive: var(--mc-product-primary, var(--mc-brand-dark));
   --mc-colour-success: var(--mc-status-success-light);
   --mc-colour-warning: var(--mc-status-warning-light);
   --mc-colour-danger: var(--mc-status-danger-light);
@@ -180,7 +180,7 @@
     --mc-colour-text-primary: var(--mc-brand-dark);
     --mc-colour-text-secondary: var(--mc-brand-dark-neutral);
     --mc-colour-border: var(--mc-brand-dark-neutral);
-    --mc-colour-interactive: var(--mc-product-primary, var(--mc-colour-consumer-website-primary-light));
+    --mc-colour-interactive: var(--mc-product-primary, var(--mc-brand-dark));
     --mc-colour-success: var(--mc-status-success-light);
     --mc-colour-warning: var(--mc-status-warning-light);
     --mc-colour-danger: var(--mc-status-danger-light);
@@ -190,43 +190,58 @@
 
 [data-mc-product='website'] {
   --mc-product-primary: var(--mc-colour-consumer-website-primary-dark);
+  --mc-colour-interactive: var(--mc-product-primary);
 }
 
-[data-mc-product='website'][data-mc-theme='light'] {
+[data-mc-product='website'][data-mc-theme='light'],
+[data-mc-theme='light'] [data-mc-product='website'] {
   --mc-product-primary: var(--mc-colour-consumer-website-primary-light);
+  --mc-colour-interactive: var(--mc-product-primary);
 }
 
 @media (prefers-color-scheme: light) {
-  [data-mc-product='website'][data-mc-theme='system'] {
+  [data-mc-product='website'][data-mc-theme='system'],
+  [data-mc-theme='system'] [data-mc-product='website'] {
     --mc-product-primary: var(--mc-colour-consumer-website-primary-light);
+    --mc-colour-interactive: var(--mc-product-primary);
   }
 }
 
 [data-mc-product='dithertool'] {
   --mc-product-primary: var(--mc-colour-consumer-dithertool-primary-dark);
+  --mc-colour-interactive: var(--mc-product-primary);
 }
 
-[data-mc-product='dithertool'][data-mc-theme='light'] {
+[data-mc-product='dithertool'][data-mc-theme='light'],
+[data-mc-theme='light'] [data-mc-product='dithertool'] {
   --mc-product-primary: var(--mc-colour-consumer-dithertool-primary-light);
+  --mc-colour-interactive: var(--mc-product-primary);
 }
 
 @media (prefers-color-scheme: light) {
-  [data-mc-product='dithertool'][data-mc-theme='system'] {
+  [data-mc-product='dithertool'][data-mc-theme='system'],
+  [data-mc-theme='system'] [data-mc-product='dithertool'] {
     --mc-product-primary: var(--mc-colour-consumer-dithertool-primary-light);
+    --mc-colour-interactive: var(--mc-product-primary);
   }
 }
 
 [data-mc-product='aetheltool'] {
   --mc-product-primary: var(--mc-colour-consumer-aetheltool-primary-dark);
+  --mc-colour-interactive: var(--mc-product-primary);
 }
 
-[data-mc-product='aetheltool'][data-mc-theme='light'] {
+[data-mc-product='aetheltool'][data-mc-theme='light'],
+[data-mc-theme='light'] [data-mc-product='aetheltool'] {
   --mc-product-primary: var(--mc-colour-consumer-aetheltool-primary-light);
+  --mc-colour-interactive: var(--mc-product-primary);
 }
 
 @media (prefers-color-scheme: light) {
-  [data-mc-product='aetheltool'][data-mc-theme='system'] {
+  [data-mc-product='aetheltool'][data-mc-theme='system'],
+  [data-mc-theme='system'] [data-mc-product='aetheltool'] {
     --mc-product-primary: var(--mc-colour-consumer-aetheltool-primary-light);
+    --mc-colour-interactive: var(--mc-product-primary);
   }
 }
 

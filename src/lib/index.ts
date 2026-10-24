@@ -28,5 +28,8 @@ export {
   type ButtonSize,
 } from './components/button.types.js';
 
+export { default as Consumer } from './components/Consumer.svelte';
+export { type ConsumerProps } from './components/consumer.types.js';
+
 export { default as IconButton } from './components/IconButton.svelte';
-export { type IconButtonProps } from './components/button.types.js';
+export { type IconButtonProps } from './components/icon-button.types.js';

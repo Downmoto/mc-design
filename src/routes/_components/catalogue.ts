@@ -1,12 +1,20 @@
 export interface CatalogueEntry {
-  category: 'Actions';
+  category: 'Actions' | 'Configuration';
   description: string;
   name: string;
-  route: '/components/button' | '/components/icon-button';
+  route:
+    '/components/button' | '/components/consumer' | '/components/icon-button';
   status: 'Draft' | 'Ready';
 }
 
 export const catalogue: CatalogueEntry[] = [
+  {
+    category: 'Configuration',
+    description: 'Provides a consumer theme to nested library components',
+    name: 'Consumer',
+    route: '/components/consumer',
+    status: 'Ready',
+  },
   {
     category: 'Actions',
     description: 'Triggers an action with a clear, visible text label',

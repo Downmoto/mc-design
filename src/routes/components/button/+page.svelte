@@ -317,6 +317,12 @@
               <td>Sets visual emphasis</td>
             </tr>
             <tr>
+              <th scope="row"><code>consumer</code></th>
+              <td><code>ConsumerId</code></td>
+              <td>Inherited or neutral</td>
+              <td>Sets the consumer colour mapping</td>
+            </tr>
+            <tr>
               <th scope="row"><code>size</code></th>
               <td><code>'compact' | 'standard' | 'large'</code></td>
               <td><code>'standard'</code></td>

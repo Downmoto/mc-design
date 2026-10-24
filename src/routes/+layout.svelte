@@ -2,6 +2,7 @@
   import { resolve } from '$app/paths';
   import { page } from '$app/state';
   import {
+    Consumer,
     consumerRegistry,
     initialiseTheme,
     setTheme,
@@ -20,33 +21,37 @@
     ConsumerId,
     (typeof consumerRegistry)[ConsumerId],
   ][];
+  type WorkbenchConsumer = ConsumerId | '';
   const categories = [...new Set(catalogue.map((entry) => entry.category))];
 
   let { children }: LayoutProps = $props();
   let theme = $state<Theme>('dark');
-  let consumer = $state<ConsumerId>('website');
+  let consumer = $state<WorkbenchConsumer>('');
 
   onMount(() => {
+    document.documentElement.removeAttribute('data-mc-product');
     theme = initialiseTheme();
     consumer = readConsumer();
-    applyConsumer(consumer);
   });
 
-  function readConsumer(): ConsumerId {
+  function readConsumer(): WorkbenchConsumer {
     try {
       const stored = localStorage.getItem(consumerStorageKey);
       if (stored && stored in consumerRegistry) return stored as ConsumerId;
     } catch {
-      // The website mapping remains available when storage is unavailable.
+      // The default mapping remains available when storage is unavailable.
     }
 
-    return 'website';
+    return '';
   }
 
-  function applyConsumer(value: ConsumerId): void {
-    document.documentElement.setAttribute('data-mc-product', value);
+  function storeConsumer(value: WorkbenchConsumer): void {
     try {
-      localStorage.setItem(consumerStorageKey, value);
+      if (value) {
+        localStorage.setItem(consumerStorageKey, value);
+      } else {
+        localStorage.removeItem(consumerStorageKey);
+      }
     } catch {
       // Applying the consumer still works when storage is unavailable.
     }
@@ -58,8 +63,9 @@
   }
 
   function selectConsumer(event: Event): void {
-    consumer = (event.currentTarget as HTMLSelectElement).value as ConsumerId;
-    applyConsumer(consumer);
+    consumer = (event.currentTarget as HTMLSelectElement)
+      .value as WorkbenchConsumer;
+    storeConsumer(consumer);
   }
 
   function componentHref(route: (typeof catalogue)[number]['route']): string {
@@ -115,6 +121,7 @@
     <label>
       <span>Consumer</span>
       <select value={consumer} onchange={selectConsumer}>
+        <option value="" selected={consumer === ''}>Default</option>
         {#each consumers as [id, details]}
           <option value={id} selected={consumer === id}>{details.name}</option>
         {/each}
@@ -134,6 +141,12 @@
   </details>
 
   <main id="main-content" tabindex="-1">
-    {@render children()}
+    {#if consumer}
+      <Consumer {consumer}>
+        {@render children()}
+      </Consumer>
+    {:else}
+      {@render children()}
+    {/if}
   </main>
 </div>

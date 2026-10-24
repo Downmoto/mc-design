@@ -156,7 +156,7 @@ Generated from `tokens/tokens.json`. Edit the source and run
 | `colour-text-primary` | `--mc-colour-text-primary` | `{brand-dark}` | Primary text and neutral icons |
 | `colour-text-secondary` | `--mc-colour-text-secondary` | `{brand-dark-neutral}` | Supporting text and neutral icons |
 | `colour-border` | `--mc-colour-border` | `{brand-dark-neutral}` | Meaningful boundaries and separators |
-| `colour-interactive` | `--mc-colour-interactive` | `{colour-consumer-website-primary-light}` | Links, active controls, focus, and selected states |
+| `colour-interactive` | `--mc-colour-interactive` | `{brand-dark}` | Links, active controls, focus, and selected states |
 | `colour-success` | `--mc-colour-success` | `{status-success-light}` | Successful or valid state |
 | `colour-warning` | `--mc-colour-warning` | `{status-warning-light}` | Caution or required attention |
 | `colour-danger` | `--mc-colour-danger` | `{status-danger-light}` | Errors, destructive actions, or critical failure |
@@ -170,17 +170,19 @@ Generated from `tokens/tokens.json`. Edit the source and run
 | `colour-text-primary` | `--mc-colour-text-primary` | `{brand-light}` | Primary text and neutral icons |
 | `colour-text-secondary` | `--mc-colour-text-secondary` | `{brand-warm-muted}` | Supporting text and neutral icons |
 | `colour-border` | `--mc-colour-border` | `{brand-cool-muted}` | Meaningful boundaries and separators |
-| `colour-interactive` | `--mc-colour-interactive` | `{colour-consumer-website-primary-dark}` | Links, active controls, focus, and selected states |
+| `colour-interactive` | `--mc-colour-interactive` | `{brand-light}` | Links, active controls, focus, and selected states |
 | `colour-success` | `--mc-colour-success` | `{status-success-dark}` | Successful or valid state |
 | `colour-warning` | `--mc-colour-warning` | `{status-warning-dark}` | Caution or required attention |
 | `colour-danger` | `--mc-colour-danger` | `{status-danger-dark}` | Errors, destructive actions, or critical failure |
 
 ## Consumer primary override
 
-The website primary pair is the default mapping for
-`--mc-colour-interactive`. Registered active consumers can set
-`--mc-product-primary` for each theme. Apply a packaged consumer mapping with
-`data-mc-product` on the same element as `data-mc-theme`.
+The neutral primary-text pair is the default mapping for
+`--mc-colour-interactive`. Registered active consumers map both
+`--mc-product-primary` and `--mc-colour-interactive` for each theme. Library
+components apply packaged mappings through their `consumer` prop or an
+inherited `Consumer` provider. Token-only integrations may use
+`data-mc-product` within the element that sets `data-mc-theme`.
 
 ## Consumer registry
 
@@ -221,8 +223,8 @@ generated CSS properties.
 | light | `colour-text-primary` | `colour-surface` | 15.64:1 | 4.5:1 |
 | light | `colour-text-secondary` | `colour-background` | 11.63:1 | 4.5:1 |
 | light | `colour-text-secondary` | `colour-surface` | 10.58:1 | 4.5:1 |
-| light | `colour-interactive` | `colour-background` | 5.04:1 | 4.5:1 |
-| light | `colour-interactive` | `colour-surface` | 4.59:1 | 4.5:1 |
+| light | `colour-interactive` | `colour-background` | 17.20:1 | 4.5:1 |
+| light | `colour-interactive` | `colour-surface` | 15.64:1 | 4.5:1 |
 | light | `colour-border` | `colour-background` | 11.63:1 | 3:1 |
 | light | `colour-border` | `colour-surface` | 10.58:1 | 3:1 |
 | light | `colour-success` | `colour-background` | 6.69:1 | 4.5:1 |
@@ -235,8 +237,8 @@ generated CSS properties.
 | dark | `colour-text-primary` | `colour-surface` | 13.24:1 | 4.5:1 |
 | dark | `colour-text-secondary` | `colour-background` | 9.29:1 | 4.5:1 |
 | dark | `colour-text-secondary` | `colour-surface` | 7.86:1 | 4.5:1 |
-| dark | `colour-interactive` | `colour-background` | 5.53:1 | 4.5:1 |
-| dark | `colour-interactive` | `colour-surface` | 4.68:1 | 4.5:1 |
+| dark | `colour-interactive` | `colour-background` | 15.64:1 | 4.5:1 |
+| dark | `colour-interactive` | `colour-surface` | 13.24:1 | 4.5:1 |
 | dark | `colour-border` | `colour-background` | 5.81:1 | 3:1 |
 | dark | `colour-border` | `colour-surface` | 4.92:1 | 3:1 |
 | dark | `colour-success` | `colour-background` | 10.40:1 | 4.5:1 |

@@ -1,7 +1,10 @@
 import { describe, expect, it } from 'vitest';
 
 import source from '../tokens/tokens.json';
-import { validateTokenSource } from '../scripts/generate-tokens.mjs';
+import {
+  generateConsumerCss,
+  validateTokenSource,
+} from '../scripts/generate-tokens.mjs';
 
 describe('token source validation', () => {
   it('accepts the canonical source and verifies theme contrast', () => {
@@ -39,7 +42,7 @@ describe('token source validation', () => {
     );
   });
 
-  it('registers consumer primary pairs and maps the website default', () => {
+  it('registers consumer primary pairs and keeps the default neutral', () => {
     const validated = validateTokenSource(source);
 
     expect(validated.consumerRegistry.get('website')?.resolved.light).toBe(
@@ -50,9 +53,9 @@ describe('token source validation', () => {
     );
     expect(
       validated.resolvedThemes.light.get('colour-interactive')?.value,
-    ).toBe('#2F6892');
+    ).toBe('#050507');
     expect(validated.resolvedThemes.dark.get('colour-interactive')?.value).toBe(
-      '#4E8BB7',
+      '#E8E1D2',
     );
     expect(validated.consumerRegistry.get('dithertool')?.resolved).toEqual({
       light: '#506A4B',
@@ -66,6 +69,17 @@ describe('token source validation', () => {
     expect(
       validated.consumerContrast.every((check) => check.ratio >= check.minimum),
     ).toBe(true);
+  });
+
+  it('maps consumer colours on components within light themes', () => {
+    const generatedCss = generateConsumerCss(validateTokenSource(source), 'mc');
+
+    expect(generatedCss).toContain(
+      "[data-mc-theme='light'] [data-mc-product='aetheltool']",
+    );
+    expect(generatedCss).toContain(
+      '--mc-colour-interactive: var(--mc-product-primary);',
+    );
   });
 
   it('rejects active consumers with missing primary tokens', () => {

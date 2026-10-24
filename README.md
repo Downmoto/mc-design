@@ -55,11 +55,11 @@ initialiseTheme();
 setTheme('system');
 ```
 
-The shared `--mc-colour-interactive` role maps to the registered memorycore.dev
-primary pair. Registered consumer themes can set `--mc-product-primary`
-separately for light and dark themes. Apply the packaged website mapping by
-setting `data-mc-product="website"` on the same document element as
-`data-mc-theme`.
+The shared `--mc-colour-interactive` role uses a neutral pair by default.
+Registered consumer themes can set `--mc-product-primary` separately for light
+and dark themes. Component users select these mappings through the `consumer`
+prop or `Consumer` component documented below. Token-only integrations can
+apply a packaged mapping with `data-mc-product`.
 
 See [the token reference](./docs/tokens.md) for the complete generated list and
 [the implementation decision](./docs/decisions/0001-implementation-contract.md)
@@ -88,6 +88,32 @@ and a loading state that preserves its dimensions and accessible name.
 Icon Button uses the same appearances and sizes while remaining square. Its
 required `label` supplies the accessible name and default native tooltip.
 
+Set a consumer on one component with its `consumer` prop:
+
+```svelte
+<Button consumer="website">Save changes</Button>
+```
+
+Use `Consumer` to provide a consumer to every nested library component. A
+component-level prop takes precedence over the nearest provider.
+
+```svelte
+<script lang="ts">
+  import { Button, Consumer, IconButton } from '@memorycore/design';
+</script>
+
+<Consumer consumer="dithertool">
+  <Button>Process image</Button>
+  <IconButton consumer="aetheltool" label="Add layer">
+    <!-- icon -->
+  </IconButton>
+</Consumer>
+```
+
+Omit both APIs to use the neutral default. The components manage the generated
+consumer attributes internally. Direct token overrides remain available for
+fine-grained control.
+
 ## Component workbench
 
 Start the local component library:
@@ -109,9 +135,10 @@ npm run package
 ```
 
 The SvelteKit static output is `build/`. It contains a catalogue home page and
-dedicated Button and Icon Button pages with live playgrounds, variants,
-interactions, usage guidance, accessibility requirements, and collapsed API and
-token references. Global theme and consumer controls update every preview.
+dedicated Consumer, Button, and Icon Button pages with live playgrounds,
+variants, interactions, usage guidance, accessibility requirements, and
+collapsed API and token references. Global theme and consumer controls update
+every preview through the public component APIs.
 
 See [the component workbench decision](./docs/decisions/0002-component-workbench.md)
 for the route and deployment contract.

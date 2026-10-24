@@ -4,6 +4,7 @@ import axe from 'axe-core';
 import { describe, expect, it, vi } from 'vitest';
 
 import { Button } from '../src/lib/index.js';
+import ConsumerButton from './fixtures/ConsumerButton.svelte';
 
 const label = createRawSnippet(() => ({
   render: () => '<span>Save changes</span>',
@@ -17,7 +18,39 @@ describe('Button', () => {
     expect(button).toHaveAttribute('type', 'button');
     expect(button).toHaveAttribute('data-appearance', 'primary');
     expect(button).toHaveAttribute('data-size', 'standard');
+    expect(button).not.toHaveAttribute('data-mc-product');
     expect(button).toBeEnabled();
+  });
+
+  it('applies a consumer from its prop', () => {
+    const { getByRole } = render(Button, {
+      children: label,
+      consumer: 'dithertool',
+    });
+
+    expect(getByRole('button', { name: 'Save changes' })).toHaveAttribute(
+      'data-mc-product',
+      'dithertool',
+    );
+  });
+
+  it('inherits a consumer and allows its prop to override it', () => {
+    const inherited = render(ConsumerButton, { consumer: 'website' });
+    for (const button of inherited.getAllByRole('button')) {
+      expect(button).toHaveAttribute('data-mc-product', 'website');
+    }
+    inherited.unmount();
+
+    const overridden = render(ConsumerButton, {
+      buttonConsumer: 'aetheltool',
+      consumer: 'website',
+    });
+    expect(
+      overridden.getByRole('button', { name: 'Save changes' }),
+    ).toHaveAttribute('data-mc-product', 'aetheltool');
+    expect(
+      overridden.getByRole('button', { name: 'Add item' }),
+    ).toHaveAttribute('data-mc-product', 'website');
   });
 
   it('prevents repeat activation while loading and preserves its label', async () => {
