@@ -47,7 +47,7 @@ Token implementation may begin while release automation and documentation choice
 Required components are tracked in one list. Items marked `website first` form the shared baseline for memorycore.dev; the remaining items follow consumer demand.
 
 - [x] Configuration: Consumer
-- [ ] Actions: Link (`website first`)
+- [x] Actions: Link (`website first`)
 - [x] Actions: Button (`website first`)
 - [x] Actions: Icon button (`website first`)
 - [ ] Actions: Action group (`website first`)

@@ -3,7 +3,10 @@ export interface CatalogueEntry {
   description: string;
   name: string;
   route:
-    '/components/button' | '/components/consumer' | '/components/icon-button';
+    | '/components/button'
+    | '/components/consumer'
+    | '/components/icon-button'
+    | '/components/link';
   status: 'Draft' | 'Ready';
 }
 
@@ -13,6 +16,13 @@ export const catalogue: CatalogueEntry[] = [
     description: 'Provides a consumer theme to nested library components',
     name: 'Consumer',
     route: '/components/consumer',
+    status: 'Ready',
+  },
+  {
+    category: 'Actions',
+    description: 'Navigates to another location with descriptive text',
+    name: 'Link',
+    route: '/components/link',
     status: 'Ready',
   },
   {

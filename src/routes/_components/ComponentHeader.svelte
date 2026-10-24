@@ -1,12 +1,30 @@
 <script lang="ts">
+  type SectionId =
+    'playground' | 'variants' | 'states' | 'guidance' | 'reference';
+
   interface Props {
     category: string;
     description: string;
+    sections?: SectionId[];
     status?: 'Draft' | 'Ready';
     title: string;
   }
 
-  let { category, description, status = 'Ready', title }: Props = $props();
+  const sectionLabels: Record<SectionId, string> = {
+    playground: 'Playground',
+    variants: 'Variants',
+    states: 'States',
+    guidance: 'Guidance',
+    reference: 'Reference',
+  };
+
+  let {
+    category,
+    description,
+    sections = ['playground', 'variants', 'states', 'guidance', 'reference'],
+    status = 'Ready',
+    title,
+  }: Props = $props();
 </script>
 
 <header class="component-heading">
@@ -19,9 +37,7 @@
 </header>
 
 <nav class="section-navigation" aria-label="On this page">
-  <a href="#playground">Playground</a>
-  <a href="#variants">Variants</a>
-  <a href="#states">States</a>
-  <a href="#guidance">Guidance</a>
-  <a href="#reference">Reference</a>
+  {#each sections as section}
+    <a href={`#${section}`}>{sectionLabels[section]}</a>
+  {/each}
 </nav>

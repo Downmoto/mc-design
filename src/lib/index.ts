@@ -33,3 +33,6 @@ export { type ConsumerProps } from './components/consumer.types.js';
 
 export { default as IconButton } from './components/IconButton.svelte';
 export { type IconButtonProps } from './components/icon-button.types.js';
+
+export { default as Link } from './components/Link.svelte';
+export { type LinkProps } from './components/link.types.js';

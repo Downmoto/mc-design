@@ -3,6 +3,7 @@
     Button,
     Consumer,
     IconButton,
+    Link,
     consumerRegistry,
     type ConsumerId,
   } from '#lib/index.js';
@@ -17,7 +18,7 @@
 
   let consumer = $state<ConsumerId>('website');
   let exampleCode = $derived(
-    `<Consumer consumer="${consumer}">\n  <Button>Save changes</Button>\n  <IconButton label="Add item">\n    <PlusIcon />\n  </IconButton>\n</Consumer>`,
+    `<Consumer consumer="${consumer}">\n  <Link href="/about">About MemoryCore</Link>\n  <Button>Save changes</Button>\n  <IconButton label="Add item">\n    <PlusIcon />\n  </IconButton>\n</Consumer>`,
   );
 
   function selectConsumer(event: Event): void {
@@ -48,6 +49,7 @@
     <div class="playground__preview">
       <Consumer {consumer}>
         <div class="preview-actions">
+          <Link href="#main-content">About MemoryCore</Link>
           <Button>Save changes</Button>
           <IconButton label="Add item"><PlusIcon /></IconButton>
         </div>
