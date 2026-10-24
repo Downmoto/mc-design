@@ -159,6 +159,7 @@
     color: var(--mc-colour-text-secondary);
     background: var(--mc-colour-surface);
     border-color: var(--mc-colour-border);
+    opacity: 0.5;
     cursor: not-allowed;
   }
 
