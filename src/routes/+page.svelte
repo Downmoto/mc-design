@@ -3,15 +3,11 @@
   import { catalogue } from './_components/catalogue.js';
   import ButtonPreview from './_components/previews/ButtonPreview.svelte';
   import ConsumerPreview from './_components/previews/ConsumerPreview.svelte';
-  import IconButtonPreview from './_components/previews/IconButtonPreview.svelte';
-  import LinkPreview from './_components/previews/LinkPreview.svelte';
 
   const categories = [...new Set(catalogue.map((entry) => entry.category))];
   const previews = {
     '/components/button': ButtonPreview,
     '/components/consumer': ConsumerPreview,
-    '/components/icon-button': IconButtonPreview,
-    '/components/link': LinkPreview,
   };
 </script>
 

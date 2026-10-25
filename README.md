@@ -72,21 +72,21 @@ Import the shared styles once, then import components from the package:
 ```svelte
 <script lang="ts">
   import '@memorycore/design/styles.css';
-  import { Button, IconButton } from '@memorycore/design';
+  import { Button } from '@memorycore/design';
 </script>
 
 <Button>Save changes</Button>
-<IconButton label="Add item">
+<Button appearance="link" href="/about">About MemoryCore</Button>
+<Button size="icon" aria-label="Add item" title="Add item">
   <!-- Phosphor Regular icon -->
-</IconButton>
+</Button>
 ```
 
-Button supports primary and secondary appearances, compact, standard, and
-large sizes, decorative leading and trailing icon snippets, disabled state,
-and a loading state that preserves its dimensions and accessible name.
-
-Icon Button uses the same appearances and sizes while remaining square. Its
-required `label` supplies the accessible name and default native tooltip.
+Button renders a native button by default and a native anchor when `href` is
+provided. It supports primary, secondary, and link appearances; compact,
+standard, large, and matching icon-only sizes; decorative leading and trailing
+icon snippets; disabled state; and a loading state that preserves its
+dimensions and accessible name.
 
 Set a consumer on one component with its `consumer` prop:
 
@@ -99,14 +99,19 @@ component-level prop takes precedence over the nearest provider.
 
 ```svelte
 <script lang="ts">
-  import { Button, Consumer, IconButton } from '@memorycore/design';
+  import { Button, Consumer } from '@memorycore/design';
 </script>
 
 <Consumer consumer="dithertool">
   <Button>Process image</Button>
-  <IconButton consumer="aetheltool" label="Add layer">
+  <Button
+    consumer="aetheltool"
+    size="icon"
+    aria-label="Add layer"
+    title="Add layer"
+  >
     <!-- icon -->
-  </IconButton>
+  </Button>
 </Consumer>
 ```
 

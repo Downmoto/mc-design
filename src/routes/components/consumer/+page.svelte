@@ -2,8 +2,6 @@
   import {
     Button,
     Consumer,
-    IconButton,
-    Link,
     consumerRegistry,
     type ConsumerId,
   } from '#lib/index.js';
@@ -18,7 +16,7 @@
 
   let consumer = $state<ConsumerId>('website');
   let exampleCode = $derived(
-    `<Consumer consumer="${consumer}">\n  <Link href="/about">About MemoryCore</Link>\n  <Button>Save changes</Button>\n  <IconButton label="Add item">\n    <PlusIcon />\n  </IconButton>\n</Consumer>`,
+    `<Consumer consumer="${consumer}">\n  <Button appearance="link" href="/about">About MemoryCore</Button>\n  <Button>Save changes</Button>\n  <Button size="icon" aria-label="Add item" title="Add item">\n    <PlusIcon />\n  </Button>\n</Consumer>`,
   );
 
   function selectConsumer(event: Event): void {
@@ -49,9 +47,13 @@
     <div class="playground__preview">
       <Consumer {consumer}>
         <div class="preview-actions">
-          <Link href="#main-content">About MemoryCore</Link>
+          <Button appearance="link" href="#main-content">
+            About MemoryCore
+          </Button>
           <Button>Save changes</Button>
-          <IconButton label="Add item"><PlusIcon /></IconButton>
+          <Button size="icon" aria-label="Add item" title="Add item">
+            <PlusIcon />
+          </Button>
         </div>
       </Consumer>
     </div>

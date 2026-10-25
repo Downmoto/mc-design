@@ -326,7 +326,7 @@ Keyboard conventions:
 
 Design and implement these shared capabilities for memorycore.dev before broader Tool-oriented components:
 
-- Actions: link, button, icon button, and action-group foundations.
+- Actions: button with link and icon presentations, plus action-group foundations.
 - Navigation: menu and disclosure behaviour for small-screen navigation.
 - Feedback: dialog or equivalent accessible preview surface, alert, status, progress indicator, and empty state.
 - Structure: card, list, table, and responsive-overflow foundations where the approved website designs require them.
@@ -337,7 +337,7 @@ The package owns each primitive's accessibility behaviour, states, public types,
 
 The broader approved inventory remains available for implementation when an approved design and current consumer require it:
 
-- Actions: link, button, and icon button.
+- Actions: button with link and icon presentations.
 - Inputs: text input, text area, numeric input, select or combobox, checkbox, radio group, switch, and slider.
 - Navigation: tabs, menu, and disclosure.
 - Feedback: tooltip, alert, toast, progress indicator, and dialog.
