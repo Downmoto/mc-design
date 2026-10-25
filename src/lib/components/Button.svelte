@@ -282,7 +282,7 @@
   .mc-button[data-appearance='link'] {
     position: relative;
     color: var(--mc-colour-interactive);
-    text-decoration-line: underline;
+    text-decoration-line: none;
     text-decoration-thickness: var(--mc-border-width-default);
     text-underline-offset: var(--mc-space-1);
     transition:
@@ -304,6 +304,7 @@
   }
 
   .mc-button[data-appearance='link']:hover:not([aria-disabled='true']) {
+    text-decoration-line: underline;
     text-decoration-thickness: var(--mc-border-width-emphasised);
   }
 

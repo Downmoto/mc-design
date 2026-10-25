@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { Button } from '#lib/index.js';
+
   type SectionId =
     'playground' | 'variants' | 'states' | 'guidance' | 'reference';
 
@@ -38,6 +40,8 @@
 
 <nav class="section-navigation" aria-label="On this page">
   {#each sections as section}
-    <a href={`#${section}`}>{sectionLabels[section]}</a>
+    <Button appearance="link" href={`#${section}`}>
+      {sectionLabels[section]}
+    </Button>
   {/each}
 </nav>

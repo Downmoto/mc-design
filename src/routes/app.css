@@ -125,15 +125,19 @@ code {
 
 .site-title {
   display: flex;
-  flex-wrap: wrap;
-  gap: var(--mc-space-2);
   color: var(--mc-colour-text-primary);
   font-family: var(--mc-typography-brand-heading-family);
   font-weight: var(--mc-typography-brand-heading-weight);
   text-decoration: none;
 }
 
-.site-title span:last-child {
+.site-title .mc-button__label {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--mc-space-2);
+}
+
+.site-title__context {
   color: var(--mc-colour-text-secondary);
   font-family: var(--mc-typography-body-family);
   font-weight: var(--mc-typography-body-weight);
@@ -216,7 +220,7 @@ select {
   background: var(--mc-colour-background);
 }
 
-.component-navigation a[aria-current='page'] {
+.component-navigation a.mc-button[aria-current='page'] {
   color: var(--mc-colour-background);
   background: var(--mc-colour-interactive);
 }
@@ -651,7 +655,7 @@ tbody th {
 
 @media (forced-colors: active) {
   .status,
-  .component-navigation a[aria-current='page'] {
+  .component-navigation a.mc-button[aria-current='page'] {
     forced-color-adjust: none;
     color: Canvas;
     background: Highlight;

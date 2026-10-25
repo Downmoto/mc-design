@@ -1,5 +1,6 @@
 <script lang="ts">
   import { resolve } from '$app/paths';
+  import { Button } from '#lib/index.js';
   import { catalogue } from './_components/catalogue.js';
   import ActionGroupPreview from './_components/previews/ActionGroupPreview.svelte';
   import ButtonPreview from './_components/previews/ButtonPreview.svelte';
@@ -46,9 +47,13 @@
               <span class="status">{entry.status}</span>
             </div>
             <p>{entry.description}</p>
-            <a class="component-link" href={`${resolve(entry.route)}/`}>
+            <Button
+              appearance="link"
+              class="component-link"
+              href={`${resolve(entry.route)}/`}
+            >
               View {entry.name.toLowerCase()}
-            </a>
+            </Button>
           </div>
         </article>
       {/each}

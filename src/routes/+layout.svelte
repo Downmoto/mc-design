@@ -2,6 +2,7 @@
   import { resolve } from '$app/paths';
   import { page } from '$app/state';
   import {
+    Button,
     Consumer,
     consumerRegistry,
     initialiseTheme,
@@ -75,10 +76,11 @@
 
 {#snippet componentNavigation()}
   <nav class="component-navigation" aria-label="Component navigation">
-    <a
+    <Button
+      appearance="link"
       class="component-navigation__overview"
       href={resolve('/')}
-      aria-current={page.route.id === '/' ? 'page' : undefined}>Overview</a
+      aria-current={page.route.id === '/' ? 'page' : undefined}>Overview</Button
     >
 
     {#each categories as category}
@@ -86,10 +88,11 @@
       <ul>
         {#each catalogue.filter((entry) => entry.category === category) as entry}
           <li>
-            <a
+            <Button
+              appearance="link"
               href={componentHref(entry.route)}
               aria-current={page.route.id === entry.route ? 'page' : undefined}
-              >{entry.name}</a
+              >{entry.name}</Button
             >
           </li>
         {/each}
@@ -101,10 +104,10 @@
 <a class="skip-link" href="#main-content">Skip to content</a>
 
 <header class="site-header">
-  <a class="site-title" href={resolve('/')}>
-    <span>MemoryCore</span>
-    <span>Component library</span>
-  </a>
+  <Button appearance="link" class="site-title" href={resolve('/')}>
+    <span class="site-title__brand">MemoryCore</span>
+    <span class="site-title__context">Component library</span>
+  </Button>
 
   <div class="global-controls" aria-label="Preview settings">
     <label>
