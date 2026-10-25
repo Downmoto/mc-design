@@ -28,5 +28,11 @@ export {
   type ButtonSize,
 } from './components/button.types.js';
 
+export { default as ActionGroup } from './components/ActionGroup.svelte';
+export {
+  type ActionGroupOrientation,
+  type ActionGroupProps,
+} from './components/action-group.types.js';
+
 export { default as Consumer } from './components/Consumer.svelte';
 export { type ConsumerProps } from './components/consumer.types.js';

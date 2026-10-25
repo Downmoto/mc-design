@@ -2,7 +2,8 @@ export interface CatalogueEntry {
   category: 'Actions' | 'Configuration';
   description: string;
   name: string;
-  route: '/components/button' | '/components/consumer';
+  route:
+    '/components/action-group' | '/components/button' | '/components/consumer';
   status: 'Draft' | 'Ready';
 }
 
@@ -19,6 +20,13 @@ export const catalogue: CatalogueEntry[] = [
     description: 'Provides labelled, linked, and icon-only controls',
     name: 'Button',
     route: '/components/button',
+    status: 'Ready',
+  },
+  {
+    category: 'Actions',
+    description: 'Arranges related actions as spaced or joined controls',
+    name: 'Action group',
+    route: '/components/action-group',
     status: 'Ready',
   },
 ];

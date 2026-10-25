@@ -72,7 +72,7 @@ Import the shared styles once, then import components from the package:
 ```svelte
 <script lang="ts">
   import '@memorycore/design/styles.css';
-  import { Button } from '@memorycore/design';
+  import { ActionGroup, Button } from '@memorycore/design';
 </script>
 
 <Button>Save changes</Button>
@@ -80,6 +80,11 @@ Import the shared styles once, then import components from the package:
 <Button size="icon" aria-label="Add item" title="Add item">
   <!-- Phosphor Regular icon -->
 </Button>
+
+<ActionGroup joined aria-label="Pagination">
+  <Button appearance="secondary">Previous</Button>
+  <Button appearance="secondary">Next</Button>
+</ActionGroup>
 ```
 
 Button renders a native button by default and a native anchor when `href` is
@@ -87,6 +92,11 @@ provided. It supports primary, secondary, and link appearances; compact,
 standard, large, and matching icon-only sizes; decorative leading and trailing
 icon snippets; disabled state; and a loading state that preserves its
 dimensions and accessible name.
+
+ActionGroup arranges related controls with consistent spacing. Set `joined` to
+connect direct Button children into one control, and nest joined groups inside
+a default ActionGroup to separate related clusters. Horizontal and vertical
+orientations preserve standard Tab navigation.
 
 Set a consumer on one component with its `consumer` prop:
 
@@ -140,7 +150,7 @@ npm run package
 ```
 
 The SvelteKit static output is `build/`. It contains a catalogue home page and
-dedicated Consumer, Button, and Icon Button pages with live playgrounds,
+dedicated Consumer, Button, and Action group pages with live playgrounds,
 variants, interactions, usage guidance, accessibility requirements, and
 collapsed API and token references. Global theme and consumer controls update
 every preview through the public component APIs.

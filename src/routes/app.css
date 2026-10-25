@@ -447,6 +447,10 @@ main {
   margin-block-start: var(--mc-space-6);
 }
 
+.variant-example {
+  min-inline-size: 0;
+}
+
 .matrix {
   display: grid;
   grid-template-columns: repeat(

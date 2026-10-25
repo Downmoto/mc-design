@@ -1,11 +1,13 @@
 <script lang="ts">
   import { resolve } from '$app/paths';
   import { catalogue } from './_components/catalogue.js';
+  import ActionGroupPreview from './_components/previews/ActionGroupPreview.svelte';
   import ButtonPreview from './_components/previews/ButtonPreview.svelte';
   import ConsumerPreview from './_components/previews/ConsumerPreview.svelte';
 
   const categories = [...new Set(catalogue.map((entry) => entry.category))];
   const previews = {
+    '/components/action-group': ActionGroupPreview,
     '/components/button': ButtonPreview,
     '/components/consumer': ConsumerPreview,
   };
