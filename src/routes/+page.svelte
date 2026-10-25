@@ -5,6 +5,7 @@
   import ActionGroupPreview from './_components/previews/ActionGroupPreview.svelte';
   import ButtonPreview from './_components/previews/ButtonPreview.svelte';
   import ConsumerPreview from './_components/previews/ConsumerPreview.svelte';
+  import TextInputPreview from './_components/previews/TextInputPreview.svelte';
   import TypographyPreview from './_components/previews/TypographyPreview.svelte';
 
   const categories = [...new Set(catalogue.map((entry) => entry.category))];
@@ -12,6 +13,7 @@
     '/components/action-group': ActionGroupPreview,
     '/components/button': ButtonPreview,
     '/components/consumer': ConsumerPreview,
+    '/components/text-input': TextInputPreview,
     '/components/typography': TypographyPreview,
   };
 </script>

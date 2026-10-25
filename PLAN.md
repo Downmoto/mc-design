@@ -50,7 +50,7 @@ Required components are tracked in one list. Items marked `website first` form t
 - [x] Actions: Button, including link and icon presentations (`website first`)
 - [x] Actions: Action group (`website first`)
 - [x] Structure: Typography
-- [ ] Inputs: Text input
+- [x] Inputs: Text input
 - [ ] Inputs: Text area
 - [ ] Inputs: Numeric input
 - [ ] Inputs: Select or combobox

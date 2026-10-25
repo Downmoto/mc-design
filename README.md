@@ -72,7 +72,12 @@ Import the shared styles once, then import components from the package:
 ```svelte
 <script lang="ts">
   import '@memorycore/design/styles.css';
-  import { ActionGroup, Button, Typography } from '@memorycore/design';
+  import {
+    ActionGroup,
+    Button,
+    TextInput,
+    Typography,
+  } from '@memorycore/design';
 </script>
 
 <Button>Save changes</Button>
@@ -88,6 +93,12 @@ Import the shared styles once, then import components from the package:
 
 <Typography variant="h1">Product settings</Typography>
 <Typography>Configure how this product behaves</Typography>
+
+<TextInput
+  label="Email address"
+  description="Used for account notices"
+  type="email"
+/>
 ```
 
 Button renders a native button by default and a native anchor when `href` is
@@ -104,6 +115,11 @@ orientations preserve standard Tab navigation.
 Typography provides Display, H1 through H4, paragraph, blockquote, list,
 inline code, lead, large, small, and muted patterns. Each pattern renders its
 corresponding semantic element and uses approved MemoryCore tokens.
+
+TextInput renders a labelled native input for a single line of text. It supports
+standard and compact sizes, text-like native input types, description and error
+messages, two-way value binding, and native required, read-only, and disabled
+states. Decorative icon snippets may appear before or after the value.
 
 Set a consumer on one component with its `consumer` prop:
 
@@ -157,7 +173,7 @@ npm run package
 ```
 
 The SvelteKit static output is `build/`. It contains a catalogue home page and
-dedicated Consumer, Button, Action group, and Typography pages with live
+dedicated Consumer, Button, Action group, Typography, and Text input pages with live
 playgrounds, variants, interactions, usage guidance, accessibility requirements,
 and collapsed API and token references. Global theme and consumer controls
 update every preview through the public component APIs.

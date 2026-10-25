@@ -40,5 +40,12 @@ export {
   type TypographyVariant,
 } from './components/typography.types.js';
 
+export { default as TextInput } from './components/TextInput.svelte';
+export {
+  type TextInputProps,
+  type TextInputSize,
+  type TextInputType,
+} from './components/text-input.types.js';
+
 export { default as Consumer } from './components/Consumer.svelte';
 export { type ConsumerProps } from './components/consumer.types.js';

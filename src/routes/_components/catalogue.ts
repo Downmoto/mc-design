@@ -1,11 +1,12 @@
 export interface CatalogueEntry {
-  category: 'Actions' | 'Configuration' | 'Structure';
+  category: 'Actions' | 'Configuration' | 'Inputs' | 'Structure';
   description: string;
   name: string;
   route:
     | '/components/action-group'
     | '/components/button'
     | '/components/consumer'
+    | '/components/text-input'
     | '/components/typography';
   status: 'Draft' | 'Ready';
 }
@@ -37,6 +38,13 @@ export const catalogue: CatalogueEntry[] = [
     description: 'Provides named semantic patterns for common text structures',
     name: 'Typography',
     route: '/components/typography',
+    status: 'Ready',
+  },
+  {
+    category: 'Inputs',
+    description: 'Collects a single line of text with clear field feedback',
+    name: 'Text input',
+    route: '/components/text-input',
     status: 'Ready',
   },
 ];
