@@ -52,7 +52,7 @@ Required components are tracked in one list. Items marked `website first` form t
 - [x] Structure: Typography
 - [x] Inputs: Text input
 - [x] Inputs: Text area
-- [ ] Inputs: Numeric input
+- [x] Inputs: Numeric input
 - [ ] Inputs: Select or combobox
 - [ ] Inputs: Checkbox
 - [ ] Inputs: Radio group

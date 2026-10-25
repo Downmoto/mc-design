@@ -53,5 +53,11 @@ export {
   type TextAreaSize,
 } from './components/text-area.types.js';
 
+export { default as NumericInput } from './components/NumericInput.svelte';
+export {
+  type NumericInputProps,
+  type NumericInputSize,
+} from './components/numeric-input.types.js';
+
 export { default as Consumer } from './components/Consumer.svelte';
 export { type ConsumerProps } from './components/consumer.types.js';

@@ -5,6 +5,7 @@
   import ActionGroupPreview from './_components/previews/ActionGroupPreview.svelte';
   import ButtonPreview from './_components/previews/ButtonPreview.svelte';
   import ConsumerPreview from './_components/previews/ConsumerPreview.svelte';
+  import NumericInputPreview from './_components/previews/NumericInputPreview.svelte';
   import TextAreaPreview from './_components/previews/TextAreaPreview.svelte';
   import TextInputPreview from './_components/previews/TextInputPreview.svelte';
   import TypographyPreview from './_components/previews/TypographyPreview.svelte';
@@ -14,6 +15,7 @@
     '/components/action-group': ActionGroupPreview,
     '/components/button': ButtonPreview,
     '/components/consumer': ConsumerPreview,
+    '/components/numeric-input': NumericInputPreview,
     '/components/text-area': TextAreaPreview,
     '/components/text-input': TextInputPreview,
     '/components/typography': TypographyPreview,

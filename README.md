@@ -75,6 +75,7 @@ Import the shared styles once, then import components from the package:
   import {
     ActionGroup,
     Button,
+    NumericInput,
     TextArea,
     TextInput,
     Typography,
@@ -106,6 +107,14 @@ Import the shared styles once, then import components from the package:
   description="Add context for collaborators"
   placeholder="Describe the project"
 />
+
+<NumericInput
+  label="Opacity"
+  description="Enter a value from 0 to 100"
+  min={0}
+  max={100}
+  suffix="%"
+/>
 ```
 
 Button renders a native button by default and a native anchor when `href` is
@@ -132,6 +141,11 @@ TextArea renders a labelled native textarea for multiline values. It supports
 standard and compact sizes, description and error messages, configurable rows,
 two-way value binding, vertical resizing, and native required, read-only, and
 disabled states.
+
+NumericInput renders a labelled native number input. It supports standard and
+compact sizes, numeric minimum, maximum, and step constraints, two-way value
+binding, text prefixes and suffixes, description and error messages, and native
+required, read-only, and disabled states.
 
 Set a consumer on one component with its `consumer` prop:
 
@@ -185,10 +199,11 @@ npm run package
 ```
 
 The SvelteKit static output is `build/`. It contains a catalogue home page and
-dedicated Consumer, Button, Action group, Typography, Text input, and Text area pages with live
-playgrounds, variants, interactions, usage guidance, accessibility requirements,
-and collapsed API and token references. Global theme and consumer controls
-update every preview through the public component APIs.
+dedicated Consumer, Button, Action group, Typography, Text input, Text area, and
+Numeric input pages with live playgrounds, variants, interactions, usage
+guidance, accessibility requirements, and collapsed API and token references.
+Global theme and consumer controls update every preview through the public
+component APIs.
 
 See [the component workbench decision](./docs/decisions/0002-component-workbench.md)
 for the route and deployment contract.

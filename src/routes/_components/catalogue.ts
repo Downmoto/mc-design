@@ -6,6 +6,7 @@ export interface CatalogueEntry {
     | '/components/action-group'
     | '/components/button'
     | '/components/consumer'
+    | '/components/numeric-input'
     | '/components/text-area'
     | '/components/text-input'
     | '/components/typography';
@@ -53,6 +54,13 @@ export const catalogue: CatalogueEntry[] = [
     description: 'Collects multiple lines of text with clear field feedback',
     name: 'Text area',
     route: '/components/text-area',
+    status: 'Ready',
+  },
+  {
+    category: 'Inputs',
+    description: 'Collects constrained numeric values with native controls',
+    name: 'Numeric input',
+    route: '/components/numeric-input',
     status: 'Ready',
   },
 ];
