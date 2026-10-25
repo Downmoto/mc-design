@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Button } from '#lib/index.js';
+  import { Button, Typography } from '#lib/index.js';
 
   type SectionId =
     'playground' | 'variants' | 'states' | 'guidance' | 'reference';
@@ -30,12 +30,12 @@
 </script>
 
 <header class="component-heading">
-  <p class="eyebrow">{category}</p>
+  <Typography class="eyebrow" variant="muted">{category}</Typography>
   <div class="component-heading__title">
-    <h1>{title}</h1>
+    <Typography variant="h1">{title}</Typography>
     <span class="status">{status}</span>
   </div>
-  <p>{description}</p>
+  <Typography variant="lead">{description}</Typography>
 </header>
 
 <nav class="section-navigation" aria-label="On this page">

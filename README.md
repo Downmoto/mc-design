@@ -72,7 +72,7 @@ Import the shared styles once, then import components from the package:
 ```svelte
 <script lang="ts">
   import '@memorycore/design/styles.css';
-  import { ActionGroup, Button } from '@memorycore/design';
+  import { ActionGroup, Button, Typography } from '@memorycore/design';
 </script>
 
 <Button>Save changes</Button>
@@ -85,6 +85,9 @@ Import the shared styles once, then import components from the package:
   <Button appearance="secondary">Previous</Button>
   <Button appearance="secondary">Next</Button>
 </ActionGroup>
+
+<Typography variant="h1">Product settings</Typography>
+<Typography>Configure how this product behaves</Typography>
 ```
 
 Button renders a native button by default and a native anchor when `href` is
@@ -97,6 +100,10 @@ ActionGroup arranges related controls with consistent spacing. Set `joined` to
 connect direct Button children into one control, and nest joined groups inside
 a default ActionGroup to separate related clusters. Horizontal and vertical
 orientations preserve standard Tab navigation.
+
+Typography provides Display, H1 through H4, paragraph, blockquote, list,
+inline code, lead, large, small, and muted patterns. Each pattern renders its
+corresponding semantic element and uses approved MemoryCore tokens.
 
 Set a consumer on one component with its `consumer` prop:
 
@@ -150,10 +157,10 @@ npm run package
 ```
 
 The SvelteKit static output is `build/`. It contains a catalogue home page and
-dedicated Consumer, Button, and Action group pages with live playgrounds,
-variants, interactions, usage guidance, accessibility requirements, and
-collapsed API and token references. Global theme and consumer controls update
-every preview through the public component APIs.
+dedicated Consumer, Button, Action group, and Typography pages with live
+playgrounds, variants, interactions, usage guidance, accessibility requirements,
+and collapsed API and token references. Global theme and consumer controls
+update every preview through the public component APIs.
 
 See [the component workbench decision](./docs/decisions/0002-component-workbench.md)
 for the route and deployment contract.

@@ -191,13 +191,9 @@ select {
   inset-block-start: calc(var(--mc-size-control-large) + var(--mc-space-5));
 }
 
-.component-navigation h2 {
+.component-navigation__category {
   margin: var(--mc-space-5) 0 var(--mc-space-1);
   color: var(--mc-colour-text-secondary);
-  font-family: var(--mc-typography-label-family);
-  font-size: var(--mc-typography-label-size);
-  font-weight: var(--mc-typography-label-weight);
-  line-height: var(--mc-typography-label-line-height);
 }
 
 .component-navigation ul {
@@ -240,6 +236,8 @@ main {
 
 .page-heading,
 .component-heading {
+  display: grid;
+  gap: var(--mc-space-4);
   max-inline-size: var(--mc-size-reading-maximum);
 }
 
@@ -284,7 +282,7 @@ main {
 }
 
 .eyebrow {
-  margin-block-end: var(--mc-space-1);
+  margin-block-end: 0;
 }
 
 .status {

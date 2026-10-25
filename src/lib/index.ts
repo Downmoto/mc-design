@@ -34,5 +34,11 @@ export {
   type ActionGroupProps,
 } from './components/action-group.types.js';
 
+export { default as Typography } from './components/Typography.svelte';
+export {
+  type TypographyProps,
+  type TypographyVariant,
+} from './components/typography.types.js';
+
 export { default as Consumer } from './components/Consumer.svelte';
 export { type ConsumerProps } from './components/consumer.types.js';

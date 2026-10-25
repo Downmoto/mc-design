@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { Typography } from '#lib/index.js';
+
   interface Props {
     code: string;
   }
@@ -18,7 +20,7 @@
 
 <div class="code-example">
   <div class="code-example__header">
-    <span>Svelte</span>
+    <Typography variant="small">Svelte</Typography>
     <button type="button" class="text-action" onclick={copyCode}
       >Copy code</button
     >

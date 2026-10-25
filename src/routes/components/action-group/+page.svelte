@@ -2,6 +2,7 @@
   import {
     ActionGroup,
     Button,
+    Typography,
     type ActionGroupOrientation,
   } from '#lib/index.js';
   import CodeExample from '../../_components/CodeExample.svelte';
@@ -38,7 +39,7 @@
   aria-labelledby="playground-title"
 >
   <div class="section-heading">
-    <h2 id="playground-title">Playground</h2>
+    <Typography id="playground-title" variant="h2">Playground</Typography>
   </div>
 
   <div class="playground">
@@ -54,9 +55,9 @@
           >Share</Button
         >
       </ActionGroup>
-      <p class="interaction-result" aria-live="polite">
+      <Typography class="interaction-result" aria-live="polite">
         Last action: {activation}
-      </p>
+      </Typography>
     </div>
 
     <form class="control-panel" onsubmit={(event) => event.preventDefault()}>
@@ -83,11 +84,11 @@
   aria-labelledby="variants-title"
 >
   <div class="section-heading">
-    <h2 id="variants-title">Variants</h2>
+    <Typography id="variants-title" variant="h2">Variants</Typography>
   </div>
 
   <div class="variant-group">
-    <h3>Separated and joined</h3>
+    <Typography variant="h3">Separated and joined</Typography>
     <div class="matrix">
       <div class="variant-example">
         <div class="specimen">
@@ -118,7 +119,7 @@
   </div>
 
   <div class="variant-group">
-    <h3>Nested clusters</h3>
+    <Typography variant="h3">Nested clusters</Typography>
     <div class="matrix">
       <div class="variant-example">
         <div class="specimen">
@@ -167,25 +168,31 @@
   aria-labelledby="guidance-title"
 >
   <div class="section-heading">
-    <h2 id="guidance-title">Guidance</h2>
+    <Typography id="guidance-title" variant="h2">Guidance</Typography>
   </div>
 
   <div class="prose-grid">
     <div>
-      <h3>Usage</h3>
-      <ul>
+      <Typography variant="h3">Usage</Typography>
+      <Typography variant="list">
         <li>Use the default group for related actions with visible spacing</li>
-        <li>Use <code>joined</code> for a compact, connected control</li>
+        <li>
+          Use <Typography variant="inline-code">joined</Typography> for a compact,
+          connected control
+        </li>
         <li>Nest joined groups inside a default group to separate clusters</li>
         <li>Give controls in one joined group the same size</li>
         <li>Keep joined groups short enough to reflow at 320 CSS px</li>
         <li>Use Button appearances other than Link in joined groups</li>
-      </ul>
+      </Typography>
     </div>
     <div>
-      <h3>Accessibility</h3>
-      <ul>
-        <li>Uses <code>role="group"</code> to expose related actions</li>
+      <Typography variant="h3">Accessibility</Typography>
+      <Typography variant="list">
+        <li>
+          Uses <Typography variant="inline-code">role="group"</Typography> to expose
+          related actions
+        </li>
         <li>
           Provide a concise accessible label when the relationship needs one
         </li>
@@ -193,7 +200,7 @@
         <li>Joined presentation does not add arrow-key navigation</li>
         <li>Each child action keeps its own name, state, and behaviour</li>
         <li>Use Toolbar for composite-control keyboard behaviour</li>
-      </ul>
+      </Typography>
     </div>
   </div>
 </section>
@@ -204,13 +211,13 @@
   aria-labelledby="reference-title"
 >
   <div class="section-heading">
-    <h2 id="reference-title">Reference</h2>
+    <Typography id="reference-title" variant="h2">Reference</Typography>
   </div>
 
   <details class="reference-details">
     <summary>API and token reference</summary>
     <div class="reference-details__content">
-      <h3>API</h3>
+      <Typography variant="h3">API</Typography>
       <!-- svelte-ignore a11y_no_noninteractive_tabindex (Scrollable table needs keyboard focus) -->
       <div
         class="table-scroll"
@@ -229,32 +236,44 @@
           </thead>
           <tbody>
             <tr>
-              <th scope="row"><code>joined</code></th>
-              <td><code>boolean</code></td>
-              <td><code>false</code></td>
+              <th scope="row"
+                ><Typography variant="inline-code">joined</Typography></th
+              >
+              <td><Typography variant="inline-code">boolean</Typography></td>
+              <td><Typography variant="inline-code">false</Typography></td>
               <td>Connects direct Button children</td>
             </tr>
             <tr>
-              <th scope="row"><code>orientation</code></th>
-              <td><code>'horizontal' | 'vertical'</code></td>
-              <td><code>'horizontal'</code></td>
+              <th scope="row"
+                ><Typography variant="inline-code">orientation</Typography></th
+              >
+              <td
+                ><Typography variant="inline-code"
+                  >'horizontal' | 'vertical'</Typography
+                ></td
+              >
+              <td
+                ><Typography variant="inline-code">'horizontal'</Typography></td
+              >
               <td>Sets the layout direction</td>
             </tr>
             <tr>
-              <th scope="row"><code>children</code></th>
-              <td><code>Snippet</code></td>
+              <th scope="row"
+                ><Typography variant="inline-code">children</Typography></th
+              >
+              <td><Typography variant="inline-code">Snippet</Typography></td>
               <td>Required</td>
               <td>Provides actions or nested action groups</td>
             </tr>
           </tbody>
         </table>
       </div>
-      <p class="table-note">
+      <Typography class="table-note" variant="muted">
         Native div attributes, including accessible labels and event handlers,
         pass through
-      </p>
+      </Typography>
 
-      <h3>Token mapping</h3>
+      <Typography variant="h3">Token mapping</Typography>
       <!-- svelte-ignore a11y_no_noninteractive_tabindex (Scrollable table needs keyboard focus) -->
       <div
         class="table-scroll"
@@ -269,19 +288,23 @@
           <tbody>
             <tr>
               <th scope="row">Separated gap</th>
-              <td><code>space-2</code></td>
+              <td><Typography variant="inline-code">space-2</Typography></td>
             </tr>
             <tr>
               <th scope="row">Nested separated gap</th>
-              <td><code>space-1</code></td>
+              <td><Typography variant="inline-code">space-1</Typography></td>
             </tr>
             <tr>
               <th scope="row">Joined shape</th>
-              <td><code>radius-1</code></td>
+              <td><Typography variant="inline-code">radius-1</Typography></td>
             </tr>
             <tr>
               <th scope="row">Joined boundary overlap</th>
-              <td><code>border-width-emphasised</code></td>
+              <td
+                ><Typography variant="inline-code"
+                  >border-width-emphasised</Typography
+                ></td
+              >
             </tr>
           </tbody>
         </table>

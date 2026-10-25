@@ -4,6 +4,7 @@
   import {
     Button,
     Consumer,
+    Typography,
     consumerRegistry,
     initialiseTheme,
     setTheme,
@@ -84,8 +85,10 @@
     >
 
     {#each categories as category}
-      <h2>{category}</h2>
-      <ul>
+      <Typography class="component-navigation__category" variant="large">
+        {category}
+      </Typography>
+      <ul aria-label={category}>
         {#each catalogue.filter((entry) => entry.category === category) as entry}
           <li>
             <Button

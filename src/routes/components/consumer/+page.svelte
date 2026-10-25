@@ -2,6 +2,7 @@
   import {
     Button,
     Consumer,
+    Typography,
     consumerRegistry,
     type ConsumerId,
   } from '#lib/index.js';
@@ -40,7 +41,7 @@
   aria-labelledby="playground-title"
 >
   <div class="section-heading">
-    <h2 id="playground-title">Playground</h2>
+    <Typography id="playground-title" variant="h2">Playground</Typography>
   </div>
 
   <div class="playground">
@@ -79,7 +80,9 @@
   aria-labelledby="variants-title"
 >
   <div class="section-heading">
-    <h2 id="variants-title">Registered consumers</h2>
+    <Typography id="variants-title" variant="h2">
+      Registered consumers
+    </Typography>
   </div>
 
   <div class="matrix">
@@ -96,7 +99,7 @@
 
 <section class="workbench-section" id="states" aria-labelledby="states-title">
   <div class="section-heading">
-    <h2 id="states-title">Precedence</h2>
+    <Typography id="states-title" variant="h2">Precedence</Typography>
   </div>
 
   <div class="matrix">
@@ -131,29 +134,29 @@
   aria-labelledby="guidance-title"
 >
   <div class="section-heading">
-    <h2 id="guidance-title">Guidance</h2>
+    <Typography id="guidance-title" variant="h2">Guidance</Typography>
   </div>
 
   <div class="prose-grid">
     <div>
-      <h3>Usage</h3>
-      <ul>
+      <Typography variant="h3">Usage</Typography>
+      <Typography variant="list">
         <li>Wrap a product region once when its components share a consumer</li>
         <li>Use a component consumer prop for a local override</li>
         <li>
           Nest providers when an interface contains multiple product regions
         </li>
         <li>Omit both APIs for the neutral default</li>
-      </ul>
+      </Typography>
     </div>
     <div>
-      <h3>Behaviour</h3>
-      <ul>
+      <Typography variant="h3">Behaviour</Typography>
+      <Typography variant="list">
         <li>Renders its children without an additional element</li>
         <li>Provides the consumer through Svelte context</li>
         <li>Allows the nearest provider to replace an outer provider</li>
         <li>Allows a component prop to replace the inherited consumer</li>
-      </ul>
+      </Typography>
     </div>
   </div>
 </section>
@@ -164,13 +167,13 @@
   aria-labelledby="reference-title"
 >
   <div class="section-heading">
-    <h2 id="reference-title">Reference</h2>
+    <Typography id="reference-title" variant="h2">Reference</Typography>
   </div>
 
   <details class="reference-details">
     <summary>API reference</summary>
     <div class="reference-details__content">
-      <h3>API</h3>
+      <Typography variant="h3">API</Typography>
       <!-- svelte-ignore a11y_no_noninteractive_tabindex (Scrollable table needs keyboard focus) -->
       <div
         class="table-scroll"
@@ -189,14 +192,18 @@
           </thead>
           <tbody>
             <tr>
-              <th scope="row"><code>consumer</code></th>
-              <td><code>ConsumerId</code></td>
+              <th scope="row"
+                ><Typography variant="inline-code">consumer</Typography></th
+              >
+              <td><Typography variant="inline-code">ConsumerId</Typography></td>
               <td>Required</td>
               <td>Sets the inherited consumer</td>
             </tr>
             <tr>
-              <th scope="row"><code>children</code></th>
-              <td><code>Snippet</code></td>
+              <th scope="row"
+                ><Typography variant="inline-code">children</Typography></th
+              >
+              <td><Typography variant="inline-code">Snippet</Typography></td>
               <td>Required</td>
               <td>Provides the nested component tree</td>
             </tr>

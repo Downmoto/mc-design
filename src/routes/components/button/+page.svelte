@@ -1,6 +1,7 @@
 <script lang="ts">
   import {
     Button,
+    Typography,
     type ButtonAppearance,
     type ButtonSize,
   } from '#lib/index.js';
@@ -162,7 +163,7 @@
   aria-labelledby="playground-title"
 >
   <div class="section-heading">
-    <h2 id="playground-title">Playground</h2>
+    <Typography id="playground-title" variant="h2">Playground</Typography>
   </div>
 
   <div class="playground">
@@ -198,9 +199,9 @@
           {label || 'Button'}
         </Button>
       {/if}
-      <p class="interaction-result" aria-live="polite">
+      <Typography class="interaction-result" aria-live="polite">
         Activations: {activationCount}
-      </p>
+      </Typography>
     </div>
 
     <form class="control-panel" onsubmit={(event) => event.preventDefault()}>
@@ -286,11 +287,11 @@
   aria-labelledby="variants-title"
 >
   <div class="section-heading">
-    <h2 id="variants-title">Variants</h2>
+    <Typography id="variants-title" variant="h2">Variants</Typography>
   </div>
 
   <div class="variant-group">
-    <h3>Appearance and size</h3>
+    <Typography variant="h3">Appearance and size</Typography>
     <div class="matrix">
       {#each appearances as appearanceOption}
         {#each sizes as sizeOption}
@@ -311,7 +312,7 @@
   </div>
 
   <div class="variant-group">
-    <h3>Links</h3>
+    <Typography variant="h3">Links</Typography>
     <div class="matrix">
       <div class="specimen">
         <span class="specimen__label">Inline link</span>
@@ -334,7 +335,7 @@
   </div>
 
   <div class="variant-group">
-    <h3>Icon buttons</h3>
+    <Typography variant="h3">Icon buttons</Typography>
     <div class="matrix">
       {#each appearances as appearanceOption}
         {#each iconSizes as sizeOption}
@@ -360,7 +361,7 @@
   </div>
 
   <div class="variant-group">
-    <h3>Labelled button content</h3>
+    <Typography variant="h3">Labelled button content</Typography>
     <div class="matrix">
       <div class="specimen">
         <span class="specimen__label">Text</span>
@@ -389,7 +390,9 @@
 
 <section class="workbench-section" id="states" aria-labelledby="states-title">
   <div class="section-heading">
-    <h2 id="states-title">States and interactions</h2>
+    <Typography id="states-title" variant="h2">
+      States and interactions
+    </Typography>
   </div>
 
   <div class="matrix">
@@ -420,35 +423,50 @@
   aria-labelledby="guidance-title"
 >
   <div class="section-heading">
-    <h2 id="guidance-title">Guidance</h2>
+    <Typography id="guidance-title" variant="h2">Guidance</Typography>
   </div>
 
   <div class="prose-grid">
     <div>
-      <h3>Usage</h3>
-      <ul>
-        <li>Omit <code>href</code> for an action in the current interface</li>
-        <li>Provide <code>href</code> for navigation</li>
+      <Typography variant="h3">Usage</Typography>
+      <Typography variant="list">
+        <li>
+          Omit <Typography variant="inline-code">href</Typography> for an action in
+          the current interface
+        </li>
+        <li>
+          Provide <Typography variant="inline-code">href</Typography> for navigation
+        </li>
         <li>Use the Link appearance for inline navigation</li>
         <li>Use Primary for the principal action in the current context</li>
         <li>Use Secondary for supporting or lower-priority actions</li>
         <li>Use Ghost for quiet actions without a persistent boundary</li>
         <li>Use an icon size only when the icon is widely understood</li>
-      </ul>
+      </Typography>
     </div>
     <div>
-      <h3>Accessibility</h3>
-      <ul>
-        <li>Renders a native anchor with <code>href</code></li>
-        <li>Renders a native button without <code>href</code></li>
-        <li>Requires <code>aria-label</code> on icon-only controls</li>
+      <Typography variant="h3">Accessibility</Typography>
+      <Typography variant="list">
         <li>
-          Use <code>title</code> when an icon-only control needs a tooltip
+          Renders a native anchor with
+          <Typography variant="inline-code">href</Typography>
+        </li>
+        <li>
+          Renders a native button without
+          <Typography variant="inline-code">href</Typography>
+        </li>
+        <li>
+          Requires <Typography variant="inline-code">aria-label</Typography>
+          on icon-only controls
+        </li>
+        <li>
+          Use <Typography variant="inline-code">title</Typography> when an icon-only
+          control needs a tooltip
         </li>
         <li>Preserves dimensions and accessible names while loading</li>
         <li>Prevents repeat activation while loading</li>
         <li>Respects reduced-motion and forced-colour preferences</li>
-      </ul>
+      </Typography>
     </div>
   </div>
 </section>
@@ -459,13 +477,13 @@
   aria-labelledby="reference-title"
 >
   <div class="section-heading">
-    <h2 id="reference-title">Reference</h2>
+    <Typography id="reference-title" variant="h2">Reference</Typography>
   </div>
 
   <details class="reference-details">
     <summary>API and token reference</summary>
     <div class="reference-details__content">
-      <h3>API</h3>
+      <Typography variant="h3">API</Typography>
       <!-- svelte-ignore a11y_no_noninteractive_tabindex (Scrollable table needs keyboard focus) -->
       <div
         class="table-scroll"
@@ -484,73 +502,95 @@
           </thead>
           <tbody>
             <tr>
-              <th scope="row"><code>appearance</code></th>
-              <td><code>'primary' | 'secondary' | 'ghost' | 'link'</code></td>
-              <td><code>'primary'</code></td>
+              <th scope="row"
+                ><Typography variant="inline-code">appearance</Typography></th
+              >
+              <td
+                ><Typography variant="inline-code"
+                  >'primary' | 'secondary' | 'ghost' | 'link'</Typography
+                ></td
+              >
+              <td><Typography variant="inline-code">'primary'</Typography></td>
               <td>Sets the visual treatment</td>
             </tr>
             <tr>
-              <th scope="row"><code>href</code></th>
-              <td><code>string</code></td>
+              <th scope="row"
+                ><Typography variant="inline-code">href</Typography></th
+              >
+              <td><Typography variant="inline-code">string</Typography></td>
               <td>None</td>
               <td>Renders an anchor and sets its destination</td>
             </tr>
             <tr>
-              <th scope="row"><code>consumer</code></th>
-              <td><code>ConsumerId</code></td>
+              <th scope="row"
+                ><Typography variant="inline-code">consumer</Typography></th
+              >
+              <td><Typography variant="inline-code">ConsumerId</Typography></td>
               <td>Inherited or neutral</td>
               <td>Sets the consumer colour mapping</td>
             </tr>
             <tr>
-              <th scope="row"><code>size</code></th>
+              <th scope="row"
+                ><Typography variant="inline-code">size</Typography></th
+              >
               <td>
-                <code
-                  >'compact' | 'standard' | 'large' | 'icon-compact' | 'icon' |
-                  'icon-large'</code
-                >
+                <Typography variant="inline-code">
+                  'compact' | 'standard' | 'large' | 'icon-compact' | 'icon' |
+                  'icon-large'
+                </Typography>
               </td>
-              <td><code>'standard'</code></td>
+              <td><Typography variant="inline-code">'standard'</Typography></td>
               <td>Sets labelled or square control dimensions</td>
             </tr>
             <tr>
-              <th scope="row"><code>loading</code></th>
-              <td><code>boolean</code></td>
-              <td><code>false</code></td>
+              <th scope="row"
+                ><Typography variant="inline-code">loading</Typography></th
+              >
+              <td><Typography variant="inline-code">boolean</Typography></td>
+              <td><Typography variant="inline-code">false</Typography></td>
               <td>Shows progress and prevents activation</td>
             </tr>
             <tr>
-              <th scope="row"><code>disabled</code></th>
-              <td><code>boolean</code></td>
-              <td><code>false</code></td>
+              <th scope="row"
+                ><Typography variant="inline-code">disabled</Typography></th
+              >
+              <td><Typography variant="inline-code">boolean</Typography></td>
+              <td><Typography variant="inline-code">false</Typography></td>
               <td>Prevents activation</td>
             </tr>
             <tr>
-              <th scope="row"><code>leadingIcon</code></th>
-              <td><code>Snippet</code></td>
+              <th scope="row"
+                ><Typography variant="inline-code">leadingIcon</Typography></th
+              >
+              <td><Typography variant="inline-code">Snippet</Typography></td>
               <td>None</td>
               <td>Places a decorative icon before a visible label</td>
             </tr>
             <tr>
-              <th scope="row"><code>trailingIcon</code></th>
-              <td><code>Snippet</code></td>
+              <th scope="row"
+                ><Typography variant="inline-code">trailingIcon</Typography></th
+              >
+              <td><Typography variant="inline-code">Snippet</Typography></td>
               <td>None</td>
               <td>Places a decorative icon after a visible label</td>
             </tr>
             <tr>
-              <th scope="row"><code>children</code></th>
-              <td><code>Snippet</code></td>
+              <th scope="row"
+                ><Typography variant="inline-code">children</Typography></th
+              >
+              <td><Typography variant="inline-code">Snippet</Typography></td>
               <td>Required</td>
               <td>Provides the label or icon</td>
             </tr>
           </tbody>
         </table>
       </div>
-      <p class="table-note">
+      <Typography class="table-note" variant="muted">
         Applicable native button and anchor attributes and event handlers pass
         through
-      </p>
+      </Typography>
 
-      <h3>Token mapping</h3>
+      <Typography variant="h3">Token mapping</Typography>
       <!-- svelte-ignore a11y_no_noninteractive_tabindex (Scrollable table needs keyboard focus) -->
       <div
         class="table-scroll"
@@ -566,45 +606,70 @@
             <tr>
               <th scope="row">Control heights</th>
               <td>
-                <code>size-control-compact</code>,
-                <code>size-control-standard</code>,
-                <code>size-control-large</code>
+                <Typography variant="inline-code"
+                  >size-control-compact</Typography
+                >,
+                <Typography variant="inline-code"
+                  >size-control-standard</Typography
+                >,
+                <Typography variant="inline-code">size-control-large</Typography
+                >
               </td>
             </tr>
             <tr>
               <th scope="row">Icon sizes</th>
               <td>
-                <code>size-icon-compact</code>,
-                <code>size-icon-standard</code>,
-                <code>size-icon-primary</code>
+                <Typography variant="inline-code">size-icon-compact</Typography
+                >,
+                <Typography variant="inline-code">size-icon-standard</Typography
+                >,
+                <Typography variant="inline-code">size-icon-primary</Typography>
               </td>
             </tr>
             <tr>
               <th scope="row">Text</th>
-              <td><code>typography-label-*</code></td>
+              <td
+                ><Typography variant="inline-code"
+                  >typography-label-*</Typography
+                ></td
+              >
             </tr>
             <tr>
               <th scope="row">Product colour</th>
-              <td><code>colour-interactive</code></td>
+              <td
+                ><Typography variant="inline-code"
+                  >colour-interactive</Typography
+                ></td
+              >
             </tr>
             <tr>
               <th scope="row">Boundary</th>
               <td>
-                <code>colour-border</code>,
-                <code>colour-text-primary</code>,
-                <code>border-width-default</code>,
-                <code>border-width-emphasised</code>
+                <Typography variant="inline-code">colour-border</Typography>,
+                <Typography variant="inline-code"
+                  >colour-text-primary</Typography
+                >,
+                <Typography variant="inline-code"
+                  >border-width-default</Typography
+                >,
+                <Typography variant="inline-code"
+                  >border-width-emphasised</Typography
+                >
               </td>
             </tr>
             <tr>
               <th scope="row">Shape</th>
-              <td><code>radius-1</code></td>
+              <td><Typography variant="inline-code">radius-1</Typography></td>
             </tr>
             <tr>
               <th scope="row">Response</th>
               <td>
-                <code>motion-duration-direct</code>,
-                <code>motion-easing-default</code>
+                <Typography variant="inline-code"
+                  >motion-duration-direct</Typography
+                >,
+                <Typography variant="inline-code"
+                  >motion-easing-default</Typography
+                >
               </td>
             </tr>
           </tbody>
