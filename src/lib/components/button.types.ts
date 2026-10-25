@@ -6,7 +6,7 @@ import type {
 
 import type { ConsumerId } from '../generated/tokens.js';
 
-export type ButtonAppearance = 'primary' | 'secondary' | 'link';
+export type ButtonAppearance = 'primary' | 'secondary' | 'ghost' | 'link';
 type LabelledButtonSize = 'compact' | 'standard' | 'large';
 type IconButtonSize = 'icon-compact' | 'icon' | 'icon-large';
 export type ButtonSize = LabelledButtonSize | IconButtonSize;

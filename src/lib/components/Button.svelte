@@ -198,6 +198,12 @@
     border-color: var(--mc-colour-interactive);
   }
 
+  .mc-button[data-appearance='ghost'] {
+    color: var(--mc-colour-interactive);
+    background: transparent;
+    border-color: transparent;
+  }
+
   .mc-button[data-appearance='primary']:hover:not(:disabled):not(
       [aria-disabled='true']
     ) {
@@ -208,6 +214,9 @@
   }
 
   .mc-button[data-appearance='secondary']:hover:not(:disabled):not(
+      [aria-disabled='true']
+    ),
+  .mc-button[data-appearance='ghost']:hover:not(:disabled):not(
       [aria-disabled='true']
     ) {
     color: var(--mc-colour-background);

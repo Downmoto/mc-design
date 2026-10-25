@@ -91,6 +91,18 @@ describe('Button', () => {
     );
   });
 
+  it('supports the ghost appearance', () => {
+    const { getByRole } = render(Button, {
+      appearance: 'ghost',
+      children: label,
+    });
+
+    expect(getByRole('button', { name: 'Save changes' })).toHaveAttribute(
+      'data-appearance',
+      'ghost',
+    );
+  });
+
   it('supports accessible square icon sizes', () => {
     const icon = createRawSnippet(() => ({
       render: () =>

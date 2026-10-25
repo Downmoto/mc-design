@@ -88,10 +88,10 @@ Import the shared styles once, then import components from the package:
 ```
 
 Button renders a native button by default and a native anchor when `href` is
-provided. It supports primary, secondary, and link appearances; compact,
+provided. It supports primary, secondary, ghost, and link appearances; compact,
 standard, large, and matching icon-only sizes; decorative leading and trailing
-icon snippets; disabled state; and a loading state that preserves its
-dimensions and accessible name.
+icon snippets; disabled state; and a loading state that preserves its dimensions
+and accessible name.
 
 ActionGroup arranges related controls with consistent spacing. Set `joined` to
 connect direct Button children into one control, and nest joined groups inside

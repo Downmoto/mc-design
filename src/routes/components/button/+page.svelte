@@ -18,6 +18,7 @@
   const appearances: { label: string; value: ButtonAppearance }[] = [
     { label: 'Primary', value: 'primary' },
     { label: 'Secondary', value: 'secondary' },
+    { label: 'Ghost', value: 'ghost' },
   ];
   const playgroundAppearances: { label: string; value: ButtonAppearance }[] = [
     ...appearances,
@@ -431,6 +432,7 @@
         <li>Use the Link appearance for inline navigation</li>
         <li>Use Primary for the principal action in the current context</li>
         <li>Use Secondary for supporting or lower-priority actions</li>
+        <li>Use Ghost for quiet actions without a persistent boundary</li>
         <li>Use an icon size only when the icon is widely understood</li>
       </ul>
     </div>
@@ -483,7 +485,7 @@
           <tbody>
             <tr>
               <th scope="row"><code>appearance</code></th>
-              <td><code>'primary' | 'secondary' | 'link'</code></td>
+              <td><code>'primary' | 'secondary' | 'ghost' | 'link'</code></td>
               <td><code>'primary'</code></td>
               <td>Sets the visual treatment</td>
             </tr>
