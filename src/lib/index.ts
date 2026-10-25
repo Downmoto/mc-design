@@ -47,5 +47,11 @@ export {
   type TextInputType,
 } from './components/text-input.types.js';
 
+export { default as TextArea } from './components/TextArea.svelte';
+export {
+  type TextAreaProps,
+  type TextAreaSize,
+} from './components/text-area.types.js';
+
 export { default as Consumer } from './components/Consumer.svelte';
 export { type ConsumerProps } from './components/consumer.types.js';

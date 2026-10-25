@@ -75,6 +75,7 @@ Import the shared styles once, then import components from the package:
   import {
     ActionGroup,
     Button,
+    TextArea,
     TextInput,
     Typography,
   } from '@memorycore/design';
@@ -99,6 +100,12 @@ Import the shared styles once, then import components from the package:
   description="Used for account notices"
   type="email"
 />
+
+<TextArea
+  label="Project notes"
+  description="Add context for collaborators"
+  placeholder="Describe the project"
+/>
 ```
 
 Button renders a native button by default and a native anchor when `href` is
@@ -120,6 +127,11 @@ TextInput renders a labelled native input for a single line of text. It supports
 standard and compact sizes, text-like native input types, description and error
 messages, two-way value binding, and native required, read-only, and disabled
 states. Decorative icon snippets may appear before or after the value.
+
+TextArea renders a labelled native textarea for multiline values. It supports
+standard and compact sizes, description and error messages, configurable rows,
+two-way value binding, vertical resizing, and native required, read-only, and
+disabled states.
 
 Set a consumer on one component with its `consumer` prop:
 
@@ -173,7 +185,7 @@ npm run package
 ```
 
 The SvelteKit static output is `build/`. It contains a catalogue home page and
-dedicated Consumer, Button, Action group, Typography, and Text input pages with live
+dedicated Consumer, Button, Action group, Typography, Text input, and Text area pages with live
 playgrounds, variants, interactions, usage guidance, accessibility requirements,
 and collapsed API and token references. Global theme and consumer controls
 update every preview through the public component APIs.

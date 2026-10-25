@@ -7,6 +7,49 @@
 
   type IconPosition = 'both' | 'leading' | 'none' | 'trailing';
 
+  const tokenMapping = [
+    {
+      role: 'Control heights',
+      tokens: ['size-control-compact', 'size-control-standard'],
+    },
+    {
+      role: 'Icon sizes',
+      tokens: ['size-icon-compact', 'size-icon-standard'],
+    },
+    {
+      role: 'Text',
+      tokens: [
+        'typography-body-*',
+        'typography-label-*',
+        'typography-caption-*',
+      ],
+    },
+    {
+      role: 'Surface',
+      tokens: ['colour-background', 'colour-surface'],
+    },
+    {
+      role: 'Content',
+      tokens: ['colour-text-primary', 'colour-text-secondary'],
+    },
+    { role: 'Product colour', tokens: ['colour-interactive'] },
+    { role: 'Error', tokens: ['colour-danger'] },
+    {
+      role: 'Boundary',
+      tokens: [
+        'colour-border',
+        'border-width-default',
+        'border-width-emphasised',
+      ],
+    },
+    { role: 'Shape', tokens: ['radius-1'] },
+    { role: 'Spacing', tokens: ['space-1', 'space-2', 'space-3'] },
+    {
+      role: 'Response',
+      tokens: ['motion-duration-direct', 'motion-easing-default'],
+    },
+  ];
+
   let value = $state('');
   let label = $state('Email address');
   let description = $state('Used for account notices');
@@ -354,24 +397,34 @@
         Native input attributes and event handlers pass through to the control
       </Typography>
 
-      <Typography variant="h3">Tokens</Typography>
-      <Typography variant="list">
-        <li>
-          <Typography variant="inline-code">size-control-compact</Typography> and
-          <Typography variant="inline-code">size-control-standard</Typography>
-        </li>
-        <li>
-          <Typography variant="inline-code">colour-background</Typography>, <Typography
-            variant="inline-code">colour-surface</Typography
-          >, and <Typography variant="inline-code">colour-border</Typography>
-        </li>
-        <li>
-          <Typography variant="inline-code">colour-interactive</Typography> and <Typography
-            variant="inline-code">colour-danger</Typography
-          >
-        </li>
-        <li><Typography variant="inline-code">radius-1</Typography></li>
-      </Typography>
+      <Typography variant="h3">Token mapping</Typography>
+      <!-- svelte-ignore a11y_no_noninteractive_tabindex (Scrollable table needs keyboard focus) -->
+      <div
+        class="table-scroll"
+        role="region"
+        aria-label="Text input token mapping table"
+        tabindex="0"
+      >
+        <table>
+          <thead>
+            <tr><th scope="col">Role</th><th scope="col">Token</th></tr>
+          </thead>
+          <tbody>
+            {#each tokenMapping as mapping}
+              <tr>
+                <th scope="row">{mapping.role}</th>
+                <td>
+                  {#each mapping.tokens as token, index}
+                    <Typography variant="inline-code">{token}</Typography
+                    >{#if index < mapping.tokens.length - 1},
+                    {/if}
+                  {/each}
+                </td>
+              </tr>
+            {/each}
+          </tbody>
+        </table>
+      </div>
     </div>
   </details>
 </section>

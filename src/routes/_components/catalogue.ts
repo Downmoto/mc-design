@@ -6,6 +6,7 @@ export interface CatalogueEntry {
     | '/components/action-group'
     | '/components/button'
     | '/components/consumer'
+    | '/components/text-area'
     | '/components/text-input'
     | '/components/typography';
   status: 'Draft' | 'Ready';
@@ -45,6 +46,13 @@ export const catalogue: CatalogueEntry[] = [
     description: 'Collects a single line of text with clear field feedback',
     name: 'Text input',
     route: '/components/text-input',
+    status: 'Ready',
+  },
+  {
+    category: 'Inputs',
+    description: 'Collects multiple lines of text with clear field feedback',
+    name: 'Text area',
+    route: '/components/text-area',
     status: 'Ready',
   },
 ];
