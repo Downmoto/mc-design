@@ -4,6 +4,7 @@
   import {
     Button,
     Consumer,
+    Select,
     Typography,
     consumerRegistry,
     initialiseTheme,
@@ -113,26 +114,30 @@
   </Button>
 
   <div class="global-controls" aria-label="Preview settings">
-    <label>
-      <span>Theme</span>
-      <select value={theme} onchange={selectTheme}>
-        {#each themes as option}
-          <option value={option} selected={theme === option}>
-            {option[0].toUpperCase() + option.slice(1)}
-          </option>
-        {/each}
-      </select>
-    </label>
+    <Select
+      class="global-control"
+      label="Theme"
+      value={theme}
+      onchange={selectTheme}
+    >
+      {#each themes as option}
+        <option value={option} selected={theme === option}>
+          {option[0].toUpperCase() + option.slice(1)}
+        </option>
+      {/each}
+    </Select>
 
-    <label>
-      <span>Consumer</span>
-      <select value={consumer} onchange={selectConsumer}>
-        <option value="" selected={consumer === ''}>Default</option>
-        {#each consumers as [id, details]}
-          <option value={id} selected={consumer === id}>{details.name}</option>
-        {/each}
-      </select>
-    </label>
+    <Select
+      class="global-control"
+      label="Consumer"
+      value={consumer}
+      onchange={selectConsumer}
+    >
+      <option value="" selected={consumer === ''}>Default</option>
+      {#each consumers as [id, details]}
+        <option value={id} selected={consumer === id}>{details.name}</option>
+      {/each}
+    </Select>
   </div>
 </header>
 

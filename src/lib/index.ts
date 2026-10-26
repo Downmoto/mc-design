@@ -59,5 +59,17 @@ export {
   type NumericInputSize,
 } from './components/numeric-input.types.js';
 
+export { default as Select } from './components/Select.svelte';
+export {
+  type SelectProps,
+  type SelectSize,
+} from './components/select.types.js';
+
+export { default as Checkbox } from './components/Checkbox.svelte';
+export {
+  type CheckboxProps,
+  type CheckboxSize,
+} from './components/checkbox.types.js';
+
 export { default as Consumer } from './components/Consumer.svelte';
 export { type ConsumerProps } from './components/consumer.types.js';

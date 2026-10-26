@@ -1,13 +1,16 @@
 <script lang="ts">
+  import PlusIcon from 'phosphor-svelte/lib/PlusIcon';
+
   import {
     ActionGroup,
     Button,
+    Checkbox,
+    Select,
     Typography,
     type ActionGroupOrientation,
   } from '#lib/index.js';
   import CodeExample from '../../_components/CodeExample.svelte';
   import ComponentHeader from '../../_components/ComponentHeader.svelte';
-  import PlusIcon from '../../_components/icons/PlusIcon.svelte';
 
   let joined = $state(true);
   let orientation = $state<ActionGroupOrientation>('horizontal');
@@ -61,17 +64,15 @@
     </div>
 
     <form class="control-panel" onsubmit={(event) => event.preventDefault()}>
-      <label>
-        <span>Orientation</span>
-        <select value={orientation} onchange={selectOrientation}>
-          <option value="horizontal">Horizontal</option>
-          <option value="vertical">Vertical</option>
-        </select>
-      </label>
-      <label class="checkbox-field">
-        <input type="checkbox" bind:checked={joined} />
-        <span>Join controls</span>
-      </label>
+      <Select
+        label="Orientation"
+        value={orientation}
+        onchange={selectOrientation}
+      >
+        <option value="horizontal">Horizontal</option>
+        <option value="vertical">Vertical</option>
+      </Select>
+      <Checkbox label="Join controls" size="compact" bind:checked={joined} />
     </form>
   </div>
 

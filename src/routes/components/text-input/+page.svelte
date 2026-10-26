@@ -1,9 +1,16 @@
 <script lang="ts">
-  import { TextInput, Typography, type TextInputSize } from '#lib/index.js';
+  import ArrowRightIcon from 'phosphor-svelte/lib/ArrowRightIcon';
+  import MagnifyingGlassIcon from 'phosphor-svelte/lib/MagnifyingGlassIcon';
+
+  import {
+    Checkbox,
+    Select,
+    TextInput,
+    Typography,
+    type TextInputSize,
+  } from '#lib/index.js';
   import CodeExample from '../../_components/CodeExample.svelte';
   import ComponentHeader from '../../_components/ComponentHeader.svelte';
-  import ArrowRightIcon from '../../_components/icons/ArrowRightIcon.svelte';
-  import SearchIcon from '../../_components/icons/SearchIcon.svelte';
 
   type IconPosition = 'both' | 'leading' | 'none' | 'trailing';
 
@@ -62,7 +69,7 @@
   let iconPosition = $state<IconPosition>('none');
   let error = $derived(showError ? 'Enter a valid email address' : '');
   let exampleCode = $derived(
-    `${iconPosition === 'leading' || iconPosition === 'both' ? '{#snippet searchIcon()}<SearchIcon />{/snippet}\n' : ''}${iconPosition === 'trailing' || iconPosition === 'both' ? '{#snippet arrowIcon()}<ArrowRightIcon />{/snippet}\n' : ''}${iconPosition !== 'none' ? '\n' : ''}${[
+    `${iconPosition === 'leading' || iconPosition === 'both' ? '{#snippet searchIcon()}<MagnifyingGlassIcon />{/snippet}\n' : ''}${iconPosition === 'trailing' || iconPosition === 'both' ? '{#snippet arrowIcon()}<ArrowRightIcon />{/snippet}\n' : ''}${iconPosition !== 'none' ? '\n' : ''}${[
       '<TextInput',
       `  label="${label || 'Label'}"`,
       description ? `  description="${description}"` : '',
@@ -89,7 +96,7 @@
   <title>Text input · MemoryCore component library</title>
 </svelte:head>
 
-{#snippet searchIcon()}<SearchIcon />{/snippet}
+{#snippet searchIcon()}<MagnifyingGlassIcon />{/snippet}
 {#snippet arrowIcon()}<ArrowRightIcon />{/snippet}
 
 <ComponentHeader
@@ -143,38 +150,20 @@
         <span>Placeholder</span>
         <input bind:value={placeholder} maxlength="80" />
       </label>
-      <label>
-        <span>Size</span>
-        <select bind:value={size}>
-          <option value="standard">Standard</option>
-          <option value="compact">Compact</option>
-        </select>
-      </label>
-      <label>
-        <span>Icons</span>
-        <select bind:value={iconPosition}>
-          <option value="none">None</option>
-          <option value="leading">Leading</option>
-          <option value="trailing">Trailing</option>
-          <option value="both">Both</option>
-        </select>
-      </label>
-      <label class="checkbox-field">
-        <input type="checkbox" bind:checked={required} />
-        <span>Required</span>
-      </label>
-      <label class="checkbox-field">
-        <input type="checkbox" bind:checked={readonly} />
-        <span>Read only</span>
-      </label>
-      <label class="checkbox-field">
-        <input type="checkbox" bind:checked={disabled} />
-        <span>Disabled</span>
-      </label>
-      <label class="checkbox-field">
-        <input type="checkbox" bind:checked={showError} />
-        <span>Error</span>
-      </label>
+      <Select label="Size" bind:value={size}>
+        <option value="standard">Standard</option>
+        <option value="compact">Compact</option>
+      </Select>
+      <Select label="Icons" bind:value={iconPosition}>
+        <option value="none">None</option>
+        <option value="leading">Leading</option>
+        <option value="trailing">Trailing</option>
+        <option value="both">Both</option>
+      </Select>
+      <Checkbox label="Required" size="compact" bind:checked={required} />
+      <Checkbox label="Read only" size="compact" bind:checked={readonly} />
+      <Checkbox label="Disabled" size="compact" bind:checked={disabled} />
+      <Checkbox label="Error" size="compact" bind:checked={showError} />
     </form>
   </div>
 

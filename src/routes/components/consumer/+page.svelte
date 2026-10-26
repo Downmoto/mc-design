@@ -1,14 +1,16 @@
 <script lang="ts">
+  import PlusIcon from 'phosphor-svelte/lib/PlusIcon';
+
   import {
     Button,
     Consumer,
+    Select,
     Typography,
     consumerRegistry,
     type ConsumerId,
   } from '#lib/index.js';
   import CodeExample from '../../_components/CodeExample.svelte';
   import ComponentHeader from '../../_components/ComponentHeader.svelte';
-  import PlusIcon from '../../_components/icons/PlusIcon.svelte';
 
   const consumers = Object.entries(consumerRegistry) as [
     ConsumerId,
@@ -60,14 +62,11 @@
     </div>
 
     <form class="control-panel" onsubmit={(event) => event.preventDefault()}>
-      <label>
-        <span>Consumer</span>
-        <select value={consumer} onchange={selectConsumer}>
-          {#each consumers as [id, details]}
-            <option value={id}>{details.name}</option>
-          {/each}
-        </select>
-      </label>
+      <Select label="Consumer" value={consumer} onchange={selectConsumer}>
+        {#each consumers as [id, details]}
+          <option value={id}>{details.name}</option>
+        {/each}
+      </Select>
     </form>
   </div>
 

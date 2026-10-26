@@ -5,8 +5,10 @@ export interface CatalogueEntry {
   route:
     | '/components/action-group'
     | '/components/button'
+    | '/components/checkbox'
     | '/components/consumer'
     | '/components/numeric-input'
+    | '/components/select'
     | '/components/text-area'
     | '/components/text-input'
     | '/components/typography';
@@ -61,6 +63,20 @@ export const catalogue: CatalogueEntry[] = [
     description: 'Collects constrained numeric values with native controls',
     name: 'Numeric input',
     route: '/components/numeric-input',
+    status: 'Ready',
+  },
+  {
+    category: 'Inputs',
+    description: 'Chooses one value from a known set of options',
+    name: 'Select',
+    route: '/components/select',
+    status: 'Ready',
+  },
+  {
+    category: 'Inputs',
+    description: 'Toggles an independent option on or off',
+    name: 'Checkbox',
+    route: '/components/checkbox',
     status: 'Ready',
   },
 ];

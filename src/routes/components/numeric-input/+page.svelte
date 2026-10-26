@@ -1,6 +1,8 @@
 <script lang="ts">
   import {
+    Checkbox,
     NumericInput,
+    Select,
     Typography,
     type NumericInputSize,
   } from '#lib/index.js';
@@ -155,29 +157,14 @@
         <span>Step</span>
         <input type="number" min="0.01" step="0.01" bind:value={step} />
       </label>
-      <label>
-        <span>Size</span>
-        <select bind:value={size}>
-          <option value="standard">Standard</option>
-          <option value="compact">Compact</option>
-        </select>
-      </label>
-      <label class="checkbox-field">
-        <input type="checkbox" bind:checked={required} />
-        <span>Required</span>
-      </label>
-      <label class="checkbox-field">
-        <input type="checkbox" bind:checked={readonly} />
-        <span>Read only</span>
-      </label>
-      <label class="checkbox-field">
-        <input type="checkbox" bind:checked={disabled} />
-        <span>Disabled</span>
-      </label>
-      <label class="checkbox-field">
-        <input type="checkbox" bind:checked={showError} />
-        <span>Error</span>
-      </label>
+      <Select label="Size" bind:value={size}>
+        <option value="standard">Standard</option>
+        <option value="compact">Compact</option>
+      </Select>
+      <Checkbox label="Required" size="compact" bind:checked={required} />
+      <Checkbox label="Read only" size="compact" bind:checked={readonly} />
+      <Checkbox label="Disabled" size="compact" bind:checked={disabled} />
+      <Checkbox label="Error" size="compact" bind:checked={showError} />
     </form>
   </div>
 

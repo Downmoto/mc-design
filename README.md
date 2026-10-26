@@ -75,7 +75,9 @@ Import the shared styles once, then import components from the package:
   import {
     ActionGroup,
     Button,
+    Checkbox,
     NumericInput,
+    Select,
     TextArea,
     TextInput,
     Typography,
@@ -115,6 +117,14 @@ Import the shared styles once, then import components from the package:
   max={100}
   suffix="%"
 />
+
+<Select label="Theme" value="system">
+  <option value="dark">Dark</option>
+  <option value="light">Light</option>
+  <option value="system">System</option>
+</Select>
+
+<Checkbox label="Include metadata" />
 ```
 
 Button renders a native button by default and a native anchor when `href` is
@@ -146,6 +156,15 @@ NumericInput renders a labelled native number input. It supports standard and
 compact sizes, numeric minimum, maximum, and step constraints, two-way value
 binding, text prefixes and suffixes, description and error messages, and native
 required, read-only, and disabled states.
+
+Select renders a labelled native select for choosing one value from a known
+set. It supports standard and compact sizes, two-way value binding, description
+and error messages, and native required and disabled states.
+
+Checkbox renders a labelled native checkbox for an independent option. It
+supports checked, unchecked, and indeterminate states, standard and compact
+sizes, two-way state binding, error messages, and native required and disabled
+states.
 
 Set a consumer on one component with its `consumer` prop:
 
@@ -199,11 +218,11 @@ npm run package
 ```
 
 The SvelteKit static output is `build/`. It contains a catalogue home page and
-dedicated Consumer, Button, Action group, Typography, Text input, Text area, and
-Numeric input pages with live playgrounds, variants, interactions, usage
-guidance, accessibility requirements, and collapsed API and token references.
-Global theme and consumer controls update every preview through the public
-component APIs.
+dedicated Consumer, Button, Action group, Typography, Text input, Text area,
+Numeric input, Select, and Checkbox pages with live playgrounds, variants,
+interactions, usage guidance, accessibility requirements, and collapsed API and
+token references. Global theme and consumer controls update every preview
+through the public component APIs.
 
 See [the component workbench decision](./docs/decisions/0002-component-workbench.md)
 for the route and deployment contract.

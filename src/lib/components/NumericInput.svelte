@@ -1,4 +1,7 @@
 <script lang="ts">
+  import CaretDownIcon from 'phosphor-svelte/lib/CaretDownIcon';
+  import CaretUpIcon from 'phosphor-svelte/lib/CaretUpIcon';
+
   import { getConsumerContext } from '../consumer-context.js';
   import type { NumericInputProps } from './numeric-input.types.js';
 
@@ -131,12 +134,7 @@
         onmouseup={finishRepeating}
         onmouseleave={stopRepeating}
       >
-        <svg viewBox="64 64 128 128" aria-hidden="true">
-          <path
-            d="M181.66 165.66a8 8 0 0 1-11.32 0L128 123.31l-42.34 42.35a8 8 0 0 1-11.32-11.32l48-48a8 8 0 0 1 11.32 0l48 48a8 8 0 0 1 0 11.32Z"
-            fill="currentColor"
-          />
-        </svg>
+        <CaretUpIcon aria-hidden="true" />
       </button>
       <button
         class="mc-numeric-input__stepper"
@@ -148,12 +146,7 @@
         onmouseup={finishRepeating}
         onmouseleave={stopRepeating}
       >
-        <svg viewBox="64 64 128 128" aria-hidden="true">
-          <path
-            d="M181.66 101.66l-48 48a8 8 0 0 1-11.32 0l-48-48a8 8 0 0 1 11.32-11.32L128 132.69l42.34-42.35a8 8 0 0 1 11.32 11.32Z"
-            fill="currentColor"
-          />
-        </svg>
+        <CaretDownIcon aria-hidden="true" />
       </button>
     </div>
   </div>
@@ -334,7 +327,7 @@
     cursor: pointer;
   }
 
-  .mc-numeric-input__stepper svg {
+  .mc-numeric-input__stepper :global(svg) {
     display: block;
     inline-size: var(--mc-numeric-input-icon-size);
     block-size: var(--mc-numeric-input-icon-size);

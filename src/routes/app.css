@@ -150,6 +150,11 @@ code {
   gap: var(--mc-space-3);
 }
 
+.global-controls .global-control {
+  inline-size: auto;
+  min-inline-size: calc(var(--mc-size-control-large) * 3);
+}
+
 .global-controls label,
 .control-panel label {
   display: grid;
@@ -398,19 +403,6 @@ main {
     var(--mc-colour-border);
 }
 
-.checkbox-field {
-  display: flex !important;
-  align-items: center;
-  gap: var(--mc-space-2) !important;
-  color: var(--mc-colour-text-primary) !important;
-}
-
-.checkbox-field input {
-  inline-size: var(--mc-size-target-minimum);
-  min-block-size: var(--mc-size-target-minimum);
-  margin: 0;
-}
-
 .code-example {
   overflow: hidden;
   margin-block-start: var(--mc-space-3);
@@ -603,7 +595,7 @@ tbody th {
 @media (max-width: 767px) {
   .site-header,
   .global-controls,
-  .global-controls label {
+  .global-controls .global-control {
     inline-size: 100%;
   }
 

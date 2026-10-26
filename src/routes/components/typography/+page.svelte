@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Typography, type TypographyVariant } from '#lib/index.js';
+  import { Select, Typography, type TypographyVariant } from '#lib/index.js';
   import CodeExample from '../../_components/CodeExample.svelte';
   import ComponentHeader from '../../_components/ComponentHeader.svelte';
 
@@ -121,14 +121,11 @@
         <span>Text</span>
         <input bind:value={text} maxlength="80" />
       </label>
-      <label>
-        <span>Pattern</span>
-        <select value={variant} onchange={selectVariant}>
-          {#each textPatterns as option}
-            <option value={option.value}>{option.label}</option>
-          {/each}
-        </select>
-      </label>
+      <Select label="Pattern" value={variant} onchange={selectVariant}>
+        {#each textPatterns as option}
+          <option value={option.value}>{option.label}</option>
+        {/each}
+      </Select>
     </form>
   </div>
 

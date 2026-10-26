@@ -1,14 +1,17 @@
 <script lang="ts">
+  import ArrowRightIcon from 'phosphor-svelte/lib/ArrowRightIcon';
+  import PlusIcon from 'phosphor-svelte/lib/PlusIcon';
+
   import {
     Button,
+    Checkbox,
+    Select,
     Typography,
     type ButtonAppearance,
     type ButtonSize,
   } from '#lib/index.js';
   import CodeExample from '../../_components/CodeExample.svelte';
   import ComponentHeader from '../../_components/ComponentHeader.svelte';
-  import ArrowRightIcon from '../../_components/icons/ArrowRightIcon.svelte';
-  import PlusIcon from '../../_components/icons/PlusIcon.svelte';
 
   type ButtonContent = 'label' | 'icon';
   type ButtonBehaviour = 'action' | 'navigation';
@@ -205,20 +208,14 @@
     </div>
 
     <form class="control-panel" onsubmit={(event) => event.preventDefault()}>
-      <label>
-        <span>Content</span>
-        <select value={content} onchange={selectContent}>
-          <option value="label">Visible label</option>
-          <option value="icon">Icon only</option>
-        </select>
-      </label>
-      <label>
-        <span>Behaviour</span>
-        <select value={behaviour} onchange={selectBehaviour}>
-          <option value="action">Action</option>
-          <option value="navigation">Navigation</option>
-        </select>
-      </label>
+      <Select label="Content" value={content} onchange={selectContent}>
+        <option value="label">Visible label</option>
+        <option value="icon">Icon only</option>
+      </Select>
+      <Select label="Behaviour" value={behaviour} onchange={selectBehaviour}>
+        <option value="action">Action</option>
+        <option value="navigation">Navigation</option>
+      </Select>
       <label>
         <span>{content === 'icon' ? 'Accessible name' : 'Label'}</span>
         <input bind:value={label} maxlength="40" />
@@ -229,52 +226,42 @@
           <input bind:value={destination} maxlength="200" />
         </label>
       {/if}
-      <label>
-        <span>Appearance</span>
-        <select value={appearance} onchange={selectAppearance}>
-          {#each content === 'icon' ? appearances : playgroundAppearances as option}
-            <option value={option.value}>{option.label}</option>
-          {/each}
-        </select>
-      </label>
+      <Select label="Appearance" value={appearance} onchange={selectAppearance}>
+        {#each content === 'icon' ? appearances : playgroundAppearances as option}
+          <option value={option.value}>{option.label}</option>
+        {/each}
+      </Select>
       {#if appearance !== 'link'}
-        <label>
-          <span>Size</span>
-          <select
-            value={content === 'icon' ? iconSize : labelledSize}
-            onchange={selectSize}
-          >
-            {#if content === 'icon'}
-              {#each iconSizes as option}
-                <option value={option.value}>{option.label}</option>
-              {/each}
-            {:else}
-              {#each sizes as option}
-                <option value={option.value}>{option.label}</option>
-              {/each}
-            {/if}
-          </select>
-        </label>
+        <Select
+          label="Size"
+          value={content === 'icon' ? iconSize : labelledSize}
+          onchange={selectSize}
+        >
+          {#if content === 'icon'}
+            {#each iconSizes as option}
+              <option value={option.value}>{option.label}</option>
+            {/each}
+          {:else}
+            {#each sizes as option}
+              <option value={option.value}>{option.label}</option>
+            {/each}
+          {/if}
+        </Select>
         {#if content === 'label'}
-          <label>
-            <span>Icons</span>
-            <select value={iconPosition} onchange={selectIconPosition}>
-              <option value="none">None</option>
-              <option value="leading">Leading</option>
-              <option value="trailing">Trailing</option>
-              <option value="both">Both</option>
-            </select>
-          </label>
+          <Select
+            label="Icons"
+            value={iconPosition}
+            onchange={selectIconPosition}
+          >
+            <option value="none">None</option>
+            <option value="leading">Leading</option>
+            <option value="trailing">Trailing</option>
+            <option value="both">Both</option>
+          </Select>
         {/if}
       {/if}
-      <label class="checkbox-field">
-        <input type="checkbox" bind:checked={disabled} />
-        <span>Disabled</span>
-      </label>
-      <label class="checkbox-field">
-        <input type="checkbox" bind:checked={loading} />
-        <span>Loading</span>
-      </label>
+      <Checkbox label="Disabled" size="compact" bind:checked={disabled} />
+      <Checkbox label="Loading" size="compact" bind:checked={loading} />
     </form>
   </div>
 
