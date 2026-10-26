@@ -217,7 +217,7 @@
   }
 
   .mc-text-input__message {
-    margin-block-start: var(--mc-space-1);
+    margin-block-start: var(--mc-space-0);
     color: var(--mc-colour-text-secondary);
     font-family: var(--mc-typography-caption-family);
     font-size: var(--mc-typography-caption-size);
