@@ -304,8 +304,12 @@
 
   .mc-button[data-appearance='link']:focus-visible {
     outline: 0;
-    text-decoration-line: underline;
-    text-decoration-thickness: var(--mc-border-width-emphasised);
+    text-shadow: 0 0 var(--mc-space-2)
+      color-mix(
+        in srgb,
+        var(--mc-colour-interactive) var(--mc-opacity-focus-shadow),
+        transparent
+      );
   }
 
   .mc-button[data-appearance='link']:active:not([aria-disabled='true']) {
@@ -329,6 +333,10 @@
     .mc-button[data-appearance='link'] {
       color: LinkText;
       forced-color-adjust: auto;
+    }
+
+    .mc-button[data-appearance='link']:focus-visible {
+      text-shadow: none;
     }
 
     .mc-button:disabled,
