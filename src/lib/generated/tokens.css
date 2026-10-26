@@ -91,6 +91,7 @@
   --mc-shadow-1: 0 2px 8px rgb(0 0 0 / 24%);
   --mc-shadow-2: 0 8px 24px rgb(0 0 0 / 32%);
   --mc-shadow-3: 0 16px 48px rgb(0 0 0 / 40%);
+  --mc-opacity-focus-shadow: 75%;
   --mc-layer-base: 0;
   --mc-layer-sticky: 100;
   --mc-layer-overlay: 200;

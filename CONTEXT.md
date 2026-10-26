@@ -236,8 +236,9 @@ Centre the fluid container and cap it at 1,280 px. `clamp(24px, 5vw, 48px)` may 
 Border widths:
 
 - Default boundaries: 1 px.
-- Selected, emphasised, and focus-visible boundaries: 2 px.
-- Focus uses a flush 2 px theme-contrasting outline with no offset.
+- Selected and emphasised boundaries: 2 px.
+- Focus uses the component boundary with a theme-contrasting 75% opacity shadow
+  that fades out from it.
 
 | Token           |                          Value | Typical use                                   |
 | --------------- | -----------------------------: | --------------------------------------------- |
@@ -254,7 +255,9 @@ Border widths:
 | `layer-modal`   |                            300 | Dialogs and modal backdrops                   |
 | `layer-toast`   |                            400 | Time-sensitive notifications                  |
 
-Use shadows to communicate depth. Do not apply shadows to flat controls, text, icons, or decorative elements.
+Use elevation shadows to communicate depth. Focus shadows may identify active
+flat controls. Do not apply elevation shadows to flat controls, text, icons, or
+decorative elements.
 
 Functional masks and fades may use approved colours and transparency. Primary buttons may use a simple brightness filter for hover feedback. Keep computational textures, dithering, blend modes, decorative display effects, and editorial imagery in consumer compositions. Do not apply those decorative treatments to controls, body text, logos, or information-critical content.
 
