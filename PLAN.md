@@ -56,7 +56,7 @@ Required components are tracked in one list. Items marked `website first` form t
 - [x] Inputs: Select or combobox
 - [x] Inputs: Checkbox
 - [x] Inputs: Radio group
-- [ ] Inputs: Switch
+- [x] Inputs: Switch
 - [ ] Inputs: Slider
 - [ ] Navigation: Tabs
 - [ ] Navigation: Menu, shared by context menus, selects, and dropdowns (`website first`)

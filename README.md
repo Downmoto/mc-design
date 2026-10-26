@@ -79,6 +79,7 @@ Import the shared styles once, then import components from the package:
     NumericInput,
     RadioGroup,
     Select,
+    Switch,
     TextArea,
     TextInput,
     Typography,
@@ -136,6 +137,12 @@ Import the shared styles once, then import components from the package:
   ]}
   value="system"
 />
+
+<Switch
+  label="Enable notifications"
+  description="Receive a notice when processing finishes"
+  checked
+/>
 ```
 
 Button renders a native button by default and a native anchor when `href` is
@@ -181,6 +188,11 @@ RadioGroup renders a native fieldset of mutually exclusive radio inputs. It
 supports option labels and descriptions, standard and compact sizes, two-way
 value binding, error messages, per-option disabling, and native required and
 disabled states.
+
+Switch renders a labelled native checkbox with switch semantics for settings
+that take effect immediately. It supports standard and compact sizes, two-way
+state binding, description and error messages, and native required and disabled
+states.
 
 Set a consumer on one component with its `consumer` prop:
 

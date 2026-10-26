@@ -10,6 +10,7 @@ export interface CatalogueEntry {
     | '/components/numeric-input'
     | '/components/radio-group'
     | '/components/select'
+    | '/components/switch'
     | '/components/text-area'
     | '/components/text-input'
     | '/components/typography';
@@ -85,6 +86,13 @@ export const catalogue: CatalogueEntry[] = [
     description: 'Chooses one option from a visible set',
     name: 'Radio group',
     route: '/components/radio-group',
+    status: 'Ready',
+  },
+  {
+    category: 'Inputs',
+    description: 'Toggles a setting with an immediate effect',
+    name: 'Switch',
+    route: '/components/switch',
     status: 'Ready',
   },
 ];
