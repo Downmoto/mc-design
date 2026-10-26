@@ -166,10 +166,6 @@
       var(--mc-size-icon-standard) - var(--mc-space-1)
     );
     --mc-numeric-input-stepper-size: var(--mc-size-control-standard);
-
-    display: grid;
-    inline-size: 100%;
-    gap: var(--mc-space-1);
   }
 
   .mc-numeric-input[data-size='compact'] {
@@ -180,52 +176,22 @@
     --mc-numeric-input-stepper-size: var(--mc-size-control-compact);
   }
 
-  .mc-numeric-input__label {
-    display: flex;
-    gap: var(--mc-space-1);
-    color: var(--mc-colour-text-primary);
-    font-family: var(--mc-typography-label-family);
-    font-size: var(--mc-typography-label-size);
-    font-weight: var(--mc-typography-label-weight);
-    line-height: var(--mc-typography-label-line-height);
-  }
-
-  .mc-numeric-input__required {
-    color: var(--mc-colour-interactive);
-  }
-
   .mc-numeric-input__control-shell {
     display: grid;
     grid-template-columns: minmax(0, 1fr) var(--mc-numeric-input-stepper-size);
     block-size: var(--mc-numeric-input-block-size);
     min-block-size: var(--mc-numeric-input-block-size);
-    background: var(--mc-colour-background);
-    border: var(--mc-border-width-default) solid var(--mc-colour-border);
-    border-radius: var(--mc-radius-1);
     overflow: hidden;
-    transition:
-      background-color var(--mc-motion-duration-direct)
-        var(--mc-motion-easing-default),
-      border-color var(--mc-motion-duration-direct)
-        var(--mc-motion-easing-default);
   }
 
   .mc-numeric-input__control {
-    box-sizing: border-box;
     flex: 1 1 auto;
-    inline-size: 100%;
     block-size: 100%;
-    min-inline-size: 0;
     min-block-size: 0;
     padding: 0;
-    color: var(--mc-colour-text-primary);
     background: transparent;
     border: 0;
     border-radius: 0;
-    font-family: var(--mc-typography-body-family);
-    font-size: var(--mc-typography-body-size);
-    font-weight: var(--mc-typography-body-weight);
-    line-height: var(--mc-typography-body-line-height);
     font-variant-numeric: tabular-nums;
     appearance: textfield;
   }
@@ -256,43 +222,6 @@
 
   .mc-numeric-input__control:focus-visible {
     outline: 0;
-  }
-
-  .mc-numeric-input__control::placeholder {
-    color: var(--mc-colour-text-secondary);
-    opacity: 1;
-  }
-
-  .mc-numeric-input:not([data-disabled='true']):not([data-readonly='true'])
-    .mc-numeric-input__control-shell:hover {
-    border-color: var(--mc-colour-interactive);
-  }
-
-  .mc-numeric-input[data-error='true'] .mc-numeric-input__control-shell {
-    border-color: var(--mc-colour-danger);
-  }
-
-  .mc-numeric-input[data-disabled='true'] .mc-numeric-input__control-shell {
-    color: var(--mc-colour-text-secondary);
-    background: var(--mc-colour-surface);
-    opacity: 0.5;
-    cursor: not-allowed;
-  }
-
-  .mc-numeric-input[data-readonly='true']:not([data-disabled='true'])
-    .mc-numeric-input__control-shell {
-    background: var(--mc-colour-surface);
-  }
-
-  .mc-numeric-input .mc-numeric-input__control-shell:focus-within {
-    border-color: var(--mc-colour-interactive);
-    outline: 0;
-    box-shadow: 0 0 var(--mc-space-2)
-      color-mix(
-        in srgb,
-        var(--mc-colour-interactive) var(--mc-opacity-focus-shadow),
-        transparent
-      );
   }
 
   .mc-numeric-input__steppers {
@@ -359,45 +288,7 @@
     cursor: not-allowed;
   }
 
-  .mc-numeric-input__message {
-    margin-block-start: var(--mc-space-1);
-    color: var(--mc-colour-text-secondary);
-    font-family: var(--mc-typography-caption-family);
-    font-size: var(--mc-typography-caption-size);
-    font-weight: var(--mc-typography-caption-weight);
-    line-height: var(--mc-typography-caption-line-height);
-  }
-
-  .mc-numeric-input[data-error='true'] .mc-numeric-input__message {
-    color: var(--mc-colour-danger);
-  }
-
   @media (forced-colors: active) {
-    .mc-numeric-input__required {
-      color: Highlight;
-    }
-
-    .mc-numeric-input__control-shell {
-      color: FieldText;
-      background: Field;
-      border-color: FieldText;
-      opacity: 1;
-      forced-color-adjust: auto;
-    }
-
-    .mc-numeric-input__control-shell:focus-within,
-    .mc-numeric-input__stepper:focus-visible {
-      outline: var(--mc-border-width-emphasised) solid Highlight;
-      outline-offset: calc(var(--mc-border-width-emphasised) * -1);
-      box-shadow: none;
-    }
-
-    .mc-numeric-input[data-error='true'] .mc-numeric-input__control-shell,
-    .mc-numeric-input[data-error='true'] .mc-numeric-input__message {
-      color: CanvasText;
-      border-color: Highlight;
-    }
-
     .mc-numeric-input__steppers {
       border-color: FieldText;
     }
@@ -411,7 +302,6 @@
       background: ButtonFace;
     }
 
-    .mc-numeric-input[data-disabled='true'] .mc-numeric-input__control-shell,
     .mc-numeric-input__stepper:disabled {
       color: GrayText;
       border-color: GrayText;

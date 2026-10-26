@@ -97,10 +97,6 @@
   .mc-text-input {
     --mc-text-input-block-size: var(--mc-size-control-standard);
     --mc-text-input-icon-size: var(--mc-size-icon-standard);
-
-    display: grid;
-    inline-size: 100%;
-    gap: var(--mc-space-1);
   }
 
   .mc-text-input[data-size='compact'] {
@@ -108,44 +104,10 @@
     --mc-text-input-icon-size: var(--mc-size-icon-compact);
   }
 
-  .mc-text-input__label {
-    display: flex;
-    gap: var(--mc-space-1);
-    color: var(--mc-colour-text-primary);
-    font-family: var(--mc-typography-label-family);
-    font-size: var(--mc-typography-label-size);
-    font-weight: var(--mc-typography-label-weight);
-    line-height: var(--mc-typography-label-line-height);
-  }
-
-  .mc-text-input__required {
-    color: var(--mc-colour-interactive);
-  }
-
   .mc-text-input__control {
-    box-sizing: border-box;
-    inline-size: 100%;
     block-size: var(--mc-text-input-block-size);
     min-block-size: var(--mc-text-input-block-size);
-    min-inline-size: 0;
     padding-inline: var(--mc-space-3);
-    color: var(--mc-colour-text-primary);
-    background: var(--mc-colour-background);
-    border: var(--mc-border-width-default) solid var(--mc-colour-border);
-    border-radius: var(--mc-radius-1);
-    font-family: var(--mc-typography-body-family);
-    font-size: var(--mc-typography-body-size);
-    font-weight: var(--mc-typography-body-weight);
-    line-height: var(--mc-typography-body-line-height);
-    transition:
-      background-color var(--mc-motion-duration-direct)
-        var(--mc-motion-easing-default),
-      border-color var(--mc-motion-duration-direct)
-        var(--mc-motion-easing-default);
-  }
-
-  .mc-text-input__control-shell {
-    position: relative;
   }
 
   .mc-text-input[data-leading-icon='true'] .mc-text-input__control {
@@ -179,90 +141,7 @@
     inset-inline-end: var(--mc-space-3);
   }
 
-  .mc-text-input__icon :global(svg) {
-    display: block;
-    inline-size: 100%;
-    block-size: 100%;
-  }
-
-  .mc-text-input__control::placeholder {
-    color: var(--mc-colour-text-secondary);
-    opacity: 1;
-  }
-
-  .mc-text-input__control:hover:not(:disabled):not(:read-only) {
-    border-color: var(--mc-colour-interactive);
-  }
-
-  .mc-text-input[data-error='true'] .mc-text-input__control {
-    border-color: var(--mc-colour-danger);
-  }
-
-  .mc-text-input__control:disabled {
-    color: var(--mc-colour-text-secondary);
-    background: var(--mc-colour-surface);
-    opacity: 0.5;
-    cursor: not-allowed;
-  }
-
-  .mc-text-input__control:read-only:not(:disabled) {
-    background: var(--mc-colour-surface);
-  }
-
-  .mc-text-input .mc-text-input__control:focus-visible {
-    border-color: var(--mc-colour-interactive);
-    outline: 0;
-    box-shadow: 0 0 var(--mc-space-2)
-      color-mix(
-        in srgb,
-        var(--mc-colour-interactive) var(--mc-opacity-focus-shadow),
-        transparent
-      );
-  }
-
   .mc-text-input__message {
     margin-block-start: var(--mc-space-0);
-    color: var(--mc-colour-text-secondary);
-    font-family: var(--mc-typography-caption-family);
-    font-size: var(--mc-typography-caption-size);
-    font-weight: var(--mc-typography-caption-weight);
-    line-height: var(--mc-typography-caption-line-height);
-  }
-
-  .mc-text-input[data-error='true'] .mc-text-input__message {
-    color: var(--mc-colour-danger);
-  }
-
-  @media (forced-colors: active) {
-    .mc-text-input__required {
-      color: Highlight;
-    }
-
-    .mc-text-input__control,
-    .mc-text-input__control:disabled {
-      color: FieldText;
-      background: Field;
-      border-color: FieldText;
-      opacity: 1;
-      forced-color-adjust: auto;
-    }
-
-    .mc-text-input__control:focus-visible {
-      border-color: Highlight;
-      outline: var(--mc-border-width-emphasised) solid Highlight;
-      outline-offset: calc(var(--mc-border-width-emphasised) * -1);
-      box-shadow: none;
-    }
-
-    .mc-text-input[data-error='true'] .mc-text-input__control,
-    .mc-text-input[data-error='true'] .mc-text-input__message {
-      color: CanvasText;
-      border-color: Highlight;
-    }
-
-    .mc-text-input__control:disabled {
-      color: GrayText;
-      border-color: GrayText;
-    }
   }
 </style>

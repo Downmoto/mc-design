@@ -79,9 +79,6 @@
   .mc-checkbox {
     --mc-checkbox-box-size: var(--mc-size-icon-standard);
     --mc-checkbox-mark-size: var(--mc-size-icon-compact);
-
-    display: grid;
-    inline-size: 100%;
   }
 
   .mc-checkbox[data-size='compact'] {
@@ -163,40 +160,13 @@
     display: block;
   }
 
-  .mc-checkbox__control:hover
-    .mc-checkbox__native:not(:disabled)
-    + .mc-checkbox__box {
-    border-color: var(--mc-colour-interactive);
-  }
-
   .mc-checkbox[data-error='true'] .mc-checkbox__box {
     border-color: var(--mc-colour-danger);
   }
 
-  .mc-checkbox .mc-checkbox__native:focus-visible + .mc-checkbox__box {
-    border-color: var(--mc-colour-interactive);
-    outline: 0;
-    box-shadow: 0 0 var(--mc-space-2)
-      color-mix(
-        in srgb,
-        var(--mc-colour-interactive) var(--mc-opacity-focus-shadow),
-        transparent
-      );
-  }
-
   .mc-checkbox__label {
-    display: flex;
     align-items: center;
     min-block-size: var(--mc-checkbox-box-size);
-    gap: var(--mc-space-1);
-    font-family: var(--mc-typography-label-family);
-    font-size: var(--mc-typography-label-size);
-    font-weight: var(--mc-typography-label-weight);
-    line-height: var(--mc-typography-label-line-height);
-  }
-
-  .mc-checkbox__required {
-    color: var(--mc-colour-interactive);
   }
 
   .mc-checkbox__message {
@@ -208,10 +178,6 @@
     );
     margin-inline-start: calc(var(--mc-checkbox-box-size) + var(--mc-space-2));
     color: var(--mc-colour-danger);
-    font-family: var(--mc-typography-caption-family);
-    font-size: var(--mc-typography-caption-size);
-    font-weight: var(--mc-typography-caption-weight);
-    line-height: var(--mc-typography-caption-line-height);
   }
 
   .mc-checkbox[data-disabled='true'] .mc-checkbox__control {
@@ -221,10 +187,6 @@
   }
 
   @media (forced-colors: active) {
-    .mc-checkbox__required {
-      color: Highlight;
-    }
-
     .mc-checkbox__box,
     .mc-checkbox__native:checked + .mc-checkbox__box,
     .mc-checkbox__native:indeterminate + .mc-checkbox__box {
@@ -238,13 +200,6 @@
     .mc-checkbox__native:indeterminate + .mc-checkbox__box {
       background: Highlight;
       border-color: Highlight;
-    }
-
-    .mc-checkbox__native:focus-visible + .mc-checkbox__box {
-      border-color: Highlight;
-      outline: var(--mc-border-width-emphasised) solid Highlight;
-      outline-offset: calc(var(--mc-border-width-emphasised) * -1);
-      box-shadow: none;
     }
 
     .mc-checkbox[data-error='true'] .mc-checkbox__box,
