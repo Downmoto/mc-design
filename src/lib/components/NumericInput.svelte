@@ -268,13 +268,6 @@
     border-color: var(--mc-colour-interactive);
   }
 
-  .mc-numeric-input__control-shell:focus-within {
-    border-color: var(--mc-colour-interactive);
-    outline: var(--mc-border-width-emphasised) solid
-      var(--mc-colour-text-primary);
-    outline-offset: 0;
-  }
-
   .mc-numeric-input[data-error='true'] .mc-numeric-input__control-shell {
     border-color: var(--mc-colour-danger);
   }
@@ -289,6 +282,17 @@
   .mc-numeric-input[data-readonly='true']:not([data-disabled='true'])
     .mc-numeric-input__control-shell {
     background: var(--mc-colour-surface);
+  }
+
+  .mc-numeric-input .mc-numeric-input__control-shell:focus-within {
+    border-color: var(--mc-colour-interactive);
+    outline: 0;
+    box-shadow: 0 0 var(--mc-space-2)
+      color-mix(
+        in srgb,
+        var(--mc-colour-interactive) var(--mc-opacity-focus-shadow),
+        transparent
+      );
   }
 
   .mc-numeric-input__steppers {
@@ -341,9 +345,13 @@
 
   .mc-numeric-input__stepper:focus-visible {
     color: var(--mc-colour-interactive);
-    outline: var(--mc-border-width-emphasised) solid
-      var(--mc-colour-interactive);
-    outline-offset: calc(var(--mc-border-width-emphasised) * -1);
+    outline: 0;
+    box-shadow: inset 0 0 var(--mc-space-2)
+      color-mix(
+        in srgb,
+        var(--mc-colour-interactive) var(--mc-opacity-focus-shadow),
+        transparent
+      );
   }
 
   .mc-numeric-input__stepper:disabled {
@@ -379,7 +387,9 @@
 
     .mc-numeric-input__control-shell:focus-within,
     .mc-numeric-input__stepper:focus-visible {
-      outline-color: Highlight;
+      outline: var(--mc-border-width-emphasised) solid Highlight;
+      outline-offset: calc(var(--mc-border-width-emphasised) * -1);
+      box-shadow: none;
     }
 
     .mc-numeric-input[data-error='true'] .mc-numeric-input__control-shell,

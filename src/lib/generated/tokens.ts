@@ -91,6 +91,7 @@ export const foundationTokens = {
   "shadow-1": "0 2px 8px rgb(0 0 0 / 24%)",
   "shadow-2": "0 8px 24px rgb(0 0 0 / 32%)",
   "shadow-3": "0 16px 48px rgb(0 0 0 / 40%)",
+  "opacity-focus-shadow": "75%",
   "layer-base": 0,
   "layer-sticky": 100,
   "layer-overlay": 200,

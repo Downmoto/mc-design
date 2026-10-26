@@ -225,9 +225,14 @@
   }
 
   .mc-button:focus-visible {
-    outline: var(--mc-border-width-emphasised) solid
-      var(--mc-colour-text-primary);
-    outline-offset: 0;
+    border-color: var(--mc-colour-interactive);
+    outline: 0;
+    box-shadow: 0 0 var(--mc-space-2)
+      color-mix(
+        in srgb,
+        var(--mc-colour-interactive) var(--mc-opacity-focus-shadow),
+        transparent
+      );
   }
 
   .mc-button:not([data-appearance='link']):active:not(:disabled):not(
@@ -341,7 +346,10 @@
     }
 
     .mc-button:focus-visible {
-      outline-color: Highlight;
+      border-color: Highlight;
+      outline: var(--mc-border-width-emphasised) solid Highlight;
+      outline-offset: calc(var(--mc-border-width-emphasised) * -1);
+      box-shadow: none;
     }
 
     .mc-button:disabled,

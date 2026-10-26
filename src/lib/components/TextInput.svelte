@@ -194,13 +194,6 @@
     border-color: var(--mc-colour-interactive);
   }
 
-  .mc-text-input__control:focus-visible {
-    border-color: var(--mc-colour-interactive);
-    outline: var(--mc-border-width-emphasised) solid
-      var(--mc-colour-text-primary);
-    outline-offset: 0;
-  }
-
   .mc-text-input[data-error='true'] .mc-text-input__control {
     border-color: var(--mc-colour-danger);
   }
@@ -214,6 +207,17 @@
 
   .mc-text-input__control:read-only:not(:disabled) {
     background: var(--mc-colour-surface);
+  }
+
+  .mc-text-input .mc-text-input__control:focus-visible {
+    border-color: var(--mc-colour-interactive);
+    outline: 0;
+    box-shadow: 0 0 var(--mc-space-2)
+      color-mix(
+        in srgb,
+        var(--mc-colour-interactive) var(--mc-opacity-focus-shadow),
+        transparent
+      );
   }
 
   .mc-text-input__message {
@@ -244,7 +248,10 @@
     }
 
     .mc-text-input__control:focus-visible {
-      outline-color: Highlight;
+      border-color: Highlight;
+      outline: var(--mc-border-width-emphasised) solid Highlight;
+      outline-offset: calc(var(--mc-border-width-emphasised) * -1);
+      box-shadow: none;
     }
 
     .mc-text-input[data-error='true'] .mc-text-input__control,
