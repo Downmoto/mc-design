@@ -78,5 +78,11 @@ export {
   type RadioOption,
 } from './components/radio-group.types.js';
 
+export { default as Switch } from './components/Switch.svelte';
+export {
+  type SwitchProps,
+  type SwitchSize,
+} from './components/switch.types.js';
+
 export { default as Consumer } from './components/Consumer.svelte';
 export { type ConsumerProps } from './components/consumer.types.js';
