@@ -6,6 +6,7 @@
   .mc-numeric-input,
   .mc-radio-group,
   .mc-select,
+  .mc-slider,
   .mc-switch,
   .mc-text-area,
   .mc-text-input
@@ -24,6 +25,7 @@
   .mc-radio-group__legend,
   .mc-radio-group__option-label,
   .mc-select__label,
+  .mc-slider__label,
   .mc-switch__label,
   .mc-text-area__label,
   .mc-text-input__label
@@ -139,6 +141,7 @@
     .mc-radio-group__native:focus-visible
     + .mc-radio-group__circle,
   .mc-select .mc-select__control:focus-visible,
+  .mc-slider .mc-slider__control:focus-visible,
   .mc-switch .mc-switch__native:focus-visible + .mc-switch__track,
   .mc-text-area .mc-text-area__control:focus-visible,
   .mc-text-input .mc-text-input__control:focus-visible
@@ -193,6 +196,7 @@
   .mc-radio-group__message,
   .mc-radio-group__option-description,
   .mc-select__message,
+  .mc-slider__message,
   .mc-switch__message,
   .mc-text-area__message,
   .mc-text-input__message
@@ -207,6 +211,7 @@
   .mc-numeric-input__message,
   .mc-radio-group__message,
   .mc-select__message,
+  .mc-slider__message,
   .mc-text-area__message
 ) {
   margin-block-start: var(--mc-space-1);
@@ -217,6 +222,7 @@
   .mc-radio-group__message,
   .mc-radio-group__option-description,
   .mc-select__message,
+  .mc-slider__message,
   .mc-switch__message,
   .mc-text-area__message,
   .mc-text-input__message
@@ -228,6 +234,7 @@
   .mc-numeric-input[data-error='true'] .mc-numeric-input__message,
   .mc-radio-group[data-error='true'] .mc-radio-group__message,
   .mc-select[data-error='true'] .mc-select__message,
+  .mc-slider[data-error='true'] .mc-slider__message,
   .mc-switch[data-error='true'] .mc-switch__message,
   .mc-text-area[data-error='true'] .mc-text-area__message,
   .mc-text-input[data-error='true'] .mc-text-input__message
@@ -272,6 +279,7 @@
     .mc-numeric-input__stepper:focus-visible,
     .mc-radio-group__native:focus-visible + .mc-radio-group__circle,
     .mc-select__control:focus-visible,
+    .mc-slider__control:focus-visible,
     .mc-switch__native:focus-visible + .mc-switch__track,
     .mc-text-area__control:focus-visible,
     .mc-text-input__control:focus-visible
@@ -286,6 +294,7 @@
     .mc-checkbox__native:focus-visible + .mc-checkbox__box,
     .mc-radio-group__native:focus-visible + .mc-radio-group__circle,
     .mc-select__control:focus-visible,
+    .mc-slider__control:focus-visible,
     .mc-switch__native:focus-visible + .mc-switch__track,
     .mc-text-area__control:focus-visible,
     .mc-text-input__control:focus-visible
@@ -300,6 +309,7 @@
     .mc-radio-group[data-error='true'] .mc-radio-group__message,
     .mc-select[data-error='true'] .mc-select__control,
     .mc-select[data-error='true'] .mc-select__message,
+    .mc-slider[data-error='true'] .mc-slider__message,
     .mc-switch[data-error='true'] .mc-switch__message,
     .mc-switch[data-error='true'] .mc-switch__track,
     .mc-text-area[data-error='true'] .mc-text-area__control,

@@ -79,6 +79,7 @@ Import the shared styles once, then import components from the package:
     NumericInput,
     RadioGroup,
     Select,
+    Slider,
     Switch,
     TextArea,
     TextInput,
@@ -143,6 +144,8 @@ Import the shared styles once, then import components from the package:
   description="Receive a notice when processing finishes"
   checked
 />
+
+<Slider label="Opacity" suffix="%" value={60} showValue />
 ```
 
 Button renders a native button by default and a native anchor when `href` is
@@ -193,6 +196,11 @@ Switch renders a labelled native checkbox with switch semantics for settings
 that take effect immediately. It supports standard and compact sizes, two-way
 state binding, description and error messages, and native required and disabled
 states.
+
+Slider renders a labelled native range input with an optional visible value.
+It supports numeric bounds and steps, standard and compact sizes, two-way value
+binding, optional unit suffixes, value visibility, error messages, and the native
+disabled state.
 
 Set a consumer on one component with its `consumer` prop:
 

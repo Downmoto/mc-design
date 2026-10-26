@@ -84,5 +84,11 @@ export {
   type SwitchSize,
 } from './components/switch.types.js';
 
+export { default as Slider } from './components/Slider.svelte';
+export {
+  type SliderProps,
+  type SliderSize,
+} from './components/slider.types.js';
+
 export { default as Consumer } from './components/Consumer.svelte';
 export { type ConsumerProps } from './components/consumer.types.js';
