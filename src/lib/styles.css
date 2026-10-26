@@ -27,6 +27,7 @@
   .mc-select__label,
   .mc-slider__label,
   .mc-switch__label,
+  .mc-tabs__tab,
   .mc-text-area__label,
   .mc-text-input__label
 ) {
@@ -143,6 +144,7 @@
   .mc-select .mc-select__control:focus-visible,
   .mc-slider .mc-slider__control:focus-visible,
   .mc-switch .mc-switch__native:focus-visible + .mc-switch__track,
+  .mc-tabs .mc-tabs__tab:focus-visible,
   .mc-text-area .mc-text-area__control:focus-visible,
   .mc-text-input .mc-text-input__control:focus-visible
 ) {
@@ -281,6 +283,7 @@
     .mc-select__control:focus-visible,
     .mc-slider__control:focus-visible,
     .mc-switch__native:focus-visible + .mc-switch__track,
+    .mc-tabs__tab:focus-visible,
     .mc-text-area__control:focus-visible,
     .mc-text-input__control:focus-visible
   ) {
@@ -296,6 +299,7 @@
     .mc-select__control:focus-visible,
     .mc-slider__control:focus-visible,
     .mc-switch__native:focus-visible + .mc-switch__track,
+    .mc-tabs__tab:focus-visible,
     .mc-text-area__control:focus-visible,
     .mc-text-input__control:focus-visible
   ) {

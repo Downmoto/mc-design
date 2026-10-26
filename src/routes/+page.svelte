@@ -11,6 +11,7 @@
   import SelectPreview from './_components/previews/SelectPreview.svelte';
   import SliderPreview from './_components/previews/SliderPreview.svelte';
   import SwitchPreview from './_components/previews/SwitchPreview.svelte';
+  import TabsPreview from './_components/previews/TabsPreview.svelte';
   import TextAreaPreview from './_components/previews/TextAreaPreview.svelte';
   import TextInputPreview from './_components/previews/TextInputPreview.svelte';
   import TypographyPreview from './_components/previews/TypographyPreview.svelte';
@@ -26,6 +27,7 @@
     '/components/select': SelectPreview,
     '/components/slider': SliderPreview,
     '/components/switch': SwitchPreview,
+    '/components/tabs': TabsPreview,
     '/components/text-area': TextAreaPreview,
     '/components/text-input': TextInputPreview,
     '/components/typography': TypographyPreview,
