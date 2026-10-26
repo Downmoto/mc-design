@@ -11,7 +11,7 @@ const icon = createRawSnippet(() => ({
 
 describe('TextInput', () => {
   it('renders a labelled native text input', () => {
-    const { getByLabelText } = render(TextInput, {
+    const { container, getByLabelText } = render(TextInput, {
       label: 'Email address',
       name: 'email',
       placeholder: 'name@example.com',
@@ -21,6 +21,7 @@ describe('TextInput', () => {
     expect(input).toHaveAttribute('type', 'text');
     expect(input).toHaveAttribute('name', 'email');
     expect(input).toHaveAttribute('placeholder', 'name@example.com');
+    expect(container.querySelector('.mc-text-input__message')).toBeNull();
   });
 
   it('connects its description to the input', () => {

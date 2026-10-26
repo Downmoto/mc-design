@@ -2,6 +2,7 @@
   import {
     Checkbox,
     Select,
+    TextInput,
     Typography,
     type CheckboxSize,
   } from '#lib/index.js';
@@ -104,10 +105,7 @@
     </div>
 
     <form class="control-panel" onsubmit={(event) => event.preventDefault()}>
-      <label>
-        <span>Label</span>
-        <input bind:value={label} maxlength="40" />
-      </label>
+      <TextInput label="Label" bind:value={label} maxlength={40} />
       <Select label="Size" bind:value={size}>
         <option value="standard">Standard</option>
         <option value="compact">Compact</option>

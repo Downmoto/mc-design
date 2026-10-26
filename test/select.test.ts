@@ -17,7 +17,7 @@ const options = createRawSnippet(() => ({
 
 describe('Select', () => {
   it('renders a labelled native select', () => {
-    const { getByRole } = render(Select, {
+    const { container, getByRole } = render(Select, {
       children: options,
       label: 'Theme',
       name: 'theme',
@@ -28,6 +28,7 @@ describe('Select', () => {
     expect(select).toHaveAttribute('name', 'theme');
     expect(select).toHaveValue('dark');
     expect(select).toHaveDisplayValue('Dark');
+    expect(container.querySelector('.mc-select__message')).toBeNull();
   });
 
   it('connects its description to the control', () => {

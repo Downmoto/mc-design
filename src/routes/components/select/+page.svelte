@@ -1,5 +1,11 @@
 <script lang="ts">
-  import { Checkbox, Select, Typography, type SelectSize } from '#lib/index.js';
+  import {
+    Checkbox,
+    Select,
+    TextInput,
+    Typography,
+    type SelectSize,
+  } from '#lib/index.js';
   import CodeExample from '../../_components/CodeExample.svelte';
   import ComponentHeader from '../../_components/ComponentHeader.svelte';
 
@@ -113,14 +119,8 @@
     </div>
 
     <form class="control-panel" onsubmit={(event) => event.preventDefault()}>
-      <label>
-        <span>Label</span>
-        <input bind:value={label} maxlength="40" />
-      </label>
-      <label>
-        <span>Description</span>
-        <input bind:value={description} maxlength="80" />
-      </label>
+      <TextInput label="Label" bind:value={label} maxlength={40} />
+      <TextInput label="Description" bind:value={description} maxlength={80} />
       <Select label="Selected option" bind:value>
         <option value="dark">Dark</option>
         <option value="light">Light</option>

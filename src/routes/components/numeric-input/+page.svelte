@@ -3,6 +3,7 @@
     Checkbox,
     NumericInput,
     Select,
+    TextInput,
     Typography,
     type NumericInputSize,
   } from '#lib/index.js';
@@ -129,34 +130,13 @@
     </div>
 
     <form class="control-panel" onsubmit={(event) => event.preventDefault()}>
-      <label>
-        <span>Label</span>
-        <input bind:value={label} maxlength="40" />
-      </label>
-      <label>
-        <span>Description</span>
-        <input bind:value={description} maxlength="80" />
-      </label>
-      <label>
-        <span>Prefix</span>
-        <input bind:value={prefix} maxlength="8" />
-      </label>
-      <label>
-        <span>Suffix</span>
-        <input bind:value={suffix} maxlength="8" />
-      </label>
-      <label>
-        <span>Minimum</span>
-        <input type="number" bind:value={minimum} />
-      </label>
-      <label>
-        <span>Maximum</span>
-        <input type="number" bind:value={maximum} />
-      </label>
-      <label>
-        <span>Step</span>
-        <input type="number" min="0.01" step="0.01" bind:value={step} />
-      </label>
+      <TextInput label="Label" bind:value={label} maxlength={40} />
+      <TextInput label="Description" bind:value={description} maxlength={80} />
+      <TextInput label="Prefix" bind:value={prefix} maxlength={8} />
+      <TextInput label="Suffix" bind:value={suffix} maxlength={8} />
+      <NumericInput label="Minimum" bind:value={minimum} />
+      <NumericInput label="Maximum" bind:value={maximum} />
+      <NumericInput label="Step" min={0.01} step={0.01} bind:value={step} />
       <Select label="Size" bind:value={size}>
         <option value="standard">Standard</option>
         <option value="compact">Compact</option>

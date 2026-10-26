@@ -84,11 +84,13 @@
       </span>
     {/if}
   </div>
-  <span
-    class="mc-text-input__message"
-    id={messageId}
-    aria-live={error ? 'polite' : undefined}>{message}</span
-  >
+  {#if message}
+    <span
+      class="mc-text-input__message"
+      id={messageId}
+      aria-live={error ? 'polite' : undefined}>{message}</span
+    >
+  {/if}
 </div>
 
 <style>
@@ -216,10 +218,6 @@
 
   .mc-text-input__message {
     margin-block-start: var(--mc-space-1);
-    min-block-size: calc(
-      var(--mc-typography-caption-size) *
-        var(--mc-typography-caption-line-height)
-    );
     color: var(--mc-colour-text-secondary);
     font-family: var(--mc-typography-caption-family);
     font-size: var(--mc-typography-caption-size);

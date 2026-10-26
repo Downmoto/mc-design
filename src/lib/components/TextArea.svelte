@@ -60,11 +60,13 @@
     bind:value
     aria-describedby={describedBy}
     aria-invalid={error ? 'true' : ariaInvalid}></textarea>
-  <span
-    class="mc-text-area__message"
-    id={messageId}
-    aria-live={error ? 'polite' : undefined}>{message}</span
-  >
+  {#if message}
+    <span
+      class="mc-text-area__message"
+      id={messageId}
+      aria-live={error ? 'polite' : undefined}>{message}</span
+    >
+  {/if}
 </div>
 
 <style>
@@ -157,10 +159,6 @@
 
   .mc-text-area__message {
     margin-block-start: var(--mc-space-1);
-    min-block-size: calc(
-      var(--mc-typography-caption-size) *
-        var(--mc-typography-caption-line-height)
-    );
     color: var(--mc-colour-text-secondary);
     font-family: var(--mc-typography-caption-family);
     font-size: var(--mc-typography-caption-size);

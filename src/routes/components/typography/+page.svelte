@@ -1,5 +1,10 @@
 <script lang="ts">
-  import { Select, Typography, type TypographyVariant } from '#lib/index.js';
+  import {
+    Select,
+    TextInput,
+    Typography,
+    type TypographyVariant,
+  } from '#lib/index.js';
   import CodeExample from '../../_components/CodeExample.svelte';
   import ComponentHeader from '../../_components/ComponentHeader.svelte';
 
@@ -117,10 +122,7 @@
     </div>
 
     <form class="control-panel" onsubmit={(event) => event.preventDefault()}>
-      <label>
-        <span>Text</span>
-        <input bind:value={text} maxlength="80" />
-      </label>
+      <TextInput label="Text" bind:value={text} maxlength={80} />
       <Select label="Pattern" value={variant} onchange={selectVariant}>
         {#each textPatterns as option}
           <option value={option.value}>{option.label}</option>

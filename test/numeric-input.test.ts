@@ -6,7 +6,7 @@ import { NumericInput } from '../src/lib/index.js';
 
 describe('NumericInput', () => {
   it('renders a labelled native numeric input', () => {
-    const { getByLabelText } = render(NumericInput, {
+    const { container, getByLabelText } = render(NumericInput, {
       label: 'Quantity',
       name: 'quantity',
       value: 12,
@@ -16,6 +16,7 @@ describe('NumericInput', () => {
     expect(input).toHaveAttribute('type', 'number');
     expect(input).toHaveAttribute('name', 'quantity');
     expect(input).toHaveValue(12);
+    expect(container.querySelector('.mc-numeric-input__message')).toBeNull();
   });
 
   it('passes numeric constraints to the input', () => {

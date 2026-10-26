@@ -6,6 +6,7 @@
     Button,
     Checkbox,
     Select,
+    TextInput,
     Typography,
     type ButtonAppearance,
     type ButtonSize,
@@ -216,15 +217,17 @@
         <option value="action">Action</option>
         <option value="navigation">Navigation</option>
       </Select>
-      <label>
-        <span>{content === 'icon' ? 'Accessible name' : 'Label'}</span>
-        <input bind:value={label} maxlength="40" />
-      </label>
+      <TextInput
+        label={content === 'icon' ? 'Accessible name' : 'Label'}
+        bind:value={label}
+        maxlength={40}
+      />
       {#if behaviour === 'navigation'}
-        <label>
-          <span>Destination</span>
-          <input bind:value={destination} maxlength="200" />
-        </label>
+        <TextInput
+          label="Destination"
+          bind:value={destination}
+          maxlength={200}
+        />
       {/if}
       <Select label="Appearance" value={appearance} onchange={selectAppearance}>
         {#each content === 'icon' ? appearances : playgroundAppearances as option}

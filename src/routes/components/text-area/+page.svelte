@@ -3,6 +3,7 @@
     Checkbox,
     Select,
     TextArea,
+    TextInput,
     Typography,
     type TextAreaSize,
   } from '#lib/index.js';
@@ -113,18 +114,9 @@
     </div>
 
     <form class="control-panel" onsubmit={(event) => event.preventDefault()}>
-      <label>
-        <span>Label</span>
-        <input bind:value={label} maxlength="40" />
-      </label>
-      <label>
-        <span>Description</span>
-        <input bind:value={description} maxlength="80" />
-      </label>
-      <label>
-        <span>Placeholder</span>
-        <input bind:value={placeholder} maxlength="80" />
-      </label>
+      <TextInput label="Label" bind:value={label} maxlength={40} />
+      <TextInput label="Description" bind:value={description} maxlength={80} />
+      <TextInput label="Placeholder" bind:value={placeholder} maxlength={80} />
       <Select label="Size" bind:value={size}>
         <option value="standard">Standard</option>
         <option value="compact">Compact</option>

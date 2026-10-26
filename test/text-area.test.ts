@@ -6,7 +6,7 @@ import { TextArea } from '../src/lib/index.js';
 
 describe('TextArea', () => {
   it('renders a labelled native textarea with standard defaults', () => {
-    const { getByLabelText } = render(TextArea, {
+    const { container, getByLabelText } = render(TextArea, {
       label: 'Project notes',
       name: 'notes',
       placeholder: 'Add context',
@@ -17,6 +17,7 @@ describe('TextArea', () => {
     expect(textarea).toHaveAttribute('name', 'notes');
     expect(textarea).toHaveAttribute('placeholder', 'Add context');
     expect(textarea).toHaveAttribute('rows', '4');
+    expect(container.querySelector('.mc-text-area__message')).toBeNull();
   });
 
   it('uses two rows for compact fields and honours an explicit row count', () => {
