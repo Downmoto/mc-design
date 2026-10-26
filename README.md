@@ -77,6 +77,7 @@ Import the shared styles once, then import components from the package:
     Button,
     Checkbox,
     NumericInput,
+    RadioGroup,
     Select,
     TextArea,
     TextInput,
@@ -125,6 +126,16 @@ Import the shared styles once, then import components from the package:
 </Select>
 
 <Checkbox label="Include metadata" />
+
+<RadioGroup
+  label="Theme"
+  options={[
+    { label: 'Dark', value: 'dark' },
+    { label: 'Light', value: 'light' },
+    { label: 'System', value: 'system' },
+  ]}
+  value="system"
+/>
 ```
 
 Button renders a native button by default and a native anchor when `href` is
@@ -165,6 +176,11 @@ Checkbox renders a labelled native checkbox for an independent option. It
 supports checked, unchecked, and indeterminate states, standard and compact
 sizes, two-way state binding, error messages, and native required and disabled
 states.
+
+RadioGroup renders a native fieldset of mutually exclusive radio inputs. It
+supports option labels and descriptions, standard and compact sizes, two-way
+value binding, error messages, per-option disabling, and native required and
+disabled states.
 
 Set a consumer on one component with its `consumer` prop:
 

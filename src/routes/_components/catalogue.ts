@@ -8,6 +8,7 @@ export interface CatalogueEntry {
     | '/components/checkbox'
     | '/components/consumer'
     | '/components/numeric-input'
+    | '/components/radio-group'
     | '/components/select'
     | '/components/text-area'
     | '/components/text-input'
@@ -77,6 +78,13 @@ export const catalogue: CatalogueEntry[] = [
     description: 'Toggles an independent option on or off',
     name: 'Checkbox',
     route: '/components/checkbox',
+    status: 'Ready',
+  },
+  {
+    category: 'Inputs',
+    description: 'Chooses one option from a visible set',
+    name: 'Radio group',
+    route: '/components/radio-group',
     status: 'Ready',
   },
 ];
