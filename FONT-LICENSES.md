@@ -1,10 +1,11 @@
 # Font licences
 
-MC Design bundles the following fonts under the SIL Open Font License 1.1:
+MemoryCore design loads the following fonts from `@fontsource` packages under
+the SIL Open Font License 1.1:
 
-- Open Sans: Copyright 2020 The Open Sans Project Authors
-- Geist Mono: Copyright 2024 The Geist Project Authors
 - Manufacturing Consent: Copyright 2019 The Manufacturing Consent Project Authors
+- Space Mono: Copyright 2016 The Space Mono Project Authors
+- Roboto: Copyright 2011 The Roboto Project Authors
 
 The licence text below applies to each font.
 

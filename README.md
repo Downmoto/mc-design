@@ -1,62 +1,234 @@
-# MC Design
+# MemoryCore design
 
-Shared React design system for Memory Core applications.
+`@memorycore/design` is MemoryCore's shared Svelte design library. It provides
+design tokens, theming utilities, and approved interface components for
+memorycore.dev and future MemoryCore products.
+
+The replacement library is currently in foundation development. Components are
+added only after their designs are approved and a consumer requires them.
+
+## Requirements
+
+- Node.js 22.17 or newer
+- npm 11 or newer
+- Svelte 5.57 or newer
 
 ## Development
 
+Install dependencies and run the complete verification suite:
+
 ```sh
 npm install
+npm run check
+```
+
+Regenerate CSS, TypeScript, and documentation from the canonical token source:
+
+```sh
+npm run tokens:generate
+```
+
+The source is `tokens/tokens.json`. Generated files are committed so package
+consumers and reviewers can inspect changes without running the generator.
+
+## Using tokens
+
+Load the complete foundation, including the approved fonts:
+
+```ts
+import '@memorycore/design/styles.css';
+```
+
+Consumers that load fonts separately can import only the token properties:
+
+```ts
+import '@memorycore/design/tokens.css';
+```
+
+The default theme is dark. Set `data-mc-theme` on the document root to `dark`,
+`light`, or `system`. The theme helpers persist and apply this setting:
+
+```ts
+import { initialiseTheme, setTheme } from '@memorycore/design';
+
+initialiseTheme();
+setTheme('system');
+```
+
+The shared `--mc-colour-interactive` role uses a neutral pair by default.
+Registered consumer themes can set `--mc-product-primary` separately for light
+and dark themes. Component users select these mappings through the `consumer`
+prop or `Consumer` component documented below. Token-only integrations can
+apply a packaged mapping with `data-mc-product`.
+
+See [the token reference](./docs/tokens.md) for the complete generated list and
+[the implementation decision](./docs/decisions/0001-implementation-contract.md)
+for the package contract.
+
+## Using components
+
+Import the shared styles once, then import components from the package:
+
+```svelte
+<script lang="ts">
+  import '@memorycore/design/styles.css';
+  import {
+    ActionGroup,
+    Button,
+    Checkbox,
+    NumericInput,
+    Select,
+    TextArea,
+    TextInput,
+    Typography,
+  } from '@memorycore/design';
+</script>
+
+<Button>Save changes</Button>
+<Button appearance="link" href="/about">About MemoryCore</Button>
+<Button size="icon" aria-label="Add item" title="Add item">
+  <!-- Phosphor Regular icon -->
+</Button>
+
+<ActionGroup joined aria-label="Pagination">
+  <Button appearance="secondary">Previous</Button>
+  <Button appearance="secondary">Next</Button>
+</ActionGroup>
+
+<Typography variant="h1">Product settings</Typography>
+<Typography>Configure how this product behaves</Typography>
+
+<TextInput
+  label="Email address"
+  description="Used for account notices"
+  type="email"
+/>
+
+<TextArea
+  label="Project notes"
+  description="Add context for collaborators"
+  placeholder="Describe the project"
+/>
+
+<NumericInput
+  label="Opacity"
+  description="Enter a value from 0 to 100"
+  min={0}
+  max={100}
+  suffix="%"
+/>
+
+<Select label="Theme" value="system">
+  <option value="dark">Dark</option>
+  <option value="light">Light</option>
+  <option value="system">System</option>
+</Select>
+
+<Checkbox label="Include metadata" />
+```
+
+Button renders a native button by default and a native anchor when `href` is
+provided. It supports primary, secondary, ghost, and link appearances; compact,
+standard, large, and matching icon-only sizes; decorative leading and trailing
+icon snippets; disabled state; and a loading state that preserves its dimensions
+and accessible name.
+
+ActionGroup arranges related controls with consistent spacing. Set `joined` to
+connect direct Button children into one control, and nest joined groups inside
+a default ActionGroup to separate related clusters. Horizontal and vertical
+orientations preserve standard Tab navigation.
+
+Typography provides Display, H1 through H4, paragraph, blockquote, list,
+inline code, lead, large, small, and muted patterns. Each pattern renders its
+corresponding semantic element and uses approved MemoryCore tokens.
+
+TextInput renders a labelled native input for a single line of text. It supports
+standard and compact sizes, text-like native input types, description and error
+messages, two-way value binding, and native required, read-only, and disabled
+states. Decorative icon snippets may appear before or after the value.
+
+TextArea renders a labelled native textarea for multiline values. It supports
+standard and compact sizes, description and error messages, configurable rows,
+two-way value binding, vertical resizing, and native required, read-only, and
+disabled states.
+
+NumericInput renders a labelled native number input. It supports standard and
+compact sizes, numeric minimum, maximum, and step constraints, two-way value
+binding, text prefixes and suffixes, description and error messages, and native
+required, read-only, and disabled states.
+
+Select renders a labelled native select for choosing one value from a known
+set. It supports standard and compact sizes, two-way value binding, description
+and error messages, and native required and disabled states.
+
+Checkbox renders a labelled native checkbox for an independent option. It
+supports checked, unchecked, and indeterminate states, standard and compact
+sizes, two-way state binding, error messages, and native required and disabled
+states.
+
+Set a consumer on one component with its `consumer` prop:
+
+```svelte
+<Button consumer="website">Save changes</Button>
+```
+
+Use `Consumer` to provide a consumer to every nested library component. A
+component-level prop takes precedence over the nearest provider.
+
+```svelte
+<script lang="ts">
+  import { Button, Consumer } from '@memorycore/design';
+</script>
+
+<Consumer consumer="dithertool">
+  <Button>Process image</Button>
+  <Button
+    consumer="aetheltool"
+    size="icon"
+    aria-label="Add layer"
+    title="Add layer"
+  >
+    <!-- icon -->
+  </Button>
+</Consumer>
+```
+
+Omit both APIs to use the neutral default. The components manage the generated
+consumer attributes internally. Direct token overrides remain available for
+fine-grained control.
+
+## Component workbench
+
+Start the local component library:
+
+```sh
 npm run dev
 ```
 
-Run every automated check with `npm run check`.
+Create the static build intended for `memorycore.dev/design/library/`:
 
-Applications load the shared theme with:
-
-```ts
-import "@mc-design/react/styles.css";
+```sh
+npm run build
 ```
 
-Dark mode is the default. Set `data-mc-theme="light"` or
-`data-mc-theme="dark"` on an application root to select a theme explicitly.
+Create the distributable `@memorycore/design` package:
 
-## Toggle buttons
-
-Add `ToggleButton.Icon` to render the toggle as an icon control instead of a
-labelled switch. Give icon toggles an accessible name.
-
-```tsx
-<ToggleButton aria-label="Pin effect">
-  <ToggleButton.Icon>
-    <PinIcon />
-  </ToggleButton.Icon>
-</ToggleButton>
+```sh
+npm run package
 ```
 
-Use `variant="ghost"` for a transparent icon toggle. Its icon changes to the
-accent colour when selected.
+The SvelteKit static output is `build/`. It contains a catalogue home page and
+dedicated Consumer, Button, Action group, Typography, Text input, Text area,
+Numeric input, Select, and Checkbox pages with live playgrounds, variants,
+interactions, usage guidance, accessibility requirements, and collapsed API and
+token references. Global theme and consumer controls update every preview
+through the public component APIs.
 
-## Modal
+See [the component workbench decision](./docs/decisions/0002-component-workbench.md)
+for the route and deployment contract.
 
-`Modal.Root` supports `variant="centered"` (default) and `variant="movable"`.
-The movable variant opens at the `Modal.Target` click and can be dragged within
-the viewport. Set `initialPosition="center"` to start a movable modal in the
-centre instead. Both variants close when clicked outside and block background
-interaction and scrolling while open. Set `dimBg={false}` to keep the blocked
-background visible without dimming.
+## Project direction
 
-```tsx
-<Modal.Root variant="movable" initialPosition="center" dimBg={false}>
-  <Modal.Target>Open settings</Modal.Target>
-  <Modal.Content aria-label="Settings">
-    <p>Settings go here.</p>
-    <Modal.Close>Close</Modal.Close>
-  </Modal.Content>
-</Modal.Root>
-```
-
-Use `open` and `onOpenChange` to control visibility externally, or `defaultOpen`
-for an initially open modal. Give each `Modal.Content` an accessible name with
-`aria-label` or `aria-labelledby`.
-
-See [ROADMAP.md](./ROADMAP.md) for the project checklist.
+`CONTEXT.md` is the design and accessibility authority. `PLAN.md` tracks the
+implementation sequence. The old React package has no compatibility surface in
+this replacement.

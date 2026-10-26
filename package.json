@@ -1,53 +1,85 @@
 {
-  "name": "@mc-design/react",
+  "name": "@memorycore/design",
   "version": "0.0.0",
-  "description": "Shared React design system for Memory Core applications.",
+  "description": "Shared Svelte design tokens and components for MemoryCore products",
   "type": "module",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Downmoto/mc-design.git"
+  },
+  "imports": {
+    "#lib": "./src/lib/index.js",
+    "#lib/*": "./src/lib/*"
+  },
+  "engines": {
+    "node": ">=22.17",
+    "npm": ">=11"
+  },
   "sideEffects": [
     "**/*.css"
   ],
   "files": [
     "dist",
+    "docs",
     "FONT-LICENSES.md"
   ],
-  "main": "./dist/index.js",
-  "module": "./dist/index.js",
+  "svelte": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.js"
+      "svelte": "./dist/index.js",
+      "default": "./dist/index.js"
     },
-    "./styles.css": "./dist/styles.css"
+    "./styles.css": "./dist/styles.css",
+    "./fonts.css": "./dist/fonts.css",
+    "./tokens.css": "./dist/generated/tokens.css",
+    "./tokens": {
+      "types": "./dist/generated/tokens.d.ts",
+      "default": "./dist/generated/tokens.js"
+    }
   },
   "scripts": {
-    "dev": "vite",
-    "build": "vite build && tsc -p tsconfig.build.json",
-    "prepare": "npm run build",
-    "typecheck": "tsc --noEmit",
-    "test": "vitest run --passWithNoTests",
+    "tokens:generate": "node scripts/generate-tokens.mjs",
+    "tokens:check": "node scripts/generate-tokens.mjs --check",
+    "dev": "vite dev",
+    "build": "vite build",
+    "preview": "vite preview",
+    "package": "npm run tokens:generate && svelte-package",
+    "package:watch": "svelte-package --watch",
+    "prepare": "svelte-kit sync && npm run package",
+    "typecheck": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+    "test": "vitest run",
     "test:watch": "vitest",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "check": "npm run format:check && npm run typecheck && npm test && npm run build"
+    "check": "npm run tokens:check && npm run format:check && npm run typecheck && npm test && npm run package && npm run build && npm run tokens:check"
   },
   "peerDependencies": {
-    "react": ">=19",
-    "react-dom": ">=19"
+    "svelte": ">=5.57.1 <6"
+  },
+  "dependencies": {
+    "@fontsource/manufacturing-consent": "^5.3.0",
+    "@fontsource/roboto": "^5.3.0",
+    "@fontsource/space-mono": "^5.3.0",
+    "phosphor-svelte": "^3.1.1"
   },
   "devDependencies": {
-    "@fontsource-variable/geist-mono": "^5.3.0",
-    "@fontsource-variable/open-sans": "^5.3.0",
-    "@fontsource/manufacturing-consent": "^5.3.0",
-    "@types/node": "^26.6.2",
-    "@types/react": "^19.3.0",
-    "@types/react-dom": "^19.3.0",
-    "@vitejs/plugin-react": "^6.1.1",
-    "prettier": "^3.9.8",
-    "react": "^19.3.0",
-    "react-dom": "^19.3.0",
-    "typescript": "^7.0.2",
-    "vite": "^8.3.0",
-    "vitest": "^5.0.1"
+    "@sveltejs/adapter-static": "^4.0.0",
+    "@sveltejs/kit": "^3.1.0",
+    "@sveltejs/package": "^3.0.0",
+    "@sveltejs/vite-plugin-svelte": "^7.3.1",
+    "@testing-library/jest-dom": "^7.0.1",
+    "@testing-library/svelte": "^5.4.2",
+    "axe-core": "^4.14.0",
+    "jsdom": "^29.1.1",
+    "prettier": "^3.9.9",
+    "prettier-plugin-svelte": "^4.1.1",
+    "svelte": "^5.57.2",
+    "svelte-check": "^4.7.7",
+    "typescript": "^6.0.3",
+    "vite": "^8.3.4",
+    "vitest": "^5.0.3"
   }
 }

@@ -1,18 +1,21 @@
-import { fileURLToPath, URL } from "node:url";
-import react from "@vitejs/plugin-react";
-import { defineConfig } from "vite";
+import adapter from '@sveltejs/adapter-static';
+import { sveltekit } from '@sveltejs/kit/vite';
+import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
+import { svelteTesting } from '@testing-library/svelte/vite';
+import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
-  plugins: [react()],
-  build: {
-    lib: {
-      entry: fileURLToPath(new URL("./src/index.ts", import.meta.url)),
-      formats: ["es"],
-      fileName: "index",
-      cssFileName: "styles",
-    },
-    rollupOptions: {
-      external: ["react", "react-dom", "react/jsx-runtime"],
-    },
+  plugins: [
+    sveltekit({
+      adapter: adapter({ strict: true }),
+      paths: { base: '/design/library' },
+      preprocess: vitePreprocess(),
+    }),
+    svelteTesting(),
+  ],
+  test: {
+    environment: 'jsdom',
+    include: ['test/**/*.test.ts'],
+    setupFiles: ['./test/setup.ts'],
   },
 });

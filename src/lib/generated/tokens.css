@@ -1,0 +1,256 @@
+/* Generated from tokens/tokens.json. Do not edit directly. */
+:root {
+  --mc-brand-dark: #050507;
+  --mc-brand-dark-surface: #1C1A20;
+  --mc-brand-dark-neutral: #2D2D2D;
+  --mc-brand-light: #E8E1D2;
+  --mc-brand-light-surface: #F3EBDD;
+  --mc-brand-warm-muted: #B8AE9D;
+  --mc-brand-cool-muted: #8C8791;
+  --mc-colour-consumer-website-primary-light: #2F6892;
+  --mc-colour-consumer-website-primary-dark: #4E8BB7;
+  --mc-colour-consumer-dithertool-primary-light: #506A4B;
+  --mc-colour-consumer-dithertool-primary-dark: #728E6D;
+  --mc-colour-consumer-aetheltool-primary-light: #775591;
+  --mc-colour-consumer-aetheltool-primary-dark: #9676AE;
+  --mc-colour-consumer-website-supporting-pale-blue: #D3DAE0;
+  --mc-colour-consumer-website-resource-primary-light: #1547D2;
+  --mc-colour-consumer-website-resource-primary-dark: #6D98FF;
+  --mc-status-success-light: #215C38;
+  --mc-status-success-dark: #7FC99A;
+  --mc-status-warning-light: #6B4A00;
+  --mc-status-warning-dark: #E5B968;
+  --mc-status-danger-light: #8F2525;
+  --mc-status-danger-dark: #E08383;
+  --mc-font-family-manufacturing-consent: 'Manufacturing Consent', serif;
+  --mc-font-family-space-mono: 'Space Mono', monospace;
+  --mc-font-family-roboto: Roboto, sans-serif;
+  --mc-font-weight-regular: 400;
+  --mc-font-weight-medium: 500;
+  --mc-font-weight-bold: 700;
+  --mc-font-size-1: 0.75rem;
+  --mc-font-size-2: 0.875rem;
+  --mc-font-size-3: 1rem;
+  --mc-font-size-4: 2rem;
+  --mc-font-size-5: 3rem;
+  --mc-font-size-6: 4rem;
+  --mc-line-height-1: 1;
+  --mc-line-height-2: 1.1;
+  --mc-line-height-3: 1.2;
+  --mc-line-height-4: 1.4;
+  --mc-line-height-5: 1.5;
+  --mc-space-1: 4px;
+  --mc-space-2: 8px;
+  --mc-space-3: 12px;
+  --mc-space-4: 16px;
+  --mc-space-5: 24px;
+  --mc-space-6: 32px;
+  --mc-space-7: 48px;
+  --mc-space-8: 64px;
+  --mc-space-9: 96px;
+  --mc-size-control-compact: 32px;
+  --mc-size-control-standard: 40px;
+  --mc-size-control-large: 48px;
+  --mc-size-icon-compact: 16px;
+  --mc-size-icon-standard: 20px;
+  --mc-size-icon-primary: 24px;
+  --mc-size-icon-feature: 32px;
+  --mc-size-target-minimum: 24px;
+  --mc-size-target-preferred: 44px;
+  --mc-size-container-maximum: 1280px;
+  --mc-size-reading-maximum: 640px;
+  --mc-measure-body-maximum: 65ch;
+  --mc-size-sidebar-navigation: 240px;
+  --mc-size-sidebar-properties-minimum: 280px;
+  --mc-size-sidebar-properties-default: 320px;
+  --mc-size-sidebar-properties-maximum: 400px;
+  --mc-size-dialog-small: 400px;
+  --mc-size-dialog-medium: 560px;
+  --mc-size-dialog-large: 720px;
+  --mc-breakpoint-small-minimum: 320px;
+  --mc-breakpoint-small-maximum: 767px;
+  --mc-breakpoint-medium-minimum: 768px;
+  --mc-breakpoint-medium-maximum: 1199px;
+  --mc-breakpoint-large-minimum: 1200px;
+  --mc-grid-column-small: 4;
+  --mc-grid-column-medium: 8;
+  --mc-grid-column-large: 12;
+  --mc-grid-margin-small: 24px;
+  --mc-grid-margin-medium: 32px;
+  --mc-grid-margin-large: 48px;
+  --mc-grid-margin-fluid: clamp(24px, 5vw, 48px);
+  --mc-grid-gutter-small: 16px;
+  --mc-grid-gutter-medium: 24px;
+  --mc-grid-gutter-large: 24px;
+  --mc-border-width-default: 1px;
+  --mc-border-width-emphasised: 2px;
+  --mc-radius-0: 0;
+  --mc-radius-1: 8px;
+  --mc-radius-2: 16px;
+  --mc-radius-3: 24px;
+  --mc-shadow-1: 0 2px 8px rgb(0 0 0 / 24%);
+  --mc-shadow-2: 0 8px 24px rgb(0 0 0 / 32%);
+  --mc-shadow-3: 0 16px 48px rgb(0 0 0 / 40%);
+  --mc-layer-base: 0;
+  --mc-layer-sticky: 100;
+  --mc-layer-overlay: 200;
+  --mc-layer-modal: 300;
+  --mc-layer-toast: 400;
+  --mc-motion-easing-default: cubic-bezier(0.2, 0, 0, 1);
+  --mc-motion-duration-direct: 100ms;
+  --mc-motion-duration-standard: 160ms;
+  --mc-motion-duration-large: 240ms;
+  --mc-motion-duration-processing: 800ms;
+  --mc-motion-distance-entrance: 8px;
+  --mc-typography-display-family: var(--mc-font-family-manufacturing-consent);
+  --mc-typography-display-size: var(--mc-font-size-6);
+  --mc-typography-display-weight: var(--mc-font-weight-regular);
+  --mc-typography-display-line-height: var(--mc-line-height-1);
+  --mc-typography-brand-heading-family: var(--mc-font-family-space-mono);
+  --mc-typography-brand-heading-size: var(--mc-font-size-5);
+  --mc-typography-brand-heading-weight: var(--mc-font-weight-bold);
+  --mc-typography-brand-heading-line-height: var(--mc-line-height-2);
+  --mc-typography-page-title-family: var(--mc-font-family-space-mono);
+  --mc-typography-page-title-size: var(--mc-font-size-4);
+  --mc-typography-page-title-weight: var(--mc-font-weight-bold);
+  --mc-typography-page-title-line-height: var(--mc-line-height-3);
+  --mc-typography-section-title-family: var(--mc-font-family-manufacturing-consent);
+  --mc-typography-section-title-size: var(--mc-font-size-4);
+  --mc-typography-section-title-weight: var(--mc-font-weight-regular);
+  --mc-typography-section-title-line-height: var(--mc-line-height-3);
+  --mc-typography-body-family: var(--mc-font-family-roboto);
+  --mc-typography-body-size: var(--mc-font-size-3);
+  --mc-typography-body-weight: var(--mc-font-weight-regular);
+  --mc-typography-body-line-height: var(--mc-line-height-5);
+  --mc-typography-label-family: var(--mc-font-family-roboto);
+  --mc-typography-label-size: var(--mc-font-size-2);
+  --mc-typography-label-weight: var(--mc-font-weight-medium);
+  --mc-typography-label-line-height: var(--mc-line-height-4);
+  --mc-typography-caption-family: var(--mc-font-family-roboto);
+  --mc-typography-caption-size: var(--mc-font-size-1);
+  --mc-typography-caption-weight: var(--mc-font-weight-regular);
+  --mc-typography-caption-line-height: var(--mc-line-height-4);
+  --mc-typography-code-family: var(--mc-font-family-space-mono);
+  --mc-typography-code-size: var(--mc-font-size-2);
+  --mc-typography-code-weight: var(--mc-font-weight-regular);
+  --mc-typography-code-line-height: var(--mc-line-height-5);
+  --mc-colour-background: var(--mc-brand-dark);
+  --mc-colour-surface: var(--mc-brand-dark-surface);
+  --mc-colour-text-primary: var(--mc-brand-light);
+  --mc-colour-text-secondary: var(--mc-brand-warm-muted);
+  --mc-colour-border: var(--mc-brand-cool-muted);
+  --mc-colour-interactive: var(--mc-product-primary, var(--mc-brand-light));
+  --mc-colour-success: var(--mc-status-success-dark);
+  --mc-colour-warning: var(--mc-status-warning-dark);
+  --mc-colour-danger: var(--mc-status-danger-dark);
+  color-scheme: dark;
+}
+
+[data-mc-theme='dark'],
+[data-mc-theme='system'] {
+  --mc-colour-background: var(--mc-brand-dark);
+  --mc-colour-surface: var(--mc-brand-dark-surface);
+  --mc-colour-text-primary: var(--mc-brand-light);
+  --mc-colour-text-secondary: var(--mc-brand-warm-muted);
+  --mc-colour-border: var(--mc-brand-cool-muted);
+  --mc-colour-interactive: var(--mc-product-primary, var(--mc-brand-light));
+  --mc-colour-success: var(--mc-status-success-dark);
+  --mc-colour-warning: var(--mc-status-warning-dark);
+  --mc-colour-danger: var(--mc-status-danger-dark);
+  color-scheme: dark;
+}
+
+[data-mc-theme='light'] {
+  --mc-colour-background: var(--mc-brand-light-surface);
+  --mc-colour-surface: var(--mc-brand-light);
+  --mc-colour-text-primary: var(--mc-brand-dark);
+  --mc-colour-text-secondary: var(--mc-brand-dark-neutral);
+  --mc-colour-border: var(--mc-brand-dark-neutral);
+  --mc-colour-interactive: var(--mc-product-primary, var(--mc-brand-dark));
+  --mc-colour-success: var(--mc-status-success-light);
+  --mc-colour-warning: var(--mc-status-warning-light);
+  --mc-colour-danger: var(--mc-status-danger-light);
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: light) {
+  [data-mc-theme='system'] {
+    --mc-colour-background: var(--mc-brand-light-surface);
+    --mc-colour-surface: var(--mc-brand-light);
+    --mc-colour-text-primary: var(--mc-brand-dark);
+    --mc-colour-text-secondary: var(--mc-brand-dark-neutral);
+    --mc-colour-border: var(--mc-brand-dark-neutral);
+    --mc-colour-interactive: var(--mc-product-primary, var(--mc-brand-dark));
+    --mc-colour-success: var(--mc-status-success-light);
+    --mc-colour-warning: var(--mc-status-warning-light);
+    --mc-colour-danger: var(--mc-status-danger-light);
+    color-scheme: light;
+  }
+}
+
+[data-mc-product='website'] {
+  --mc-product-primary: var(--mc-colour-consumer-website-primary-dark);
+  --mc-colour-interactive: var(--mc-product-primary);
+}
+
+[data-mc-product='website'][data-mc-theme='light'],
+[data-mc-theme='light'] [data-mc-product='website'] {
+  --mc-product-primary: var(--mc-colour-consumer-website-primary-light);
+  --mc-colour-interactive: var(--mc-product-primary);
+}
+
+@media (prefers-color-scheme: light) {
+  [data-mc-product='website'][data-mc-theme='system'],
+  [data-mc-theme='system'] [data-mc-product='website'] {
+    --mc-product-primary: var(--mc-colour-consumer-website-primary-light);
+    --mc-colour-interactive: var(--mc-product-primary);
+  }
+}
+
+[data-mc-product='dithertool'] {
+  --mc-product-primary: var(--mc-colour-consumer-dithertool-primary-dark);
+  --mc-colour-interactive: var(--mc-product-primary);
+}
+
+[data-mc-product='dithertool'][data-mc-theme='light'],
+[data-mc-theme='light'] [data-mc-product='dithertool'] {
+  --mc-product-primary: var(--mc-colour-consumer-dithertool-primary-light);
+  --mc-colour-interactive: var(--mc-product-primary);
+}
+
+@media (prefers-color-scheme: light) {
+  [data-mc-product='dithertool'][data-mc-theme='system'],
+  [data-mc-theme='system'] [data-mc-product='dithertool'] {
+    --mc-product-primary: var(--mc-colour-consumer-dithertool-primary-light);
+    --mc-colour-interactive: var(--mc-product-primary);
+  }
+}
+
+[data-mc-product='aetheltool'] {
+  --mc-product-primary: var(--mc-colour-consumer-aetheltool-primary-dark);
+  --mc-colour-interactive: var(--mc-product-primary);
+}
+
+[data-mc-product='aetheltool'][data-mc-theme='light'],
+[data-mc-theme='light'] [data-mc-product='aetheltool'] {
+  --mc-product-primary: var(--mc-colour-consumer-aetheltool-primary-light);
+  --mc-colour-interactive: var(--mc-product-primary);
+}
+
+@media (prefers-color-scheme: light) {
+  [data-mc-product='aetheltool'][data-mc-theme='system'],
+  [data-mc-theme='system'] [data-mc-product='aetheltool'] {
+    --mc-product-primary: var(--mc-colour-consumer-aetheltool-primary-light);
+    --mc-colour-interactive: var(--mc-product-primary);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --mc-motion-duration-direct: 0ms;
+    --mc-motion-duration-standard: 100ms;
+    --mc-motion-duration-large: 100ms;
+    --mc-motion-duration-processing: 0ms;
+    --mc-motion-distance-entrance: 0;
+  }
+}
