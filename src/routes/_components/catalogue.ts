@@ -1,5 +1,5 @@
 export interface CatalogueEntry {
-  category: 'Actions' | 'Configuration' | 'Inputs' | 'Structure';
+  category: 'Actions' | 'Configuration' | 'Inputs' | 'Navigation' | 'Structure';
   description: string;
   name: string;
   route:
@@ -12,6 +12,7 @@ export interface CatalogueEntry {
     | '/components/select'
     | '/components/slider'
     | '/components/switch'
+    | '/components/tabs'
     | '/components/text-area'
     | '/components/text-input'
     | '/components/typography';
@@ -101,6 +102,13 @@ export const catalogue: CatalogueEntry[] = [
     description: 'Chooses a numeric value from a continuous range',
     name: 'Slider',
     route: '/components/slider',
+    status: 'Ready',
+  },
+  {
+    category: 'Navigation',
+    description: 'Switches between related sections in the same context',
+    name: 'Tabs',
+    route: '/components/tabs',
     status: 'Ready',
   },
 ];

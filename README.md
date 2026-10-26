@@ -33,17 +33,16 @@ consumers and reviewers can inspect changes without running the generator.
 
 ## Using tokens
 
-Load the complete foundation, including the approved fonts:
+Load the complete token and shared component styles, including the approved
+fonts:
 
 ```ts
 import '@memorycore/design/styles.css';
 ```
 
-Consumers that load fonts separately can import only the token properties:
-
-```ts
-import '@memorycore/design/tokens.css';
-```
+Component consumers must import `styles.css` even when fonts are loaded
+separately because it includes shared component styling. `tokens.css` remains
+available only for token-only integrations.
 
 The default theme is dark. Set `data-mc-theme` on the document root to `dark`,
 `light`, or `system`. The theme helpers persist and apply this setting:
@@ -81,6 +80,7 @@ Import the shared styles once, then import components from the package:
     Select,
     Slider,
     Switch,
+    Tabs,
     TextArea,
     TextInput,
     Typography,
@@ -146,6 +146,19 @@ Import the shared styles once, then import components from the package:
 />
 
 <Slider label="Opacity" suffix="%" value={60} showValue />
+
+<Tabs
+  label="Project sections"
+  tabs={[
+    { label: 'Overview', value: 'overview' },
+    { label: 'Activity', value: 'activity' },
+  ]}
+  value="overview"
+>
+  {#snippet children(selected)}
+    <p>{selected === 'overview' ? 'Project summary' : 'Recent changes'}</p>
+  {/snippet}
+</Tabs>
 ```
 
 Button renders a native button by default and a native anchor when `href` is
@@ -201,6 +214,10 @@ Slider renders a labelled native range input with an optional visible value.
 It supports numeric bounds and steps, standard and compact sizes, two-way value
 binding, optional unit suffixes, value visibility, error messages, and the native
 disabled state.
+
+Tabs switches between related panels in the same context. It supports standard
+and compact sizes, two-way value binding, disabled tabs, automatic selection,
+and established arrow, Home, and End keyboard behaviour.
 
 Set a consumer on one component with its `consumer` prop:
 

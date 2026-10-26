@@ -90,5 +90,12 @@ export {
   type SliderSize,
 } from './components/slider.types.js';
 
+export { default as Tabs } from './components/Tabs.svelte';
+export {
+  type TabItem,
+  type TabsProps,
+  type TabsSize,
+} from './components/tabs.types.js';
+
 export { default as Consumer } from './components/Consumer.svelte';
 export { type ConsumerProps } from './components/consumer.types.js';
