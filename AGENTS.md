@@ -23,6 +23,7 @@ This repository implements MemoryCore's shared design tokens and Svelte componen
 - Register consumer primaries through `colour-consumer-{consumer}-primary-{theme}` and map them through documented semantic roles.
 - Include the approved website, DitherTool, and AethelTool consumer-primary colours and website contextual colours in generated token outputs.
 - Add component tokens only when a shared component needs a narrower semantic role.
+- Reuse and extend shared component styles in `src/lib/styles.css`; keep component files limited to styles unique to that component.
 - Add components and variants when an approved design or a real consumer requires them.
 - Implement the website-required shared-component baseline before broader Tool-oriented MVB components.
 - Keep website shells, page templates, route-aware wrappers, editorial treatments, and page compositions outside this package.

@@ -55,7 +55,7 @@ Required components are tracked in one list. Items marked `website first` form t
 - [x] Inputs: Numeric input
 - [x] Inputs: Select or combobox
 - [x] Inputs: Checkbox
-- [ ] Inputs: Radio group
+- [x] Inputs: Radio group
 - [ ] Inputs: Switch
 - [ ] Inputs: Slider
 - [ ] Navigation: Tabs

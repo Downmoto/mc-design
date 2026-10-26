@@ -71,5 +71,12 @@ export {
   type CheckboxSize,
 } from './components/checkbox.types.js';
 
+export { default as RadioGroup } from './components/RadioGroup.svelte';
+export {
+  type RadioGroupProps,
+  type RadioGroupSize,
+  type RadioOption,
+} from './components/radio-group.types.js';
+
 export { default as Consumer } from './components/Consumer.svelte';
 export { type ConsumerProps } from './components/consumer.types.js';
