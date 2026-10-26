@@ -9,6 +9,7 @@
   import NumericInputPreview from './_components/previews/NumericInputPreview.svelte';
   import RadioGroupPreview from './_components/previews/RadioGroupPreview.svelte';
   import SelectPreview from './_components/previews/SelectPreview.svelte';
+  import SliderPreview from './_components/previews/SliderPreview.svelte';
   import SwitchPreview from './_components/previews/SwitchPreview.svelte';
   import TextAreaPreview from './_components/previews/TextAreaPreview.svelte';
   import TextInputPreview from './_components/previews/TextInputPreview.svelte';
@@ -23,6 +24,7 @@
     '/components/numeric-input': NumericInputPreview,
     '/components/radio-group': RadioGroupPreview,
     '/components/select': SelectPreview,
+    '/components/slider': SliderPreview,
     '/components/switch': SwitchPreview,
     '/components/text-area': TextAreaPreview,
     '/components/text-input': TextInputPreview,
