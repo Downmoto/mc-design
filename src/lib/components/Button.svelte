@@ -302,6 +302,12 @@
     text-decoration-thickness: var(--mc-border-width-emphasised);
   }
 
+  .mc-button[data-appearance='link']:focus-visible {
+    outline: 0;
+    text-decoration-line: underline;
+    text-decoration-thickness: var(--mc-border-width-emphasised);
+  }
+
   .mc-button[data-appearance='link']:active:not([aria-disabled='true']) {
     color: var(--mc-colour-text-primary);
   }

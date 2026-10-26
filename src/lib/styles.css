@@ -121,7 +121,7 @@
 }
 
 :is(
-  .mc-button:focus-visible,
+  .mc-button:not([data-appearance='link']):focus-visible,
   .mc-checkbox .mc-checkbox__native:focus-visible + .mc-checkbox__box,
   .mc-numeric-input .mc-numeric-input__control-shell:focus-within,
   .mc-select .mc-select__control:focus-visible,
