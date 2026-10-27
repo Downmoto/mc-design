@@ -64,7 +64,7 @@ Required components are tracked in one list. Items marked `website first` form t
 - [x] Feedback: Tooltip
 - [x] Feedback: Badge (`website first`)
 - [x] Feedback: Alert (`website first`)
-- [ ] Feedback: Toast
+- [x] Feedback: Toast
 - [ ] Feedback: Status (`website first`)
 - [ ] Feedback: Progress indicator (`website first`)
 - [ ] Feedback: Dialog or equivalent preview surface (`website first`)

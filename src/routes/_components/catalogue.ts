@@ -25,6 +25,7 @@ export interface CatalogueEntry {
     | '/components/tabs'
     | '/components/text-area'
     | '/components/text-input'
+    | '/components/toast'
     | '/components/tooltip'
     | '/components/typography';
 }
@@ -138,5 +139,11 @@ export const catalogue: CatalogueEntry[] = [
     description: 'Presents persistent contextual information',
     name: 'Alert',
     route: '/components/alert',
+  },
+  {
+    category: 'Feedback',
+    description: 'Announces temporary background results without moving focus',
+    name: 'Toast',
+    route: '/components/toast',
   },
 ];
