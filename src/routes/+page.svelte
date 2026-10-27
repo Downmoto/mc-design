@@ -3,6 +3,7 @@
   import { Button, Typography } from '#lib/index.js';
   import { catalogue } from './_components/catalogue.js';
   import ActionGroupPreview from './_components/previews/ActionGroupPreview.svelte';
+  import AlertPreview from './_components/previews/AlertPreview.svelte';
   import BadgePreview from './_components/previews/BadgePreview.svelte';
   import ButtonPreview from './_components/previews/ButtonPreview.svelte';
   import CheckboxPreview from './_components/previews/CheckboxPreview.svelte';
@@ -23,6 +24,7 @@
   const categories = [...new Set(catalogue.map((entry) => entry.category))];
   const previews = {
     '/components/action-group': ActionGroupPreview,
+    '/components/alert': AlertPreview,
     '/components/badge': BadgePreview,
     '/components/button': ButtonPreview,
     '/components/checkbox': CheckboxPreview,
