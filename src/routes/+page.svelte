@@ -14,6 +14,7 @@
   import RadioGroupPreview from './_components/previews/RadioGroupPreview.svelte';
   import SelectPreview from './_components/previews/SelectPreview.svelte';
   import SliderPreview from './_components/previews/SliderPreview.svelte';
+  import StatusPreview from './_components/previews/StatusPreview.svelte';
   import SwitchPreview from './_components/previews/SwitchPreview.svelte';
   import TabsPreview from './_components/previews/TabsPreview.svelte';
   import TextAreaPreview from './_components/previews/TextAreaPreview.svelte';
@@ -36,6 +37,7 @@
     '/components/radio-group': RadioGroupPreview,
     '/components/select': SelectPreview,
     '/components/slider': SliderPreview,
+    '/components/status': StatusPreview,
     '/components/switch': SwitchPreview,
     '/components/tabs': TabsPreview,
     '/components/text-area': TextAreaPreview,

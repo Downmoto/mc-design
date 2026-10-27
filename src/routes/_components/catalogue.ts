@@ -21,6 +21,7 @@ export interface CatalogueEntry {
     | '/components/radio-group'
     | '/components/select'
     | '/components/slider'
+    | '/components/status'
     | '/components/switch'
     | '/components/tabs'
     | '/components/text-area'
@@ -145,5 +146,11 @@ export const catalogue: CatalogueEntry[] = [
     description: 'Announces temporary background results without moving focus',
     name: 'Toast',
     route: '/components/toast',
+  },
+  {
+    category: 'Feedback',
+    description: 'Announces concise background updates without moving focus',
+    name: 'Status',
+    route: '/components/status',
   },
 ];
