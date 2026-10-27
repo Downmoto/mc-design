@@ -1,3 +1,24 @@
+<script module lang="ts">
+  let scrollLockCount = 0;
+  let previousOverflow = '';
+
+  function lockPageScroll(): void {
+    if (scrollLockCount === 0) {
+      previousOverflow = document.documentElement.style.overflow;
+      document.documentElement.style.overflow = 'hidden';
+    }
+    scrollLockCount += 1;
+  }
+
+  function unlockPageScroll(): void {
+    if (scrollLockCount === 0) return;
+    scrollLockCount -= 1;
+    if (scrollLockCount === 0) {
+      document.documentElement.style.overflow = previousOverflow;
+    }
+  }
+</script>
+
 <script lang="ts">
   import { flushSync, onMount, type Snippet } from 'svelte';
 
@@ -113,6 +134,12 @@
   $effect(() => {
     controller.consumer = consumer;
     controller.size = size;
+  });
+
+  $effect(() => {
+    if (!open) return;
+    lockPageScroll();
+    return unlockPageScroll;
   });
 
   onMount(() => onconnect?.(controller));

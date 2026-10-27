@@ -28,6 +28,19 @@ describe('Menu', () => {
     expect(getByTestId('open')).toHaveTextContent('true');
   });
 
+  it('locks document scrolling while open', async () => {
+    const { getByRole } = render(MenuExample);
+    const trigger = getByRole('button', { name: 'Actions' });
+
+    await fireEvent.click(trigger);
+    expect(document.documentElement.style.overflow).toBe('hidden');
+
+    await fireEvent.keyDown(getByRole('menuitem', { name: 'New file' }), {
+      key: 'Escape',
+    });
+    expect(document.documentElement.style.overflow).toBe('');
+  });
+
   it('opens to either edge with arrow keys', async () => {
     const { getByRole } = render(MenuExample);
     const trigger = getByRole('button', { name: 'Actions' });
