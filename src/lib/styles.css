@@ -152,6 +152,7 @@
 
 :is(
   .mc-checkbox__label,
+  .mc-disclosure__summary,
   .mc-numeric-input__label,
   .mc-radio-group__legend,
   .mc-radio-group__option-label,
@@ -268,6 +269,7 @@
 :is(
   .mc-button:not([data-appearance='link']):focus-visible,
   .mc-checkbox .mc-checkbox__native:focus-visible + .mc-checkbox__box,
+  .mc-disclosure .mc-disclosure__summary:focus-visible,
   .mc-numeric-input .mc-numeric-input__control-shell:focus-within,
   .mc-radio-group
     .mc-radio-group__native:focus-visible
@@ -428,6 +430,7 @@
   :is(
     .mc-button:focus-visible,
     .mc-checkbox__native:focus-visible + .mc-checkbox__box,
+    .mc-disclosure__summary:focus-visible,
     .mc-numeric-input__control-shell:focus-within,
     .mc-numeric-input__stepper:focus-visible,
     .mc-radio-group__native:focus-visible + .mc-radio-group__circle,
@@ -446,6 +449,7 @@
   :is(
     .mc-button:focus-visible,
     .mc-checkbox__native:focus-visible + .mc-checkbox__box,
+    .mc-disclosure__summary:focus-visible,
     .mc-radio-group__native:focus-visible + .mc-radio-group__circle,
     .mc-select__control:focus-visible,
     .mc-slider__control:focus-visible,

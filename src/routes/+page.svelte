@@ -6,6 +6,7 @@
   import ButtonPreview from './_components/previews/ButtonPreview.svelte';
   import CheckboxPreview from './_components/previews/CheckboxPreview.svelte';
   import ConsumerPreview from './_components/previews/ConsumerPreview.svelte';
+  import DisclosurePreview from './_components/previews/DisclosurePreview.svelte';
   import NumericInputPreview from './_components/previews/NumericInputPreview.svelte';
   import MenuPreview from './_components/previews/MenuPreview.svelte';
   import RadioGroupPreview from './_components/previews/RadioGroupPreview.svelte';
@@ -23,6 +24,7 @@
     '/components/button': ButtonPreview,
     '/components/checkbox': CheckboxPreview,
     '/components/consumer': ConsumerPreview,
+    '/components/disclosure': DisclosurePreview,
     '/components/menu': MenuPreview,
     '/components/numeric-input': NumericInputPreview,
     '/components/radio-group': RadioGroupPreview,
