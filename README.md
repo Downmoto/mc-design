@@ -73,6 +73,7 @@ Import the shared styles once, then import components from the package:
   import '@memorycore/design/styles.css';
   import {
     ActionGroup,
+    Badge,
     Button,
     Checkbox,
     Disclosure,
@@ -168,6 +169,8 @@ Import the shared styles once, then import components from the package:
     </Button>
   {/snippet}
 </Tooltip>
+
+<Badge tone="accent">New release</Badge>
 
 <Tabs
   label="Project sections"
@@ -267,6 +270,10 @@ Tooltip provides concise supporting text for controls. It opens on pointer
 hover and keyboard focus after 500 ms, remains available for pointer hover,
 closes with Escape, and links its content to the trigger through
 `aria-describedby`. Standard and compact sizes adjust its text and padding.
+
+Badge labels concise metadata, categories, and attributes as static inline
+content. It supports standard and compact sizes, neutral and semantic tones,
+an optional decorative leading icon, and registered consumer colour mappings.
 
 Tabs switches between related panels in the same context. It supports standard
 and compact sizes, two-way value binding, disabled tabs, automatic selection,

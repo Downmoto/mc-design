@@ -136,5 +136,12 @@ export {
   type TooltipTriggerProps,
 } from './components/tooltip.types.js';
 
+export { default as Badge } from './components/Badge.svelte';
+export {
+  type BadgeProps,
+  type BadgeSize,
+  type BadgeTone,
+} from './components/badge.types.js';
+
 export { default as Consumer } from './components/Consumer.svelte';
 export { type ConsumerProps } from './components/consumer.types.js';

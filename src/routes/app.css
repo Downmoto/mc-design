@@ -263,8 +263,6 @@ main {
   color: var(--mc-colour-text-secondary);
 }
 
-.component-heading__title,
-.catalogue-item__heading,
 .section-heading {
   display: flex;
   align-items: start;
@@ -272,12 +270,7 @@ main {
   gap: var(--mc-space-4);
 }
 
-.component-heading__title h1 {
-  margin-block-end: 0;
-}
-
 .eyebrow,
-.status,
 .table-note,
 .interaction-result {
   color: var(--mc-colour-text-secondary);
@@ -289,17 +282,6 @@ main {
 
 .eyebrow {
   margin-block-end: 0;
-}
-
-.status {
-  display: inline-flex;
-  flex: 0 0 auto;
-  align-items: center;
-  min-block-size: var(--mc-size-control-compact);
-  padding-inline: var(--mc-space-2);
-  color: var(--mc-colour-background);
-  background: var(--mc-colour-interactive);
-  border-radius: var(--mc-radius-1);
 }
 
 .section-navigation {
@@ -540,7 +522,6 @@ tbody th {
 }
 
 @media (forced-colors: active) {
-  .status,
   .component-navigation a.mc-button[aria-current='page'] {
     forced-color-adjust: none;
     color: Canvas;
