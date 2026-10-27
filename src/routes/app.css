@@ -230,7 +230,7 @@ select {
   font-weight: var(--mc-font-weight-medium);
 }
 
-.mobile-navigation {
+.mobile-component-select {
   display: none;
 }
 
@@ -471,26 +471,10 @@ tbody th {
     display: none;
   }
 
-  .mobile-navigation {
+  .mobile-component-select {
     display: block;
+    inline-size: auto;
     margin: var(--mc-space-4) var(--mc-grid-margin-fluid) 0;
-    border: var(--mc-border-width-default) solid var(--mc-colour-border);
-    border-radius: var(--mc-radius-1);
-  }
-
-  .mobile-navigation > summary {
-    display: list-item;
-    min-block-size: var(--mc-size-target-minimum);
-    padding: var(--mc-space-2) var(--mc-space-3);
-    background: var(--mc-colour-surface);
-    font-family: var(--mc-typography-brand-heading-family);
-    font-weight: var(--mc-typography-brand-heading-weight);
-    cursor: pointer;
-  }
-
-  .mobile-navigation .component-navigation {
-    position: static;
-    padding: 0 var(--mc-space-3) var(--mc-space-3);
   }
 }
 

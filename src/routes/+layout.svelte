@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { goto } from '$app/navigation';
   import { resolve } from '$app/paths';
   import { page } from '$app/state';
   import {
@@ -69,6 +70,11 @@
     consumer = (event.currentTarget as HTMLSelectElement)
       .value as WorkbenchConsumer;
     storeConsumer(consumer);
+  }
+
+  function selectComponent(event: Event): void {
+    const destination = (event.currentTarget as HTMLSelectElement).value;
+    if (destination !== page.url.pathname) void goto(destination);
   }
 
   function componentHref(route: (typeof catalogue)[number]['route']): string {
@@ -146,10 +152,26 @@
     {@render componentNavigation()}
   </aside>
 
-  <details class="mobile-navigation">
-    <summary>Components</summary>
-    {@render componentNavigation()}
-  </details>
+  <Select
+    class="mobile-component-select"
+    label="Components"
+    value={page.url.pathname}
+    onchange={selectComponent}
+  >
+    <option value={resolve('/')} selected={page.route.id === '/'}>
+      Overview
+    </option>
+    {#each categories as category}
+      <optgroup label={category}>
+        {#each catalogue.filter((entry) => entry.category === category) as entry}
+          <option
+            value={componentHref(entry.route)}
+            selected={page.route.id === entry.route}>{entry.name}</option
+          >
+        {/each}
+      </optgroup>
+    {/each}
+  </Select>
 
   <main id="main-content" tabindex="-1">
     {#if consumer}
