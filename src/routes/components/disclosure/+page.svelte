@@ -11,7 +11,7 @@
 
   let summary = $state('Project details');
   let size = $state<DisclosureSize>('standard');
-  let open = $state(false);
+  let open = $state(true);
 </script>
 
 <svelte:head>
@@ -36,10 +36,16 @@
   <div class="playground">
     <div class="playground__preview">
       <div class="disclosure-sample">
-        <Disclosure {summary} {size} bind:open>
+        <Disclosure name="project-sections" {summary} {size} bind:open>
           <Typography>
             This project is maintained by the MemoryCore design team
           </Typography>
+        </Disclosure>
+        <Disclosure name="project-sections" summary="Recent activity" {size}>
+          <Typography>Three design updates were published this week</Typography>
+        </Disclosure>
+        <Disclosure name="project-sections" summary="Settings" {size}>
+          <Typography>Project preferences and access controls</Typography>
         </Disclosure>
       </div>
     </div>
@@ -50,7 +56,7 @@
         <option value="standard">Standard</option>
         <option value="compact">Compact</option>
       </Select>
-      <Checkbox label="Open disclosure" bind:checked={open} />
+      <Checkbox label="Open first disclosure" bind:checked={open} />
     </form>
   </div>
 </section>
@@ -73,6 +79,7 @@
         <li>Write a concise summary that describes the hidden content</li>
         <li>Keep primary actions and essential information visible</li>
         <li>Use separate disclosures when sections can open independently</li>
+        <li>Give related disclosures the same name for accordion behaviour</li>
       </Typography>
     </div>
     <div>
@@ -150,6 +157,14 @@
           <td><Typography variant="inline-code">'standard'</Typography></td>
           <td>Sets summary height and content spacing</td>
         </tr>
+        <tr>
+          <th scope="row"
+            ><Typography variant="inline-code">name</Typography></th
+          >
+          <td><Typography variant="inline-code">string</Typography></td>
+          <td>Undefined</td>
+          <td>Groups disclosures so only one can remain open</td>
+        </tr>
       </tbody>
     </table>
   </div>
@@ -160,6 +175,8 @@
 
 <style>
   .disclosure-sample {
+    display: grid;
     inline-size: min(100%, var(--mc-size-reading-maximum));
+    gap: var(--mc-space-2);
   }
 </style>
