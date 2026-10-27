@@ -96,8 +96,8 @@
       Math.max(inset, window.innerHeight - tooltipRect.height - inset),
     );
 
-    tooltipElement.style.setProperty('--mc-tooltip-left', `${left}px`);
-    tooltipElement.style.setProperty('--mc-tooltip-top', `${top}px`);
+    tooltipElement.style.left = `${left}px`;
+    tooltipElement.style.top = `${top}px`;
   }
 
   function handleKeydown(event: KeyboardEvent): void {
@@ -229,7 +229,7 @@
   .mc-tooltip__content {
     position: fixed;
     z-index: var(--mc-layer-overlay);
-    inset: var(--mc-tooltip-top, 0) auto auto var(--mc-tooltip-left, 0);
+    inset: 0 auto auto 0;
     box-sizing: border-box;
     inline-size: max-content;
     max-inline-size: min(
