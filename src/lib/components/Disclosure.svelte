@@ -95,7 +95,7 @@
 
   @media (prefers-reduced-motion: reduce) {
     :global(.mc-disclosure__icon) {
-      transition-duration: 0ms;
+      transition-duration: var(--mc-motion-duration-direct);
     }
   }
 

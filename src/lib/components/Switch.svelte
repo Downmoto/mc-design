@@ -174,7 +174,7 @@
 
   .mc-switch[data-disabled='true'] .mc-switch__control {
     color: var(--mc-colour-text-secondary);
-    opacity: 0.5;
+    opacity: var(--mc-opacity-disabled);
     cursor: not-allowed;
   }
 

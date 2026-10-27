@@ -182,7 +182,7 @@
 
   .mc-checkbox[data-disabled='true'] .mc-checkbox__control {
     color: var(--mc-colour-text-secondary);
-    opacity: 0.5;
+    opacity: var(--mc-opacity-disabled);
     cursor: not-allowed;
   }
 

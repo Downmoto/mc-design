@@ -69,7 +69,7 @@
 
 .mc-menu-item[aria-disabled='true'] {
   color: var(--mc-colour-text-secondary);
-  opacity: 0.5;
+  opacity: var(--mc-opacity-disabled);
   cursor: not-allowed;
 }
 
@@ -310,7 +310,7 @@
 ) {
   color: var(--mc-colour-text-secondary);
   background: var(--mc-colour-surface);
-  opacity: 0.5;
+  opacity: var(--mc-opacity-disabled);
   cursor: not-allowed;
 }
 

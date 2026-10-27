@@ -99,6 +99,7 @@ Generated from `tokens/tokens.json`. Edit the source and run
 | `shadow-2` | `--mc-shadow-2` | `0 8px 24px rgb(0 0 0 / 32%)` | Menus, popovers, and elevated panels |
 | `shadow-3` | `--mc-shadow-3` | `0 16px 48px rgb(0 0 0 / 40%)` | Dialogs and major temporary surfaces |
 | `opacity-focus-shadow` | `--mc-opacity-focus-shadow` | `75%` | Focus shadow colour opacity |
+| `opacity-disabled` | `--mc-opacity-disabled` | `50%` | Disabled control and content opacity |
 | `opacity-menu-separator` | `--mc-opacity-menu-separator` | `50%` | Menu separator opacity |
 | `opacity-menu-item-hover` | `--mc-opacity-menu-item-hover` | `15%` | Menu item hover background opacity |
 | `layer-base` | `--mc-layer-base` | `0` | Normal document flow |
@@ -107,6 +108,7 @@ Generated from `tokens/tokens.json`. Edit the source and run
 | `layer-modal` | `--mc-layer-modal` | `300` | Dialogs and modal backdrops |
 | `layer-toast` | `--mc-layer-toast` | `400` | Time-sensitive notifications |
 | `motion-easing-default` | `--mc-motion-easing-default` | `cubic-bezier(0.2, 0, 0, 1)` | Default transition easing |
+| `motion-delay-tooltip` | `--mc-motion-delay-tooltip` | `500ms` | Tooltip reveal delay |
 | `motion-duration-direct` | `--mc-motion-duration-direct` | `100ms` | Hover and immediate state feedback |
 | `motion-duration-standard` | `--mc-motion-duration-standard` | `160ms` | Menus and determinate progress changes |
 | `motion-duration-large` | `--mc-motion-duration-large` | `240ms` | Dialogs, panels, and layout changes |

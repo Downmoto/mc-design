@@ -1,5 +1,11 @@
 export interface CatalogueEntry {
-  category: 'Actions' | 'Configuration' | 'Inputs' | 'Navigation' | 'Structure';
+  category:
+    | 'Actions'
+    | 'Configuration'
+    | 'Feedback'
+    | 'Inputs'
+    | 'Navigation'
+    | 'Structure';
   description: string;
   name: string;
   route:
@@ -17,6 +23,7 @@ export interface CatalogueEntry {
     | '/components/tabs'
     | '/components/text-area'
     | '/components/text-input'
+    | '/components/tooltip'
     | '/components/typography';
   status: 'Draft' | 'Ready';
 }
@@ -126,6 +133,13 @@ export const catalogue: CatalogueEntry[] = [
     description: 'Reveals supporting content or navigation on request',
     name: 'Disclosure',
     route: '/components/disclosure',
+    status: 'Ready',
+  },
+  {
+    category: 'Feedback',
+    description: 'Provides concise supporting text for a control',
+    name: 'Tooltip',
+    route: '/components/tooltip',
     status: 'Ready',
   },
 ];

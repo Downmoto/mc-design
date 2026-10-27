@@ -356,10 +356,10 @@
 
     position: fixed;
     z-index: var(--mc-layer-overlay);
-    inset: var(--mc-menu-top, 0) auto auto var(--mc-menu-left, 0);
+    inset: 0 auto auto 0;
     box-sizing: border-box;
     inline-size: max-content;
-    min-inline-size: var(--mc-menu-anchor-width, 0);
+    min-inline-size: 0;
     max-inline-size: calc(100vw - (var(--mc-space-2) * 2));
     max-block-size: calc(100vh - (var(--mc-space-2) * 2));
     margin: 0;

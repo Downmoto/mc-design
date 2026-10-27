@@ -92,6 +92,7 @@ Import the shared styles once, then import components from the package:
     Tabs,
     TextArea,
     TextInput,
+    Tooltip,
     Typography,
   } from '@memorycore/design';
 </script>
@@ -159,6 +160,14 @@ Import the shared styles once, then import components from the package:
 <Disclosure summary="Project details">
   <p>Owner, status, and recent activity</p>
 </Disclosure>
+
+<Tooltip content="Project details and ownership" size="compact">
+  {#snippet trigger(props)}
+    <Button {...props} size="icon" aria-label="Project information">
+      <!-- Phosphor Regular icon -->
+    </Button>
+  {/snippet}
+</Tooltip>
 
 <Tabs
   label="Project sections"
@@ -253,6 +262,11 @@ disabled state.
 Disclosure renders native details and summary elements for optional content or
 compact navigation. It supports standard and compact sizes, two-way open-state
 binding, native keyboard behaviour, and registered consumer colour mappings.
+
+Tooltip provides concise supporting text for controls. It opens on pointer
+hover and keyboard focus after 500 ms, remains available for pointer hover,
+closes with Escape, and links its content to the trigger through
+`aria-describedby`. Standard and compact sizes adjust its text and padding.
 
 Tabs switches between related panels in the same context. It supports standard
 and compact sizes, two-way value binding, disabled tabs, automatic selection,

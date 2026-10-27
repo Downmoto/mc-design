@@ -194,7 +194,7 @@
   .mc-radio-group[data-disabled='true'],
   .mc-radio-group__option[data-disabled='true'] {
     color: var(--mc-colour-text-secondary);
-    opacity: 0.5;
+    opacity: var(--mc-opacity-disabled);
     cursor: not-allowed;
   }
 
