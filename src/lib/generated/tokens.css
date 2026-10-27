@@ -100,6 +100,7 @@
   --mc-layer-modal: 300;
   --mc-layer-toast: 400;
   --mc-motion-easing-default: cubic-bezier(0.2, 0, 0, 1);
+  --mc-motion-delay-tooltip: 500ms;
   --mc-motion-duration-direct: 100ms;
   --mc-motion-duration-standard: 160ms;
   --mc-motion-duration-large: 240ms;

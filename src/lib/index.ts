@@ -129,5 +129,12 @@ export {
   type DisclosureSize,
 } from './components/disclosure.types.js';
 
+export { default as Tooltip } from './components/Tooltip.svelte';
+export {
+  type TooltipProps,
+  type TooltipSize,
+  type TooltipTriggerProps,
+} from './components/tooltip.types.js';
+
 export { default as Consumer } from './components/Consumer.svelte';
 export { type ConsumerProps } from './components/consumer.types.js';

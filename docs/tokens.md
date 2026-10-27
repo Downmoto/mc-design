@@ -107,6 +107,7 @@ Generated from `tokens/tokens.json`. Edit the source and run
 | `layer-modal` | `--mc-layer-modal` | `300` | Dialogs and modal backdrops |
 | `layer-toast` | `--mc-layer-toast` | `400` | Time-sensitive notifications |
 | `motion-easing-default` | `--mc-motion-easing-default` | `cubic-bezier(0.2, 0, 0, 1)` | Default transition easing |
+| `motion-delay-tooltip` | `--mc-motion-delay-tooltip` | `500ms` | Tooltip reveal delay |
 | `motion-duration-direct` | `--mc-motion-duration-direct` | `100ms` | Hover and immediate state feedback |
 | `motion-duration-standard` | `--mc-motion-duration-standard` | `160ms` | Menus and determinate progress changes |
 | `motion-duration-large` | `--mc-motion-duration-large` | `240ms` | Dialogs, panels, and layout changes |

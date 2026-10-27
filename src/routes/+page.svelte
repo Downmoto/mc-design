@@ -16,6 +16,7 @@
   import TabsPreview from './_components/previews/TabsPreview.svelte';
   import TextAreaPreview from './_components/previews/TextAreaPreview.svelte';
   import TextInputPreview from './_components/previews/TextInputPreview.svelte';
+  import TooltipPreview from './_components/previews/TooltipPreview.svelte';
   import TypographyPreview from './_components/previews/TypographyPreview.svelte';
 
   const categories = [...new Set(catalogue.map((entry) => entry.category))];
@@ -34,6 +35,7 @@
     '/components/tabs': TabsPreview,
     '/components/text-area': TextAreaPreview,
     '/components/text-input': TextInputPreview,
+    '/components/tooltip': TooltipPreview,
     '/components/typography': TypographyPreview,
   };
 </script>

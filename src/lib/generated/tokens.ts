@@ -100,6 +100,7 @@ export const foundationTokens = {
   "layer-modal": 300,
   "layer-toast": 400,
   "motion-easing-default": "cubic-bezier(0.2, 0, 0, 1)",
+  "motion-delay-tooltip": "500ms",
   "motion-duration-direct": "100ms",
   "motion-duration-standard": "160ms",
   "motion-duration-large": "240ms",
