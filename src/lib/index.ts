@@ -150,5 +150,12 @@ export {
   type AlertTone,
 } from './components/alert.types.js';
 
+export { default as Toast } from './components/Toast.svelte';
+export {
+  type ToastProps,
+  type ToastSize,
+  type ToastTone,
+} from './components/toast.types.js';
+
 export { default as Consumer } from './components/Consumer.svelte';
 export { type ConsumerProps } from './components/consumer.types.js';

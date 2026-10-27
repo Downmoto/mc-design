@@ -18,6 +18,7 @@
   import TabsPreview from './_components/previews/TabsPreview.svelte';
   import TextAreaPreview from './_components/previews/TextAreaPreview.svelte';
   import TextInputPreview from './_components/previews/TextInputPreview.svelte';
+  import ToastPreview from './_components/previews/ToastPreview.svelte';
   import TooltipPreview from './_components/previews/TooltipPreview.svelte';
   import TypographyPreview from './_components/previews/TypographyPreview.svelte';
 
@@ -39,6 +40,7 @@
     '/components/tabs': TabsPreview,
     '/components/text-area': TextAreaPreview,
     '/components/text-input': TextInputPreview,
+    '/components/toast': ToastPreview,
     '/components/tooltip': TooltipPreview,
     '/components/typography': TypographyPreview,
   };
