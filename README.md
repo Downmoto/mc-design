@@ -66,141 +66,24 @@ for the package contract.
 
 ## Using components
 
-Import the shared styles once, then import components from the package:
+Import the shared styles once, then import only the components a view uses:
 
 ```svelte
 <script lang="ts">
   import '@memorycore/design/styles.css';
-  import {
-    ActionGroup,
-    Button,
-    Checkbox,
-    Disclosure,
-    Menu,
-    MenuCheckboxItem,
-    MenuGroup,
-    MenuItem,
-    MenuRadioGroup,
-    MenuRadioItem,
-    MenuSeparator,
-    MenuSubmenu,
-    NumericInput,
-    RadioGroup,
-    Select,
-    Slider,
-    Switch,
-    Tabs,
-    TextArea,
-    TextInput,
-    Tooltip,
-    Typography,
-  } from '@memorycore/design';
+  import { Button, TextInput } from '@memorycore/design';
+
+  let email = $state('');
 </script>
 
 <Button>Save changes</Button>
-<Button appearance="link" href="/about">About MemoryCore</Button>
-<Button size="icon" aria-label="Add item" title="Add item">
-  <!-- Phosphor Regular icon -->
-</Button>
-
-<ActionGroup joined aria-label="Pagination">
-  <Button appearance="secondary">Previous</Button>
-  <Button appearance="secondary">Next</Button>
-</ActionGroup>
-
-<Typography variant="h1">Product settings</Typography>
-<Typography>Configure how this product behaves</Typography>
 
 <TextInput
   label="Email address"
   description="Used for account notices"
   type="email"
+  bind:value={email}
 />
-
-<TextArea
-  label="Project notes"
-  description="Add context for collaborators"
-  placeholder="Describe the project"
-/>
-
-<NumericInput
-  label="Opacity"
-  description="Enter a value from 0 to 100"
-  min={0}
-  max={100}
-  suffix="%"
-/>
-
-<Select label="Theme" value="system">
-  <option value="dark">Dark</option>
-  <option value="light">Light</option>
-  <option value="system">System</option>
-</Select>
-
-<Checkbox label="Include metadata" />
-
-<RadioGroup
-  label="Theme"
-  options={[
-    { label: 'Dark', value: 'dark' },
-    { label: 'Light', value: 'light' },
-    { label: 'System', value: 'system' },
-  ]}
-  value="system"
-/>
-
-<Switch
-  label="Enable notifications"
-  description="Receive a notice when processing finishes"
-  checked
-/>
-
-<Slider label="Opacity" suffix="%" value={60} showValue />
-
-<Disclosure summary="Project details">
-  <p>Owner, status, and recent activity</p>
-</Disclosure>
-
-<Tooltip content="Project details and ownership" size="compact">
-  {#snippet trigger(props)}
-    <Button {...props} size="icon" aria-label="Project information">
-      <!-- Phosphor Regular icon -->
-    </Button>
-  {/snippet}
-</Tooltip>
-
-<Tabs
-  label="Project sections"
-  tabs={[
-    { label: 'Overview', value: 'overview' },
-    { label: 'Activity', value: 'activity' },
-  ]}
-  value="overview"
->
-  {#snippet children(selected)}
-    <p>{selected === 'overview' ? 'Project summary' : 'Recent changes'}</p>
-  {/snippet}
-</Tabs>
-
-<Menu>
-  {#snippet trigger(props)}
-    <Button {...props} appearance="secondary">Actions</Button>
-  {/snippet}
-  <MenuGroup label="File">
-    <MenuItem>Rename</MenuItem>
-    <MenuItem shortcut="⌘D">Duplicate</MenuItem>
-  </MenuGroup>
-  <MenuSeparator />
-  <MenuCheckboxItem checked>Show grid</MenuCheckboxItem>
-  <MenuRadioGroup label="Sort by" value="name">
-    <MenuRadioItem value="name">Name</MenuRadioItem>
-    <MenuRadioItem value="date">Date</MenuRadioItem>
-  </MenuRadioGroup>
-  <MenuSubmenu label="Share">
-    <MenuItem>Copy link</MenuItem>
-    <MenuItem>Export file</MenuItem>
-  </MenuSubmenu>
-</Menu>
 ```
 
 Button renders a native button by default and a native anchor when `href` is
@@ -267,6 +150,10 @@ Tooltip provides concise supporting text for controls. It opens on pointer
 hover and keyboard focus after 500 ms, remains available for pointer hover,
 closes with Escape, and links its content to the trigger through
 `aria-describedby`. Standard and compact sizes adjust its text and padding.
+
+Badge labels concise metadata, categories, and attributes as static inline
+content. It supports standard and compact sizes, neutral and semantic tones,
+an optional decorative leading icon, and registered consumer colour mappings.
 
 Tabs switches between related panels in the same context. It supports standard
 and compact sizes, two-way value binding, disabled tabs, automatic selection,

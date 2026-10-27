@@ -10,6 +10,7 @@ export interface CatalogueEntry {
   name: string;
   route:
     | '/components/action-group'
+    | '/components/badge'
     | '/components/button'
     | '/components/checkbox'
     | '/components/consumer'
@@ -25,7 +26,6 @@ export interface CatalogueEntry {
     | '/components/text-input'
     | '/components/tooltip'
     | '/components/typography';
-  status: 'Draft' | 'Ready';
 }
 
 export const catalogue: CatalogueEntry[] = [
@@ -34,91 +34,78 @@ export const catalogue: CatalogueEntry[] = [
     description: 'Provides a consumer theme to nested library components',
     name: 'Consumer',
     route: '/components/consumer',
-    status: 'Ready',
   },
   {
     category: 'Actions',
     description: 'Provides labelled, linked, and icon-only controls',
     name: 'Button',
     route: '/components/button',
-    status: 'Ready',
   },
   {
     category: 'Actions',
     description: 'Arranges related actions as spaced or joined controls',
     name: 'Action group',
     route: '/components/action-group',
-    status: 'Ready',
   },
   {
     category: 'Structure',
     description: 'Provides named semantic patterns for common text structures',
     name: 'Typography',
     route: '/components/typography',
-    status: 'Ready',
   },
   {
     category: 'Inputs',
     description: 'Collects a single line of text with clear field feedback',
     name: 'Text input',
     route: '/components/text-input',
-    status: 'Ready',
   },
   {
     category: 'Inputs',
     description: 'Collects multiple lines of text with clear field feedback',
     name: 'Text area',
     route: '/components/text-area',
-    status: 'Ready',
   },
   {
     category: 'Inputs',
     description: 'Collects constrained numeric values with native controls',
     name: 'Numeric input',
     route: '/components/numeric-input',
-    status: 'Ready',
   },
   {
     category: 'Inputs',
     description: 'Chooses one value from a known set of options',
     name: 'Select',
     route: '/components/select',
-    status: 'Ready',
   },
   {
     category: 'Inputs',
     description: 'Toggles an independent option on or off',
     name: 'Checkbox',
     route: '/components/checkbox',
-    status: 'Ready',
   },
   {
     category: 'Inputs',
     description: 'Chooses one option from a visible set',
     name: 'Radio group',
     route: '/components/radio-group',
-    status: 'Ready',
   },
   {
     category: 'Inputs',
     description: 'Toggles a setting with an immediate effect',
     name: 'Switch',
     route: '/components/switch',
-    status: 'Ready',
   },
   {
     category: 'Inputs',
     description: 'Chooses a numeric value from a continuous range',
     name: 'Slider',
     route: '/components/slider',
-    status: 'Ready',
   },
   {
     category: 'Navigation',
     description: 'Switches between related sections in the same context',
     name: 'Tabs',
     route: '/components/tabs',
-    status: 'Ready',
   },
   {
     category: 'Navigation',
@@ -126,20 +113,23 @@ export const catalogue: CatalogueEntry[] = [
       'Presents actions and links from buttons or contextual targets',
     name: 'Menu',
     route: '/components/menu',
-    status: 'Ready',
   },
   {
     category: 'Navigation',
     description: 'Reveals supporting content or navigation on request',
     name: 'Disclosure',
     route: '/components/disclosure',
-    status: 'Ready',
   },
   {
     category: 'Feedback',
     description: 'Provides concise supporting text for a control',
     name: 'Tooltip',
     route: '/components/tooltip',
-    status: 'Ready',
+  },
+  {
+    category: 'Feedback',
+    description: 'Labels concise metadata, categories, and attributes',
+    name: 'Badge',
+    route: '/components/badge',
   },
 ];
