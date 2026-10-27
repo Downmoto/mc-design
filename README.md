@@ -219,9 +219,11 @@ compact sizes, numeric minimum, maximum, and step constraints, two-way value
 binding, text prefixes and suffixes, description and error messages, and native
 required, read-only, and disabled states.
 
-Select renders a labelled native select for choosing one value from a known
-set. It supports standard and compact sizes, two-way value binding, description
-and error messages, and native required and disabled states.
+Select renders a labelled select-only combobox for choosing one value from a
+known set. Its listbox reuses the Menu surface while a native select preserves
+option markup, form submission, and input and change events. It supports
+standard and compact sizes, two-way value binding, description and error
+messages, and required and disabled states.
 
 Checkbox renders a labelled native checkbox for an independent option. It
 supports checked, unchecked, and indeterminate states, standard and compact

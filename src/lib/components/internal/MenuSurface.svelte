@@ -19,13 +19,16 @@
     id: string;
     label?: string;
     labelledby?: string;
+    manageFocus?: boolean;
     onconnect?: (controller: MenuController) => void;
     onpointerenter?: () => void;
     onpointerleave?: () => void;
     onleft?: () => void;
     open?: boolean;
     rootClose?: (restoreFocus?: boolean) => void;
+    role?: 'listbox' | 'menu';
     size: MenuSize;
+    itemSelector?: string;
   }
 
   let {
@@ -37,13 +40,16 @@
     id,
     label,
     labelledby,
+    manageFocus = true,
     onconnect,
     onpointerenter,
     onpointerleave,
     onleft,
     open = $bindable(false),
     rootClose,
+    role = 'menu',
     size,
+    itemSelector = '[data-mc-menu-item]',
   }: Props = $props();
 
   let menuElement: HTMLDivElement;
@@ -58,8 +64,8 @@
     if (!menuElement) return [];
 
     return Array.from(
-      menuElement.querySelectorAll<HTMLElement>('[data-mc-menu-item]'),
-    ).filter((item) => item.closest('[role="menu"]') === menuElement);
+      menuElement.querySelectorAll<HTMLElement>(itemSelector),
+    ).filter((item) => item.closest('[data-mc-menu-surface]') === menuElement);
   }
 
   function focusItem(edge: 'first' | 'last'): void {
@@ -191,10 +197,12 @@
   }
 
   function handleKeydown(event: KeyboardEvent): void {
+    if (!manageFocus) return;
+
     const target = event.target;
     if (!(target instanceof HTMLElement)) return;
-    const item = target.closest<HTMLElement>('[data-mc-menu-item]');
-    if (!item || item.closest('[role="menu"]') !== menuElement) return;
+    const item = target.closest<HTMLElement>(itemSelector);
+    if (!item || item.closest('[data-mc-menu-surface]') !== menuElement) return;
 
     if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
       event.preventDefault();
@@ -268,10 +276,12 @@
   }
 
   function handlePointermove(event: PointerEvent): void {
+    if (!manageFocus) return;
+
     const target = event.target;
     if (!(target instanceof HTMLElement)) return;
-    const item = target.closest<HTMLElement>('[data-mc-menu-item]');
-    if (!item || item.closest('[role="menu"]') !== menuElement) return;
+    const item = target.closest<HTMLElement>(itemSelector);
+    if (!item || item.closest('[data-mc-menu-surface]') !== menuElement) return;
 
     closeSubmenus(item);
     if (document.activeElement !== item) item.focus({ preventScroll: true });
@@ -290,9 +300,10 @@
   bind:this={menuElement}
   class={`mc-menu__content ${className}`.trim()}
   {id}
+  data-mc-menu-surface
   data-mc-product={consumer}
   data-size={size}
-  role="menu"
+  {role}
   tabindex="-1"
   aria-label={label}
   aria-labelledby={label ? undefined : labelledby}
