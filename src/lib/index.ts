@@ -123,5 +123,11 @@ export {
   type MenuTriggerProps,
 } from './components/menu.types.js';
 
+export { default as Disclosure } from './components/Disclosure.svelte';
+export {
+  type DisclosureProps,
+  type DisclosureSize,
+} from './components/disclosure.types.js';
+
 export { default as Consumer } from './components/Consumer.svelte';
 export { type ConsumerProps } from './components/consumer.types.js';

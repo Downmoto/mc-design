@@ -7,6 +7,7 @@ export interface CatalogueEntry {
     | '/components/button'
     | '/components/checkbox'
     | '/components/consumer'
+    | '/components/disclosure'
     | '/components/menu'
     | '/components/numeric-input'
     | '/components/radio-group'
@@ -118,6 +119,13 @@ export const catalogue: CatalogueEntry[] = [
       'Presents actions and links from buttons or contextual targets',
     name: 'Menu',
     route: '/components/menu',
+    status: 'Ready',
+  },
+  {
+    category: 'Navigation',
+    description: 'Reveals supporting content or navigation on request',
+    name: 'Disclosure',
+    route: '/components/disclosure',
     status: 'Ready',
   },
 ];

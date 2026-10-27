@@ -75,6 +75,7 @@ Import the shared styles once, then import components from the package:
     ActionGroup,
     Button,
     Checkbox,
+    Disclosure,
     Menu,
     MenuCheckboxItem,
     MenuGroup,
@@ -154,6 +155,10 @@ Import the shared styles once, then import components from the package:
 />
 
 <Slider label="Opacity" suffix="%" value={60} showValue />
+
+<Disclosure summary="Project details">
+  <p>Owner, status, and recent activity</p>
+</Disclosure>
 
 <Tabs
   label="Project sections"
@@ -244,6 +249,10 @@ Slider renders a labelled native range input with an optional visible value.
 It supports numeric bounds and steps, standard and compact sizes, two-way value
 binding, optional unit suffixes, value visibility, error messages, and the native
 disabled state.
+
+Disclosure renders native details and summary elements for optional content or
+compact navigation. It supports standard and compact sizes, two-way open-state
+binding, native keyboard behaviour, and registered consumer colour mappings.
 
 Tabs switches between related panels in the same context. It supports standard
 and compact sizes, two-way value binding, disabled tabs, automatic selection,
