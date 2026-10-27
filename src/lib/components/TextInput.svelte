@@ -140,8 +140,4 @@
   .mc-text-input__icon[data-position='trailing'] {
     inset-inline-end: var(--mc-space-3);
   }
-
-  .mc-text-input__message {
-    margin-block-start: var(--mc-space-0);
-  }
 </style>

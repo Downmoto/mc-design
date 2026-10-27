@@ -92,6 +92,7 @@ export const foundationTokens = {
   "shadow-2": "0 8px 24px rgb(0 0 0 / 32%)",
   "shadow-3": "0 16px 48px rgb(0 0 0 / 40%)",
   "opacity-focus-shadow": "75%",
+  "opacity-disabled": "50%",
   "opacity-menu-separator": "50%",
   "opacity-menu-item-hover": "15%",
   "layer-base": 0,

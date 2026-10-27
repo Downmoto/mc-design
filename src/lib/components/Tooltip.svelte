@@ -274,7 +274,7 @@
 
   @media (prefers-reduced-motion: reduce) {
     .mc-tooltip__content {
-      transition-duration: 0ms;
+      transition-duration: var(--mc-motion-duration-direct);
     }
   }
 

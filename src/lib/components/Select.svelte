@@ -495,6 +495,6 @@
   }
 
   .mc-select[data-disabled='true'] .mc-select__icon {
-    opacity: 0.5;
+    opacity: var(--mc-opacity-disabled);
   }
 </style>

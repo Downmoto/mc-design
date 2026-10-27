@@ -110,6 +110,8 @@
   }
 
   .mc-slider__control {
+    --mc-slider-fill: 0%;
+
     box-sizing: border-box;
     inline-size: 100%;
     block-size: var(--mc-slider-control-block-size);
@@ -186,7 +188,7 @@
 
   .mc-slider[data-disabled='true'] {
     color: var(--mc-colour-text-secondary);
-    opacity: 0.5;
+    opacity: var(--mc-opacity-disabled);
   }
 
   .mc-slider[data-disabled='true'] .mc-slider__control {

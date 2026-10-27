@@ -26,6 +26,8 @@ export function positionMenu(menu: HTMLElement, position: MenuPosition): void {
   let left: number;
   let top: number;
 
+  menu.style.minInlineSize = '';
+
   if (position.kind === 'point') {
     left = position.x;
     top = position.y;
@@ -56,7 +58,7 @@ export function positionMenu(menu: HTMLElement, position: MenuPosition): void {
         top = anchorRect.top - gap - menuRect.height;
       }
 
-      menu.style.setProperty('--mc-menu-anchor-width', `${anchorRect.width}px`);
+      menu.style.minInlineSize = `${anchorRect.width}px`;
     }
   }
 
@@ -75,6 +77,6 @@ export function positionMenu(menu: HTMLElement, position: MenuPosition): void {
     ),
   );
 
-  menu.style.setProperty('--mc-menu-left', `${left}px`);
-  menu.style.setProperty('--mc-menu-top', `${top}px`);
+  menu.style.left = `${left}px`;
+  menu.style.top = `${top}px`;
 }
