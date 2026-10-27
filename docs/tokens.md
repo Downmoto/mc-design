@@ -99,6 +99,8 @@ Generated from `tokens/tokens.json`. Edit the source and run
 | `shadow-2` | `--mc-shadow-2` | `0 8px 24px rgb(0 0 0 / 32%)` | Menus, popovers, and elevated panels |
 | `shadow-3` | `--mc-shadow-3` | `0 16px 48px rgb(0 0 0 / 40%)` | Dialogs and major temporary surfaces |
 | `opacity-focus-shadow` | `--mc-opacity-focus-shadow` | `75%` | Focus shadow colour opacity |
+| `opacity-menu-separator` | `--mc-opacity-menu-separator` | `50%` | Menu separator opacity |
+| `opacity-menu-item-hover` | `--mc-opacity-menu-item-hover` | `15%` | Menu item hover background opacity |
 | `layer-base` | `--mc-layer-base` | `0` | Normal document flow |
 | `layer-sticky` | `--mc-layer-sticky` | `100` | Sticky interface regions |
 | `layer-overlay` | `--mc-layer-overlay` | `200` | Menus and popovers |

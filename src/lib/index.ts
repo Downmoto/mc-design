@@ -97,5 +97,31 @@ export {
   type TabsSize,
 } from './components/tabs.types.js';
 
+export { default as Menu } from './components/Menu.svelte';
+export { default as MenuCheckboxItem } from './components/MenuCheckboxItem.svelte';
+export { default as MenuGroup } from './components/MenuGroup.svelte';
+export { default as MenuItem } from './components/MenuItem.svelte';
+export { default as MenuRadioGroup } from './components/MenuRadioGroup.svelte';
+export { default as MenuRadioItem } from './components/MenuRadioItem.svelte';
+export { default as MenuSeparator } from './components/MenuSeparator.svelte';
+export { default as MenuSubmenu } from './components/MenuSubmenu.svelte';
+export {
+  type MenuAlign,
+  type MenuButtonTriggerProps,
+  type MenuCheckboxItemProps,
+  type MenuContextTriggerProps,
+  type MenuGroupProps,
+  type MenuItemProps,
+  type MenuItemTone,
+  type MenuMode,
+  type MenuProps,
+  type MenuRadioGroupProps,
+  type MenuRadioItemProps,
+  type MenuSeparatorProps,
+  type MenuSize,
+  type MenuSubmenuProps,
+  type MenuTriggerProps,
+} from './components/menu.types.js';
+
 export { default as Consumer } from './components/Consumer.svelte';
 export { type ConsumerProps } from './components/consumer.types.js';

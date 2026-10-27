@@ -1,6 +1,137 @@
 @import './fonts.css';
 @import './generated/tokens.css';
 
+.mc-menu-item {
+  --mc-menu-item-block-size: var(--mc-size-control-compact);
+  --mc-menu-item-icon-size: var(--mc-size-icon-compact);
+
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) max-content;
+  gap: var(--mc-space-2);
+  align-items: center;
+  box-sizing: border-box;
+  inline-size: 100%;
+  min-inline-size: 0;
+  min-block-size: var(--mc-menu-item-block-size);
+  padding: 0 var(--mc-menu-item-inline-inset, var(--mc-space-2));
+  color: var(--mc-colour-text-primary);
+  font-family: var(--mc-typography-label-family);
+  font-size: var(--mc-typography-label-size);
+  font-weight: var(--mc-typography-label-weight);
+  line-height: var(--mc-typography-label-line-height);
+  text-align: start;
+  text-decoration: none;
+  background: transparent;
+  border: 0;
+  border-radius: var(--mc-radius-1);
+  cursor: pointer;
+  transition:
+    color var(--mc-motion-duration-direct) var(--mc-motion-easing-default),
+    background-color var(--mc-motion-duration-direct)
+      var(--mc-motion-easing-default);
+}
+
+.mc-menu__content[data-size='compact'] .mc-menu-item {
+  --mc-menu-item-block-size: var(--mc-size-target-minimum);
+}
+
+.mc-menu-item[data-tone='danger'] {
+  color: var(--mc-colour-danger);
+}
+
+.mc-menu-item:hover:not([aria-disabled='true']) {
+  background: color-mix(
+    in srgb,
+    var(--mc-colour-interactive) var(--mc-opacity-menu-item-hover),
+    transparent
+  );
+}
+
+.mc-menu-item:focus-visible:not([aria-disabled='true']) {
+  color: var(--mc-colour-background);
+  background: var(--mc-colour-interactive);
+  outline: 0;
+}
+
+.mc-menu-item[data-tone='danger']:hover:not([aria-disabled='true']) {
+  color: var(--mc-colour-danger);
+  background: color-mix(
+    in srgb,
+    var(--mc-colour-danger) var(--mc-opacity-menu-item-hover),
+    transparent
+  );
+}
+
+.mc-menu-item[data-tone='danger']:focus-visible:not([aria-disabled='true']) {
+  color: var(--mc-colour-background);
+  background: var(--mc-colour-danger);
+}
+
+.mc-menu-item[aria-disabled='true'] {
+  color: var(--mc-colour-text-secondary);
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.mc-menu-item__trailing {
+  display: inline-flex;
+  gap: var(--mc-space-2);
+  align-items: center;
+}
+
+.mc-menu-item__icon {
+  display: grid;
+  inline-size: var(--mc-menu-item-icon-size);
+  block-size: var(--mc-menu-item-icon-size);
+  place-items: center;
+}
+
+.mc-menu-item__icon svg {
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
+}
+
+.mc-menu-item__label {
+  min-inline-size: 0;
+  overflow-wrap: anywhere;
+}
+
+.mc-menu-item__shortcut {
+  color: var(--mc-colour-text-secondary);
+  font-family: var(--mc-typography-code-family);
+  font-size: var(--mc-typography-caption-size);
+  font-weight: var(--mc-typography-code-weight);
+  line-height: var(--mc-typography-caption-line-height);
+  white-space: nowrap;
+}
+
+.mc-menu-item:hover:not([aria-disabled='true']) .mc-menu-item__shortcut,
+.mc-menu-item:focus-visible:not([aria-disabled='true'])
+  .mc-menu-item__shortcut {
+  color: inherit;
+}
+
+.mc-menu-group {
+  display: grid;
+}
+
+.mc-menu-group__label {
+  padding: var(--mc-space-1) var(--mc-menu-item-inline-inset, var(--mc-space-2))
+    0;
+  color: var(--mc-colour-text-secondary);
+  font-family: var(--mc-typography-caption-family);
+  font-size: var(--mc-typography-caption-size);
+  font-weight: var(--mc-typography-caption-weight);
+  line-height: var(--mc-typography-caption-line-height);
+}
+
+.mc-menu-separator {
+  block-size: var(--mc-border-width-default);
+  margin: var(--mc-space-1) calc(-1 * var(--mc-space-1));
+  background: var(--mc-menu-divider-colour);
+}
+
 :is(
   .mc-checkbox,
   .mc-numeric-input,
@@ -245,6 +376,26 @@
 }
 
 @media (forced-colors: active) {
+  .mc-menu-item {
+    color: CanvasText;
+    forced-color-adjust: auto;
+  }
+
+  .mc-menu-item:hover:not([aria-disabled='true']),
+  .mc-menu-item:focus-visible:not([aria-disabled='true']) {
+    color: HighlightText;
+    background: Highlight;
+  }
+
+  .mc-menu-item[aria-disabled='true'] {
+    color: GrayText;
+    opacity: 1;
+  }
+
+  .mc-menu-separator {
+    background: CanvasText;
+  }
+
   :is(
     .mc-checkbox__required,
     .mc-numeric-input__required,
