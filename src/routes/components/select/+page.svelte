@@ -35,6 +35,15 @@
       tokens: ['colour-text-primary', 'colour-text-secondary'],
     },
     { role: 'Product colour', tokens: ['colour-interactive'] },
+    {
+      role: 'Popup',
+      tokens: [
+        'shadow-2',
+        'layer-overlay',
+        'opacity-menu-item-hover',
+        'opacity-menu-separator',
+      ],
+    },
     { role: 'Error', tokens: ['colour-danger'] },
     {
       role: 'Boundary',
@@ -87,7 +96,7 @@
 <ComponentHeader
   category="Inputs"
   title="Select"
-  description="Chooses one value from a known set through the platform-native option menu"
+  description="Chooses one value from a known set through the shared listbox surface"
 />
 
 <section
@@ -262,7 +271,8 @@
         <li>
           The visible label is programmatically associated with the control
         </li>
-        <li>The platform supplies keyboard and touch menu behaviour</li>
+        <li>Arrow keys move through options without moving DOM focus</li>
+        <li>Enter or Space confirms an option and Escape closes the listbox</li>
         <li>Description and error text are connected with aria-describedby</li>
         <li>Errors set aria-invalid and are announced politely</li>
         <li>The required indicator follows the active consumer colour</li>
@@ -357,7 +367,8 @@
         </table>
       </div>
       <Typography class="table-note" variant="muted">
-        Native select attributes and event handlers pass through to the control
+        Native select attributes and event handlers pass through to the form
+        control; the visible combobox uses the shared Menu surface
       </Typography>
 
       <Typography variant="h3">Token mapping</Typography>

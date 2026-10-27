@@ -92,6 +92,8 @@
   --mc-shadow-2: 0 8px 24px rgb(0 0 0 / 32%);
   --mc-shadow-3: 0 16px 48px rgb(0 0 0 / 40%);
   --mc-opacity-focus-shadow: 75%;
+  --mc-opacity-menu-separator: 50%;
+  --mc-opacity-menu-item-hover: 15%;
   --mc-layer-base: 0;
   --mc-layer-sticky: 100;
   --mc-layer-overlay: 200;

@@ -7,6 +7,7 @@ export interface CatalogueEntry {
     | '/components/button'
     | '/components/checkbox'
     | '/components/consumer'
+    | '/components/menu'
     | '/components/numeric-input'
     | '/components/radio-group'
     | '/components/select'
@@ -109,6 +110,14 @@ export const catalogue: CatalogueEntry[] = [
     description: 'Switches between related sections in the same context',
     name: 'Tabs',
     route: '/components/tabs',
+    status: 'Ready',
+  },
+  {
+    category: 'Navigation',
+    description:
+      'Presents actions and links from buttons or contextual targets',
+    name: 'Menu',
+    route: '/components/menu',
     status: 'Ready',
   },
 ];

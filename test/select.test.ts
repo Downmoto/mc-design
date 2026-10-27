@@ -1,5 +1,5 @@
 import { createRawSnippet } from 'svelte';
-import { fireEvent, render } from '@testing-library/svelte';
+import { fireEvent, render, waitFor } from '@testing-library/svelte';
 import axe from 'axe-core';
 import { describe, expect, it, vi } from 'vitest';
 
@@ -16,15 +16,17 @@ const options = createRawSnippet(() => ({
 }));
 
 describe('Select', () => {
-  it('renders a labelled native select', () => {
+  it('renders a labelled combobox backed by a native form control', () => {
     const { container, getByRole } = render(Select, {
       children: options,
       label: 'Theme',
       name: 'theme',
       value: 'dark',
     });
-    const select = getByRole('combobox', { name: 'Theme' });
+    const combobox = getByRole('combobox', { name: 'Theme' });
+    const select = container.querySelector('select');
 
+    expect(combobox).toHaveTextContent('Dark');
     expect(select).toHaveAttribute('name', 'theme');
     expect(select).toHaveValue('dark');
     expect(select).toHaveDisplayValue('Dark');
@@ -51,9 +53,11 @@ describe('Select', () => {
       required: true,
     });
     const select = getByRole('combobox', { name: 'Theme' });
+    const nativeSelect = document.querySelector('select');
     const error = getByText('Choose a theme');
 
-    expect(select).toBeRequired();
+    expect(select).toHaveAttribute('aria-required', 'true');
+    expect(nativeSelect).toBeRequired();
     expect(select).toHaveAttribute('aria-invalid', 'true');
     expect(select).toHaveAttribute('aria-describedby', error.id);
   });
@@ -67,22 +71,77 @@ describe('Select', () => {
     });
 
     expect(getByRole('combobox', { name: 'Theme' })).toBeDisabled();
+    expect(container.querySelector('select')).toBeDisabled();
     expect(container.firstElementChild).toHaveAttribute('data-size', 'compact');
   });
 
   it('passes native events to the select', async () => {
     const onchange = vi.fn();
-    const { getByRole } = render(Select, {
+    const { container, getByRole } = render(Select, {
       children: options,
       label: 'Theme',
       onchange,
     });
-    const select = getByRole('combobox', { name: 'Theme' });
+    const combobox = getByRole('combobox', { name: 'Theme' });
+    const select = container.querySelector('select') as HTMLSelectElement;
 
     await fireEvent.change(select, { target: { value: 'light' } });
 
     expect(select).toHaveValue('light');
+    expect(combobox).toHaveTextContent('Light');
     expect(onchange).toHaveBeenCalledOnce();
+  });
+
+  it('uses the shared menu surface with listbox semantics', async () => {
+    const onchange = vi.fn();
+    const { getByRole } = render(Select, {
+      children: options,
+      label: 'Theme',
+      onchange,
+      value: 'dark',
+    });
+    const combobox = getByRole('combobox', { name: 'Theme' });
+
+    await fireEvent.click(combobox);
+
+    expect(combobox).toHaveAttribute('aria-expanded', 'true');
+    expect(getByRole('listbox', { name: 'Theme' })).toBeVisible();
+    expect(getByRole('option', { name: 'Dark' })).toHaveAttribute(
+      'aria-selected',
+      'true',
+    );
+
+    await fireEvent.click(getByRole('option', { name: 'Light' }));
+
+    expect(combobox).toHaveTextContent('Light');
+    expect(combobox).toHaveAttribute('aria-expanded', 'false');
+    expect(onchange).toHaveBeenCalledOnce();
+  });
+
+  it('supports listbox keyboard selection and dismissal', async () => {
+    const { getByRole } = render(Select, {
+      children: options,
+      label: 'Theme',
+      value: 'dark',
+    });
+    const combobox = getByRole('combobox', { name: 'Theme' });
+
+    await fireEvent.keyDown(combobox, { key: 'ArrowDown' });
+    await fireEvent.keyDown(combobox, { key: 'ArrowDown' });
+
+    expect(combobox).toHaveAttribute(
+      'aria-activedescendant',
+      getByRole('option', { name: 'Light' }).id,
+    );
+
+    await fireEvent.keyDown(combobox, { key: 'Enter' });
+    await waitFor(() => expect(combobox).toHaveTextContent('Light'));
+
+    await fireEvent.keyDown(combobox, { key: 'ArrowDown' });
+    await fireEvent.keyDown(combobox, { key: 'Escape' });
+
+    expect(combobox).toHaveAttribute('aria-expanded', 'false');
+    expect(combobox).toHaveFocus();
   });
 
   it('applies a consumer mapping', () => {

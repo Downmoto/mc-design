@@ -75,6 +75,14 @@ Import the shared styles once, then import components from the package:
     ActionGroup,
     Button,
     Checkbox,
+    Menu,
+    MenuCheckboxItem,
+    MenuGroup,
+    MenuItem,
+    MenuRadioGroup,
+    MenuRadioItem,
+    MenuSeparator,
+    MenuSubmenu,
     NumericInput,
     RadioGroup,
     Select,
@@ -159,6 +167,26 @@ Import the shared styles once, then import components from the package:
     <p>{selected === 'overview' ? 'Project summary' : 'Recent changes'}</p>
   {/snippet}
 </Tabs>
+
+<Menu>
+  {#snippet trigger(props)}
+    <Button {...props} appearance="secondary">Actions</Button>
+  {/snippet}
+  <MenuGroup label="File">
+    <MenuItem>Rename</MenuItem>
+    <MenuItem shortcut="⌘D">Duplicate</MenuItem>
+  </MenuGroup>
+  <MenuSeparator />
+  <MenuCheckboxItem checked>Show grid</MenuCheckboxItem>
+  <MenuRadioGroup label="Sort by" value="name">
+    <MenuRadioItem value="name">Name</MenuRadioItem>
+    <MenuRadioItem value="date">Date</MenuRadioItem>
+  </MenuRadioGroup>
+  <MenuSubmenu label="Share">
+    <MenuItem>Copy link</MenuItem>
+    <MenuItem>Export file</MenuItem>
+  </MenuSubmenu>
+</Menu>
 ```
 
 Button renders a native button by default and a native anchor when `href` is
@@ -191,9 +219,11 @@ compact sizes, numeric minimum, maximum, and step constraints, two-way value
 binding, text prefixes and suffixes, description and error messages, and native
 required, read-only, and disabled states.
 
-Select renders a labelled native select for choosing one value from a known
-set. It supports standard and compact sizes, two-way value binding, description
-and error messages, and native required and disabled states.
+Select renders a labelled select-only combobox for choosing one value from a
+known set. Its listbox reuses the Menu surface while a native select preserves
+option markup, form submission, and input and change events. It supports
+standard and compact sizes, two-way value binding, description and error
+messages, and required and disabled states.
 
 Checkbox renders a labelled native checkbox for an independent option. It
 supports checked, unchecked, and indeterminate states, standard and compact
@@ -218,6 +248,12 @@ disabled state.
 Tabs switches between related panels in the same context. It supports standard
 and compact sizes, two-way value binding, disabled tabs, automatic selection,
 and established arrow, Home, and End keyboard behaviour.
+
+Menu presents commands and navigation links from a button or contextual target.
+Its component family supports labelled groups, separators, disabled and
+destructive items, checkbox items, radio groups, nested submenus, shortcut
+hints, standard and compact sizes, two-way open-state binding, typeahead,
+viewport-aware positioning, and established menu keyboard behaviour.
 
 Set a consumer on one component with its `consumer` prop:
 
@@ -271,11 +307,10 @@ npm run package
 ```
 
 The SvelteKit static output is `build/`. It contains a catalogue home page and
-dedicated Consumer, Button, Action group, Typography, Text input, Text area,
-Numeric input, Select, and Checkbox pages with live playgrounds, variants,
-interactions, usage guidance, accessibility requirements, and collapsed API and
-token references. Global theme and consumer controls update every preview
-through the public component APIs.
+dedicated component pages with live playgrounds, variants, interactions, usage
+guidance, accessibility requirements, and collapsed API and token references.
+Global theme and consumer controls update every preview through the public
+component APIs.
 
 See [the component workbench decision](./docs/decisions/0002-component-workbench.md)
 for the route and deployment contract.

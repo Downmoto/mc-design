@@ -59,7 +59,7 @@ Required components are tracked in one list. Items marked `website first` form t
 - [x] Inputs: Switch
 - [x] Inputs: Slider
 - [x] Navigation: Tabs
-- [ ] Navigation: Menu, shared by context menus, selects, and dropdowns (`website first`)
+- [x] Navigation: Menu, shared by context menus, selects, and dropdowns (`website first`)
 - [ ] Navigation: Disclosure (`website first`)
 - [ ] Feedback: Tooltip
 - [ ] Feedback: Badge (`website first`)
