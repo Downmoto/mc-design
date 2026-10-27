@@ -1,8 +1,7 @@
 <script lang="ts">
   import { Button, Typography } from '#lib/index.js';
 
-  type SectionId =
-    'playground' | 'variants' | 'states' | 'guidance' | 'reference';
+  type SectionId = 'playground' | 'guidance' | 'reference';
 
   interface Props {
     category: string;
@@ -14,8 +13,6 @@
 
   const sectionLabels: Record<SectionId, string> = {
     playground: 'Playground',
-    variants: 'Variants',
-    states: 'States',
     guidance: 'Guidance',
     reference: 'Reference',
   };
@@ -23,7 +20,7 @@
   let {
     category,
     description,
-    sections = ['playground', 'variants', 'states', 'guidance', 'reference'],
+    sections = ['playground', 'guidance', 'reference'],
     status = 'Ready',
     title,
   }: Props = $props();

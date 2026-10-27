@@ -9,7 +9,6 @@
     consumerRegistry,
     type ConsumerId,
   } from '#lib/index.js';
-  import CodeExample from '../../_components/CodeExample.svelte';
   import ComponentHeader from '../../_components/ComponentHeader.svelte';
 
   const consumers = Object.entries(consumerRegistry) as [
@@ -18,9 +17,6 @@
   ][];
 
   let consumer = $state<ConsumerId>('website');
-  let exampleCode = $derived(
-    `<Consumer consumer="${consumer}">\n  <Button appearance="link" href="/about">About MemoryCore</Button>\n  <Button>Save changes</Button>\n  <Button size="icon" aria-label="Add item" title="Add item">\n    <PlusIcon />\n  </Button>\n</Consumer>`,
-  );
 
   function selectConsumer(event: Event): void {
     consumer = (event.currentTarget as HTMLSelectElement).value as ConsumerId;
@@ -69,62 +65,6 @@
       </Select>
     </form>
   </div>
-
-  <CodeExample code={exampleCode} />
-</section>
-
-<section
-  class="workbench-section"
-  id="variants"
-  aria-labelledby="variants-title"
->
-  <div class="section-heading">
-    <Typography id="variants-title" variant="h2">
-      Registered consumers
-    </Typography>
-  </div>
-
-  <div class="matrix">
-    {#each consumers as [id, details]}
-      <Consumer consumer={id}>
-        <div class="specimen">
-          <span class="specimen__label">{details.name}</span>
-          <Button>{details.name}</Button>
-        </div>
-      </Consumer>
-    {/each}
-  </div>
-</section>
-
-<section class="workbench-section" id="states" aria-labelledby="states-title">
-  <div class="section-heading">
-    <Typography id="states-title" variant="h2">Precedence</Typography>
-  </div>
-
-  <div class="matrix">
-    <Consumer consumer="website">
-      <div class="specimen">
-        <span class="specimen__label">Inherited from Consumer</span>
-        <Button>Website</Button>
-      </div>
-    </Consumer>
-
-    <Consumer consumer="website">
-      <div class="specimen">
-        <span class="specimen__label">Component prop override</span>
-        <Button consumer="aetheltool">AethelTool</Button>
-      </div>
-    </Consumer>
-
-    <Consumer consumer="website">
-      <Consumer consumer="dithertool">
-        <div class="specimen">
-          <span class="specimen__label">Nearest Consumer</span>
-          <Button>DitherTool</Button>
-        </div>
-      </Consumer>
-    </Consumer>
-  </div>
 </section>
 
 <section
@@ -169,48 +109,42 @@
     <Typography id="reference-title" variant="h2">Reference</Typography>
   </div>
 
-  <details class="reference-details">
-    <summary>API reference</summary>
-    <div class="reference-details__content">
-      <Typography variant="h3">API</Typography>
-      <!-- svelte-ignore a11y_no_noninteractive_tabindex (Scrollable table needs keyboard focus) -->
-      <div
-        class="table-scroll"
-        role="region"
-        aria-label="Consumer API table"
-        tabindex="0"
-      >
-        <table>
-          <thead>
-            <tr>
-              <th scope="col">Property</th>
-              <th scope="col">Type</th>
-              <th scope="col">Default</th>
-              <th scope="col">Purpose</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row"
-                ><Typography variant="inline-code">consumer</Typography></th
-              >
-              <td><Typography variant="inline-code">ConsumerId</Typography></td>
-              <td>Required</td>
-              <td>Sets the inherited consumer</td>
-            </tr>
-            <tr>
-              <th scope="row"
-                ><Typography variant="inline-code">children</Typography></th
-              >
-              <td><Typography variant="inline-code">Snippet</Typography></td>
-              <td>Required</td>
-              <td>Provides the nested component tree</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </details>
+  <!-- svelte-ignore a11y_no_noninteractive_tabindex (Scrollable table needs keyboard focus) -->
+  <div
+    class="table-scroll"
+    role="region"
+    aria-label="Consumer API table"
+    tabindex="0"
+  >
+    <table>
+      <thead>
+        <tr>
+          <th scope="col">Property</th>
+          <th scope="col">Type</th>
+          <th scope="col">Default</th>
+          <th scope="col">Purpose</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row"
+            ><Typography variant="inline-code">consumer</Typography></th
+          >
+          <td><Typography variant="inline-code">ConsumerId</Typography></td>
+          <td>Required</td>
+          <td>Sets the inherited consumer</td>
+        </tr>
+        <tr>
+          <th scope="row"
+            ><Typography variant="inline-code">children</Typography></th
+          >
+          <td><Typography variant="inline-code">Snippet</Typography></td>
+          <td>Required</td>
+          <td>Provides the nested component tree</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </section>
 
 <style>

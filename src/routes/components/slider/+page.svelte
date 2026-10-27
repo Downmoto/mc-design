@@ -8,45 +8,7 @@
     Typography,
     type SliderSize,
   } from '#lib/index.js';
-  import CodeExample from '../../_components/CodeExample.svelte';
   import ComponentHeader from '../../_components/ComponentHeader.svelte';
-
-  const tokenMapping = [
-    {
-      role: 'Control and thumb sizes',
-      tokens: [
-        'size-control-compact',
-        'size-control-standard',
-        'size-icon-compact',
-        'size-icon-standard',
-      ],
-    },
-    {
-      role: 'Text',
-      tokens: [
-        'typography-label-*',
-        'typography-caption-*',
-        'typography-code-*',
-      ],
-    },
-    { role: 'Surface', tokens: ['colour-surface'] },
-    {
-      role: 'Content',
-      tokens: ['colour-text-primary', 'colour-text-secondary'],
-    },
-    { role: 'Interaction', tokens: ['colour-interactive'] },
-    { role: 'Error', tokens: ['colour-danger'] },
-    {
-      role: 'Boundary',
-      tokens: [
-        'colour-border',
-        'border-width-default',
-        'border-width-emphasised',
-      ],
-    },
-    { role: 'Shape', tokens: ['radius-3'] },
-    { role: 'Spacing', tokens: ['space-2'] },
-  ];
 
   let label = $state('Opacity');
   let suffix = $state('%');
@@ -59,24 +21,6 @@
   let disabled = $state(false);
   let showError = $state(false);
   let error = $derived(showError ? 'Choose a value from 20 to 80' : '');
-  let exampleCode = $derived(
-    [
-      '<Slider',
-      `  label="${label || 'Label'}"`,
-      `  min={${min}}`,
-      `  max={${max}}`,
-      `  step={${step}}`,
-      suffix ? `  suffix="${suffix}"` : '',
-      '  bind:value',
-      showValue ? '  showValue' : '',
-      size === 'compact' ? '  size="compact"' : '',
-      disabled ? '  disabled' : '',
-      error ? `  error="${error}"` : '',
-      '/>',
-    ]
-      .filter(Boolean)
-      .join('\n'),
-  );
 </script>
 
 <svelte:head>
@@ -131,88 +75,6 @@
       <Checkbox label="Error" size="compact" bind:checked={showError} />
     </form>
   </div>
-
-  <CodeExample code={exampleCode} />
-</section>
-
-<section
-  class="workbench-section"
-  id="variants"
-  aria-labelledby="variants-title"
->
-  <div class="section-heading">
-    <Typography id="variants-title" variant="h2">Variants</Typography>
-  </div>
-
-  <div class="matrix">
-    <article class="specimen">
-      <div class="slider-sample">
-        <Slider label="Opacity" suffix="%" value={60} showValue />
-      </div>
-    </article>
-    <article class="specimen">
-      <div class="slider-sample">
-        <Slider
-          label="Opacity"
-          suffix="%"
-          value={60}
-          size="compact"
-          showValue
-        />
-      </div>
-    </article>
-    <article class="specimen">
-      <div class="slider-sample">
-        <Slider
-          label="Brush size"
-          min={1}
-          max={64}
-          suffix=" px"
-          value={12}
-          showValue
-        />
-      </div>
-    </article>
-    <article class="specimen">
-      <div class="slider-sample">
-        <Slider label="Volume" value={40} />
-      </div>
-    </article>
-  </div>
-</section>
-
-<section class="workbench-section" id="states" aria-labelledby="states-title">
-  <div class="section-heading">
-    <Typography id="states-title" variant="h2">States</Typography>
-  </div>
-
-  <div class="matrix">
-    <article class="specimen">
-      <div class="slider-sample">
-        <Slider label="Minimum" value={0} />
-      </div>
-    </article>
-    <article class="specimen">
-      <div class="slider-sample">
-        <Slider label="Maximum" value={100} />
-      </div>
-    </article>
-    <article class="specimen">
-      <div class="slider-sample">
-        <Slider
-          label="Opacity"
-          error="Choose a value from 20 to 80"
-          suffix="%"
-          value={10}
-        />
-      </div>
-    </article>
-    <article class="specimen">
-      <div class="slider-sample">
-        <Slider label="Disabled" value={60} disabled />
-      </div>
-    </article>
-  </div>
 </section>
 
 <section
@@ -257,124 +119,89 @@
     <Typography id="reference-title" variant="h2">Reference</Typography>
   </div>
 
-  <details class="reference-details">
-    <summary>API and token reference</summary>
-    <div class="reference-details__content">
-      <Typography variant="h3">API</Typography>
-      <!-- svelte-ignore a11y_no_noninteractive_tabindex (Scrollable table needs keyboard focus) -->
-      <div
-        class="table-scroll"
-        role="region"
-        aria-label="Slider API table"
-        tabindex="0"
-      >
-        <table>
-          <thead>
-            <tr>
-              <th scope="col">Property</th>
-              <th scope="col">Type</th>
-              <th scope="col">Default</th>
-              <th scope="col">Purpose</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row"
-                ><Typography variant="inline-code">label</Typography></th
-              >
-              <td><Typography variant="inline-code">string</Typography></td>
-              <td>Required</td>
-              <td>Provides the visible accessible name</td>
-            </tr>
-            <tr>
-              <th scope="row"
-                ><Typography variant="inline-code">value</Typography></th
-              >
-              <td><Typography variant="inline-code">number</Typography></td>
-              <td><Typography variant="inline-code">0</Typography></td>
-              <td>Supports two-way numeric value binding</td>
-            </tr>
-            <tr>
-              <th scope="row"
-                ><Typography variant="inline-code">min / max</Typography></th
-              >
-              <td><Typography variant="inline-code">number</Typography></td>
-              <td><Typography variant="inline-code">0 / 100</Typography></td>
-              <td>Sets the inclusive range bounds</td>
-            </tr>
-            <tr>
-              <th scope="row"
-                ><Typography variant="inline-code">step</Typography></th
-              >
-              <td><Typography variant="inline-code">number</Typography></td>
-              <td><Typography variant="inline-code">1</Typography></td>
-              <td>Sets the value increment</td>
-            </tr>
-            <tr>
-              <th scope="row"
-                ><Typography variant="inline-code">suffix</Typography></th
-              >
-              <td><Typography variant="inline-code">string</Typography></td>
-              <td>Empty</td>
-              <td>Labels the visible and accessible value unit</td>
-            </tr>
-            <tr>
-              <th scope="row"
-                ><Typography variant="inline-code">size</Typography></th
-              >
-              <td
-                ><Typography variant="inline-code"
-                  >'compact' | 'standard'</Typography
-                ></td
-              >
-              <td><Typography variant="inline-code">'standard'</Typography></td>
-              <td>Sets the control and thumb sizes</td>
-            </tr>
-            <tr>
-              <th scope="row"
-                ><Typography variant="inline-code">showValue</Typography></th
-              >
-              <td><Typography variant="inline-code">boolean</Typography></td>
-              <td><Typography variant="inline-code">false</Typography></td>
-              <td>Shows the current value beside the label</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <Typography class="table-note" variant="muted">
-        Native range attributes and event handlers pass through to the control
-      </Typography>
-
-      <Typography variant="h3">Token mapping</Typography>
-      <!-- svelte-ignore a11y_no_noninteractive_tabindex (Scrollable table needs keyboard focus) -->
-      <div
-        class="table-scroll"
-        role="region"
-        aria-label="Slider token mapping table"
-        tabindex="0"
-      >
-        <table>
-          <thead>
-            <tr><th scope="col">Role</th><th scope="col">Token</th></tr>
-          </thead>
-          <tbody>
-            {#each tokenMapping as mapping}
-              <tr>
-                <th scope="row">{mapping.role}</th>
-                <td>
-                  {#each mapping.tokens as token, index}
-                    <Typography variant="inline-code">{token}</Typography
-                    >{#if index < mapping.tokens.length - 1},
-                    {/if}
-                  {/each}
-                </td>
-              </tr>
-            {/each}
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </details>
+  <!-- svelte-ignore a11y_no_noninteractive_tabindex (Scrollable table needs keyboard focus) -->
+  <div
+    class="table-scroll"
+    role="region"
+    aria-label="Slider API table"
+    tabindex="0"
+  >
+    <table>
+      <thead>
+        <tr>
+          <th scope="col">Property</th>
+          <th scope="col">Type</th>
+          <th scope="col">Default</th>
+          <th scope="col">Purpose</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row"
+            ><Typography variant="inline-code">label</Typography></th
+          >
+          <td><Typography variant="inline-code">string</Typography></td>
+          <td>Required</td>
+          <td>Provides the visible accessible name</td>
+        </tr>
+        <tr>
+          <th scope="row"
+            ><Typography variant="inline-code">value</Typography></th
+          >
+          <td><Typography variant="inline-code">number</Typography></td>
+          <td><Typography variant="inline-code">0</Typography></td>
+          <td>Supports two-way numeric value binding</td>
+        </tr>
+        <tr>
+          <th scope="row"
+            ><Typography variant="inline-code">min / max</Typography></th
+          >
+          <td><Typography variant="inline-code">number</Typography></td>
+          <td><Typography variant="inline-code">0 / 100</Typography></td>
+          <td>Sets the inclusive range bounds</td>
+        </tr>
+        <tr>
+          <th scope="row"
+            ><Typography variant="inline-code">step</Typography></th
+          >
+          <td><Typography variant="inline-code">number</Typography></td>
+          <td><Typography variant="inline-code">1</Typography></td>
+          <td>Sets the value increment</td>
+        </tr>
+        <tr>
+          <th scope="row"
+            ><Typography variant="inline-code">suffix</Typography></th
+          >
+          <td><Typography variant="inline-code">string</Typography></td>
+          <td>Empty</td>
+          <td>Labels the visible and accessible value unit</td>
+        </tr>
+        <tr>
+          <th scope="row"
+            ><Typography variant="inline-code">size</Typography></th
+          >
+          <td
+            ><Typography variant="inline-code"
+              >'compact' | 'standard'</Typography
+            ></td
+          >
+          <td><Typography variant="inline-code">'standard'</Typography></td>
+          <td>Sets the control and thumb sizes</td>
+        </tr>
+        <tr>
+          <th scope="row"
+            ><Typography variant="inline-code">showValue</Typography></th
+          >
+          <td><Typography variant="inline-code">boolean</Typography></td>
+          <td><Typography variant="inline-code">false</Typography></td>
+          <td>Shows the current value beside the label</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <Typography class="table-note" variant="muted">
+    Native range attributes and event handlers pass through to the control
+  </Typography>
 </section>
 
 <style>
