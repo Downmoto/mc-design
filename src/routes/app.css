@@ -11,6 +11,10 @@ html {
 }
 
 body {
+  --workbench-header-block-size: calc(
+    var(--mc-size-control-standard) + var(--mc-space-1) + var(--mc-space-5) +
+      var(--mc-space-5)
+  );
   min-block-size: 100vh;
   margin: 0;
   color: var(--mc-colour-text-primary);
@@ -179,21 +183,20 @@ select {
 .workbench-shell {
   display: grid;
   grid-template-columns: var(--mc-size-sidebar-navigation) minmax(0, 1fr);
-  inline-size: min(100%, var(--mc-size-container-maximum));
-  min-block-size: calc(100vh - var(--mc-size-control-large));
-  margin-inline: auto;
+  inline-size: 100%;
+  min-block-size: calc(100vh - var(--workbench-header-block-size));
 }
 
 .sidebar {
+  position: sticky;
+  inset-block-start: var(--workbench-header-block-size);
+  align-self: start;
+  block-size: calc(100svh - var(--workbench-header-block-size));
   padding: var(--mc-space-6) var(--mc-space-4);
+  overflow-y: auto;
   background: var(--mc-colour-surface);
   border-inline-end: var(--mc-border-width-default) solid
     var(--mc-colour-border);
-}
-
-.component-navigation {
-  position: sticky;
-  inset-block-start: calc(var(--mc-size-control-large) + var(--mc-space-5));
 }
 
 .component-navigation__category {
@@ -460,6 +463,12 @@ tbody th {
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
   white-space: nowrap;
+}
+
+@media (min-width: 1200px) {
+  .site-header {
+    block-size: var(--workbench-header-block-size);
+  }
 }
 
 @media (max-width: 1199px) {
