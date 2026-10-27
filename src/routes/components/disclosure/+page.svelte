@@ -160,7 +160,6 @@
 
 <style>
   .disclosure-sample {
-    inline-size: var(--mc-size-reading-maximum);
-    max-inline-size: 100%;
+    inline-size: min(100%, var(--mc-size-reading-maximum));
   }
 </style>
