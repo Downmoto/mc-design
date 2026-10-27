@@ -155,6 +155,10 @@ Badge labels concise metadata, categories, and attributes as static inline
 content. It supports standard and compact sizes, neutral and semantic tones,
 an optional decorative leading icon, and registered consumer colour mappings.
 
+Alert presents persistent contextual information near related content. It
+supports standard and compact sizes, neutral and semantic tones, an optional
+title, an optional decorative leading icon, and native live-region attributes.
+
 Tabs switches between related panels in the same context. It supports standard
 and compact sizes, two-way value binding, disabled tabs, automatic selection,
 and established arrow, Home, and End keyboard behaviour.

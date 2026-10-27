@@ -10,6 +10,7 @@ export interface CatalogueEntry {
   name: string;
   route:
     | '/components/action-group'
+    | '/components/alert'
     | '/components/badge'
     | '/components/button'
     | '/components/checkbox'
@@ -131,5 +132,11 @@ export const catalogue: CatalogueEntry[] = [
     description: 'Labels concise metadata, categories, and attributes',
     name: 'Badge',
     route: '/components/badge',
+  },
+  {
+    category: 'Feedback',
+    description: 'Presents persistent contextual information',
+    name: 'Alert',
+    route: '/components/alert',
   },
 ];
