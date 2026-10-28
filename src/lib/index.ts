@@ -176,6 +176,20 @@ export {
   type DialogSize,
 } from './components/dialog.types.js';
 
+export { default as Toolbar } from './components/Toolbar.svelte';
+export {
+  type ToolbarOrientation,
+  type ToolbarProps,
+  type ToolbarVariant,
+} from './components/toolbar.types.js';
+
+export { default as Toggle } from './components/Toggle.svelte';
+export {
+  type ToggleAppearance,
+  type ToggleProps,
+  type ToggleSize,
+} from './components/toggle.types.js';
+
 export { default as Card } from './components/Card.svelte';
 export { default as CardContent } from './components/CardContent.svelte';
 export { default as CardFooter } from './components/CardFooter.svelte';

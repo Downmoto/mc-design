@@ -232,6 +232,12 @@
     border-color: var(--mc-colour-interactive);
   }
 
+  .mc-button[aria-pressed='true']:not(:disabled) {
+    color: var(--mc-colour-background);
+    background: var(--mc-colour-interactive);
+    border-color: var(--mc-colour-interactive);
+  }
+
   .mc-button:disabled,
   .mc-button[data-disabled='true'] {
     color: var(--mc-colour-text-secondary);
@@ -333,6 +339,13 @@
     .mc-button[data-appearance='link'] {
       color: LinkText;
       forced-color-adjust: auto;
+    }
+
+    .mc-button[aria-pressed='true']:not(:disabled) {
+      color: HighlightText;
+      background: Highlight;
+      border-color: Highlight;
+      forced-color-adjust: none;
     }
 
     .mc-button[data-appearance='link']:focus-visible {

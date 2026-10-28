@@ -23,6 +23,8 @@
   import TextAreaPreview from './_components/previews/TextAreaPreview.svelte';
   import TextInputPreview from './_components/previews/TextInputPreview.svelte';
   import ToastPreview from './_components/previews/ToastPreview.svelte';
+  import TogglePreview from './_components/previews/TogglePreview.svelte';
+  import ToolbarPreview from './_components/previews/ToolbarPreview.svelte';
   import TooltipPreview from './_components/previews/TooltipPreview.svelte';
   import TypographyPreview from './_components/previews/TypographyPreview.svelte';
 
@@ -49,6 +51,8 @@
     '/components/text-area': TextAreaPreview,
     '/components/text-input': TextInputPreview,
     '/components/toast': ToastPreview,
+    '/components/toggle': TogglePreview,
+    '/components/toolbar': ToolbarPreview,
     '/components/tooltip': TooltipPreview,
     '/components/typography': TypographyPreview,
   };

@@ -49,6 +49,7 @@ Required components are tracked in one list. Items marked `website first` form t
 - [x] Configuration: Consumer
 - [x] Actions: Button, including link and icon presentations (`website first`)
 - [x] Actions: Action group (`website first`)
+- [x] Actions: Toggle
 - [x] Structure: Typography
 - [x] Inputs: Text input
 - [x] Inputs: Text area
@@ -68,7 +69,7 @@ Required components are tracked in one list. Items marked `website first` form t
 - [x] Feedback: Status (`website first`)
 - [x] Feedback: Progress indicator (`website first`)
 - [x] Feedback: Dialog or equivalent preview surface (`website first`)
-- [ ] Structure: Toolbar
+- [x] Structure: Toolbar
 - [ ] Structure: Sidebar
 - [ ] Structure: Panel
 - [x] Structure: Card (`website first`)
