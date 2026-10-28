@@ -164,5 +164,19 @@ export {
   type StatusTone,
 } from './components/status.types.js';
 
+export { default as Card } from './components/Card.svelte';
+export { default as CardContent } from './components/CardContent.svelte';
+export { default as CardFooter } from './components/CardFooter.svelte';
+export { default as CardHeader } from './components/CardHeader.svelte';
+export { default as CardHero } from './components/CardHero.svelte';
+export {
+  type CardContentProps,
+  type CardFooterProps,
+  type CardHeaderProps,
+  type CardHeroProps,
+  type CardOrientation,
+  type CardProps,
+} from './components/card.types.js';
+
 export { default as Consumer } from './components/Consumer.svelte';
 export { type ConsumerProps } from './components/consumer.types.js';

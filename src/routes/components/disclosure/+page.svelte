@@ -1,5 +1,8 @@
 <script lang="ts">
   import {
+    Card,
+    CardContent,
+    CardHero,
     Checkbox,
     Disclosure,
     Select,
@@ -33,8 +36,8 @@
     <Typography id="playground-title" variant="h2">Playground</Typography>
   </div>
 
-  <div class="playground">
-    <div class="playground__preview">
+  <Card class="playground" orientation="horizontal">
+    <CardHero class="playground__preview">
       <div class="disclosure-sample">
         <Disclosure name="project-sections" {summary} {size} bind:open>
           <Typography>
@@ -48,17 +51,19 @@
           <Typography>Project preferences and access controls</Typography>
         </Disclosure>
       </div>
-    </div>
+    </CardHero>
 
-    <form class="control-panel" onsubmit={(event) => event.preventDefault()}>
-      <TextInput label="Summary" bind:value={summary} maxlength={60} />
-      <Select label="Size" bind:value={size}>
-        <option value="standard">Standard</option>
-        <option value="compact">Compact</option>
-      </Select>
-      <Checkbox label="Open first disclosure" bind:checked={open} />
-    </form>
-  </div>
+    <CardContent class="playground__controls">
+      <form class="control-panel" onsubmit={(event) => event.preventDefault()}>
+        <TextInput label="Summary" bind:value={summary} maxlength={60} />
+        <Select label="Size" bind:value={size}>
+          <option value="standard">Standard</option>
+          <option value="compact">Compact</option>
+        </Select>
+        <Checkbox label="Open first disclosure" bind:checked={open} />
+      </form>
+    </CardContent>
+  </Card>
 </section>
 
 <section

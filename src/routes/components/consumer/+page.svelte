@@ -2,6 +2,9 @@
   import PlusIcon from 'phosphor-svelte/lib/PlusIcon';
 
   import {
+    Card,
+    CardContent,
+    CardHero,
     Button,
     Consumer,
     Select,
@@ -42,8 +45,8 @@
     <Typography id="playground-title" variant="h2">Playground</Typography>
   </div>
 
-  <div class="playground">
-    <div class="playground__preview">
+  <Card class="playground" orientation="horizontal">
+    <CardHero class="playground__preview">
       <Consumer {consumer}>
         <div class="preview-actions">
           <Button appearance="link" href="#main-content">
@@ -55,16 +58,18 @@
           </Button>
         </div>
       </Consumer>
-    </div>
+    </CardHero>
 
-    <form class="control-panel" onsubmit={(event) => event.preventDefault()}>
-      <Select label="Consumer" value={consumer} onchange={selectConsumer}>
-        {#each consumers as [id, details]}
-          <option value={id}>{details.name}</option>
-        {/each}
-      </Select>
-    </form>
-  </div>
+    <CardContent class="playground__controls">
+      <form class="control-panel" onsubmit={(event) => event.preventDefault()}>
+        <Select label="Consumer" value={consumer} onchange={selectConsumer}>
+          {#each consumers as [id, details]}
+            <option value={id}>{details.name}</option>
+          {/each}
+        </Select>
+      </form>
+    </CardContent>
+  </Card>
 </section>
 
 <section

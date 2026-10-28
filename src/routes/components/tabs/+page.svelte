@@ -1,5 +1,8 @@
 <script lang="ts">
   import {
+    Card,
+    CardContent,
+    CardHero,
     Checkbox,
     Select,
     Tabs,
@@ -45,8 +48,8 @@
     <Typography id="playground-title" variant="h2">Playground</Typography>
   </div>
 
-  <div class="playground">
-    <div class="playground__preview">
+  <Card class="playground" orientation="horizontal">
+    <CardHero class="playground__preview">
       <div class="tabs-sample tabs-sample--centred">
         <Tabs {label} tabs={playgroundTabs} {size} bind:value>
           {#snippet children(selected)}
@@ -54,21 +57,23 @@
           {/snippet}
         </Tabs>
       </div>
-    </div>
+    </CardHero>
 
-    <form class="control-panel" onsubmit={(event) => event.preventDefault()}>
-      <TextInput label="Accessible label" bind:value={label} maxlength={40} />
-      <Select label="Size" bind:value={size}>
-        <option value="standard">Standard</option>
-        <option value="compact">Compact</option>
-      </Select>
-      <Checkbox
-        label="Disable Activity"
-        size="compact"
-        bind:checked={disableActivity}
-      />
-    </form>
-  </div>
+    <CardContent class="playground__controls">
+      <form class="control-panel" onsubmit={(event) => event.preventDefault()}>
+        <TextInput label="Accessible label" bind:value={label} maxlength={40} />
+        <Select label="Size" bind:value={size}>
+          <option value="standard">Standard</option>
+          <option value="compact">Compact</option>
+        </Select>
+        <Checkbox
+          label="Disable Activity"
+          size="compact"
+          bind:checked={disableActivity}
+        />
+      </form>
+    </CardContent>
+  </Card>
 </section>
 
 <section

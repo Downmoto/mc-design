@@ -6,6 +6,7 @@
   import AlertPreview from './_components/previews/AlertPreview.svelte';
   import BadgePreview from './_components/previews/BadgePreview.svelte';
   import ButtonPreview from './_components/previews/ButtonPreview.svelte';
+  import CardPreview from './_components/previews/CardPreview.svelte';
   import CheckboxPreview from './_components/previews/CheckboxPreview.svelte';
   import ConsumerPreview from './_components/previews/ConsumerPreview.svelte';
   import DisclosurePreview from './_components/previews/DisclosurePreview.svelte';
@@ -29,6 +30,7 @@
     '/components/alert': AlertPreview,
     '/components/badge': BadgePreview,
     '/components/button': ButtonPreview,
+    '/components/card': CardPreview,
     '/components/checkbox': CheckboxPreview,
     '/components/consumer': ConsumerPreview,
     '/components/disclosure': DisclosurePreview,

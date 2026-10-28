@@ -1,5 +1,8 @@
 <script lang="ts">
   import {
+    Card,
+    CardContent,
+    CardHero,
     Checkbox,
     NumericInput,
     Select,
@@ -42,8 +45,8 @@
     <Typography id="playground-title" variant="h2">Playground</Typography>
   </div>
 
-  <div class="playground">
-    <div class="playground__preview">
+  <Card class="playground" orientation="horizontal">
+    <CardHero class="playground__preview">
       <div class="slider-sample">
         <Slider
           bind:value
@@ -58,23 +61,25 @@
           {error}
         />
       </div>
-    </div>
+    </CardHero>
 
-    <form class="control-panel" onsubmit={(event) => event.preventDefault()}>
-      <TextInput label="Label" bind:value={label} maxlength={40} />
-      <TextInput label="Suffix" bind:value={suffix} maxlength={8} />
-      <NumericInput label="Minimum" bind:value={min} />
-      <NumericInput label="Maximum" bind:value={max} />
-      <NumericInput label="Step" min={0.01} bind:value={step} />
-      <Select label="Size" bind:value={size}>
-        <option value="standard">Standard</option>
-        <option value="compact">Compact</option>
-      </Select>
-      <Checkbox label="Disabled" size="compact" bind:checked={disabled} />
-      <Checkbox label="Show value" size="compact" bind:checked={showValue} />
-      <Checkbox label="Error" size="compact" bind:checked={showError} />
-    </form>
-  </div>
+    <CardContent class="playground__controls">
+      <form class="control-panel" onsubmit={(event) => event.preventDefault()}>
+        <TextInput label="Label" bind:value={label} maxlength={40} />
+        <TextInput label="Suffix" bind:value={suffix} maxlength={8} />
+        <NumericInput label="Minimum" bind:value={min} />
+        <NumericInput label="Maximum" bind:value={max} />
+        <NumericInput label="Step" min={0.01} bind:value={step} />
+        <Select label="Size" bind:value={size}>
+          <option value="standard">Standard</option>
+          <option value="compact">Compact</option>
+        </Select>
+        <Checkbox label="Disabled" size="compact" bind:checked={disabled} />
+        <Checkbox label="Show value" size="compact" bind:checked={showValue} />
+        <Checkbox label="Error" size="compact" bind:checked={showError} />
+      </form>
+    </CardContent>
+  </Card>
 </section>
 
 <section

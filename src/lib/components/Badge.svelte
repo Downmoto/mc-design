@@ -33,9 +33,7 @@
 
 <style>
   .mc-badge {
-    display: inline-flex;
     flex: 0 0 auto;
-    align-items: center;
     box-sizing: border-box;
     min-block-size: var(--mc-size-target-minimum);
     gap: var(--mc-space-1);
@@ -44,20 +42,12 @@
     background: var(--mc-colour-surface);
     border: var(--mc-border-width-default) solid currentColor;
     border-radius: var(--mc-radius-3);
-    font-family: var(--mc-typography-label-family);
-    font-size: var(--mc-typography-label-size);
-    font-weight: var(--mc-typography-label-weight);
-    line-height: var(--mc-typography-label-line-height);
     white-space: nowrap;
   }
 
   .mc-badge[data-size='compact'] {
     min-block-size: var(--mc-size-icon-standard);
     padding-inline: var(--mc-space-1);
-    font-family: var(--mc-typography-caption-family);
-    font-size: var(--mc-typography-caption-size);
-    font-weight: var(--mc-typography-caption-weight);
-    line-height: var(--mc-typography-caption-line-height);
   }
 
   .mc-badge[data-tone='accent'] {
@@ -77,22 +67,7 @@
   }
 
   .mc-badge__icon {
-    display: grid;
     inline-size: var(--mc-size-icon-compact);
     block-size: var(--mc-size-icon-compact);
-    place-items: center;
-  }
-
-  .mc-badge__icon :global(svg) {
-    display: block;
-    inline-size: 100%;
-    block-size: 100%;
-  }
-  @media (forced-colors: active) {
-    .mc-badge {
-      color: CanvasText;
-      background: Canvas;
-      border-color: CanvasText;
-    }
   }
 </style>

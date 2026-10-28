@@ -1,5 +1,8 @@
 <script lang="ts">
   import {
+    Card,
+    CardContent,
+    CardHero,
     Checkbox,
     Select,
     TextInput,
@@ -37,8 +40,8 @@
     <Typography id="playground-title" variant="h2">Playground</Typography>
   </div>
 
-  <div class="playground">
-    <div class="playground__preview">
+  <Card class="playground" orientation="horizontal">
+    <CardHero class="playground__preview">
       <div class="select-sample">
         <Select
           bind:value
@@ -54,25 +57,31 @@
           <option value="system">System</option>
         </Select>
       </div>
-    </div>
+    </CardHero>
 
-    <form class="control-panel" onsubmit={(event) => event.preventDefault()}>
-      <TextInput label="Label" bind:value={label} maxlength={40} />
-      <TextInput label="Description" bind:value={description} maxlength={80} />
-      <Select label="Selected option" bind:value>
-        <option value="dark">Dark</option>
-        <option value="light">Light</option>
-        <option value="system">System</option>
-      </Select>
-      <Select label="Size" bind:value={size}>
-        <option value="standard">Standard</option>
-        <option value="compact">Compact</option>
-      </Select>
-      <Checkbox label="Required" size="compact" bind:checked={required} />
-      <Checkbox label="Disabled" size="compact" bind:checked={disabled} />
-      <Checkbox label="Error" size="compact" bind:checked={showError} />
-    </form>
-  </div>
+    <CardContent class="playground__controls">
+      <form class="control-panel" onsubmit={(event) => event.preventDefault()}>
+        <TextInput label="Label" bind:value={label} maxlength={40} />
+        <TextInput
+          label="Description"
+          bind:value={description}
+          maxlength={80}
+        />
+        <Select label="Selected option" bind:value>
+          <option value="dark">Dark</option>
+          <option value="light">Light</option>
+          <option value="system">System</option>
+        </Select>
+        <Select label="Size" bind:value={size}>
+          <option value="standard">Standard</option>
+          <option value="compact">Compact</option>
+        </Select>
+        <Checkbox label="Required" size="compact" bind:checked={required} />
+        <Checkbox label="Disabled" size="compact" bind:checked={disabled} />
+        <Checkbox label="Error" size="compact" bind:checked={showError} />
+      </form>
+    </CardContent>
+  </Card>
 </section>
 
 <section

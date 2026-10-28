@@ -351,17 +351,6 @@ main {
   margin-block-end: 0;
 }
 
-.playground {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(
-      var(--mc-size-sidebar-properties-minimum),
-      var(--mc-size-sidebar-properties-default)
-    );
-  overflow: hidden;
-  border: var(--mc-border-width-default) solid var(--mc-colour-border);
-  border-radius: var(--mc-radius-2);
-}
-
 .playground__preview {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
@@ -371,6 +360,10 @@ main {
   gap: var(--mc-space-4);
   padding: var(--mc-space-5);
   background: var(--mc-colour-surface);
+}
+
+.playground__controls {
+  padding: 0;
 }
 
 .interaction-result {
@@ -487,9 +480,19 @@ tbody th {
   }
 
   .catalogue-item,
-  .playground,
   .prose-grid {
     grid-template-columns: minmax(0, 1fr);
+  }
+
+  .mc-card.playground[data-orientation='horizontal'] {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto;
+  }
+
+  .mc-card.playground[data-orientation='horizontal']
+    > :is(.mc-card-content, .mc-card-hero) {
+    grid-column: 1;
+    grid-row: auto;
   }
 
   .catalogue-item__preview {

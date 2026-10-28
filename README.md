@@ -167,6 +167,11 @@ Status announces concise background updates through a polite atomic live region.
 It supports standard and compact sizes, neutral and semantic tones, a decorative
 marker, and registered consumer colour mappings.
 
+Card groups related information in a contained article surface. Its optional
+Hero, Header, Content, and Footer components work in any combination; a Header
+overlays the bottom-left of a present Hero. Vertical and horizontal orientations
+support stacked cards and wider composed regions.
+
 Tabs switches between related panels in the same context. It supports standard
 and compact sizes, two-way value binding, disabled tabs, automatic selection,
 and established arrow, Home, and End keyboard behaviour.

@@ -1,5 +1,8 @@
 <script lang="ts">
   import {
+    Card,
+    CardContent,
+    CardHero,
     Select,
     TextInput,
     Typography,
@@ -75,20 +78,22 @@
     <Typography id="playground-title" variant="h2">Playground</Typography>
   </div>
 
-  <div class="playground">
-    <div class="playground__preview">
+  <Card class="playground" orientation="horizontal">
+    <CardHero class="playground__preview">
       <Typography {variant}>{text || 'Text'}</Typography>
-    </div>
+    </CardHero>
 
-    <form class="control-panel" onsubmit={(event) => event.preventDefault()}>
-      <TextInput label="Text" bind:value={text} maxlength={80} />
-      <Select label="Pattern" value={variant} onchange={selectVariant}>
-        {#each textPatterns as option}
-          <option value={option.value}>{option.label}</option>
-        {/each}
-      </Select>
-    </form>
-  </div>
+    <CardContent class="playground__controls">
+      <form class="control-panel" onsubmit={(event) => event.preventDefault()}>
+        <TextInput label="Text" bind:value={text} maxlength={80} />
+        <Select label="Pattern" value={variant} onchange={selectVariant}>
+          {#each textPatterns as option}
+            <option value={option.value}>{option.label}</option>
+          {/each}
+        </Select>
+      </form>
+    </CardContent>
+  </Card>
 </section>
 
 <section

@@ -1,5 +1,8 @@
 <script lang="ts">
   import {
+    Card,
+    CardContent,
+    CardHero,
     ActionGroup,
     Button,
     Checkbox,
@@ -37,8 +40,8 @@
     <Typography id="playground-title" variant="h2">Playground</Typography>
   </div>
 
-  <div class="playground">
-    <div class="playground__preview">
+  <Card class="playground" orientation="horizontal">
+    <CardHero class="playground__preview">
       <ActionGroup {joined} {orientation} aria-label="Document actions">
         <Button appearance="secondary" onclick={() => (activation = 'Save')}
           >Save</Button
@@ -53,20 +56,22 @@
       <Typography class="interaction-result" aria-live="polite">
         Last action: {activation}
       </Typography>
-    </div>
+    </CardHero>
 
-    <form class="control-panel" onsubmit={(event) => event.preventDefault()}>
-      <Select
-        label="Orientation"
-        value={orientation}
-        onchange={selectOrientation}
-      >
-        <option value="horizontal">Horizontal</option>
-        <option value="vertical">Vertical</option>
-      </Select>
-      <Checkbox label="Join controls" size="compact" bind:checked={joined} />
-    </form>
-  </div>
+    <CardContent class="playground__controls">
+      <form class="control-panel" onsubmit={(event) => event.preventDefault()}>
+        <Select
+          label="Orientation"
+          value={orientation}
+          onchange={selectOrientation}
+        >
+          <option value="horizontal">Horizontal</option>
+          <option value="vertical">Vertical</option>
+        </Select>
+        <Checkbox label="Join controls" size="compact" bind:checked={joined} />
+      </form>
+    </CardContent>
+  </Card>
 </section>
 
 <section
