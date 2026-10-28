@@ -187,6 +187,10 @@ composite. Ghost and surface variants support different surrounding contexts. It
 keeps one enabled action in the Tab order and supports wrapping Arrow, Home, and
 End key navigation while each child keeps its native behaviour.
 
+Panel organises a workspace region with persistent Header and Footer areas around
+flexible scrolling Content. Every region is optional, and the Panel fills its
+available layout area.
+
 Card groups related information in a contained article surface. Its optional
 Hero, Header, Content, and Footer components work in any combination; a Header
 overlays the bottom-left of a present Hero. Vertical and horizontal orientations

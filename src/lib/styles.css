@@ -1,11 +1,26 @@
 @import './fonts.css';
 @import './generated/tokens.css';
 
-:is(.mc-card-content, .mc-card-footer, .mc-card-header, .mc-card-hero) {
+:is(
+  .mc-card-content,
+  .mc-card-footer,
+  .mc-card-header,
+  .mc-card-hero,
+  .mc-panel-content,
+  .mc-panel-footer,
+  .mc-panel-header
+) {
   min-inline-size: 0;
 }
 
-:is(.mc-card-content, .mc-card-footer, .mc-card-header) {
+:is(
+  .mc-card-content,
+  .mc-card-footer,
+  .mc-card-header,
+  .mc-panel-content,
+  .mc-panel-footer,
+  .mc-panel-header
+) {
   padding: var(--mc-space-4);
 }
 

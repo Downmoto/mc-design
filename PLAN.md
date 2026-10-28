@@ -71,7 +71,7 @@ Required components are tracked in one list. Items marked `website first` form t
 - [x] Feedback: Dialog or equivalent preview surface (`website first`)
 - [x] Structure: Toolbar
 - [ ] Structure: Sidebar
-- [ ] Structure: Panel
+- [x] Structure: Panel
 - [x] Structure: Card (`website first`)
 - [ ] Structure: List (`website first`)
 - [ ] Structure: Table (`website first`)
