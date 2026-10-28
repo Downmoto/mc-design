@@ -17,6 +17,7 @@ export interface CatalogueEntry {
     | '/components/checkbox'
     | '/components/consumer'
     | '/components/disclosure'
+    | '/components/dialog'
     | '/components/menu'
     | '/components/numeric-input'
     | '/components/progress-indicator'
@@ -166,5 +167,11 @@ export const catalogue: CatalogueEntry[] = [
     description: 'Communicates the completion of an ongoing process',
     name: 'Progress indicator',
     route: '/components/progress-indicator',
+  },
+  {
+    category: 'Feedback',
+    description: 'Focuses attention within a modal layer',
+    name: 'Dialog',
+    route: '/components/dialog',
   },
 ];

@@ -95,6 +95,7 @@
   --mc-opacity-disabled: 50%;
   --mc-opacity-menu-separator: 50%;
   --mc-opacity-menu-item-hover: 15%;
+  --mc-opacity-dialog-backdrop: 75%;
   --mc-layer-base: 0;
   --mc-layer-sticky: 100;
   --mc-layer-overlay: 200;
@@ -141,6 +142,7 @@
   --mc-typography-code-weight: var(--mc-font-weight-regular);
   --mc-typography-code-line-height: var(--mc-line-height-5);
   --mc-colour-background: var(--mc-brand-dark);
+  --mc-colour-backdrop: var(--mc-brand-dark);
   --mc-colour-surface: var(--mc-brand-dark-surface);
   --mc-colour-text-primary: var(--mc-brand-light);
   --mc-colour-text-secondary: var(--mc-brand-warm-muted);
@@ -155,6 +157,7 @@
 [data-mc-theme='dark'],
 [data-mc-theme='system'] {
   --mc-colour-background: var(--mc-brand-dark);
+  --mc-colour-backdrop: var(--mc-brand-dark);
   --mc-colour-surface: var(--mc-brand-dark-surface);
   --mc-colour-text-primary: var(--mc-brand-light);
   --mc-colour-text-secondary: var(--mc-brand-warm-muted);
@@ -168,6 +171,7 @@
 
 [data-mc-theme='light'] {
   --mc-colour-background: var(--mc-brand-light-surface);
+  --mc-colour-backdrop: var(--mc-brand-dark);
   --mc-colour-surface: var(--mc-brand-light);
   --mc-colour-text-primary: var(--mc-brand-dark);
   --mc-colour-text-secondary: var(--mc-brand-dark-neutral);
@@ -182,6 +186,7 @@
 @media (prefers-color-scheme: light) {
   [data-mc-theme='system'] {
     --mc-colour-background: var(--mc-brand-light-surface);
+    --mc-colour-backdrop: var(--mc-brand-dark);
     --mc-colour-surface: var(--mc-brand-light);
     --mc-colour-text-primary: var(--mc-brand-dark);
     --mc-colour-text-secondary: var(--mc-brand-dark-neutral);

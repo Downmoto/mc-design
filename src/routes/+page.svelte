@@ -10,6 +10,7 @@
   import CheckboxPreview from './_components/previews/CheckboxPreview.svelte';
   import ConsumerPreview from './_components/previews/ConsumerPreview.svelte';
   import DisclosurePreview from './_components/previews/DisclosurePreview.svelte';
+  import DialogPreview from './_components/previews/DialogPreview.svelte';
   import NumericInputPreview from './_components/previews/NumericInputPreview.svelte';
   import ProgressIndicatorPreview from './_components/previews/ProgressIndicatorPreview.svelte';
   import MenuPreview from './_components/previews/MenuPreview.svelte';
@@ -35,6 +36,7 @@
     '/components/checkbox': CheckboxPreview,
     '/components/consumer': ConsumerPreview,
     '/components/disclosure': DisclosurePreview,
+    '/components/dialog': DialogPreview,
     '/components/menu': MenuPreview,
     '/components/numeric-input': NumericInputPreview,
     '/components/progress-indicator': ProgressIndicatorPreview,
