@@ -113,6 +113,7 @@ Generated from `tokens/tokens.json`. Edit the source and run
 | `motion-duration-standard` | `--mc-motion-duration-standard` | `160ms` | Menus and determinate progress changes |
 | `motion-duration-large` | `--mc-motion-duration-large` | `240ms` | Dialogs, panels, and layout changes |
 | `motion-duration-processing` | `--mc-motion-duration-processing` | `800ms` | Indeterminate processing loop |
+| `motion-duration-progress` | `--mc-motion-duration-progress` | `1600ms` | Indeterminate progress travel |
 | `motion-distance-entrance` | `--mc-motion-distance-entrance` | `8px` | Maximum entrance translation |
 
 ## Global semantic tokens

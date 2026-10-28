@@ -106,6 +106,7 @@
   --mc-motion-duration-standard: 160ms;
   --mc-motion-duration-large: 240ms;
   --mc-motion-duration-processing: 800ms;
+  --mc-motion-duration-progress: 1600ms;
   --mc-motion-distance-entrance: 8px;
   --mc-typography-display-family: var(--mc-font-family-manufacturing-consent);
   --mc-typography-display-size: var(--mc-font-size-6);
@@ -256,6 +257,7 @@
     --mc-motion-duration-standard: 100ms;
     --mc-motion-duration-large: 100ms;
     --mc-motion-duration-processing: 0ms;
+    --mc-motion-duration-progress: 0ms;
     --mc-motion-distance-entrance: 0;
   }
 }

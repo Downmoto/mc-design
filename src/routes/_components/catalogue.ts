@@ -19,6 +19,7 @@ export interface CatalogueEntry {
     | '/components/disclosure'
     | '/components/menu'
     | '/components/numeric-input'
+    | '/components/progress-indicator'
     | '/components/radio-group'
     | '/components/select'
     | '/components/slider'
@@ -159,5 +160,11 @@ export const catalogue: CatalogueEntry[] = [
     description: 'Announces concise background updates without moving focus',
     name: 'Status',
     route: '/components/status',
+  },
+  {
+    category: 'Feedback',
+    description: 'Communicates the completion of an ongoing process',
+    name: 'Progress indicator',
+    route: '/components/progress-indicator',
   },
 ];
