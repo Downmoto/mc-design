@@ -167,6 +167,7 @@
 :is(
   .mc-checkbox,
   .mc-numeric-input,
+  .mc-progress,
   .mc-radio-group,
   .mc-select,
   .mc-slider,
@@ -186,6 +187,7 @@
   .mc-checkbox__label,
   .mc-disclosure__summary,
   .mc-numeric-input__label,
+  .mc-progress__label,
   .mc-radio-group__legend,
   .mc-radio-group__option-label,
   .mc-select__label,
@@ -201,6 +203,22 @@
   font-size: var(--mc-typography-label-size);
   font-weight: var(--mc-typography-label-weight);
   line-height: var(--mc-typography-label-line-height);
+}
+
+:is(.mc-progress__heading, .mc-slider__heading) {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--mc-space-2);
+}
+
+:is(.mc-progress__value, .mc-slider__value) {
+  color: var(--mc-colour-text-secondary);
+  font-family: var(--mc-typography-code-family);
+  font-size: var(--mc-typography-code-size);
+  font-weight: var(--mc-typography-code-weight);
+  line-height: var(--mc-typography-code-line-height);
+  font-variant-numeric: tabular-nums;
 }
 
 :is(

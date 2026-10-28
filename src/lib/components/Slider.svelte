@@ -93,22 +93,6 @@
     --mc-slider-track-size: var(--mc-space-1);
   }
 
-  .mc-slider__heading {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: var(--mc-space-2);
-  }
-
-  .mc-slider__value {
-    color: var(--mc-colour-text-secondary);
-    font-family: var(--mc-typography-code-family);
-    font-size: var(--mc-typography-code-size);
-    font-weight: var(--mc-typography-code-weight);
-    line-height: var(--mc-typography-code-line-height);
-    font-variant-numeric: tabular-nums;
-  }
-
   .mc-slider__control {
     --mc-slider-fill: 0%;
 

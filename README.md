@@ -167,6 +167,11 @@ Status announces concise background updates through a polite atomic live region.
 It supports standard and compact sizes, neutral and semantic tones, a decorative
 marker, and registered consumer colour mappings.
 
+ProgressIndicator communicates completion through a labelled native progress
+element. It supports determinate and indeterminate states, standard and compact
+sizes, an optional visible percentage, reduced-motion behaviour, and registered
+consumer colour mappings.
+
 Card groups related information in a contained article surface. Its optional
 Hero, Header, Content, and Footer components work in any combination; a Header
 overlays the bottom-left of a present Hero. Vertical and horizontal orientations

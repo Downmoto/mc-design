@@ -11,6 +11,7 @@
   import ConsumerPreview from './_components/previews/ConsumerPreview.svelte';
   import DisclosurePreview from './_components/previews/DisclosurePreview.svelte';
   import NumericInputPreview from './_components/previews/NumericInputPreview.svelte';
+  import ProgressIndicatorPreview from './_components/previews/ProgressIndicatorPreview.svelte';
   import MenuPreview from './_components/previews/MenuPreview.svelte';
   import RadioGroupPreview from './_components/previews/RadioGroupPreview.svelte';
   import SelectPreview from './_components/previews/SelectPreview.svelte';
@@ -36,6 +37,7 @@
     '/components/disclosure': DisclosurePreview,
     '/components/menu': MenuPreview,
     '/components/numeric-input': NumericInputPreview,
+    '/components/progress-indicator': ProgressIndicatorPreview,
     '/components/radio-group': RadioGroupPreview,
     '/components/select': SelectPreview,
     '/components/slider': SliderPreview,

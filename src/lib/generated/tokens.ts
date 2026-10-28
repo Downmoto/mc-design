@@ -106,6 +106,7 @@ export const foundationTokens = {
   "motion-duration-standard": "160ms",
   "motion-duration-large": "240ms",
   "motion-duration-processing": "800ms",
+  "motion-duration-progress": "1600ms",
   "motion-distance-entrance": "8px"
 } as const;
 
