@@ -163,6 +163,10 @@ Toast announces temporary background results through a polite live region. It
 supports standard and compact sizes, Alert tones and content, two-way visibility
 binding, optional automatic dismissal, timeout pausing, and manual dismissal.
 
+Status announces concise background updates through a polite atomic live region.
+It supports standard and compact sizes, neutral and semantic tones, a decorative
+marker, and registered consumer colour mappings.
+
 Tabs switches between related panels in the same context. It supports standard
 and compact sizes, two-way value binding, disabled tabs, automatic selection,
 and established arrow, Home, and End keyboard behaviour.

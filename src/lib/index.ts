@@ -157,5 +157,12 @@ export {
   type ToastTone,
 } from './components/toast.types.js';
 
+export { default as Status } from './components/Status.svelte';
+export {
+  type StatusProps,
+  type StatusSize,
+  type StatusTone,
+} from './components/status.types.js';
+
 export { default as Consumer } from './components/Consumer.svelte';
 export { type ConsumerProps } from './components/consumer.types.js';
