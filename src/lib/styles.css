@@ -1,6 +1,38 @@
 @import './fonts.css';
 @import './generated/tokens.css';
 
+:is(.mc-card-content, .mc-card-footer, .mc-card-header, .mc-card-hero) {
+  min-inline-size: 0;
+}
+
+:is(.mc-card-content, .mc-card-footer, .mc-card-header) {
+  padding: var(--mc-space-4);
+}
+
+:is(.mc-badge, .mc-status) {
+  display: inline-flex;
+  align-items: center;
+}
+
+:is(.mc-alert[data-size='compact'], .mc-badge, .mc-status) {
+  font-family: var(--mc-typography-label-family);
+  font-size: var(--mc-typography-label-size);
+  font-weight: var(--mc-typography-label-weight);
+  line-height: var(--mc-typography-label-line-height);
+}
+
+:is(.mc-badge[data-size='compact'], .mc-status[data-size='compact']) {
+  font-family: var(--mc-typography-caption-family);
+  font-size: var(--mc-typography-caption-size);
+  font-weight: var(--mc-typography-caption-weight);
+  line-height: var(--mc-typography-caption-line-height);
+}
+
+:is(.mc-alert__icon, .mc-badge__icon) {
+  display: grid;
+  place-items: center;
+}
+
 .mc-menu-item {
   --mc-menu-item-block-size: var(--mc-size-control-compact);
   --mc-menu-item-icon-size: var(--mc-size-icon-compact);
@@ -233,6 +265,8 @@
     .mc-button[data-size='icon-compact'] .mc-button__content,
     .mc-button[data-size='icon'] .mc-button__content,
     .mc-button[data-size='icon-large'] .mc-button__content,
+    .mc-alert__icon,
+    .mc-badge__icon,
     .mc-select__icon,
     .mc-text-input__icon
   )
@@ -378,6 +412,15 @@
 }
 
 @media (forced-colors: active) {
+  :is(.mc-alert, .mc-badge, .mc-status) {
+    color: CanvasText;
+  }
+
+  :is(.mc-alert, .mc-badge) {
+    background: Canvas;
+    border-color: CanvasText;
+  }
+
   .mc-menu-item {
     color: CanvasText;
     forced-color-adjust: auto;

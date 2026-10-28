@@ -13,6 +13,7 @@ export interface CatalogueEntry {
     | '/components/alert'
     | '/components/badge'
     | '/components/button'
+    | '/components/card'
     | '/components/checkbox'
     | '/components/consumer'
     | '/components/disclosure'
@@ -55,6 +56,12 @@ export const catalogue: CatalogueEntry[] = [
     description: 'Provides named semantic patterns for common text structures',
     name: 'Typography',
     route: '/components/typography',
+  },
+  {
+    category: 'Structure',
+    description: 'Groups related content into a flexible contained surface',
+    name: 'Card',
+    route: '/components/card',
   },
   {
     category: 'Inputs',

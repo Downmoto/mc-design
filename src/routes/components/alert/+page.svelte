@@ -2,6 +2,9 @@
   import InfoIcon from 'phosphor-svelte/lib/InfoIcon';
 
   import {
+    Card,
+    CardContent,
+    CardHero,
     Alert,
     Checkbox,
     Select,
@@ -41,8 +44,8 @@
     <Typography id="playground-title" variant="h2">Playground</Typography>
   </div>
 
-  <div class="playground">
-    <div class="playground__preview">
+  <Card class="playground" orientation="horizontal">
+    <CardHero class="playground__preview">
       <div class="alert-sample">
         <Alert
           {size}
@@ -53,25 +56,32 @@
           {message || 'Alert message'}
         </Alert>
       </div>
-    </div>
+    </CardHero>
 
-    <form class="control-panel" onsubmit={(event) => event.preventDefault()}>
-      <TextInput label="Title" bind:value={title} maxlength={60} />
-      <TextArea label="Message" bind:value={message} maxlength={180} rows={3} />
-      <Select label="Size" bind:value={size}>
-        <option value="standard">Standard</option>
-        <option value="compact">Compact</option>
-      </Select>
-      <Select label="Tone" bind:value={tone}>
-        <option value="neutral">Neutral</option>
-        <option value="info">Info</option>
-        <option value="success">Success</option>
-        <option value="warning">Warning</option>
-        <option value="danger">Danger</option>
-      </Select>
-      <Checkbox label="Leading icon" size="compact" bind:checked={showIcon} />
-    </form>
-  </div>
+    <CardContent class="playground__controls">
+      <form class="control-panel" onsubmit={(event) => event.preventDefault()}>
+        <TextInput label="Title" bind:value={title} maxlength={60} />
+        <TextArea
+          label="Message"
+          bind:value={message}
+          maxlength={180}
+          rows={3}
+        />
+        <Select label="Size" bind:value={size}>
+          <option value="standard">Standard</option>
+          <option value="compact">Compact</option>
+        </Select>
+        <Select label="Tone" bind:value={tone}>
+          <option value="neutral">Neutral</option>
+          <option value="info">Info</option>
+          <option value="success">Success</option>
+          <option value="warning">Warning</option>
+          <option value="danger">Danger</option>
+        </Select>
+        <Checkbox label="Leading icon" size="compact" bind:checked={showIcon} />
+      </form>
+    </CardContent>
+  </Card>
 </section>
 
 <section

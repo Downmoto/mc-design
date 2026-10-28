@@ -1,5 +1,8 @@
 <script lang="ts">
   import {
+    Card,
+    CardContent,
+    CardHero,
     Button,
     Checkbox,
     Menu,
@@ -44,8 +47,8 @@
     <Typography id="playground-title" variant="h2">Playground</Typography>
   </div>
 
-  <div class="playground">
-    <div class="playground__preview">
+  <Card class="playground" orientation="horizontal">
+    <CardHero class="playground__preview">
       <Menu {size} {align} {disabled}>
         {#snippet trigger(props)}
           <Button {...props} appearance="secondary">Actions</Button>
@@ -89,20 +92,22 @@
       <Typography class="interaction-result" variant="muted">
         {lastAction}
       </Typography>
-    </div>
+    </CardHero>
 
-    <form class="control-panel" onsubmit={(event) => event.preventDefault()}>
-      <Select label="Size" bind:value={size}>
-        <option value="standard">Standard</option>
-        <option value="compact">Compact</option>
-      </Select>
-      <Select label="Alignment" bind:value={align}>
-        <option value="start">Start</option>
-        <option value="end">End</option>
-      </Select>
-      <Checkbox label="Disable menu" bind:checked={disabled} />
-    </form>
-  </div>
+    <CardContent class="playground__controls">
+      <form class="control-panel" onsubmit={(event) => event.preventDefault()}>
+        <Select label="Size" bind:value={size}>
+          <option value="standard">Standard</option>
+          <option value="compact">Compact</option>
+        </Select>
+        <Select label="Alignment" bind:value={align}>
+          <option value="start">Start</option>
+          <option value="end">End</option>
+        </Select>
+        <Checkbox label="Disable menu" bind:checked={disabled} />
+      </form>
+    </CardContent>
+  </Card>
 </section>
 
 <section

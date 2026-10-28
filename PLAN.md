@@ -71,7 +71,7 @@ Required components are tracked in one list. Items marked `website first` form t
 - [ ] Structure: Toolbar
 - [ ] Structure: Sidebar
 - [ ] Structure: Panel
-- [ ] Structure: Card (`website first`)
+- [x] Structure: Card (`website first`)
 - [ ] Structure: List (`website first`)
 - [ ] Structure: Table (`website first`)
 - [ ] Structure: Responsive overflow (`website first`, where approved website designs require it)

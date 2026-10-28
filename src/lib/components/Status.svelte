@@ -31,23 +31,13 @@
 
 <style>
   .mc-status {
-    display: inline-flex;
-    align-items: center;
     min-inline-size: 0;
     gap: var(--mc-space-2);
     color: var(--mc-colour-text-primary);
-    font-family: var(--mc-typography-label-family);
-    font-size: var(--mc-typography-label-size);
-    font-weight: var(--mc-typography-label-weight);
-    line-height: var(--mc-typography-label-line-height);
   }
 
   .mc-status[data-size='compact'] {
     gap: var(--mc-space-1);
-    font-family: var(--mc-typography-caption-family);
-    font-size: var(--mc-typography-caption-size);
-    font-weight: var(--mc-typography-caption-weight);
-    line-height: var(--mc-typography-caption-line-height);
   }
 
   .mc-status__marker {
@@ -80,10 +70,6 @@
   }
 
   @media (forced-colors: active) {
-    .mc-status {
-      color: CanvasText;
-    }
-
     .mc-status__marker {
       background: CanvasText;
     }

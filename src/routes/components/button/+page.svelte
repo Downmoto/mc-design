@@ -3,6 +3,9 @@
   import PlusIcon from 'phosphor-svelte/lib/PlusIcon';
 
   import {
+    Card,
+    CardContent,
+    CardHero,
     Button,
     Checkbox,
     Select,
@@ -123,8 +126,8 @@
     <Typography id="playground-title" variant="h2">Playground</Typography>
   </div>
 
-  <div class="playground">
-    <div class="playground__preview">
+  <Card class="playground" orientation="horizontal">
+    <CardHero class="playground__preview">
       {#if content === 'icon'}
         <Button
           {appearance}
@@ -159,67 +162,73 @@
       <Typography class="interaction-result" aria-live="polite">
         Activations: {activationCount}
       </Typography>
-    </div>
+    </CardHero>
 
-    <form class="control-panel" onsubmit={(event) => event.preventDefault()}>
-      <Select label="Content" value={content} onchange={selectContent}>
-        <option value="label">Visible label</option>
-        <option value="icon">Icon only</option>
-      </Select>
-      <Select label="Behaviour" value={behaviour} onchange={selectBehaviour}>
-        <option value="action">Action</option>
-        <option value="navigation">Navigation</option>
-      </Select>
-      <TextInput
-        label={content === 'icon' ? 'Accessible name' : 'Label'}
-        bind:value={label}
-        maxlength={40}
-      />
-      {#if behaviour === 'navigation'}
-        <TextInput
-          label="Destination"
-          bind:value={destination}
-          maxlength={200}
-        />
-      {/if}
-      <Select label="Appearance" value={appearance} onchange={selectAppearance}>
-        {#each content === 'icon' ? appearances : playgroundAppearances as option}
-          <option value={option.value}>{option.label}</option>
-        {/each}
-      </Select>
-      {#if appearance !== 'link'}
-        <Select
-          label="Size"
-          value={content === 'icon' ? iconSize : labelledSize}
-          onchange={selectSize}
-        >
-          {#if content === 'icon'}
-            {#each iconSizes as option}
-              <option value={option.value}>{option.label}</option>
-            {/each}
-          {:else}
-            {#each sizes as option}
-              <option value={option.value}>{option.label}</option>
-            {/each}
-          {/if}
+    <CardContent class="playground__controls">
+      <form class="control-panel" onsubmit={(event) => event.preventDefault()}>
+        <Select label="Content" value={content} onchange={selectContent}>
+          <option value="label">Visible label</option>
+          <option value="icon">Icon only</option>
         </Select>
-        {#if content === 'label'}
-          <Select
-            label="Icons"
-            value={iconPosition}
-            onchange={selectIconPosition}
-          >
-            <option value="none">None</option>
-            <option value="leading">Leading</option>
-            <option value="trailing">Trailing</option>
-            <option value="both">Both</option>
-          </Select>
+        <Select label="Behaviour" value={behaviour} onchange={selectBehaviour}>
+          <option value="action">Action</option>
+          <option value="navigation">Navigation</option>
+        </Select>
+        <TextInput
+          label={content === 'icon' ? 'Accessible name' : 'Label'}
+          bind:value={label}
+          maxlength={40}
+        />
+        {#if behaviour === 'navigation'}
+          <TextInput
+            label="Destination"
+            bind:value={destination}
+            maxlength={200}
+          />
         {/if}
-      {/if}
-      <Checkbox label="Disabled" size="compact" bind:checked={disabled} />
-      <Checkbox label="Loading" size="compact" bind:checked={loading} />
-    </form>
-  </div>
+        <Select
+          label="Appearance"
+          value={appearance}
+          onchange={selectAppearance}
+        >
+          {#each content === 'icon' ? appearances : playgroundAppearances as option}
+            <option value={option.value}>{option.label}</option>
+          {/each}
+        </Select>
+        {#if appearance !== 'link'}
+          <Select
+            label="Size"
+            value={content === 'icon' ? iconSize : labelledSize}
+            onchange={selectSize}
+          >
+            {#if content === 'icon'}
+              {#each iconSizes as option}
+                <option value={option.value}>{option.label}</option>
+              {/each}
+            {:else}
+              {#each sizes as option}
+                <option value={option.value}>{option.label}</option>
+              {/each}
+            {/if}
+          </Select>
+          {#if content === 'label'}
+            <Select
+              label="Icons"
+              value={iconPosition}
+              onchange={selectIconPosition}
+            >
+              <option value="none">None</option>
+              <option value="leading">Leading</option>
+              <option value="trailing">Trailing</option>
+              <option value="both">Both</option>
+            </Select>
+          {/if}
+        {/if}
+        <Checkbox label="Disabled" size="compact" bind:checked={disabled} />
+        <Checkbox label="Loading" size="compact" bind:checked={loading} />
+      </form>
+    </CardContent>
+  </Card>
 </section>
 
 <section

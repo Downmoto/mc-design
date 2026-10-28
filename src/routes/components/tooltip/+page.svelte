@@ -2,6 +2,9 @@
   import InfoIcon from 'phosphor-svelte/lib/InfoIcon';
 
   import {
+    Card,
+    CardContent,
+    CardHero,
     Button,
     Checkbox,
     Select,
@@ -36,8 +39,8 @@
     <Typography id="playground-title" variant="h2">Playground</Typography>
   </div>
 
-  <div class="playground">
-    <div class="playground__preview">
+  <Card class="playground" orientation="horizontal">
+    <CardHero class="playground__preview">
       <Tooltip {content} {size} bind:open>
         {#snippet trigger(props)}
           <Button
@@ -50,17 +53,19 @@
           </Button>
         {/snippet}
       </Tooltip>
-    </div>
+    </CardHero>
 
-    <form class="control-panel" onsubmit={(event) => event.preventDefault()}>
-      <TextInput label="Content" bind:value={content} maxlength={120} />
-      <Select label="Size" bind:value={size}>
-        <option value="standard">Standard</option>
-        <option value="compact">Compact</option>
-      </Select>
-      <Checkbox label="Show tooltip" bind:checked={open} />
-    </form>
-  </div>
+    <CardContent class="playground__controls">
+      <form class="control-panel" onsubmit={(event) => event.preventDefault()}>
+        <TextInput label="Content" bind:value={content} maxlength={120} />
+        <Select label="Size" bind:value={size}>
+          <option value="standard">Standard</option>
+          <option value="compact">Compact</option>
+        </Select>
+        <Checkbox label="Show tooltip" bind:checked={open} />
+      </form>
+    </CardContent>
+  </Card>
 </section>
 
 <section

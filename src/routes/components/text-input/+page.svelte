@@ -3,6 +3,9 @@
   import MagnifyingGlassIcon from 'phosphor-svelte/lib/MagnifyingGlassIcon';
 
   import {
+    Card,
+    CardContent,
+    CardHero,
     Checkbox,
     Select,
     TextInput,
@@ -48,8 +51,8 @@
     <Typography id="playground-title" variant="h2">Playground</Typography>
   </div>
 
-  <div class="playground">
-    <div class="playground__preview">
+  <Card class="playground" orientation="horizontal">
+    <CardHero class="playground__preview">
       <div class="text-input-sample">
         <TextInput
           bind:value
@@ -69,28 +72,38 @@
           {error}
         />
       </div>
-    </div>
+    </CardHero>
 
-    <form class="control-panel" onsubmit={(event) => event.preventDefault()}>
-      <TextInput label="Label" bind:value={label} maxlength={40} />
-      <TextInput label="Description" bind:value={description} maxlength={80} />
-      <TextInput label="Placeholder" bind:value={placeholder} maxlength={80} />
-      <Select label="Size" bind:value={size}>
-        <option value="standard">Standard</option>
-        <option value="compact">Compact</option>
-      </Select>
-      <Select label="Icons" bind:value={iconPosition}>
-        <option value="none">None</option>
-        <option value="leading">Leading</option>
-        <option value="trailing">Trailing</option>
-        <option value="both">Both</option>
-      </Select>
-      <Checkbox label="Required" size="compact" bind:checked={required} />
-      <Checkbox label="Read only" size="compact" bind:checked={readonly} />
-      <Checkbox label="Disabled" size="compact" bind:checked={disabled} />
-      <Checkbox label="Error" size="compact" bind:checked={showError} />
-    </form>
-  </div>
+    <CardContent class="playground__controls">
+      <form class="control-panel" onsubmit={(event) => event.preventDefault()}>
+        <TextInput label="Label" bind:value={label} maxlength={40} />
+        <TextInput
+          label="Description"
+          bind:value={description}
+          maxlength={80}
+        />
+        <TextInput
+          label="Placeholder"
+          bind:value={placeholder}
+          maxlength={80}
+        />
+        <Select label="Size" bind:value={size}>
+          <option value="standard">Standard</option>
+          <option value="compact">Compact</option>
+        </Select>
+        <Select label="Icons" bind:value={iconPosition}>
+          <option value="none">None</option>
+          <option value="leading">Leading</option>
+          <option value="trailing">Trailing</option>
+          <option value="both">Both</option>
+        </Select>
+        <Checkbox label="Required" size="compact" bind:checked={required} />
+        <Checkbox label="Read only" size="compact" bind:checked={readonly} />
+        <Checkbox label="Disabled" size="compact" bind:checked={disabled} />
+        <Checkbox label="Error" size="compact" bind:checked={showError} />
+      </form>
+    </CardContent>
+  </Card>
 </section>
 
 <section
