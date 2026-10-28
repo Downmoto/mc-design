@@ -21,6 +21,7 @@ export interface CatalogueEntry {
     | '/components/menu'
     | '/components/numeric-input'
     | '/components/progress-indicator'
+    | '/components/panel'
     | '/components/radio-group'
     | '/components/select'
     | '/components/slider'
@@ -78,6 +79,12 @@ export const catalogue: CatalogueEntry[] = [
     description: 'Groups frequently used controls with efficient navigation',
     name: 'Toolbar',
     route: '/components/toolbar',
+  },
+  {
+    category: 'Structure',
+    description: 'Fills a workspace region with persistent and scrolling areas',
+    name: 'Panel',
+    route: '/components/panel',
   },
   {
     category: 'Inputs',

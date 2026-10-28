@@ -27,6 +27,9 @@
   ][];
   type WorkbenchConsumer = ConsumerId | '';
   const categories = [...new Set(catalogue.map((entry) => entry.category))];
+  const resolveCatalogueRoute = resolve as (
+    route: (typeof catalogue)[number]['route'],
+  ) => string;
 
   let { children }: LayoutProps = $props();
   let theme = $state<Theme>('dark');
@@ -78,7 +81,7 @@
   }
 
   function componentHref(route: (typeof catalogue)[number]['route']): string {
-    return `${resolve(route)}/`;
+    return `${resolveCatalogueRoute(route)}/`;
   }
 </script>
 

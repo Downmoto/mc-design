@@ -183,6 +183,17 @@ export {
   type ToolbarVariant,
 } from './components/toolbar.types.js';
 
+export { default as Panel } from './components/Panel.svelte';
+export { default as PanelContent } from './components/PanelContent.svelte';
+export { default as PanelFooter } from './components/PanelFooter.svelte';
+export { default as PanelHeader } from './components/PanelHeader.svelte';
+export {
+  type PanelContentProps,
+  type PanelFooterProps,
+  type PanelHeaderProps,
+  type PanelProps,
+} from './components/panel.types.js';
+
 export { default as Toggle } from './components/Toggle.svelte';
 export {
   type ToggleAppearance,

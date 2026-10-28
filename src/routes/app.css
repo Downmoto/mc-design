@@ -363,6 +363,7 @@ main {
 }
 
 .playground__controls {
+  display: grid;
   padding: 0;
 }
 

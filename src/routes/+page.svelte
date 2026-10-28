@@ -13,6 +13,7 @@
   import DialogPreview from './_components/previews/DialogPreview.svelte';
   import NumericInputPreview from './_components/previews/NumericInputPreview.svelte';
   import ProgressIndicatorPreview from './_components/previews/ProgressIndicatorPreview.svelte';
+  import PanelPreview from './_components/previews/PanelPreview.svelte';
   import MenuPreview from './_components/previews/MenuPreview.svelte';
   import RadioGroupPreview from './_components/previews/RadioGroupPreview.svelte';
   import SelectPreview from './_components/previews/SelectPreview.svelte';
@@ -29,6 +30,9 @@
   import TypographyPreview from './_components/previews/TypographyPreview.svelte';
 
   const categories = [...new Set(catalogue.map((entry) => entry.category))];
+  const resolveCatalogueRoute = resolve as (
+    route: (typeof catalogue)[number]['route'],
+  ) => string;
   const previews = {
     '/components/action-group': ActionGroupPreview,
     '/components/alert': AlertPreview,
@@ -42,6 +46,7 @@
     '/components/menu': MenuPreview,
     '/components/numeric-input': NumericInputPreview,
     '/components/progress-indicator': ProgressIndicatorPreview,
+    '/components/panel': PanelPreview,
     '/components/radio-group': RadioGroupPreview,
     '/components/select': SelectPreview,
     '/components/slider': SliderPreview,
@@ -96,7 +101,7 @@
             <Button
               appearance="link"
               class="component-link"
-              href={`${resolve(entry.route)}/`}
+              href={`${resolveCatalogueRoute(entry.route)}/`}
             >
               View {entry.name.toLowerCase()}
             </Button>
