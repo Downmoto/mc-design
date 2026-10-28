@@ -30,6 +30,8 @@ export interface CatalogueEntry {
     | '/components/text-area'
     | '/components/text-input'
     | '/components/toast'
+    | '/components/toggle'
+    | '/components/toolbar'
     | '/components/tooltip'
     | '/components/typography';
 }
@@ -54,6 +56,12 @@ export const catalogue: CatalogueEntry[] = [
     route: '/components/action-group',
   },
   {
+    category: 'Actions',
+    description: 'Turns an independent action state on or off',
+    name: 'Toggle',
+    route: '/components/toggle',
+  },
+  {
     category: 'Structure',
     description: 'Provides named semantic patterns for common text structures',
     name: 'Typography',
@@ -64,6 +72,12 @@ export const catalogue: CatalogueEntry[] = [
     description: 'Groups related content into a flexible contained surface',
     name: 'Card',
     route: '/components/card',
+  },
+  {
+    category: 'Structure',
+    description: 'Groups frequently used controls with efficient navigation',
+    name: 'Toolbar',
+    route: '/components/toolbar',
   },
   {
     category: 'Inputs',

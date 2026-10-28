@@ -92,6 +92,11 @@ standard, large, and matching icon-only sizes; decorative leading and trailing
 icon snippets; disabled state; and a loading state that preserves its dimensions
 and accessible name.
 
+Toggle renders a native pressed button for an independent action state. It
+supports ghost and secondary appearances, two-way pressed-state binding,
+labelled and icon-only Button sizes, disabled state, and registered consumer
+colour mappings.
+
 ActionGroup arranges related controls with consistent spacing. Set `joined` to
 connect direct Button children into one control, and nest joined groups inside
 a default ActionGroup to separate related clusters. Horizontal and vertical
@@ -176,6 +181,11 @@ Dialog presents focused information and decisions through the native modal
 dialog element. It supports small, medium, and large widths, optional content
 and footer actions, two-way visibility binding, dismissible and required states,
 focus restoration, reduced motion, and registered consumer colour mappings.
+
+Toolbar groups frequently used controls into a labelled horizontal or vertical
+composite. Ghost and surface variants support different surrounding contexts. It
+keeps one enabled action in the Tab order and supports wrapping Arrow, Home, and
+End key navigation while each child keeps its native behaviour.
 
 Card groups related information in a contained article surface. Its optional
 Hero, Header, Content, and Footer components work in any combination; a Header
