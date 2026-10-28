@@ -170,6 +170,12 @@ export {
   type ProgressIndicatorSize,
 } from './components/progress-indicator.types.js';
 
+export { default as Dialog } from './components/Dialog.svelte';
+export {
+  type DialogProps,
+  type DialogSize,
+} from './components/dialog.types.js';
+
 export { default as Card } from './components/Card.svelte';
 export { default as CardContent } from './components/CardContent.svelte';
 export { default as CardFooter } from './components/CardFooter.svelte';

@@ -102,6 +102,7 @@ Generated from `tokens/tokens.json`. Edit the source and run
 | `opacity-disabled` | `--mc-opacity-disabled` | `50%` | Disabled control and content opacity |
 | `opacity-menu-separator` | `--mc-opacity-menu-separator` | `50%` | Menu separator opacity |
 | `opacity-menu-item-hover` | `--mc-opacity-menu-item-hover` | `15%` | Menu item hover background opacity |
+| `opacity-dialog-backdrop` | `--mc-opacity-dialog-backdrop` | `75%` | Modal backdrop opacity |
 | `layer-base` | `--mc-layer-base` | `0` | Normal document flow |
 | `layer-sticky` | `--mc-layer-sticky` | `100` | Sticky interface regions |
 | `layer-overlay` | `--mc-layer-overlay` | `200` | Menus and popovers |
@@ -158,6 +159,7 @@ Generated from `tokens/tokens.json`. Edit the source and run
 | Token | CSS property | Value | Purpose |
 |---|---|---|---|
 | `colour-background` | `--mc-colour-background` | `{brand-light-surface}` | Root background |
+| `colour-backdrop` | `--mc-colour-backdrop` | `{brand-dark}` | Modal backdrop colour |
 | `colour-surface` | `--mc-colour-surface` | `{brand-light}` | Panels, cards, menus, and grouped regions |
 | `colour-text-primary` | `--mc-colour-text-primary` | `{brand-dark}` | Primary text and neutral icons |
 | `colour-text-secondary` | `--mc-colour-text-secondary` | `{brand-dark-neutral}` | Supporting text and neutral icons |
@@ -172,6 +174,7 @@ Generated from `tokens/tokens.json`. Edit the source and run
 | Token | CSS property | Value | Purpose |
 |---|---|---|---|
 | `colour-background` | `--mc-colour-background` | `{brand-dark}` | Root background |
+| `colour-backdrop` | `--mc-colour-backdrop` | `{brand-dark}` | Modal backdrop colour |
 | `colour-surface` | `--mc-colour-surface` | `{brand-dark-surface}` | Panels, cards, menus, and grouped regions |
 | `colour-text-primary` | `--mc-colour-text-primary` | `{brand-light}` | Primary text and neutral icons |
 | `colour-text-secondary` | `--mc-colour-text-secondary` | `{brand-warm-muted}` | Supporting text and neutral icons |

@@ -95,6 +95,7 @@ export const foundationTokens = {
   "opacity-disabled": "50%",
   "opacity-menu-separator": "50%",
   "opacity-menu-item-hover": "15%",
+  "opacity-dialog-backdrop": "75%",
   "layer-base": 0,
   "layer-sticky": 100,
   "layer-overlay": 200,
@@ -147,6 +148,7 @@ export const semanticTokens = {
   },
   "light": {
     "colour-background": "#F3EBDD",
+    "colour-backdrop": "#050507",
     "colour-surface": "#E8E1D2",
     "colour-text-primary": "#050507",
     "colour-text-secondary": "#2D2D2D",
@@ -158,6 +160,7 @@ export const semanticTokens = {
   },
   "dark": {
     "colour-background": "#050507",
+    "colour-backdrop": "#050507",
     "colour-surface": "#1C1A20",
     "colour-text-primary": "#E8E1D2",
     "colour-text-secondary": "#B8AE9D",

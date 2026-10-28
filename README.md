@@ -172,6 +172,11 @@ element. It supports determinate and indeterminate states, standard and compact
 sizes, an optional visible percentage, reduced-motion behaviour, and registered
 consumer colour mappings.
 
+Dialog presents focused information and decisions through the native modal
+dialog element. It supports small, medium, and large widths, optional content
+and footer actions, two-way visibility binding, dismissible and required states,
+focus restoration, reduced motion, and registered consumer colour mappings.
+
 Card groups related information in a contained article surface. Its optional
 Hero, Header, Content, and Footer components work in any combination; a Header
 overlays the bottom-left of a present Hero. Vertical and horizontal orientations
