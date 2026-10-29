@@ -11,6 +11,7 @@
     leadingIcon,
     onclick,
     title,
+    trailingIcon,
     ...attributes
   }: SidebarMenuButtonProps = $props();
 
@@ -38,4 +39,12 @@
     </span>
   {/if}
   <span class="mc-sidebar-menu-button__label">{label}</span>
+  {#if trailingIcon}
+    <span
+      class="mc-sidebar-menu-button__icon mc-sidebar-menu-button__trailing-icon"
+      aria-hidden="true"
+    >
+      {@render trailingIcon()}
+    </span>
+  {/if}
 </button>

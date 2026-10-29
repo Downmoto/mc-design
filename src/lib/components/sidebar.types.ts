@@ -36,7 +36,7 @@ type NativeAnchorAttributes = Omit<
 >;
 type NativeButtonAttributes = Omit<
   HTMLButtonAttributes,
-  'aria-controls' | 'aria-expanded' | 'children' | 'class' | 'type'
+  'children' | 'class' | 'type'
 >;
 
 export type SidebarProviderProps = NativeDivAttributes & {
@@ -77,13 +77,29 @@ export type SidebarMenuProps = NativeListAttributes & {
   class?: string;
 };
 
-export type SidebarMenuItemProps = NativeListItemAttributes & {
-  action?: Snippet;
-  badge?: Snippet;
-  children: Snippet;
+type SidebarMenuItemBaseProps = NativeListItemAttributes & {
   class?: string;
-  submenu?: Snippet;
 };
+
+export type SidebarMenuItemProps = SidebarMenuItemBaseProps &
+  (
+    | {
+        action?: Snippet;
+        children: Snippet;
+        label?: never;
+        leadingIcon?: never;
+        open?: never;
+        submenu?: never;
+      }
+    | {
+        action?: never;
+        children?: never;
+        label: string;
+        leadingIcon?: Snippet;
+        open?: boolean;
+        submenu: Snippet;
+      }
+  );
 
 export type SidebarMenuLinkProps = NativeAnchorAttributes & {
   class?: string;
@@ -97,6 +113,7 @@ export type SidebarMenuButtonProps = NativeButtonAttributes & {
   class?: string;
   label: string;
   leadingIcon?: Snippet;
+  trailingIcon?: Snippet;
 };
 
 export type SidebarTriggerProps = Omit<

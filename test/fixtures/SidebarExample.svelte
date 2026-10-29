@@ -1,11 +1,13 @@
 <script lang="ts">
+  import DotsThreeIcon from 'phosphor-svelte/lib/DotsThreeIcon';
   import FolderIcon from 'phosphor-svelte/lib/FolderIcon';
   import GearIcon from 'phosphor-svelte/lib/GearIcon';
   import HouseIcon from 'phosphor-svelte/lib/HouseIcon';
 
   import {
-    Badge,
     Button,
+    Menu,
+    MenuItem,
     Sidebar,
     SidebarContent,
     SidebarFooter,
@@ -35,16 +37,26 @@
 
   let open = $state(true);
   let mobileOpen = $state(false);
+  let projectsOpen = $state(true);
 </script>
 
 {#snippet overviewIcon()}<HouseIcon />{/snippet}
 {#snippet projectsIcon()}<FolderIcon />{/snippet}
 {#snippet settingsIcon()}<GearIcon />{/snippet}
-{#snippet badge()}<Badge size="compact">3</Badge>{/snippet}
 {#snippet itemAction()}
-  <Button size="icon-compact" appearance="ghost" aria-label="Add project"
-    >+</Button
-  >
+  <Menu size="compact">
+    {#snippet trigger(props)}
+      <Button
+        {...props}
+        size="icon-compact"
+        appearance="ghost"
+        aria-label="More actions"
+      >
+        <DotsThreeIcon />
+      </Button>
+    {/snippet}
+    <MenuItem>Rename</MenuItem>
+  </Menu>
 {/snippet}
 
 {#snippet submenu()}
@@ -66,7 +78,7 @@
     <SidebarContent>
       <SidebarGroup label="Workspace">
         <SidebarMenu>
-          <SidebarMenuItem>
+          <SidebarMenuItem action={itemAction}>
             <SidebarMenuLink
               current="page"
               href="#overview"
@@ -74,13 +86,12 @@
               leadingIcon={overviewIcon}
             />
           </SidebarMenuItem>
-          <SidebarMenuItem {badge} action={itemAction} {submenu}>
-            <SidebarMenuLink
-              href="#projects"
-              label="Projects"
-              leadingIcon={projectsIcon}
-            />
-          </SidebarMenuItem>
+          <SidebarMenuItem
+            bind:open={projectsOpen}
+            label="Projects"
+            leadingIcon={projectsIcon}
+            {submenu}
+          />
           <SidebarMenuItem>
             <SidebarMenuButton
               disabled

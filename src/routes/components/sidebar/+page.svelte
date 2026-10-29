@@ -1,5 +1,6 @@
 <script lang="ts">
   import BookOpenIcon from 'phosphor-svelte/lib/BookOpenIcon';
+  import DotsThreeIcon from 'phosphor-svelte/lib/DotsThreeIcon';
   import FolderIcon from 'phosphor-svelte/lib/FolderIcon';
   import GearIcon from 'phosphor-svelte/lib/GearIcon';
   import HouseIcon from 'phosphor-svelte/lib/HouseIcon';
@@ -7,12 +8,13 @@
   import UserIcon from 'phosphor-svelte/lib/UserIcon';
 
   import {
-    Badge,
     Button,
     Card,
     CardContent,
     CardHero,
     Checkbox,
+    Menu,
+    MenuItem,
     Select,
     Sidebar,
     SidebarContent,
@@ -34,8 +36,8 @@
   import ComponentHeader from '../../_components/ComponentHeader.svelte';
 
   let collapsible = $state<SidebarCollapsible>('icon');
-  let mobileOpen = $state(false);
   let open = $state(true);
+  let projectsOpen = $state(true);
   let side = $state<SidebarSide>('start');
   let variant = $state<SidebarVariant>('inset');
 </script>
@@ -45,11 +47,27 @@
 {#snippet projectsIcon()}<FolderIcon />{/snippet}
 {#snippet settingsIcon()}<GearIcon />{/snippet}
 {#snippet accountIcon()}<UserIcon />{/snippet}
-{#snippet projectBadge()}<Badge size="compact">3</Badge>{/snippet}
 {#snippet groupAction()}
   <Button appearance="ghost" size="icon-compact" aria-label="Add project">
     <PlusIcon />
   </Button>
+{/snippet}
+
+{#snippet resourceActions()}
+  <Menu align="end" size="compact">
+    {#snippet trigger(props)}
+      <Button
+        {...props}
+        appearance="ghost"
+        size="icon-compact"
+        aria-label="Resource actions"
+      >
+        <DotsThreeIcon />
+      </Button>
+    {/snippet}
+    <MenuItem>Rename</MenuItem>
+    <MenuItem>Duplicate</MenuItem>
+  </Menu>
 {/snippet}
 
 {#snippet projectSubmenu()}
@@ -84,7 +102,7 @@
 
   <Card class="playground" orientation="horizontal">
     <CardHero class="playground__preview sidebar-playground__preview">
-      <SidebarProvider class="sidebar-sample" bind:mobileOpen bind:open>
+      <SidebarProvider class="sidebar-sample" bind:open>
         <Sidebar label="Primary" {collapsible} {side} {variant}>
           <SidebarHeader>
             <SidebarMenu>
@@ -108,14 +126,13 @@
                     leadingIcon={homeIcon}
                   />
                 </SidebarMenuItem>
-                <SidebarMenuItem badge={projectBadge} submenu={projectSubmenu}>
-                  <SidebarMenuLink
-                    href="#guidance"
-                    label="Projects"
-                    leadingIcon={projectsIcon}
-                  />
-                </SidebarMenuItem>
-                <SidebarMenuItem>
+                <SidebarMenuItem
+                  bind:open={projectsOpen}
+                  label="Projects"
+                  leadingIcon={projectsIcon}
+                  submenu={projectSubmenu}
+                />
+                <SidebarMenuItem action={resourceActions}>
                   <SidebarMenuLink
                     href="#reference"
                     label="Resources with a long navigation label"
@@ -180,11 +197,6 @@
           <option value="offcanvas">Off-canvas</option>
         </Select>
         <Checkbox label="Desktop expanded" size="compact" bind:checked={open} />
-        <Checkbox
-          label="Mobile open"
-          size="compact"
-          bind:checked={mobileOpen}
-        />
       </form>
     </CardContent>
   </Card>
@@ -210,6 +222,8 @@
         </li>
         <li>Provide every primary item an icon when using icon collapse</li>
         <li>Compose collapsible groups with Disclosure</li>
+        <li>Give parent items a submenu so they render as grouping buttons</li>
+        <li>Use Menu in the action slot for optional leaf-item actions</li>
         <li>
           Persist the bindable state in the consuming application when needed
         </li>
@@ -299,6 +313,12 @@
           <td><Typography variant="inline-code">current</Typography></td>
           <td><Typography variant="inline-code">aria-current</Typography></td>
           <td>Optional</td>
+        </tr>
+        <tr>
+          <th scope="row">SidebarMenuItem</th>
+          <td><Typography variant="inline-code">open</Typography></td>
+          <td><Typography variant="inline-code">boolean</Typography></td>
+          <td><Typography variant="inline-code">false</Typography></td>
         </tr>
       </tbody>
     </table>

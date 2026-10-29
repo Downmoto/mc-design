@@ -67,7 +67,7 @@ describe('Sidebar', () => {
     expect(getByTestId('open')).toHaveTextContent('true');
   });
 
-  it('supports variants, logical placement, badges, actions, and buttons', () => {
+  it('supports variants, logical placement, actions, and buttons', async () => {
     const { getByRole } = render(SidebarExample, {
       collapsible: 'offcanvas',
       side: 'end',
@@ -78,8 +78,33 @@ describe('Sidebar', () => {
     expect(sidebar).toHaveAttribute('data-side', 'end');
     expect(sidebar).toHaveAttribute('data-variant', 'floating');
     expect(sidebar).toHaveAttribute('data-collapsible', 'offcanvas');
-    expect(getByRole('button', { name: 'Add project' })).toBeVisible();
+    const actions = getByRole('button', { name: 'More actions' });
+    expect(actions).toBeVisible();
     expect(getByRole('button', { name: 'Settings' })).toBeDisabled();
+
+    await fireEvent.click(actions);
+    expect(getByRole('menuitem', { name: 'Rename' })).toBeVisible();
+  });
+
+  it('collapses nested items from their parent button', async () => {
+    const { getByRole, queryByRole } = render(SidebarExample);
+    const projects = getByRole('button', { name: 'Projects' });
+    const parentItem = projects.closest('.mc-sidebar-menu-item');
+    const chevron = parentItem?.querySelector<HTMLElement>(
+      '.mc-sidebar-menu-item__chevron',
+    );
+
+    expect(projects).toHaveAttribute('aria-expanded', 'true');
+    expect(parentItem).toHaveAttribute('data-parent', 'true');
+    expect(chevron).toBeInTheDocument();
+    expect(projects).toContainElement(chevron ?? null);
+    expect(document.querySelectorAll('[data-active]')).toHaveLength(1);
+    expect(getByRole('link', { name: 'Alpha' })).toBeVisible();
+
+    await fireEvent.click(projects);
+
+    expect(projects).toHaveAttribute('aria-expanded', 'false');
+    expect(queryByRole('link', { name: 'Alpha' })).toBeNull();
   });
 
   it('opens as a mobile modal and closes from navigation', async () => {

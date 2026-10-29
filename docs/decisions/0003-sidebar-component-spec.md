@@ -28,7 +28,7 @@ The first release supports:
 - controlled and uncontrolled open state
 - fixed header and footer regions around independently scrolling content
 - labelled navigation groups
-- links, action buttons, badges, per-item actions, and nested lists
+- links, action buttons, per-item Menus, and nested lists
 - a trigger and an inset main-content wrapper
 - dark, light, system, forced-colour, reduced-motion, and reflow behaviour
 
@@ -46,7 +46,7 @@ The first release supports:
 - Flyout submenus, skeleton placeholders, drag resizing, and a polymorphic
   child-prop API are deferred until a consumer requires them.
 - Sidebar does not introduce dedicated colour tokens in the first release.
-  Existing semantic surface, text, border, and interaction roles apply.
+  Existing semantic surface, text, and interaction roles apply.
 
 ## Anatomy
 
@@ -82,7 +82,7 @@ Defaults are `side="start"`, `variant="attached"`, and
 ### SidebarHeader
 
 Provides a persistent region at the block start for branding, a workspace
-switcher, or a concise navigation title.
+switcher, or a concise navigation title without a dividing border.
 
 ### SidebarContent
 
@@ -92,7 +92,7 @@ while Content scrolls.
 ### SidebarFooter
 
 Provides a persistent region at the block end for account controls, settings,
-or supporting actions.
+or supporting actions without a dividing border.
 
 ### SidebarGroup
 
@@ -110,9 +110,19 @@ receive indentation in the expanded state.
 
 ### SidebarMenuItem
 
-Renders a native `li` and arranges its primary item with optional `badge` and
-`action` snippets. Badge content remains concise. Item actions use Button and
-require an accessible name when icon-only.
+Renders a native `li`. A leaf item renders its `children` with an optional
+`action` snippet. The action snippet composes Menu for optional item commands
+and requires an accessible name when icon-only. Row hover and active treatments
+include the action region.
+
+An item with `submenu`, `label`, and optional `leadingIcon` renders a grouping
+button whose clickable area contains its chevron. Its bindable `open` state
+defaults to `false`, controls `aria-expanded`, rotates the chevron, and
+conditionally renders the nested SidebarMenu. Grouping buttons do not accept
+the leaf action slot.
+
+The trailing edge contains one control: a parent chevron or a leaf Menu action.
+Both use the same trailing alignment.
 
 ### SidebarMenuLink
 
@@ -176,12 +186,19 @@ type SidebarGroupProps = HTMLAttributes<HTMLElement> & {
   action?: Snippet;
 };
 
-type SidebarMenuItemProps = HTMLLiAttributes & {
-  children: Snippet;
-  action?: Snippet;
-  badge?: Snippet;
-  submenu?: Snippet;
-};
+type SidebarMenuItemProps = HTMLLiAttributes &
+  (
+    | {
+        children: Snippet;
+        action?: Snippet;
+      }
+    | {
+        label: string;
+        leadingIcon?: Snippet;
+        open?: boolean;
+        submenu: Snippet;
+      }
+  );
 
 type SidebarMenuLinkProps = HTMLAnchorAttributes & {
   href: string;
@@ -193,6 +210,7 @@ type SidebarMenuLinkProps = HTMLAnchorAttributes & {
 type SidebarMenuButtonProps = HTMLButtonAttributes & {
   label: string;
   leadingIcon?: Snippet;
+  trailingIcon?: Snippet;
 };
 ```
 
@@ -252,12 +270,12 @@ The controller remains reactive and should not be destructured.
 ### Attached
 
 The default desktop presentation shares an edge with the application viewport.
-It uses the semantic surface and border roles without exterior spacing.
+It uses the semantic surface without exterior spacing or dividing borders.
 
 ### Floating
 
 The Sidebar sits within application spacing and uses the approved surface,
-border, radius, and shadow tokens. It does not create new colour roles.
+radius, and shadow tokens. It does not create new colour roles.
 
 ### Inset
 
@@ -309,8 +327,9 @@ changing the saved desktop preference.
   ordinary link and button conventions
 - active links use `aria-current` with a persistent background and text treatment
 - collapsed icon items keep their accessible names
-- activating an item with a nested list while icon-collapsed expands the Sidebar
-  before revealing the nested content
+- parent items always render a chevron grouping button whose `aria-expanded`
+  state controls whether its nested SidebarMenu is rendered
+- expanded parent items remain visually distinct from the current-page state
 - route changes may close the mobile Sidebar through an explicit controller call
 - state changes do not move focus on desktop
 - all motion uses approved direct or large motion tokens
@@ -334,13 +353,13 @@ changing the saved desktop preference.
 
 ## State model
 
-| Context | State                | Surface           | Content treatment                        |
-| ------- | -------------------- | ----------------- | ---------------------------------------- |
-| Desktop | Expanded             | Visible at 240 px | Full labels, groups, badges, and actions |
-| Desktop | Icon collapsed       | Visible at 48 px  | Icons and accessible names remain        |
-| Desktop | Off-canvas collapsed | Outside viewport  | Inert and excluded from Tab order        |
-| Mobile  | Closed               | Outside viewport  | Inert and excluded from Tab order        |
-| Mobile  | Open                 | Modal off-canvas  | Full content with focus containment      |
+| Context | State                | Surface           | Content treatment                   |
+| ------- | -------------------- | ----------------- | ----------------------------------- |
+| Desktop | Expanded             | Visible at 240 px | Full labels, groups, and actions    |
+| Desktop | Icon collapsed       | Visible at 48 px  | Icons and accessible names remain   |
+| Desktop | Off-canvas collapsed | Outside viewport  | Inert and excluded from Tab order   |
+| Mobile  | Closed               | Outside viewport  | Inert and excluded from Tab order   |
+| Mobile  | Open                 | Modal off-canvas  | Full content with focus containment |
 
 ## Token mapping
 
@@ -351,7 +370,6 @@ changing the saved desktop preference.
 | Surface                | `colour-surface`                                                               |
 | Text                   | `colour-text-primary`                                                          |
 | Supporting text        | `colour-text-secondary`                                                        |
-| Boundary               | `colour-border`                                                                |
 | Active and focus state | `colour-interactive`                                                           |
 | Group and item spacing | `space-1` through `space-4`                                                    |
 | Floating radius        | `radius-2`                                                                     |
@@ -369,7 +387,7 @@ The Sidebar workbench page must demonstrate:
 - attached, floating, and inset variants
 - logical start and end placement
 - none, icon, and off-canvas collapse modes
-- header, scrolling content, groups, nested lists, footer, badge, and item action
+- header, scrolling content, groups, nested lists, footer, and item action
 - active link and disabled action states
 - controlled open state and trigger behaviour
 - narrow mobile presentation with focus restoration
@@ -400,7 +418,7 @@ group.
 1. Provider, controller, Sidebar, Trigger, and responsive state model
 2. Header, Content, Footer, and Inset layout regions
 3. Group, Menu, MenuItem, MenuLink, and MenuButton
-4. Badge and action snippets and nested-menu composition
+4. Leaf action snippets and nested-menu composition
 5. Mobile modal behaviour and focus management
 6. Workbench scenarios, focused tests, documentation, and exports
 
