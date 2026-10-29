@@ -206,6 +206,9 @@ and divided variants support open and contained contexts, while standard and
 compact sizes control cell density. Captions, row groups, rows, headers, and
 cells remain native HTML elements.
 
+EmptyState explains why a region has no content and provides an optional next
+step. It supports an optional decorative icon, description, and action group.
+
 Tabs switches between related panels in the same context. It supports standard
 and compact sizes, two-way value binding, disabled tabs, automatic selection,
 and established arrow, Home, and End keyboard behaviour.
