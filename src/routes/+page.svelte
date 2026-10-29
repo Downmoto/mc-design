@@ -11,6 +11,7 @@
   import ConsumerPreview from './_components/previews/ConsumerPreview.svelte';
   import DisclosurePreview from './_components/previews/DisclosurePreview.svelte';
   import DialogPreview from './_components/previews/DialogPreview.svelte';
+  import ListPreview from './_components/previews/ListPreview.svelte';
   import NumericInputPreview from './_components/previews/NumericInputPreview.svelte';
   import ProgressIndicatorPreview from './_components/previews/ProgressIndicatorPreview.svelte';
   import PanelPreview from './_components/previews/PanelPreview.svelte';
@@ -21,6 +22,7 @@
   import StatusPreview from './_components/previews/StatusPreview.svelte';
   import SwitchPreview from './_components/previews/SwitchPreview.svelte';
   import TabsPreview from './_components/previews/TabsPreview.svelte';
+  import TablePreview from './_components/previews/TablePreview.svelte';
   import TextAreaPreview from './_components/previews/TextAreaPreview.svelte';
   import TextInputPreview from './_components/previews/TextInputPreview.svelte';
   import ToastPreview from './_components/previews/ToastPreview.svelte';
@@ -43,6 +45,7 @@
     '/components/consumer': ConsumerPreview,
     '/components/disclosure': DisclosurePreview,
     '/components/dialog': DialogPreview,
+    '/components/list': ListPreview,
     '/components/menu': MenuPreview,
     '/components/numeric-input': NumericInputPreview,
     '/components/progress-indicator': ProgressIndicatorPreview,
@@ -53,6 +56,7 @@
     '/components/status': StatusPreview,
     '/components/switch': SwitchPreview,
     '/components/tabs': TabsPreview,
+    '/components/table': TablePreview,
     '/components/text-area': TextAreaPreview,
     '/components/text-input': TextInputPreview,
     '/components/toast': ToastPreview,

@@ -196,6 +196,16 @@ Hero, Header, Content, and Footer components work in any combination; a Header
 overlays the bottom-left of a present Hero. Vertical and horizontal orientations
 support stacked cards and wider composed regions.
 
+List presents related structured rows through native list semantics. Plain and
+divided variants support open and contained contexts, standard and compact sizes
+control density, and ListItem accepts optional leading and trailing content.
+Nested Lists receive logical indentation and preserve their native hierarchy.
+
+Table presents column-based comparisons through native table semantics. Plain
+and divided variants support open and contained contexts, while standard and
+compact sizes control cell density. Captions, row groups, rows, headers, and
+cells remain native HTML elements.
+
 Tabs switches between related panels in the same context. It supports standard
 and compact sizes, two-way value binding, disabled tabs, automatic selection,
 and established arrow, Home, and End keyboard behaviour.
