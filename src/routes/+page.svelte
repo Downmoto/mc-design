@@ -11,6 +11,7 @@
   import ConsumerPreview from './_components/previews/ConsumerPreview.svelte';
   import DisclosurePreview from './_components/previews/DisclosurePreview.svelte';
   import DialogPreview from './_components/previews/DialogPreview.svelte';
+  import ListPreview from './_components/previews/ListPreview.svelte';
   import NumericInputPreview from './_components/previews/NumericInputPreview.svelte';
   import ProgressIndicatorPreview from './_components/previews/ProgressIndicatorPreview.svelte';
   import PanelPreview from './_components/previews/PanelPreview.svelte';
@@ -43,6 +44,7 @@
     '/components/consumer': ConsumerPreview,
     '/components/disclosure': DisclosurePreview,
     '/components/dialog': DialogPreview,
+    '/components/list': ListPreview,
     '/components/menu': MenuPreview,
     '/components/numeric-input': NumericInputPreview,
     '/components/progress-indicator': ProgressIndicatorPreview,

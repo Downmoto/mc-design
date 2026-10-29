@@ -215,5 +215,14 @@ export {
   type CardProps,
 } from './components/card.types.js';
 
+export { default as List } from './components/List.svelte';
+export { default as ListItem } from './components/ListItem.svelte';
+export {
+  type ListItemProps,
+  type ListProps,
+  type ListSize,
+  type ListVariant,
+} from './components/list.types.js';
+
 export { default as Consumer } from './components/Consumer.svelte';
 export { type ConsumerProps } from './components/consumer.types.js';
