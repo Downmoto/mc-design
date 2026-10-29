@@ -1,12 +1,19 @@
 <script lang="ts">
-  import { goto } from '$app/navigation';
   import { resolve } from '$app/paths';
   import { page } from '$app/state';
   import {
     Button,
     Consumer,
     Select,
-    Typography,
+    Sidebar,
+    SidebarContent,
+    SidebarHeader,
+    SidebarInset,
+    SidebarMenu,
+    SidebarMenuItem,
+    SidebarMenuLink,
+    SidebarProvider,
+    SidebarTrigger,
     consumerRegistry,
     initialiseTheme,
     setTheme,
@@ -34,6 +41,9 @@
   let { children }: LayoutProps = $props();
   let theme = $state<Theme>('dark');
   let consumer = $state<WorkbenchConsumer>('');
+  let activeCategory = $derived(
+    catalogue.find((entry) => page.route.id === entry.route)?.category,
+  );
 
   onMount(() => {
     document.documentElement.removeAttribute('data-mc-product');
@@ -75,114 +85,109 @@
     storeConsumer(consumer);
   }
 
-  function selectComponent(event: Event): void {
-    const destination = (event.currentTarget as HTMLSelectElement).value;
-    if (destination !== page.url.pathname) void goto(destination);
-  }
-
   function componentHref(route: (typeof catalogue)[number]['route']): string {
     return `${resolveCatalogueRoute(route)}/`;
   }
 </script>
 
 {#snippet componentNavigation()}
-  <nav class="component-navigation" aria-label="Component navigation">
-    <Button
-      appearance="link"
-      class="component-navigation__overview"
-      href={resolve('/')}
-      aria-current={page.route.id === '/' ? 'page' : undefined}>Overview</Button
-    >
+  <SidebarHeader>
+    <SidebarMenu>
+      <SidebarMenuItem>
+        <SidebarMenuLink
+          current={page.route.id === '/' ? 'page' : undefined}
+          href={resolve('/')}
+          label="Overview"
+        />
+      </SidebarMenuItem>
+    </SidebarMenu>
+  </SidebarHeader>
 
-    {#each categories as category}
-      <Typography class="component-navigation__category" variant="large">
-        {category}
-      </Typography>
-      <ul aria-label={category}>
-        {#each catalogue.filter((entry) => entry.category === category) as entry}
-          <li>
-            <Button
-              appearance="link"
-              href={componentHref(entry.route)}
-              aria-current={page.route.id === entry.route ? 'page' : undefined}
-              >{entry.name}</Button
-            >
-          </li>
-        {/each}
-      </ul>
-    {/each}
-  </nav>
+  <SidebarContent>
+    <SidebarMenu>
+      {#each categories as category}
+        <SidebarMenuItem label={category} open={activeCategory === category}>
+          {#snippet submenu()}
+            <SidebarMenu>
+              {#each catalogue.filter((entry) => entry.category === category) as entry}
+                <SidebarMenuItem>
+                  <SidebarMenuLink
+                    current={page.route.id === entry.route ? 'page' : undefined}
+                    href={componentHref(entry.route)}
+                    label={entry.name}
+                  />
+                </SidebarMenuItem>
+              {/each}
+            </SidebarMenu>
+          {/snippet}
+        </SidebarMenuItem>
+      {/each}
+    </SidebarMenu>
+  </SidebarContent>
 {/snippet}
 
 <a class="skip-link" href="#main-content">Skip to content</a>
 
-<header class="site-header">
-  <Button appearance="link" class="site-title" href={resolve('/')}>
-    <span class="site-title__brand">MemoryCore</span>
-    <span class="site-title__context">Component library</span>
-  </Button>
+<SidebarProvider class="workbench-provider">
+  <header class="site-header">
+    <div class="site-navigation">
+      <Button appearance="link" class="site-title" href={resolve('/')}>
+        <span class="site-title__brand">MemoryCore</span>
+        <span class="site-title__context">Component library</span>
+      </Button>
+    </div>
 
-  <div class="global-controls" aria-label="Preview settings">
-    <Select
-      class="global-control"
-      label="Theme"
-      value={theme}
-      onchange={selectTheme}
-    >
-      {#each themes as option}
-        <option value={option} selected={theme === option}>
-          {option[0].toUpperCase() + option.slice(1)}
-        </option>
-      {/each}
-    </Select>
-
-    <Select
-      class="global-control"
-      label="Consumer"
-      value={consumer}
-      onchange={selectConsumer}
-    >
-      <option value="" selected={consumer === ''}>Default</option>
-      {#each consumers as [id, details]}
-        <option value={id} selected={consumer === id}>{details.name}</option>
-      {/each}
-    </Select>
-  </div>
-</header>
-
-<div class="workbench-shell">
-  <aside class="sidebar">
-    {@render componentNavigation()}
-  </aside>
-
-  <Select
-    class="mobile-component-select"
-    label="Components"
-    value={page.url.pathname}
-    onchange={selectComponent}
-  >
-    <option value={resolve('/')} selected={page.route.id === '/'}>
-      Overview
-    </option>
-    {#each categories as category}
-      <optgroup label={category}>
-        {#each catalogue.filter((entry) => entry.category === category) as entry}
-          <option
-            value={componentHref(entry.route)}
-            selected={page.route.id === entry.route}>{entry.name}</option
-          >
+    <div class="global-controls" aria-label="Preview settings">
+      <Select
+        class="global-control"
+        label="Theme"
+        size="compact"
+        value={theme}
+        onchange={selectTheme}
+      >
+        {#each themes as option}
+          <option value={option} selected={theme === option}>
+            {option[0].toUpperCase() + option.slice(1)}
+          </option>
         {/each}
-      </optgroup>
-    {/each}
-  </Select>
+      </Select>
 
-  <main id="main-content" tabindex="-1">
-    {#if consumer}
-      <Consumer {consumer}>
-        {@render children()}
-      </Consumer>
-    {:else}
-      {@render children()}
-    {/if}
-  </main>
-</div>
+      <Select
+        class="global-control"
+        label="Consumer"
+        size="compact"
+        value={consumer}
+        onchange={selectConsumer}
+      >
+        <option value="" selected={consumer === ''}>Default</option>
+        {#each consumers as [id, details]}
+          <option value={id} selected={consumer === id}>{details.name}</option>
+        {/each}
+      </Select>
+    </div>
+  </header>
+
+  <div class="workbench-shell">
+    <SidebarTrigger class="workbench-sidebar-trigger" />
+
+    <Sidebar
+      class="workbench-sidebar"
+      label="Component navigation"
+      collapsible="offcanvas"
+    >
+      {@render componentNavigation()}
+    </Sidebar>
+
+    <SidebarInset class="workbench-content">
+      <main id="main-content" tabindex="-1">
+        {#if consumer}
+          <Consumer {consumer}>
+            {@render children()}
+          </Consumer>
+        {:else}
+          {@render children()}
+        {/if}
+      </main>
+    </SidebarInset>
+  </div>
+</SidebarProvider>

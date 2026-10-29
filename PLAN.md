@@ -70,7 +70,7 @@ Required components are tracked in one list. Items marked `website first` form t
 - [x] Feedback: Progress indicator (`website first`)
 - [x] Feedback: Dialog or equivalent preview surface (`website first`)
 - [x] Structure: Toolbar
-- [ ] Structure: Sidebar
+- [x] Structure: Sidebar ([specification](docs/decisions/0003-sidebar-component-spec.md))
 - [x] Structure: Panel
 - [x] Structure: Card (`website first`)
 - [x] Structure: List (`website first`)

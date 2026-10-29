@@ -1,11 +1,12 @@
 # MemoryCore design
 
 `@memorycore/design` is MemoryCore's shared Svelte design library. It provides
-design tokens, theming utilities, and approved interface components for
-memorycore.dev and future MemoryCore products.
+design tokens, theme utilities, and accessible interface components for
+memorycore.dev and other MemoryCore products.
 
-The replacement library is currently in foundation development. Components are
-added only after their designs are approved and a consumer requires them.
+The library is under active development. The current package includes the
+foundation token system and the shared-component baseline required by the
+website.
 
 ## Requirements
 
@@ -15,58 +16,26 @@ added only after their designs are approved and a consumer requires them.
 
 ## Development
 
-Install dependencies and run the complete verification suite:
+Install dependencies and run the verification suite:
 
 ```sh
 npm install
 npm run check
 ```
 
-Regenerate CSS, TypeScript, and documentation from the canonical token source:
+Common commands:
 
-```sh
-npm run tokens:generate
-```
+| Command                   | Purpose                         |
+| ------------------------- | ------------------------------- |
+| `npm run dev`             | Start the component workbench   |
+| `npm run build`           | Build the static workbench      |
+| `npm run package`         | Build the distributable package |
+| `npm run tokens:generate` | Regenerate token outputs        |
+| `npm test`                | Run the test suite              |
 
-The source is `tokens/tokens.json`. Generated files are committed so package
-consumers and reviewers can inspect changes without running the generator.
+## Usage
 
-## Using tokens
-
-Load the complete token and shared component styles, including the approved
-fonts:
-
-```ts
-import '@memorycore/design/styles.css';
-```
-
-Component consumers must import `styles.css` even when fonts are loaded
-separately because it includes shared component styling. `tokens.css` remains
-available only for token-only integrations.
-
-The default theme is dark. Set `data-mc-theme` on the document root to `dark`,
-`light`, or `system`. The theme helpers persist and apply this setting:
-
-```ts
-import { initialiseTheme, setTheme } from '@memorycore/design';
-
-initialiseTheme();
-setTheme('system');
-```
-
-The shared `--mc-colour-interactive` role uses a neutral pair by default.
-Registered consumer themes can set `--mc-product-primary` separately for light
-and dark themes. Component users select these mappings through the `consumer`
-prop or `Consumer` component documented below. Token-only integrations can
-apply a packaged mapping with `data-mc-product`.
-
-See [the token reference](./docs/tokens.md) for the complete generated list and
-[the implementation decision](./docs/decisions/0001-implementation-contract.md)
-for the package contract.
-
-## Using components
-
-Import the shared styles once, then import only the components a view uses:
+Import the shared styles once, then import the components required by the view:
 
 ```svelte
 <script lang="ts">
@@ -76,157 +45,44 @@ Import the shared styles once, then import only the components a view uses:
   let email = $state('');
 </script>
 
-<Button>Save changes</Button>
-
 <TextInput
   label="Email address"
   description="Used for account notices"
   type="email"
   bind:value={email}
 />
+
+<Button>Save changes</Button>
 ```
 
-Button renders a native button by default and a native anchor when `href` is
-provided. It supports primary, secondary, ghost, and link appearances; compact,
-standard, large, and matching icon-only sizes; decorative leading and trailing
-icon snippets; disabled state; and a loading state that preserves its dimensions
-and accessible name.
+`styles.css` includes tokens, approved fonts, and shared component styles.
+Token-only integrations can import `@memorycore/design/tokens.css` instead.
 
-Toggle renders a native pressed button for an independent action state. It
-supports ghost and secondary appearances, two-way pressed-state binding,
-labelled and icon-only Button sizes, disabled state, and registered consumer
-colour mappings.
+### Themes
 
-ActionGroup arranges related controls with consistent spacing. Set `joined` to
-connect direct Button children into one control, and nest joined groups inside
-a default ActionGroup to separate related clusters. Horizontal and vertical
-orientations preserve standard Tab navigation.
+Dark is the default theme. Use `dark`, `light`, or `system` with the theme
+helpers:
 
-Typography provides Display, H1 through H4, paragraph, blockquote, list,
-inline code, lead, large, small, and muted patterns. Each pattern renders its
-corresponding semantic element and uses approved MemoryCore tokens.
+```ts
+import { initialiseTheme, setTheme } from '@memorycore/design';
 
-TextInput renders a labelled native input for a single line of text. It supports
-standard and compact sizes, text-like native input types, description and error
-messages, two-way value binding, and native required, read-only, and disabled
-states. Decorative icon snippets may appear before or after the value.
+initialiseTheme();
+setTheme('system');
+```
 
-TextArea renders a labelled native textarea for multiline values. It supports
-standard and compact sizes, description and error messages, configurable rows,
-two-way value binding, vertical resizing, and native required, read-only, and
-disabled states.
+The helpers apply `data-mc-theme` to the document root and persist the selected
+setting.
 
-NumericInput renders a labelled native number input. It supports standard and
-compact sizes, numeric minimum, maximum, and step constraints, two-way value
-binding, text prefixes and suffixes, description and error messages, and native
-required, read-only, and disabled states.
+### Consumer colours
 
-Select renders a labelled select-only combobox for choosing one value from a
-known set. Its listbox reuses the Menu surface while a native select preserves
-option markup, form submission, and input and change events. It supports
-standard and compact sizes, two-way value binding, description and error
-messages, and required and disabled states.
-
-Checkbox renders a labelled native checkbox for an independent option. It
-supports checked, unchecked, and indeterminate states, standard and compact
-sizes, two-way state binding, error messages, and native required and disabled
-states.
-
-RadioGroup renders a native fieldset of mutually exclusive radio inputs. It
-supports option labels and descriptions, standard and compact sizes, two-way
-value binding, error messages, per-option disabling, and native required and
-disabled states.
-
-Switch renders a labelled native checkbox with switch semantics for settings
-that take effect immediately. It supports standard and compact sizes, two-way
-state binding, description and error messages, and native required and disabled
-states.
-
-Slider renders a labelled native range input with an optional visible value.
-It supports numeric bounds and steps, standard and compact sizes, two-way value
-binding, optional unit suffixes, value visibility, error messages, and the native
-disabled state.
-
-Disclosure renders native details and summary elements for optional content or
-compact navigation. It supports standard and compact sizes, two-way open-state
-binding, native keyboard behaviour, and registered consumer colour mappings.
-
-Tooltip provides concise supporting text for controls. It opens on pointer
-hover and keyboard focus after 500 ms, remains available for pointer hover,
-closes with Escape, and links its content to the trigger through
-`aria-describedby`. Standard and compact sizes adjust its text and padding.
-
-Badge labels concise metadata, categories, and attributes as static inline
-content. It supports standard and compact sizes, neutral and semantic tones,
-an optional decorative leading icon, and registered consumer colour mappings.
-
-Alert presents persistent contextual information near related content. It
-supports standard and compact sizes, neutral and semantic tones, an optional
-title, an optional decorative leading icon, and native live-region attributes.
-
-Toast announces temporary background results through a polite live region. It
-supports standard and compact sizes, Alert tones and content, two-way visibility
-binding, optional automatic dismissal, timeout pausing, and manual dismissal.
-
-Status announces concise background updates through a polite atomic live region.
-It supports standard and compact sizes, neutral and semantic tones, a decorative
-marker, and registered consumer colour mappings.
-
-ProgressIndicator communicates completion through a labelled native progress
-element. It supports determinate and indeterminate states, standard and compact
-sizes, an optional visible percentage, reduced-motion behaviour, and registered
-consumer colour mappings.
-
-Dialog presents focused information and decisions through the native modal
-dialog element. It supports small, medium, and large widths, optional content
-and footer actions, two-way visibility binding, dismissible and required states,
-focus restoration, reduced motion, and registered consumer colour mappings.
-
-Toolbar groups frequently used controls into a labelled horizontal or vertical
-composite. Ghost and surface variants support different surrounding contexts. It
-keeps one enabled action in the Tab order and supports wrapping Arrow, Home, and
-End key navigation while each child keeps its native behaviour.
-
-Panel organises a workspace region with persistent Header and Footer areas around
-flexible scrolling Content. Every region is optional, and the Panel fills its
-available layout area.
-
-Card groups related information in a contained article surface. Its optional
-Hero, Header, Content, and Footer components work in any combination; a Header
-overlays the bottom-left of a present Hero. Vertical and horizontal orientations
-support stacked cards and wider composed regions.
-
-List presents related structured rows through native list semantics. Plain and
-divided variants support open and contained contexts, standard and compact sizes
-control density, and ListItem accepts optional leading and trailing content.
-Nested Lists receive logical indentation and preserve their native hierarchy.
-
-Table presents column-based comparisons through native table semantics. Plain
-and divided variants support open and contained contexts, while standard and
-compact sizes control cell density. Captions, row groups, rows, headers, and
-cells remain native HTML elements.
-
-EmptyState explains why a region has no content and provides an optional next
-step. It supports an optional decorative icon, description, and action group.
-
-Tabs switches between related panels in the same context. It supports standard
-and compact sizes, two-way value binding, disabled tabs, automatic selection,
-and established arrow, Home, and End keyboard behaviour.
-
-Menu presents commands and navigation links from a button or contextual target.
-Its component family supports labelled groups, separators, disabled and
-destructive items, checkbox items, radio groups, nested submenus, shortcut
-hints, standard and compact sizes, two-way open-state binding, typeahead,
-viewport-aware positioning, and established menu keyboard behaviour.
-
-Set a consumer on one component with its `consumer` prop:
+Components use neutral interactive colours by default. Set a registered
+consumer on one component with its `consumer` prop:
 
 ```svelte
 <Button consumer="website">Save changes</Button>
 ```
 
-Use `Consumer` to provide a consumer to every nested library component. A
-component-level prop takes precedence over the nearest provider.
+Use `Consumer` to apply the same consumer colour mapping to a component tree:
 
 ```svelte
 <script lang="ts">
@@ -235,52 +91,30 @@ component-level prop takes precedence over the nearest provider.
 
 <Consumer consumer="dithertool">
   <Button>Process image</Button>
-  <Button
-    consumer="aetheltool"
-    size="icon"
-    aria-label="Add layer"
-    title="Add layer"
-  >
-    <!-- icon -->
-  </Button>
 </Consumer>
 ```
 
-Omit both APIs to use the neutral default. The components manage the generated
-consumer attributes internally. Direct token overrides remain available for
-fine-grained control.
+A component-level `consumer` prop takes precedence over the nearest provider.
+Registered consumers are `website`, `dithertool`, and `aetheltool`.
 
-## Component workbench
+## Components
 
-Start the local component library:
+The package includes:
 
-```sh
-npm run dev
-```
+- Actions and navigation: Button, Toggle, ActionGroup, Tabs, Menu, Disclosure,
+  and Toolbar
+- Forms: TextInput, TextArea, NumericInput, Select, Checkbox, RadioGroup,
+  Switch, and Slider
+- Feedback: Alert, Toast, Status, ProgressIndicator, Tooltip, Dialog, and
+  EmptyState
+- Content and layout: Typography, Badge, Panel, Card, List, Table, and Sidebar
+- Configuration: Consumer
 
-Create the static build intended for `memorycore.dev/design/library/`:
+Run `npm run dev` for live examples, variants, API details, token references,
+and accessibility guidance.
 
-```sh
-npm run build
-```
+## Tokens
 
-Create the distributable `@memorycore/design` package:
-
-```sh
-npm run package
-```
-
-The SvelteKit static output is `build/`. It contains a catalogue home page and
-dedicated component pages with live playgrounds, variants, interactions, usage
-guidance, accessibility requirements, and collapsed API and token references.
-Global theme and consumer controls update every preview through the public
-component APIs.
-
-See [the component workbench decision](./docs/decisions/0002-component-workbench.md)
-for the route and deployment contract.
-
-## Project direction
-
-`CONTEXT.md` is the design and accessibility authority. `PLAN.md` tracks the
-implementation sequence. The old React package has no compatibility surface in
-this replacement.
+The canonical token source is [`tokens/tokens.json`](./tokens/tokens.json).
+Generated CSS, TypeScript, and documentation are committed to the repository.
+See the [token reference](./docs/tokens.md) for the complete generated list.

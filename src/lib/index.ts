@@ -194,6 +194,40 @@ export {
   type PanelProps,
 } from './components/panel.types.js';
 
+export { default as Sidebar } from './components/Sidebar.svelte';
+export { default as SidebarContent } from './components/SidebarContent.svelte';
+export { default as SidebarFooter } from './components/SidebarFooter.svelte';
+export { default as SidebarGroup } from './components/SidebarGroup.svelte';
+export { default as SidebarHeader } from './components/SidebarHeader.svelte';
+export { default as SidebarInset } from './components/SidebarInset.svelte';
+export { default as SidebarMenu } from './components/SidebarMenu.svelte';
+export { default as SidebarMenuButton } from './components/SidebarMenuButton.svelte';
+export { default as SidebarMenuItem } from './components/SidebarMenuItem.svelte';
+export { default as SidebarMenuLink } from './components/SidebarMenuLink.svelte';
+export { default as SidebarProvider } from './components/SidebarProvider.svelte';
+export { default as SidebarTrigger } from './components/SidebarTrigger.svelte';
+export {
+  useSidebar,
+  type SidebarController,
+} from './components/sidebar-context.js';
+export {
+  type SidebarCollapsible,
+  type SidebarContentProps,
+  type SidebarGroupProps,
+  type SidebarInsetProps,
+  type SidebarMenuButtonProps,
+  type SidebarMenuItemProps,
+  type SidebarMenuLinkProps,
+  type SidebarMenuProps,
+  type SidebarProps,
+  type SidebarProviderProps,
+  type SidebarRegionProps,
+  type SidebarSide,
+  type SidebarState,
+  type SidebarTriggerProps,
+  type SidebarVariant,
+} from './components/sidebar.types.js';
+
 export { default as Toggle } from './components/Toggle.svelte';
 export {
   type ToggleAppearance,

@@ -26,6 +26,7 @@ export interface CatalogueEntry {
     | '/components/panel'
     | '/components/radio-group'
     | '/components/select'
+    | '/components/sidebar'
     | '/components/slider'
     | '/components/status'
     | '/components/switch'
@@ -106,6 +107,12 @@ export const catalogue: CatalogueEntry[] = [
     description: 'Explains an empty region and provides an optional next step',
     name: 'Empty state',
     route: '/components/empty-state',
+  },
+  {
+    category: 'Structure',
+    description: 'Provides responsive application navigation and shell layout',
+    name: 'Sidebar',
+    route: '/components/sidebar',
   },
   {
     category: 'Inputs',
