@@ -224,5 +224,12 @@ export {
   type ListVariant,
 } from './components/list.types.js';
 
+export { default as Table } from './components/Table.svelte';
+export {
+  type TableProps,
+  type TableSize,
+  type TableVariant,
+} from './components/table.types.js';
+
 export { default as Consumer } from './components/Consumer.svelte';
 export { type ConsumerProps } from './components/consumer.types.js';

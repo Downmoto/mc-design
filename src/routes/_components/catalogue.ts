@@ -29,6 +29,7 @@ export interface CatalogueEntry {
     | '/components/status'
     | '/components/switch'
     | '/components/tabs'
+    | '/components/table'
     | '/components/text-area'
     | '/components/text-input'
     | '/components/toast'
@@ -92,6 +93,12 @@ export const catalogue: CatalogueEntry[] = [
     description: 'Presents related content as semantic structured rows',
     name: 'List',
     route: '/components/list',
+  },
+  {
+    category: 'Structure',
+    description: 'Compares structured values across labelled columns',
+    name: 'Table',
+    route: '/components/table',
   },
   {
     category: 'Inputs',
