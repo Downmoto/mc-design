@@ -334,6 +334,7 @@
     .mc-button[data-size='icon-large'] .mc-button__content,
     .mc-alert__icon,
     .mc-badge__icon,
+    .mc-empty-state__icon,
     .mc-select__icon,
     .mc-text-input__icon
   )

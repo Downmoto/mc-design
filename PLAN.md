@@ -75,8 +75,7 @@ Required components are tracked in one list. Items marked `website first` form t
 - [x] Structure: Card (`website first`)
 - [x] Structure: List (`website first`)
 - [x] Structure: Table (`website first`)
-- [ ] Structure: Responsive overflow (`website first`, where approved website designs require it)
-- [ ] Structure: Empty state (`website first`)
+- [x] Structure: Empty state (`website first`)
 
 For each approved component:
 

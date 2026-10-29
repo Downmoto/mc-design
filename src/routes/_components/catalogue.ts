@@ -18,6 +18,7 @@ export interface CatalogueEntry {
     | '/components/consumer'
     | '/components/disclosure'
     | '/components/dialog'
+    | '/components/empty-state'
     | '/components/list'
     | '/components/menu'
     | '/components/numeric-input'
@@ -99,6 +100,12 @@ export const catalogue: CatalogueEntry[] = [
     description: 'Compares structured values across labelled columns',
     name: 'Table',
     route: '/components/table',
+  },
+  {
+    category: 'Structure',
+    description: 'Explains an empty region and provides an optional next step',
+    name: 'Empty state',
+    route: '/components/empty-state',
   },
   {
     category: 'Inputs',

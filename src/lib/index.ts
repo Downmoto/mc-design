@@ -231,5 +231,8 @@ export {
   type TableVariant,
 } from './components/table.types.js';
 
+export { default as EmptyState } from './components/EmptyState.svelte';
+export type { EmptyStateProps } from './components/empty-state.types.js';
+
 export { default as Consumer } from './components/Consumer.svelte';
 export { type ConsumerProps } from './components/consumer.types.js';
