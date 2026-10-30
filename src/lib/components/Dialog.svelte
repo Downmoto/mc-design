@@ -162,7 +162,7 @@
     padding: 0;
     overflow: hidden;
     color: var(--mc-colour-text-primary);
-    background: var(--mc-colour-surface);
+    background: var(--mc-colour-surface-highest);
     border: 0;
     border-radius: var(--mc-radius-3);
     box-shadow: var(--mc-shadow-3);

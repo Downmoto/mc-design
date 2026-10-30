@@ -158,13 +158,13 @@
     inline-size: var(--mc-radio-group-circle-size);
     block-size: var(--mc-radio-group-circle-size);
     place-items: center;
-    background: var(--mc-colour-background);
-    border: var(--mc-border-width-default) solid var(--mc-colour-border);
+    background: var(--mc-colour-surface-high);
+    border: 0;
     border-radius: 50%;
     transition:
       background-color var(--mc-motion-duration-direct)
         var(--mc-motion-easing-default),
-      border-color var(--mc-motion-duration-direct)
+      box-shadow var(--mc-motion-duration-direct)
         var(--mc-motion-easing-default);
   }
 
@@ -178,7 +178,6 @@
 
   .mc-radio-group__native:checked + .mc-radio-group__circle {
     background: var(--mc-colour-interactive);
-    border-color: var(--mc-colour-interactive);
   }
 
   .mc-radio-group__native:checked
@@ -202,7 +201,7 @@
     .mc-radio-group__circle,
     .mc-radio-group__native:checked + .mc-radio-group__circle {
       background: Field;
-      border-color: FieldText;
+      border: var(--mc-border-width-default) solid FieldText;
       forced-color-adjust: auto;
     }
 

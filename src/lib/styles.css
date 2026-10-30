@@ -2,7 +2,7 @@
 @import './generated/tokens.css';
 
 :is(.mc-scrollbar, .mc-scrollbar *) {
-  scrollbar-color: var(--mc-colour-border) transparent;
+  scrollbar-color: var(--mc-colour-surface-highest) transparent;
   scrollbar-width: thin;
 }
 
@@ -17,7 +17,7 @@
 }
 
 :is(.mc-scrollbar, .mc-scrollbar *)::-webkit-scrollbar-thumb {
-  background: var(--mc-colour-border);
+  background: var(--mc-colour-surface-highest);
   background-clip: padding-box;
   border: var(--mc-border-width-default) solid transparent;
   border-radius: var(--mc-radius-1);
@@ -71,15 +71,17 @@
 }
 
 .mc-list[data-variant='divided'] > .mc-list-item + .mc-list-item {
-  border-block-start: var(--mc-border-width-default) solid
-    var(--mc-colour-border);
+  background: var(--mc-colour-surface);
 }
 
 .mc-list-item__content > .mc-list {
   margin-inline-start: var(--mc-space-3);
   padding-inline-start: var(--mc-space-3);
-  border-inline-start: var(--mc-border-width-default) solid
-    var(--mc-colour-border);
+  background: linear-gradient(
+    to right,
+    var(--mc-colour-surface-high) 0 var(--mc-border-width-default),
+    transparent var(--mc-border-width-default)
+  );
 }
 
 .mc-list-item:has(> .mc-list-item__content > .mc-list) {
@@ -348,14 +350,15 @@
   .mc-text-area__control,
   .mc-text-input__control
 ) {
-  background: var(--mc-colour-background);
-  border: var(--mc-border-width-default) solid var(--mc-colour-border);
+  background: color-mix(
+    in srgb,
+    var(--mc-colour-interactive) 8%,
+    var(--mc-colour-surface-low)
+  );
+  border: 0;
   border-radius: var(--mc-radius-1);
-  transition:
-    background-color var(--mc-motion-duration-direct)
-      var(--mc-motion-easing-default),
-    border-color var(--mc-motion-duration-direct)
-      var(--mc-motion-easing-default);
+  transition: background-color var(--mc-motion-duration-direct)
+    var(--mc-motion-easing-default);
 }
 
 :is(
@@ -488,7 +491,11 @@
 .mc-switch__control:hover .mc-switch__native:not(:disabled) + .mc-switch__track,
 .mc-text-area__control:hover:not(:disabled):not(:read-only),
 .mc-text-input__control:hover:not(:disabled):not(:read-only) {
-  border-color: var(--mc-colour-interactive);
+  background: color-mix(
+    in srgb,
+    var(--mc-colour-interactive) 14%,
+    var(--mc-colour-surface-low)
+  );
 }
 
 :is(
@@ -508,7 +515,6 @@
   .mc-text-area .mc-text-area__control:focus-visible,
   .mc-text-input .mc-text-input__control:focus-visible
 ) {
-  border-color: var(--mc-colour-interactive);
   outline: 0;
   box-shadow: 0 0 var(--mc-space-2)
     color-mix(
@@ -519,6 +525,26 @@
 }
 
 :is(
+  .mc-numeric-input .mc-numeric-input__control-shell:focus-within,
+  .mc-select .mc-select__control:focus-visible,
+  .mc-text-area .mc-text-area__control:focus-visible,
+  .mc-text-input .mc-text-input__control:focus-visible
+) {
+  background: color-mix(
+    in srgb,
+    var(--mc-colour-interactive) 18%,
+    var(--mc-colour-surface-low)
+  );
+}
+
+:is(.mc-select, .mc-text-input):has(
+    :is(.mc-select__control, .mc-text-input__control):is(:hover, :focus-visible)
+  )
+  :is(.mc-select__icon, .mc-text-input__icon) {
+  color: var(--mc-colour-interactive);
+}
+
+:is(
   .mc-numeric-input[data-error='true'] .mc-numeric-input__control-shell,
   .mc-radio-group[data-error='true'] .mc-radio-group__circle,
   .mc-select[data-error='true'] .mc-select__control,
@@ -526,7 +552,11 @@
   .mc-text-area[data-error='true'] .mc-text-area__control,
   .mc-text-input[data-error='true'] .mc-text-input__control
 ) {
-  border-color: var(--mc-colour-danger);
+  background: color-mix(
+    in srgb,
+    var(--mc-colour-danger) 12%,
+    var(--mc-colour-surface-low)
+  );
 }
 
 :is(
@@ -536,7 +566,7 @@
   .mc-text-input[data-disabled='true'] .mc-text-input__control
 ) {
   color: var(--mc-colour-text-secondary);
-  background: var(--mc-colour-surface);
+  background: var(--mc-colour-surface-low);
   opacity: var(--mc-opacity-disabled);
   cursor: not-allowed;
 }
@@ -549,7 +579,7 @@
   .mc-text-input[data-readonly='true']:not([data-disabled='true'])
     .mc-text-input__control
 ) {
-  background: var(--mc-colour-surface);
+  background: var(--mc-colour-surface-low);
 }
 
 :is(
@@ -611,7 +641,7 @@
 
   :is(.mc-alert, .mc-badge) {
     background: Canvas;
-    border-color: CanvasText;
+    border: var(--mc-border-width-default) solid CanvasText;
   }
 
   .mc-menu-item {
@@ -658,7 +688,7 @@
   ) {
     color: FieldText;
     background: Field;
-    border-color: FieldText;
+    border: var(--mc-border-width-default) solid FieldText;
     opacity: 1;
     forced-color-adjust: auto;
   }

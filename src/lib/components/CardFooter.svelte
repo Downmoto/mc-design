@@ -17,13 +17,12 @@
     display: flex;
     align-items: center;
     gap: var(--mc-space-3);
-    border-block-start: var(--mc-border-width-default) solid
-      var(--mc-colour-border);
+    background: var(--mc-colour-surface-high);
   }
 
   @media (forced-colors: active) {
     .mc-card-footer {
-      border-color: CanvasText;
+      border-block-start: var(--mc-border-width-default) solid CanvasText;
     }
   }
 </style>

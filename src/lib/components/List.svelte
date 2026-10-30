@@ -31,16 +31,20 @@
 
   .mc-list[data-variant='divided'] {
     overflow: hidden;
-    background: var(--mc-colour-surface);
-    border: var(--mc-border-width-default) solid var(--mc-colour-border);
+    gap: var(--mc-border-width-default);
+    background: var(--mc-colour-surface-high);
     border-radius: var(--mc-radius-2);
+  }
+
+  .mc-list[data-variant='divided'] > :global(.mc-list-item) {
+    background: var(--mc-colour-surface);
   }
 
   @media (forced-colors: active) {
     .mc-list[data-variant='divided'] {
       color: CanvasText;
       background: Canvas;
-      border-color: CanvasText;
+      border: var(--mc-border-width-default) solid CanvasText;
     }
   }
 </style>

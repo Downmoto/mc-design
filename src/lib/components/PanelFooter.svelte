@@ -18,15 +18,13 @@
     grid-row: 3;
     gap: var(--mc-space-3);
     align-items: center;
-    background: var(--mc-colour-surface);
-    border-block-start: var(--mc-border-width-default) solid
-      var(--mc-colour-border);
+    background: var(--mc-colour-surface-low);
   }
 
   @media (forced-colors: active) {
     .mc-panel-footer {
       background: Canvas;
-      border-color: CanvasText;
+      border-block-start: var(--mc-border-width-default) solid CanvasText;
     }
   }
 </style>

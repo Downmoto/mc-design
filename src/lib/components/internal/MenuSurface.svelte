@@ -349,7 +349,7 @@
   .mc-menu__content {
     --mc-menu-divider-colour: color-mix(
       in srgb,
-      var(--mc-colour-border) var(--mc-opacity-menu-separator),
+      var(--mc-colour-surface-highest) var(--mc-opacity-menu-separator),
       transparent
     );
     --mc-menu-item-inline-inset: var(--mc-space-2);
@@ -366,8 +366,8 @@
     padding: var(--mc-space-1);
     overflow: auto;
     color: var(--mc-colour-text-primary);
-    background: var(--mc-colour-surface);
-    border: var(--mc-border-width-default) solid var(--mc-menu-divider-colour);
+    background: var(--mc-colour-surface-high);
+    border: 0;
     border-radius: var(--mc-radius-1);
     box-shadow: var(--mc-shadow-2);
     opacity: 1;

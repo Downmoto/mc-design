@@ -30,7 +30,6 @@
     overflow: hidden;
     color: var(--mc-colour-text-primary);
     background: var(--mc-colour-surface);
-    border: var(--mc-border-width-default) solid var(--mc-colour-border);
     border-radius: var(--mc-radius-2);
   }
 
@@ -43,7 +42,7 @@
     align-self: end;
     justify-self: start;
     margin: var(--mc-space-4);
-    background: var(--mc-colour-surface);
+    background: var(--mc-colour-surface-highest);
     border-radius: var(--mc-radius-1);
     box-shadow: var(--mc-shadow-1);
   }
@@ -92,7 +91,7 @@
     .mc-card {
       color: CanvasText;
       background: Canvas;
-      border-color: CanvasText;
+      border: var(--mc-border-width-default) solid CanvasText;
     }
 
     .mc-card:has(> :global(.mc-card-hero)) > :global(.mc-card-header) {

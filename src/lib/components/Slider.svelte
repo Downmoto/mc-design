@@ -114,9 +114,9 @@
     background: linear-gradient(
       to right,
       var(--mc-colour-interactive) 0 var(--mc-slider-fill),
-      var(--mc-colour-surface) var(--mc-slider-fill) 100%
+      var(--mc-colour-surface-high) var(--mc-slider-fill) 100%
     );
-    border: var(--mc-border-width-default) solid var(--mc-colour-border);
+    border: 0;
     border-radius: var(--mc-radius-3);
   }
 
@@ -125,9 +125,9 @@
     background: linear-gradient(
       to right,
       var(--mc-colour-interactive) 0 var(--mc-slider-fill),
-      var(--mc-colour-surface) var(--mc-slider-fill) 100%
+      var(--mc-colour-surface-high) var(--mc-slider-fill) 100%
     );
-    border: var(--mc-border-width-default) solid var(--mc-colour-border);
+    border: 0;
     border-radius: var(--mc-radius-3);
   }
 
@@ -139,7 +139,7 @@
       (var(--mc-slider-track-size) - var(--mc-slider-thumb-size)) / 2
     );
     background: var(--mc-colour-interactive);
-    border: var(--mc-border-width-emphasised) solid var(--mc-colour-background);
+    border: 0;
     border-radius: 50%;
     appearance: none;
   }
@@ -149,25 +149,25 @@
     inline-size: var(--mc-slider-thumb-size);
     block-size: var(--mc-slider-thumb-size);
     background: var(--mc-colour-interactive);
-    border: var(--mc-border-width-emphasised) solid var(--mc-colour-background);
+    border: 0;
     border-radius: 50%;
   }
 
   .mc-slider__control:hover:not(:disabled)::-webkit-slider-thumb {
-    border-color: var(--mc-colour-interactive);
+    filter: brightness(1.15);
   }
 
   .mc-slider__control:hover:not(:disabled)::-moz-range-thumb {
-    border-color: var(--mc-colour-interactive);
+    filter: brightness(1.15);
   }
 
   .mc-slider[data-error='true']
     .mc-slider__control::-webkit-slider-runnable-track {
-    border-color: var(--mc-colour-danger);
+    background: var(--mc-colour-danger);
   }
 
   .mc-slider[data-error='true'] .mc-slider__control::-moz-range-track {
-    border-color: var(--mc-colour-danger);
+    background: var(--mc-colour-danger);
   }
 
   .mc-slider[data-disabled='true'] {
@@ -183,7 +183,7 @@
     .mc-slider__control::-webkit-slider-runnable-track,
     .mc-slider__control::-moz-range-track {
       background: Field;
-      border-color: FieldText;
+      border: var(--mc-border-width-default) solid FieldText;
       forced-color-adjust: auto;
     }
 

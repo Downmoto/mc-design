@@ -38,7 +38,6 @@
   .mc-disclosure {
     color: var(--mc-colour-text-primary);
     background: var(--mc-colour-surface);
-    border: var(--mc-border-width-default) solid var(--mc-colour-border);
     border-radius: var(--mc-radius-1);
   }
 
@@ -103,7 +102,7 @@
     .mc-disclosure {
       color: CanvasText;
       background: Canvas;
-      border-color: CanvasText;
+      border: var(--mc-border-width-default) solid CanvasText;
       forced-color-adjust: auto;
     }
 

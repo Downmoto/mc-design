@@ -19,15 +19,13 @@
     gap: var(--mc-space-3);
     align-items: center;
     justify-content: space-between;
-    background: var(--mc-colour-surface);
-    border-block-end: var(--mc-border-width-default) solid
-      var(--mc-colour-border);
+    background: var(--mc-colour-surface-low);
   }
 
   @media (forced-colors: active) {
     .mc-panel-header {
       background: Canvas;
-      border-color: CanvasText;
+      border-block-end: var(--mc-border-width-default) solid CanvasText;
     }
   }
 </style>

@@ -40,7 +40,6 @@
     padding-inline: var(--mc-space-2);
     color: var(--mc-colour-text-primary);
     background: var(--mc-colour-surface);
-    border: var(--mc-border-width-default) solid currentColor;
     border-radius: var(--mc-radius-3);
     white-space: nowrap;
   }

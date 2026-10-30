@@ -124,13 +124,11 @@
     color: var(--mc-colour-text-secondary);
     background: transparent;
     border: 0;
-    border-block-end: var(--mc-border-width-emphasised) solid transparent;
+    border-radius: var(--mc-radius-1);
     cursor: pointer;
     transition:
       color var(--mc-motion-duration-direct) var(--mc-motion-easing-default),
       background-color var(--mc-motion-duration-direct)
-        var(--mc-motion-easing-default),
-      border-color var(--mc-motion-duration-direct)
         var(--mc-motion-easing-default);
   }
 
@@ -141,12 +139,12 @@
 
   .mc-tabs__tab:hover:not(:disabled) {
     color: var(--mc-colour-text-primary);
-    background: var(--mc-colour-surface);
+    background: var(--mc-colour-surface-low);
   }
 
   .mc-tabs__tab[aria-selected='true'] {
     color: var(--mc-colour-interactive);
-    border-block-end-color: var(--mc-colour-interactive);
+    background: var(--mc-colour-surface);
   }
 
   .mc-tabs__tab:disabled {
@@ -169,7 +167,7 @@
   @media (forced-colors: active) {
     .mc-tabs__tab[aria-selected='true'] {
       color: Highlight;
-      border-block-end-color: Highlight;
+      outline: var(--mc-border-width-emphasised) solid Highlight;
     }
 
     .mc-tabs__tab:disabled {

@@ -238,9 +238,9 @@
     );
     margin: 0;
     padding: var(--mc-space-2) var(--mc-space-3);
-    color: var(--mc-colour-background);
-    background: var(--mc-colour-text-primary);
-    border: var(--mc-border-width-default) solid var(--mc-colour-text-primary);
+    color: var(--mc-colour-text-primary);
+    background: var(--mc-colour-surface-highest);
+    border: 0;
     border-radius: var(--mc-radius-1);
     box-shadow: var(--mc-shadow-2);
     font-family: var(--mc-typography-label-family);
@@ -282,7 +282,7 @@
     .mc-tooltip__content {
       color: CanvasText;
       background: Canvas;
-      border-color: CanvasText;
+      border: var(--mc-border-width-default) solid CanvasText;
       box-shadow: none;
       forced-color-adjust: auto;
     }
