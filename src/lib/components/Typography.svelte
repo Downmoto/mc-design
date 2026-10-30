@@ -45,10 +45,7 @@
 
   .mc-typography[data-variant='display'] {
     font-family: var(--mc-typography-display-family);
-    font-size: calc(
-      var(--mc-typography-brand-heading-size) +
-        var(--mc-typography-brand-heading-size)
-    );
+    font-size: var(--mc-typography-display-size);
     font-weight: var(--mc-typography-display-weight);
     line-height: var(--mc-typography-display-line-height);
     text-wrap: balance;
@@ -132,13 +129,6 @@
 
   .mc-typography[data-variant='large'] {
     font-weight: var(--mc-typography-brand-heading-weight);
-  }
-
-  .mc-typography[data-variant='small'] {
-    font-family: var(--mc-typography-label-family);
-    font-size: var(--mc-typography-label-size);
-    font-weight: var(--mc-typography-label-weight);
-    line-height: var(--mc-typography-label-line-height);
   }
 
   .mc-typography[data-variant='muted'] {

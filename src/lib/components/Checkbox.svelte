@@ -88,26 +88,6 @@
     );
   }
 
-  .mc-checkbox__control {
-    position: relative;
-    display: flex;
-    grid-row: 1;
-    align-items: center;
-    min-block-size: var(--mc-size-target-minimum);
-    gap: var(--mc-space-2);
-    color: var(--mc-colour-text-primary);
-    cursor: pointer;
-  }
-
-  .mc-checkbox__native {
-    position: absolute;
-    inline-size: 1px;
-    block-size: 1px;
-    margin: 0;
-    opacity: 0;
-    pointer-events: none;
-  }
-
   .mc-checkbox__native:focus-visible {
     outline: 0;
   }
@@ -162,58 +142,29 @@
   .mc-checkbox[data-error='true'] .mc-checkbox__box {
     background: color-mix(
       in srgb,
-      var(--mc-colour-danger) 24%,
+      var(--mc-colour-danger) var(--mc-opacity-status-emphasised),
       var(--mc-colour-surface-high)
     );
   }
 
   .mc-checkbox__label {
-    align-items: center;
     min-block-size: var(--mc-checkbox-box-size);
   }
 
   .mc-checkbox__message {
-    z-index: 1;
-    grid-row: 2;
-    min-block-size: calc(
-      var(--mc-typography-caption-size) *
-        var(--mc-typography-caption-line-height)
-    );
     margin-inline-start: calc(var(--mc-checkbox-box-size) + var(--mc-space-2));
     color: var(--mc-colour-danger);
   }
 
-  .mc-checkbox[data-disabled='true'] .mc-checkbox__control {
-    color: var(--mc-colour-text-secondary);
-    opacity: var(--mc-opacity-disabled);
-    cursor: not-allowed;
-  }
-
   @media (forced-colors: active) {
-    .mc-checkbox__box,
-    .mc-checkbox__native:checked + .mc-checkbox__box,
-    .mc-checkbox__native:indeterminate + .mc-checkbox__box {
+    .mc-checkbox__box {
       color: HighlightText;
-      background: Field;
-      border: var(--mc-border-width-default) solid FieldText;
-      forced-color-adjust: auto;
-    }
-
-    .mc-checkbox__native:checked + .mc-checkbox__box,
-    .mc-checkbox__native:indeterminate + .mc-checkbox__box {
-      background: Highlight;
-      border-color: Highlight;
     }
 
     .mc-checkbox[data-error='true'] .mc-checkbox__box,
     .mc-checkbox[data-error='true'] .mc-checkbox__message {
       color: CanvasText;
       border-color: Highlight;
-    }
-
-    .mc-checkbox[data-disabled='true'] .mc-checkbox__control {
-      color: GrayText;
-      opacity: 1;
     }
   }
 </style>

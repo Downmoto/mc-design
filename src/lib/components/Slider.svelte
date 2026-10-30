@@ -154,11 +154,11 @@
   }
 
   .mc-slider__control:hover:not(:disabled)::-webkit-slider-thumb {
-    filter: brightness(1.15);
+    filter: brightness(var(--mc-brightness-interactive-hover));
   }
 
   .mc-slider__control:hover:not(:disabled)::-moz-range-thumb {
-    filter: brightness(1.15);
+    filter: brightness(var(--mc-brightness-interactive-hover));
   }
 
   .mc-slider[data-error='true']

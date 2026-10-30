@@ -192,11 +192,11 @@
 <style>
   .checkbox-sample {
     display: grid;
-    align-content: start;
     inline-size: min(100%, var(--mc-size-sidebar-properties-default));
     min-block-size: calc(
       var(--mc-size-target-minimum) + var(--mc-typography-caption-size) *
         var(--mc-typography-caption-line-height)
     );
+    place-content: center;
   }
 </style>

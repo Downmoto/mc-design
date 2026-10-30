@@ -94,26 +94,6 @@
     );
   }
 
-  .mc-switch__control {
-    position: relative;
-    display: flex;
-    grid-row: 1;
-    align-items: center;
-    min-block-size: var(--mc-size-target-minimum);
-    gap: var(--mc-space-2);
-    color: var(--mc-colour-text-primary);
-    cursor: pointer;
-  }
-
-  .mc-switch__native {
-    position: absolute;
-    inline-size: 1px;
-    block-size: 1px;
-    margin: 0;
-    opacity: 0;
-    pointer-events: none;
-  }
-
   .mc-switch__track {
     position: relative;
     box-sizing: border-box;
@@ -155,26 +135,13 @@
   }
 
   .mc-switch__label {
-    align-items: center;
     min-block-size: var(--mc-switch-track-block-size);
   }
 
   .mc-switch__message {
-    z-index: 1;
-    grid-row: 2;
-    min-block-size: calc(
-      var(--mc-typography-caption-size) *
-        var(--mc-typography-caption-line-height)
-    );
     margin-inline-start: calc(
       var(--mc-switch-track-inline-size) + var(--mc-space-2)
     );
-  }
-
-  .mc-switch[data-disabled='true'] .mc-switch__control {
-    color: var(--mc-colour-text-secondary);
-    opacity: var(--mc-opacity-disabled);
-    cursor: not-allowed;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -185,29 +152,12 @@
   }
 
   @media (forced-colors: active) {
-    .mc-switch__track,
-    .mc-switch__native:checked + .mc-switch__track {
-      background: Field;
-      border: var(--mc-border-width-default) solid FieldText;
-      forced-color-adjust: auto;
-    }
-
-    .mc-switch__native:checked + .mc-switch__track {
-      background: Highlight;
-      border-color: Highlight;
-    }
-
     .mc-switch__thumb {
       background: FieldText;
     }
 
     .mc-switch__native:checked + .mc-switch__track .mc-switch__thumb {
       background: HighlightText;
-    }
-
-    .mc-switch[data-disabled='true'] .mc-switch__control {
-      color: GrayText;
-      opacity: 1;
     }
   }
 </style>

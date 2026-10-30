@@ -61,6 +61,7 @@
   .mc-sidebar-group__action {
     display: flex;
     flex: 0 0 auto;
+    margin-inline-end: calc(-1 * var(--mc-space-2));
   }
 
   .mc-sidebar-group__content {

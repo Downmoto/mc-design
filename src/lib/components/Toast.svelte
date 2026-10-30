@@ -159,11 +159,6 @@
       display var(--mc-motion-duration-standard) allow-discrete;
   }
 
-  .mc-toast[hidden] {
-    opacity: 0;
-    transform: translateY(var(--mc-motion-distance-entrance));
-  }
-
   .mc-toast :global(.mc-toast__alert) {
     padding-inline-end: var(--mc-space-7);
     box-shadow: var(--mc-shadow-2);
@@ -182,13 +177,6 @@
   .mc-toast[data-size='compact'] :global(.mc-toast__dismiss) {
     inset-block-start: var(--mc-space-1);
     inset-inline-end: var(--mc-space-1);
-  }
-
-  @starting-style {
-    .mc-toast:not([hidden]) {
-      opacity: 0;
-      transform: translateY(var(--mc-motion-distance-entrance));
-    }
   }
 
   @media (prefers-reduced-motion: reduce) {

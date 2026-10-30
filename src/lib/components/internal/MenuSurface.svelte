@@ -1,21 +1,59 @@
 <script module lang="ts">
-  let scrollLockCount = 0;
-  let previousOverflow = '';
+  type ScrollLock = {
+    count: number;
+    overflow: string;
+  };
 
-  function lockPageScroll(): void {
-    if (scrollLockCount === 0) {
-      previousOverflow = document.documentElement.style.overflow;
-      document.documentElement.style.overflow = 'hidden';
+  const scrollLocks = new Map<HTMLElement, ScrollLock>();
+
+  function scrollLockTargets(menu: HTMLElement): HTMLElement[] {
+    const targets = new Set<HTMLElement>([
+      document.documentElement,
+      document.body,
+    ]);
+
+    for (const element of document.querySelectorAll('body *')) {
+      if (!(element instanceof HTMLElement) || menu.contains(element)) continue;
+
+      const styles = getComputedStyle(element);
+      if (
+        /(auto|overlay|scroll)/.test(
+          `${styles.overflow} ${styles.overflowX} ${styles.overflowY}`,
+        )
+      ) {
+        targets.add(element);
+      }
     }
-    scrollLockCount += 1;
+
+    return [...targets];
   }
 
-  function unlockPageScroll(): void {
-    if (scrollLockCount === 0) return;
-    scrollLockCount -= 1;
-    if (scrollLockCount === 0) {
-      document.documentElement.style.overflow = previousOverflow;
+  function lockPageScroll(menu: HTMLElement): () => void {
+    const targets = scrollLockTargets(menu);
+
+    for (const target of targets) {
+      const lock = scrollLocks.get(target);
+      if (lock) {
+        lock.count += 1;
+      } else {
+        scrollLocks.set(target, {
+          count: 1,
+          overflow: target.style.overflow,
+        });
+        target.style.overflow = 'hidden';
+      }
     }
+
+    return () => {
+      for (const target of targets) {
+        const lock = scrollLocks.get(target);
+        if (!lock) continue;
+        lock.count -= 1;
+        if (lock.count > 0) continue;
+        target.style.overflow = lock.overflow;
+        scrollLocks.delete(target);
+      }
+    };
   }
 </script>
 
@@ -137,9 +175,8 @@
   });
 
   $effect(() => {
-    if (!open) return;
-    lockPageScroll();
-    return unlockPageScroll;
+    if (!open || !menuElement) return;
+    return lockPageScroll(menuElement);
   });
 
   onMount(() => onconnect?.(controller));
@@ -394,16 +431,6 @@
   @media (prefers-reduced-motion: reduce) {
     .mc-menu__content {
       transition-duration: var(--mc-motion-duration-direct);
-    }
-  }
-
-  @media (forced-colors: active) {
-    .mc-menu__content {
-      color: CanvasText;
-      background: Canvas;
-      border: var(--mc-border-width-default) solid CanvasText;
-      box-shadow: none;
-      forced-color-adjust: auto;
     }
   }
 </style>

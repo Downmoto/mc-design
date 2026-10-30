@@ -39,7 +39,7 @@
     gap: var(--mc-space-1);
     padding-inline: var(--mc-space-2);
     color: var(--mc-colour-text-primary);
-    background: var(--mc-colour-surface);
+    background: var(--mc-colour-surface-high);
     border-radius: var(--mc-radius-3);
     white-space: nowrap;
   }
@@ -63,10 +63,5 @@
 
   .mc-badge[data-tone='danger'] {
     color: var(--mc-colour-danger);
-  }
-
-  .mc-badge__icon {
-    inline-size: var(--mc-size-icon-compact);
-    block-size: var(--mc-size-icon-compact);
   }
 </style>

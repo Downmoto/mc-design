@@ -205,19 +205,6 @@
     inset-inline: auto 0;
   }
 
-  .mc-sidebar--mobile::backdrop {
-    background: color-mix(
-      in srgb,
-      var(--mc-colour-backdrop) var(--mc-opacity-dialog-backdrop),
-      transparent
-    );
-    transition:
-      background-color var(--mc-motion-duration-large)
-        var(--mc-motion-easing-default),
-      display var(--mc-motion-duration-large) allow-discrete,
-      overlay var(--mc-motion-duration-large) allow-discrete;
-  }
-
   @starting-style {
     .mc-sidebar--mobile[open][data-side='start'] {
       transform: translateX(-100%);
