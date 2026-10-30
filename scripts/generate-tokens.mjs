@@ -396,7 +396,7 @@ ${light
     .join('\n\n');
 }
 
-function generateCss(source, validated) {
+export function generateCss(source, validated) {
   const prefix = source.prefix;
   const foundation = cssDeclarations(validated.foundation, prefix);
   const global = cssDeclarations(validated.global, prefix);

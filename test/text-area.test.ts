@@ -17,7 +17,9 @@ describe('TextArea', () => {
     expect(textarea).toHaveAttribute('name', 'notes');
     expect(textarea).toHaveAttribute('placeholder', 'Add context');
     expect(textarea).toHaveAttribute('rows', '4');
-    expect(container.querySelector('.mc-text-area__message')).toBeNull();
+    expect(container.querySelector('.mc-text-area__message')).toHaveTextContent(
+      /^$/,
+    );
   });
 
   it('uses two rows for compact fields and honours an explicit row count', () => {

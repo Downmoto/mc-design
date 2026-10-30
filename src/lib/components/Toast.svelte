@@ -112,35 +112,36 @@
   {role}
   aria-live={ariaLive}
   aria-atomic="true"
-  hidden={!open}
   onfocusin={handleFocusin}
   onfocusout={handleFocusout}
   onkeydown={handleKeydown}
   onpointerenter={handlePointerenter}
   onpointerleave={handlePointerleave}
 >
-  <Alert
-    class="mc-toast__alert"
-    consumer={resolvedConsumer}
-    {leadingIcon}
-    {size}
-    {title}
-    {tone}
-  >
-    {@render children()}
-  </Alert>
-  {#if dismissible}
-    <Button
-      appearance="ghost"
-      class="mc-toast__dismiss"
+  {#if open}
+    <Alert
+      class="mc-toast__alert"
       consumer={resolvedConsumer}
-      size="icon-compact"
-      title="Dismiss notification"
-      aria-label="Dismiss notification"
-      onclick={dismiss}
+      {leadingIcon}
+      {size}
+      {title}
+      {tone}
     >
-      <XIcon />
-    </Button>
+      {@render children()}
+    </Alert>
+    {#if dismissible}
+      <Button
+        appearance="ghost"
+        class="mc-toast__dismiss"
+        consumer={resolvedConsumer}
+        size="icon-compact"
+        title="Dismiss notification"
+        aria-label="Dismiss notification"
+        onclick={dismiss}
+      >
+        <XIcon />
+      </Button>
+    {/if}
   {/if}
 </div>
 

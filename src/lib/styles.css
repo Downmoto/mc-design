@@ -782,6 +782,15 @@
 }
 
 :is(
+  .mc-numeric-input__message,
+  .mc-select__message,
+  .mc-text-area__message,
+  .mc-text-input__message
+)[data-empty='true'] {
+  position: absolute;
+}
+
+:is(
   .mc-numeric-input[data-error='true'] .mc-numeric-input__message,
   .mc-radio-group[data-error='true'] .mc-radio-group__message,
   .mc-select[data-error='true'] .mc-select__message,

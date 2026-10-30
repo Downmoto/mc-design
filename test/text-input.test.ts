@@ -21,7 +21,9 @@ describe('TextInput', () => {
     expect(input).toHaveAttribute('type', 'text');
     expect(input).toHaveAttribute('name', 'email');
     expect(input).toHaveAttribute('placeholder', 'name@example.com');
-    expect(container.querySelector('.mc-text-input__message')).toBeNull();
+    expect(
+      container.querySelector('.mc-text-input__message'),
+    ).toHaveTextContent(/^$/);
   });
 
   it('connects its description to the input', () => {
@@ -48,6 +50,25 @@ describe('TextInput', () => {
     expect(input).toBeRequired();
     expect(input).toHaveAttribute('aria-invalid', 'true');
     expect(input).toHaveAttribute('aria-describedby', error.id);
+  });
+
+  it('keeps its polite live region mounted before an error appears', async () => {
+    const { container, rerender } = render(TextInput, {
+      label: 'Email address',
+    });
+    const message = container.querySelector('.mc-text-input__message');
+
+    expect(message).toHaveAttribute('aria-live', 'polite');
+    expect(message).toHaveAttribute('aria-atomic', 'true');
+    expect(message).toHaveAttribute('data-empty', 'true');
+
+    await rerender({
+      error: 'Enter a valid email address',
+      label: 'Email address',
+    });
+
+    expect(message).toHaveTextContent('Enter a valid email address');
+    expect(message).not.toHaveAttribute('data-empty');
   });
 
   it('supports compact, disabled, and read-only fields', () => {

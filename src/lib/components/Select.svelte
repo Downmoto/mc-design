@@ -424,13 +424,13 @@
     {/each}
   </MenuSurface>
 
-  {#if message}
-    <span
-      class="mc-select__message"
-      id={messageId}
-      aria-live={error ? 'polite' : undefined}>{message}</span
-    >
-  {/if}
+  <span
+    class="mc-select__message"
+    data-empty={!message || undefined}
+    id={messageId}
+    aria-atomic="true"
+    aria-live="polite">{message}</span
+  >
 </div>
 
 <style>

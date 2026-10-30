@@ -60,13 +60,13 @@
     bind:value
     aria-describedby={describedBy}
     aria-invalid={error ? 'true' : ariaInvalid}></textarea>
-  {#if message}
-    <span
-      class="mc-text-area__message"
-      id={messageId}
-      aria-live={error ? 'polite' : undefined}>{message}</span
-    >
-  {/if}
+  <span
+    class="mc-text-area__message"
+    data-empty={!message || undefined}
+    id={messageId}
+    aria-atomic="true"
+    aria-live="polite">{message}</span
+  >
 </div>
 
 <style>

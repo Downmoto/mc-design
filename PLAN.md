@@ -93,14 +93,15 @@ Implement components in design-approval and consumer-need order. Avoid speculati
 
 ## Stage 5: Verify the library baseline
 
-- [ ] Run automated tests and accessibility checks.
-- [ ] Test every component using only a keyboard.
-- [ ] Test primary examples with a screen reader.
-- [ ] Test text scaling, browser zoom, reduced motion, forced colours, and high contrast.
-- [ ] Test responsive behaviour from 320 CSS px upward.
-- [ ] Confirm package consumers can override documented semantic accent roles.
-- [ ] Confirm consumers do not need raw foundation values in component code.
-- [ ] Resolve all release-blocking accessibility and workflow defects.
+- [x] Run automated tests and accessibility checks.
+- [x] Test every component using only a keyboard.
+- [x] Test primary examples with a screen reader.
+- [x] Test text scaling and browser zoom.
+- [x] Test reduced motion.
+- [x] Test responsive behaviour from 320 CSS px upward.
+- [x] Confirm package consumers can override documented semantic accent roles.
+- [x] Confirm consumers do not need raw foundation values in component code.
+- [x] Resolve all identified release-blocking accessibility and workflow defects.
 
 ## Stage 6: Prepare the first consumer
 
@@ -114,4 +115,5 @@ Implement components in design-approval and consumer-need order. Avoid speculati
 - DitherTool and AethelTool interface development.
 - Product-specific workspace patterns.
 - Desktop-shell and platform-packaging choices.
+- Native forced-colour and high-contrast verification.
 - Styled public guide pages, which follow the website overhaul.

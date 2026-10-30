@@ -45,35 +45,43 @@
 
   <Card class="playground" orientation="horizontal">
     <CardHero class="playground__preview">
-      <Table class="table-sample" {size} {variant}>
-        {#if showCaption}<caption>Component release status</caption>{/if}
-        <thead>
-          <tr>
-            <th scope="col">Component</th>
-            <th scope="col">Category</th>
-            <th scope="col">Sizes</th>
-            <th scope="col">Version</th>
-          </tr>
-        </thead>
-        <tbody>
-          {#each components as component}
+      <!-- svelte-ignore a11y_no_noninteractive_tabindex (Scrollable table needs keyboard focus) -->
+      <div
+        class="table-scroll table-sample-scroll"
+        role="region"
+        aria-label="Component release status table"
+        tabindex="0"
+      >
+        <Table class="table-sample" {size} {variant}>
+          {#if showCaption}<caption>Component release status</caption>{/if}
+          <thead>
             <tr>
-              <th scope="row">{component.name}</th>
-              <td>{component.category}</td>
-              <td>{component.sizes}</td>
-              <td>{component.version}</td>
+              <th scope="col">Component</th>
+              <th scope="col">Category</th>
+              <th scope="col">Sizes</th>
+              <th scope="col">Version</th>
             </tr>
-          {/each}
-        </tbody>
-        {#if showFooter}
-          <tfoot>
-            <tr>
-              <th scope="row" colspan="3">Components</th>
-              <td>{components.length}</td>
-            </tr>
-          </tfoot>
-        {/if}
-      </Table>
+          </thead>
+          <tbody>
+            {#each components as component}
+              <tr>
+                <th scope="row">{component.name}</th>
+                <td>{component.category}</td>
+                <td>{component.sizes}</td>
+                <td>{component.version}</td>
+              </tr>
+            {/each}
+          </tbody>
+          {#if showFooter}
+            <tfoot>
+              <tr>
+                <th scope="row" colspan="3">Components</th>
+                <td>{components.length}</td>
+              </tr>
+            </tfoot>
+          {/if}
+        </Table>
+      </div>
     </CardHero>
 
     <CardContent class="playground__controls">
@@ -186,7 +194,11 @@
 </section>
 
 <style>
-  :global(.table-sample) {
+  .table-sample-scroll {
     inline-size: min(100%, var(--mc-size-reading-maximum));
+  }
+
+  :global(.table-sample) {
+    min-inline-size: max-content;
   }
 </style>

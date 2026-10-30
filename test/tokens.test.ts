@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 
 import source from '../tokens/tokens.json';
 import {
+  generateCss,
   generateConsumerCss,
   validateTokenSource,
 } from '../scripts/generate-tokens.mjs';
@@ -80,6 +81,41 @@ describe('token source validation', () => {
     expect(generatedCss).toContain(
       '--mc-colour-interactive: var(--mc-product-primary);',
     );
+  });
+
+  it('keeps the documented consumer accent override available', () => {
+    const generatedCss = generateCss(source, validateTokenSource(source));
+
+    expect(generatedCss).toContain(
+      '--mc-colour-interactive: var(--mc-product-primary, var(--mc-brand-dark));',
+    );
+    expect(generatedCss).toContain(
+      '--mc-colour-interactive: var(--mc-product-primary, var(--mc-brand-light));',
+    );
+  });
+
+  it('keeps raw foundation colours out of component styles', () => {
+    const componentFiles = import.meta.glob(
+      '../src/lib/components/**/*.svelte',
+      { eager: true, import: 'default', query: '?raw' },
+    ) as Record<string, string>;
+    const componentStyles = Object.values(componentFiles).join('\n');
+    expect(Object.keys(componentFiles).length).toBeGreaterThan(0);
+    expect(componentStyles).toContain('var(--mc-');
+
+    const rawColours = [
+      ...new Set(
+        source.foundation.flatMap((token) =>
+          token.type === 'colour' && typeof token.value === 'string'
+            ? token.value.toLowerCase()
+            : [],
+        ),
+      ),
+    ];
+
+    for (const colour of rawColours) {
+      expect(componentStyles.toLowerCase()).not.toContain(colour);
+    }
   });
 
   it('rejects active consumers with missing primary tokens', () => {

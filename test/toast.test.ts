@@ -22,7 +22,7 @@ describe('Toast', () => {
     dismiss.focus();
     await fireEvent.click(dismiss);
 
-    expect(getByRole('status', { hidden: true })).not.toBeVisible();
+    expect(getByRole('status')).toBeEmptyDOMElement();
     expect(getByTestId('open')).toHaveTextContent('false');
     expect(getByTestId('close-count')).toHaveTextContent('1');
   });
@@ -31,7 +31,7 @@ describe('Toast', () => {
     const { getByRole, getByTestId } = render(ToastExample, { timeout: 20 });
 
     await waitFor(() => {
-      expect(getByRole('status', { hidden: true })).not.toBeVisible();
+      expect(getByRole('status')).toBeEmptyDOMElement();
     });
     expect(getByTestId('close-count')).toHaveTextContent('1');
   });
@@ -45,7 +45,7 @@ describe('Toast', () => {
     expect(toast).toBeVisible();
 
     await fireEvent.pointerLeave(toast);
-    await waitFor(() => expect(toast).not.toBeVisible());
+    await waitFor(() => expect(toast).toBeEmptyDOMElement());
   });
 
   it('remains paused while either pointer or focus is within it', async () => {
@@ -61,7 +61,7 @@ describe('Toast', () => {
     expect(dismiss).toBeVisible();
 
     await fireEvent.pointerLeave(toast);
-    await waitFor(() => expect(toast).not.toBeVisible());
+    await waitFor(() => expect(toast).toBeEmptyDOMElement());
   });
 
   it('supports presentation, consumer mapping, and native attributes', () => {

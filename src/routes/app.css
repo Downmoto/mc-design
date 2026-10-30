@@ -396,6 +396,10 @@ main {
 }
 
 .table-scroll {
+  box-sizing: border-box;
+  inline-size: 100%;
+  min-inline-size: 0;
+  max-inline-size: 100%;
   overflow-x: auto;
   border: var(--mc-border-width-default) solid var(--mc-colour-border);
   border-radius: var(--mc-radius-2);

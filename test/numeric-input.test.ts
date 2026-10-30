@@ -16,7 +16,9 @@ describe('NumericInput', () => {
     expect(input).toHaveAttribute('type', 'number');
     expect(input).toHaveAttribute('name', 'quantity');
     expect(input).toHaveValue(12);
-    expect(container.querySelector('.mc-numeric-input__message')).toBeNull();
+    expect(
+      container.querySelector('.mc-numeric-input__message'),
+    ).toHaveTextContent(/^$/);
   });
 
   it('passes numeric constraints to the input', () => {

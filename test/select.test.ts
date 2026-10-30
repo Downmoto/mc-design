@@ -30,7 +30,9 @@ describe('Select', () => {
     expect(select).toHaveAttribute('name', 'theme');
     expect(select).toHaveValue('dark');
     expect(select).toHaveDisplayValue('Dark');
-    expect(container.querySelector('.mc-select__message')).toBeNull();
+    expect(container.querySelector('.mc-select__message')).toHaveTextContent(
+      /^$/,
+    );
   });
 
   it('connects its description to the control', () => {
