@@ -40,13 +40,14 @@
   }
 
   .mc-table > :global(caption) {
-    padding-block-end: var(--mc-space-2);
+    padding-block-start: var(--mc-space-2);
     color: var(--mc-colour-text-secondary);
     font-family: var(--mc-typography-label-family);
     font-size: var(--mc-typography-label-size);
     font-weight: var(--mc-typography-label-weight);
     line-height: var(--mc-typography-label-line-height);
-    text-align: start;
+    text-align: center;
+    caption-side: bottom;
   }
 
   .mc-table :global(th),

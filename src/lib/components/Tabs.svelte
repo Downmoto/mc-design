@@ -139,6 +139,8 @@
   .mc-tabs__tab[aria-selected='true'] {
     color: var(--mc-colour-interactive);
     background: var(--mc-colour-surface);
+    text-decoration: underline var(--mc-border-width-emphasised);
+    text-underline-offset: var(--mc-space-1);
   }
 
   .mc-tabs__panel {

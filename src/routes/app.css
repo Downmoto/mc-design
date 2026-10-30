@@ -164,8 +164,8 @@ code {
   min-inline-size: calc(var(--mc-size-control-large) * 3);
 }
 
-.global-controls label,
-.control-panel label {
+.global-controls > label,
+.control-panel > label {
   display: grid;
   gap: var(--mc-space-1);
   color: var(--mc-colour-text-secondary);

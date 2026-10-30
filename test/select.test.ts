@@ -118,6 +118,32 @@ describe('Select', () => {
     expect(onchange).toHaveBeenCalledOnce();
   });
 
+  it('locks page scrolling containers while open', async () => {
+    const { container, getByRole } = render(Select, {
+      children: options,
+      label: 'Theme',
+      value: 'dark',
+    });
+    const combobox = getByRole('combobox', { name: 'Theme' });
+    const siblingScroller = document.createElement('div');
+    container.style.overflow = 'auto';
+    siblingScroller.style.overflow = 'auto';
+    document.body.append(siblingScroller);
+
+    await fireEvent.click(combobox);
+
+    expect(container.style.overflow).toBe('hidden');
+    expect(siblingScroller.style.overflow).toBe('hidden');
+    expect(document.documentElement.style.overflow).toBe('hidden');
+
+    await fireEvent.click(getByRole('option', { name: 'Light' }));
+
+    expect(container.style.overflow).toBe('auto');
+    expect(siblingScroller.style.overflow).toBe('auto');
+    expect(document.documentElement.style.overflow).toBe('');
+    siblingScroller.remove();
+  });
+
   it('supports listbox keyboard selection and dismissal', async () => {
     const { getByRole } = render(Select, {
       children: options,
