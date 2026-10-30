@@ -105,7 +105,7 @@ Implement components in design-approval and consumer-need order. Avoid speculati
 
 ## Stage 6: Prepare the first consumer
 
-- [ ] Tag or link a consumable pre-release of the library from GitHub.
+- [x] Tag a consumable `0.1.0` release of the library on GitHub.
 - [ ] Integrate the baseline into the memorycore.dev overhaul.
 - [ ] Treat website integration findings as input to shared tokens and components.
 - [ ] Stabilise the first public GitHub release after the website validates the baseline.
