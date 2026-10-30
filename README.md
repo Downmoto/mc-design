@@ -97,6 +97,24 @@ Use `Consumer` to apply the same consumer colour mapping to a component tree:
 A component-level `consumer` prop takes precedence over the nearest provider.
 Registered consumers are `website`, `dithertool`, and `aetheltool`.
 
+### Scrollbars
+
+Use `Scrollbar` to apply the shared scrollbar treatment to every nested scroll
+container. The nested elements continue to own their sizing and overflow:
+
+```svelte
+<script lang="ts">
+  import { Scrollbar } from '@memorycore/design';
+</script>
+
+<Scrollbar>
+  <main class="application-shell">
+    <aside class="scrollable-navigation">...</aside>
+    <section class="scrollable-content">...</section>
+  </main>
+</Scrollbar>
+```
+
 ## Components
 
 The package includes:
@@ -108,7 +126,7 @@ The package includes:
 - Feedback: Alert, Toast, Status, ProgressIndicator, Tooltip, Dialog, and
   EmptyState
 - Content and layout: Typography, Badge, Panel, Card, List, Table, and Sidebar
-- Configuration: Consumer
+- Configuration: Consumer and Scrollbar
 
 Run `npm run dev` for live examples, variants, API details, token references,
 and accessibility guidance.

@@ -270,3 +270,6 @@ export type { EmptyStateProps } from './components/empty-state.types.js';
 
 export { default as Consumer } from './components/Consumer.svelte';
 export { type ConsumerProps } from './components/consumer.types.js';
+
+export { default as Scrollbar } from './components/Scrollbar.svelte';
+export { type ScrollbarProps } from './components/scrollbar.types.js';
