@@ -47,6 +47,7 @@ Token implementation may begin while release automation and documentation choice
 Required components are tracked in one list. Items marked `website first` form the shared baseline for memorycore.dev; the remaining items follow consumer demand.
 
 - [x] Configuration: Consumer
+- [x] Configuration: Scrollbar
 - [x] Actions: Button, including link and icon presentations (`website first`)
 - [x] Actions: Action group (`website first`)
 - [x] Actions: Toggle
@@ -86,7 +87,7 @@ For each approved component:
 - [ ] Implement accessible naming, state, and status communication.
 - [ ] Verify dark, light, standard-density, and applicable compact-density treatments.
 - [ ] Test loading, error, disabled, selected, and responsive behaviour where applicable.
-- [ ] Add usage documentation and focused examples.
+- [ ] Add usage documentation in docs/ and focused examples.
 
 Implement components in design-approval and consumer-need order. Avoid speculative variants.
 

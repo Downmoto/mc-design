@@ -21,6 +21,7 @@
   import SelectPreview from './_components/previews/SelectPreview.svelte';
   import SidebarPreview from './_components/previews/SidebarPreview.svelte';
   import SliderPreview from './_components/previews/SliderPreview.svelte';
+  import ScrollbarPreview from './_components/previews/ScrollbarPreview.svelte';
   import StatusPreview from './_components/previews/StatusPreview.svelte';
   import SwitchPreview from './_components/previews/SwitchPreview.svelte';
   import TabsPreview from './_components/previews/TabsPreview.svelte';
@@ -57,6 +58,7 @@
     '/components/select': SelectPreview,
     '/components/sidebar': SidebarPreview,
     '/components/slider': SliderPreview,
+    '/components/scrollbar': ScrollbarPreview,
     '/components/status': StatusPreview,
     '/components/switch': SwitchPreview,
     '/components/tabs': TabsPreview,

@@ -28,6 +28,7 @@ export interface CatalogueEntry {
     | '/components/select'
     | '/components/sidebar'
     | '/components/slider'
+    | '/components/scrollbar'
     | '/components/status'
     | '/components/switch'
     | '/components/tabs'
@@ -47,6 +48,12 @@ export const catalogue: CatalogueEntry[] = [
     description: 'Provides a consumer theme to nested library components',
     name: 'Consumer',
     route: '/components/consumer',
+  },
+  {
+    category: 'Configuration',
+    description: 'Applies shared scrollbar styling to nested content',
+    name: 'Scrollbar',
+    route: '/components/scrollbar',
   },
   {
     category: 'Actions',

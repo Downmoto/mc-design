@@ -1,6 +1,33 @@
 @import './fonts.css';
 @import './generated/tokens.css';
 
+:is(.mc-scrollbar, .mc-scrollbar *) {
+  scrollbar-color: var(--mc-colour-border) transparent;
+  scrollbar-width: thin;
+}
+
+:is(.mc-scrollbar, .mc-scrollbar *)::-webkit-scrollbar {
+  inline-size: var(--mc-space-2);
+  block-size: var(--mc-space-2);
+}
+
+:is(.mc-scrollbar, .mc-scrollbar *)::-webkit-scrollbar-track,
+:is(.mc-scrollbar, .mc-scrollbar *)::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+:is(.mc-scrollbar, .mc-scrollbar *)::-webkit-scrollbar-thumb {
+  background: var(--mc-colour-border);
+  background-clip: padding-box;
+  border: var(--mc-border-width-default) solid transparent;
+  border-radius: var(--mc-radius-1);
+}
+
+:is(.mc-scrollbar, .mc-scrollbar *)::-webkit-scrollbar-thumb:hover {
+  background: var(--mc-colour-interactive);
+  background-clip: padding-box;
+}
+
 :is(
   .mc-card-content,
   .mc-card-footer,
@@ -68,6 +95,10 @@
 }
 
 @media (forced-colors: active) {
+  :is(.mc-scrollbar, .mc-scrollbar *) {
+    scrollbar-color: auto;
+  }
+
   .mc-list[data-variant='divided'] > .mc-list-item + .mc-list-item {
     border-color: CanvasText;
   }
