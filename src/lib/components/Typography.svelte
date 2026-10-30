@@ -98,9 +98,9 @@
   }
 
   .mc-typography[data-variant='blockquote'] {
-    padding-inline-start: var(--mc-space-4);
-    border-inline-start: var(--mc-border-width-emphasised) solid
-      var(--mc-colour-border);
+    padding: var(--mc-space-4);
+    background: var(--mc-colour-surface-low);
+    border-radius: var(--mc-radius-1);
     font-style: italic;
   }
 
@@ -117,7 +117,7 @@
     display: inline;
     padding: var(--mc-space-1) var(--mc-space-2);
     border-radius: var(--mc-radius-1);
-    background: var(--mc-colour-surface);
+    background: var(--mc-colour-surface-low);
     font-family: var(--mc-typography-code-family);
     font-size: var(--mc-typography-code-size);
     font-weight: var(--mc-typography-code-weight);

@@ -120,13 +120,13 @@
     flex: 0 0 auto;
     inline-size: var(--mc-switch-track-inline-size);
     block-size: var(--mc-switch-track-block-size);
-    background: var(--mc-colour-background);
-    border: var(--mc-border-width-default) solid var(--mc-colour-border);
+    background: var(--mc-colour-surface-high);
+    border: 0;
     border-radius: var(--mc-radius-3);
     transition:
       background-color var(--mc-motion-duration-direct)
         var(--mc-motion-easing-default),
-      border-color var(--mc-motion-duration-direct)
+      box-shadow var(--mc-motion-duration-direct)
         var(--mc-motion-easing-default);
   }
 
@@ -147,7 +147,6 @@
 
   .mc-switch__native:checked + .mc-switch__track {
     background: var(--mc-colour-interactive);
-    border-color: var(--mc-colour-interactive);
   }
 
   .mc-switch__native:checked + .mc-switch__track .mc-switch__thumb {
@@ -189,7 +188,7 @@
     .mc-switch__track,
     .mc-switch__native:checked + .mc-switch__track {
       background: Field;
-      border-color: FieldText;
+      border: var(--mc-border-width-default) solid FieldText;
       forced-color-adjust: auto;
     }
 

@@ -119,13 +119,13 @@
     block-size: var(--mc-checkbox-box-size);
     place-items: center;
     color: var(--mc-colour-background);
-    background: var(--mc-colour-background);
-    border: var(--mc-border-width-default) solid var(--mc-colour-border);
+    background: var(--mc-colour-surface-high);
+    border: 0;
     border-radius: var(--mc-radius-1);
     transition:
       background-color var(--mc-motion-duration-direct)
         var(--mc-motion-easing-default),
-      border-color var(--mc-motion-duration-direct)
+      box-shadow var(--mc-motion-duration-direct)
         var(--mc-motion-easing-default);
   }
 
@@ -139,7 +139,6 @@
   .mc-checkbox__native:checked + .mc-checkbox__box,
   .mc-checkbox__native:indeterminate + .mc-checkbox__box {
     background: var(--mc-colour-interactive);
-    border-color: var(--mc-colour-interactive);
   }
 
   .mc-checkbox__native:checked
@@ -161,7 +160,11 @@
   }
 
   .mc-checkbox[data-error='true'] .mc-checkbox__box {
-    border-color: var(--mc-colour-danger);
+    background: color-mix(
+      in srgb,
+      var(--mc-colour-danger) 24%,
+      var(--mc-colour-surface-high)
+    );
   }
 
   .mc-checkbox__label {
@@ -192,7 +195,7 @@
     .mc-checkbox__native:indeterminate + .mc-checkbox__box {
       color: HighlightText;
       background: Field;
-      border-color: FieldText;
+      border: var(--mc-border-width-default) solid FieldText;
       forced-color-adjust: auto;
     }
 

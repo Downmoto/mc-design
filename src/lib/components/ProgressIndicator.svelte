@@ -71,8 +71,7 @@
     block-size: var(--mc-space-2);
     overflow: hidden;
     color: var(--mc-colour-interactive);
-    background: var(--mc-colour-surface);
-    border: var(--mc-border-width-default) solid var(--mc-colour-border);
+    background: var(--mc-colour-surface-high);
     border-radius: var(--mc-radius-3);
     appearance: none;
   }
@@ -82,7 +81,7 @@
   }
 
   .mc-progress__control::-webkit-progress-bar {
-    background: var(--mc-colour-surface);
+    background: var(--mc-colour-surface-high);
   }
 
   .mc-progress__control::-webkit-progress-value {
@@ -96,13 +95,13 @@
   }
 
   .mc-progress__control:indeterminate::-moz-progress-bar {
-    background: var(--mc-colour-surface);
+    background: var(--mc-colour-surface-high);
   }
 
   .mc-progress__indeterminate {
     position: absolute;
-    inset-block: var(--mc-border-width-default);
-    inset-inline-start: var(--mc-border-width-default);
+    inset-block: 0;
+    inset-inline-start: 0;
     inline-size: 50%;
     pointer-events: none;
     background: linear-gradient(

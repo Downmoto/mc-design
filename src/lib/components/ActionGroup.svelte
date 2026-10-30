@@ -66,14 +66,6 @@
     border-end-end-radius: var(--mc-radius-1);
   }
 
-  .mc-action-group[data-joined='true'][data-orientation='horizontal']
-    > :global(
-      .mc-button:not([data-appearance='link'])
-        + .mc-button:not([data-appearance='link'])
-    ) {
-    margin-inline-start: calc(-1 * var(--mc-border-width-emphasised));
-  }
-
   .mc-action-group[data-joined='true'][data-orientation='vertical']
     > :global(.mc-button:not([data-appearance='link'])) {
     border-radius: 0;
@@ -89,13 +81,5 @@
     > :global(.mc-button:not([data-appearance='link']):last-child) {
     border-end-start-radius: var(--mc-radius-1);
     border-end-end-radius: var(--mc-radius-1);
-  }
-
-  .mc-action-group[data-joined='true'][data-orientation='vertical']
-    > :global(
-      .mc-button:not([data-appearance='link'])
-        + .mc-button:not([data-appearance='link'])
-    ) {
-    margin-block-start: calc(-1 * var(--mc-border-width-emphasised));
   }
 </style>

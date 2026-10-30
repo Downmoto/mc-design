@@ -118,7 +118,7 @@
   }
 
   .mc-toolbar[data-variant='surface'] {
-    background: var(--mc-colour-surface);
+    background: var(--mc-colour-surface-high);
     box-shadow: var(--mc-shadow-1);
   }
 

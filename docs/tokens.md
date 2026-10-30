@@ -12,6 +12,16 @@ Generated from `tokens/tokens.json`. Edit the source and run
 | `brand-dark-neutral` | `--mc-brand-dark-neutral` | `#2D2D2D` | Neutral dark surface |
 | `brand-light` | `--mc-brand-light` | `#E8E1D2` | Default light foreground |
 | `brand-light-surface` | `--mc-brand-light-surface` | `#F3EBDD` | Alternate light background |
+| `colour-surface-base-light` | `--mc-colour-surface-base-light` | `#FFFDF8` | Light theme base surface |
+| `colour-surface-low-light` | `--mc-colour-surface-low-light` | `{brand-light-surface}` | Light theme low surface |
+| `colour-surface-default-light` | `--mc-colour-surface-default-light` | `{brand-light}` | Light theme default surface |
+| `colour-surface-high-light` | `--mc-colour-surface-high-light` | `#D8CFBF` | Light theme high surface |
+| `colour-surface-highest-light` | `--mc-colour-surface-highest-light` | `#C7BCA9` | Light theme highest surface |
+| `colour-surface-base-dark` | `--mc-colour-surface-base-dark` | `{brand-dark}` | Dark theme base surface |
+| `colour-surface-low-dark` | `--mc-colour-surface-low-dark` | `#111015` | Dark theme low surface |
+| `colour-surface-default-dark` | `--mc-colour-surface-default-dark` | `{brand-dark-surface}` | Dark theme default surface |
+| `colour-surface-high-dark` | `--mc-colour-surface-high-dark` | `#29272E` | Dark theme high surface |
+| `colour-surface-highest-dark` | `--mc-colour-surface-highest-dark` | `#36333C` | Dark theme highest surface |
 | `brand-warm-muted` | `--mc-brand-warm-muted` | `#B8AE9D` | Muted warm foreground |
 | `brand-cool-muted` | `--mc-brand-cool-muted` | `#8C8791` | Muted cool foreground or accent |
 | `colour-consumer-website-primary-light` | `--mc-colour-consumer-website-primary-light` | `#2F6892` | Website primary in the light theme |
@@ -158,9 +168,13 @@ Generated from `tokens/tokens.json`. Edit the source and run
 
 | Token | CSS property | Value | Purpose |
 |---|---|---|---|
-| `colour-background` | `--mc-colour-background` | `{brand-light-surface}` | Root background |
+| `colour-background` | `--mc-colour-background` | `{colour-surface-base-light}` | Root background |
 | `colour-backdrop` | `--mc-colour-backdrop` | `{brand-dark}` | Modal backdrop colour |
-| `colour-surface` | `--mc-colour-surface` | `{brand-light}` | Panels, cards, menus, and grouped regions |
+| `colour-surface-base` | `--mc-colour-surface-base` | `{colour-surface-base-light}` | Base surface |
+| `colour-surface-low` | `--mc-colour-surface-low` | `{colour-surface-low-light}` | Low surface |
+| `colour-surface` | `--mc-colour-surface` | `{colour-surface-default-light}` | Panels, cards, menus, and grouped regions |
+| `colour-surface-high` | `--mc-colour-surface-high` | `{colour-surface-high-light}` | High surface |
+| `colour-surface-highest` | `--mc-colour-surface-highest` | `{colour-surface-highest-light}` | Highest surface |
 | `colour-text-primary` | `--mc-colour-text-primary` | `{brand-dark}` | Primary text and neutral icons |
 | `colour-text-secondary` | `--mc-colour-text-secondary` | `{brand-dark-neutral}` | Supporting text and neutral icons |
 | `colour-border` | `--mc-colour-border` | `{brand-dark-neutral}` | Meaningful boundaries and separators |
@@ -173,9 +187,13 @@ Generated from `tokens/tokens.json`. Edit the source and run
 
 | Token | CSS property | Value | Purpose |
 |---|---|---|---|
-| `colour-background` | `--mc-colour-background` | `{brand-dark}` | Root background |
+| `colour-background` | `--mc-colour-background` | `{colour-surface-base-dark}` | Root background |
 | `colour-backdrop` | `--mc-colour-backdrop` | `{brand-dark}` | Modal backdrop colour |
-| `colour-surface` | `--mc-colour-surface` | `{brand-dark-surface}` | Panels, cards, menus, and grouped regions |
+| `colour-surface-base` | `--mc-colour-surface-base` | `{colour-surface-base-dark}` | Base surface |
+| `colour-surface-low` | `--mc-colour-surface-low` | `{colour-surface-low-dark}` | Low surface |
+| `colour-surface` | `--mc-colour-surface` | `{colour-surface-default-dark}` | Panels, cards, menus, and grouped regions |
+| `colour-surface-high` | `--mc-colour-surface-high` | `{colour-surface-high-dark}` | High surface |
+| `colour-surface-highest` | `--mc-colour-surface-highest` | `{colour-surface-highest-dark}` | Highest surface |
 | `colour-text-primary` | `--mc-colour-text-primary` | `{brand-light}` | Primary text and neutral icons |
 | `colour-text-secondary` | `--mc-colour-text-secondary` | `{brand-warm-muted}` | Supporting text and neutral icons |
 | `colour-border` | `--mc-colour-border` | `{brand-cool-muted}` | Meaningful boundaries and separators |
@@ -211,15 +229,15 @@ generated CSS properties.
 
 | Consumer | Theme | Foreground | Background | Actual | Required |
 |---|---|---|---|---:|---:|
-| `website` | light | `colour-consumer-website-primary-light` | `colour-background` | 5.04:1 | 4.5:1 |
+| `website` | light | `colour-consumer-website-primary-light` | `colour-background` | 5.88:1 | 4.5:1 |
 | `website` | light | `colour-consumer-website-primary-light` | `colour-surface` | 4.59:1 | 4.5:1 |
 | `website` | dark | `colour-consumer-website-primary-dark` | `colour-background` | 5.53:1 | 4.5:1 |
 | `website` | dark | `colour-consumer-website-primary-dark` | `colour-surface` | 4.68:1 | 4.5:1 |
-| `dithertool` | light | `colour-consumer-dithertool-primary-light` | `colour-background` | 5.06:1 | 4.5:1 |
+| `dithertool` | light | `colour-consumer-dithertool-primary-light` | `colour-background` | 5.89:1 | 4.5:1 |
 | `dithertool` | light | `colour-consumer-dithertool-primary-light` | `colour-surface` | 4.60:1 | 4.5:1 |
 | `dithertool` | dark | `colour-consumer-dithertool-primary-dark` | `colour-background` | 5.63:1 | 4.5:1 |
 | `dithertool` | dark | `colour-consumer-dithertool-primary-dark` | `colour-surface` | 4.77:1 | 4.5:1 |
-| `aetheltool` | light | `colour-consumer-aetheltool-primary-light` | `colour-background` | 5.08:1 | 4.5:1 |
+| `aetheltool` | light | `colour-consumer-aetheltool-primary-light` | `colour-background` | 5.91:1 | 4.5:1 |
 | `aetheltool` | light | `colour-consumer-aetheltool-primary-light` | `colour-surface` | 4.62:1 | 4.5:1 |
 | `aetheltool` | dark | `colour-consumer-aetheltool-primary-dark` | `colour-background` | 5.33:1 | 4.5:1 |
 | `aetheltool` | dark | `colour-consumer-aetheltool-primary-dark` | `colour-surface` | 4.52:1 | 4.5:1 |
@@ -228,19 +246,19 @@ generated CSS properties.
 
 | Theme | Foreground | Background | Actual | Required |
 |---|---|---|---:|---:|
-| light | `colour-text-primary` | `colour-background` | 17.20:1 | 4.5:1 |
+| light | `colour-text-primary` | `colour-background` | 20.03:1 | 4.5:1 |
 | light | `colour-text-primary` | `colour-surface` | 15.64:1 | 4.5:1 |
-| light | `colour-text-secondary` | `colour-background` | 11.63:1 | 4.5:1 |
+| light | `colour-text-secondary` | `colour-background` | 13.55:1 | 4.5:1 |
 | light | `colour-text-secondary` | `colour-surface` | 10.58:1 | 4.5:1 |
-| light | `colour-interactive` | `colour-background` | 17.20:1 | 4.5:1 |
+| light | `colour-interactive` | `colour-background` | 20.03:1 | 4.5:1 |
 | light | `colour-interactive` | `colour-surface` | 15.64:1 | 4.5:1 |
-| light | `colour-border` | `colour-background` | 11.63:1 | 3:1 |
+| light | `colour-border` | `colour-background` | 13.55:1 | 3:1 |
 | light | `colour-border` | `colour-surface` | 10.58:1 | 3:1 |
-| light | `colour-success` | `colour-background` | 6.69:1 | 4.5:1 |
+| light | `colour-success` | `colour-background` | 7.79:1 | 4.5:1 |
 | light | `colour-success` | `colour-surface` | 6.08:1 | 4.5:1 |
-| light | `colour-warning` | `colour-background` | 6.81:1 | 4.5:1 |
+| light | `colour-warning` | `colour-background` | 7.93:1 | 4.5:1 |
 | light | `colour-warning` | `colour-surface` | 6.19:1 | 4.5:1 |
-| light | `colour-danger` | `colour-background` | 7.21:1 | 4.5:1 |
+| light | `colour-danger` | `colour-background` | 8.40:1 | 4.5:1 |
 | light | `colour-danger` | `colour-surface` | 6.56:1 | 4.5:1 |
 | dark | `colour-text-primary` | `colour-background` | 15.64:1 | 4.5:1 |
 | dark | `colour-text-primary` | `colour-surface` | 13.24:1 | 4.5:1 |

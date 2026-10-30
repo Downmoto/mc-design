@@ -228,20 +228,20 @@
     position: relative;
     display: grid;
     grid-template-rows: repeat(2, minmax(0, 1fr));
-    block-size: calc(
-      var(--mc-numeric-input-block-size) - var(--mc-border-width-default) -
-        var(--mc-border-width-default)
-    );
+    block-size: var(--mc-numeric-input-block-size);
     min-block-size: 0;
-    border-inline-start: var(--mc-border-width-default) solid
-      var(--mc-colour-border);
+    background: color-mix(
+      in srgb,
+      var(--mc-colour-interactive) 10%,
+      var(--mc-colour-surface-high)
+    );
   }
 
   .mc-numeric-input__steppers::after {
     position: absolute;
     inset: 50% 0 auto;
     block-size: var(--mc-border-width-default);
-    background: var(--mc-colour-border);
+    background: var(--mc-colour-surface-high);
     content: '';
     pointer-events: none;
     transform: translateY(-50%);
@@ -254,7 +254,7 @@
     padding: 0;
     place-items: center;
     color: var(--mc-colour-text-secondary);
-    background: var(--mc-colour-surface);
+    background: transparent;
     border: 0;
     border-radius: 0;
     line-height: 0;
@@ -270,6 +270,11 @@
 
   .mc-numeric-input__stepper:hover:not(:disabled) {
     color: var(--mc-colour-interactive);
+    background: color-mix(
+      in srgb,
+      var(--mc-colour-interactive) 20%,
+      var(--mc-colour-surface-high)
+    );
   }
 
   .mc-numeric-input__stepper:focus-visible {

@@ -34,8 +34,8 @@
   }
 
   .mc-table[data-variant='divided'] {
-    background: var(--mc-colour-surface);
-    border: var(--mc-border-width-default) solid var(--mc-colour-border);
+    overflow: hidden;
+    background: var(--mc-colour-surface-high);
     border-radius: var(--mc-radius-2);
   }
 
@@ -52,10 +52,20 @@
   .mc-table :global(th),
   .mc-table :global(td) {
     padding: var(--mc-space-3) var(--mc-space-4);
-    border-block-end: var(--mc-border-width-default) solid
-      var(--mc-colour-border);
     text-align: start;
     vertical-align: top;
+  }
+
+  .mc-table[data-variant='divided'] :global(th),
+  .mc-table[data-variant='divided'] :global(td) {
+    background: var(--mc-colour-surface);
+  }
+
+  .mc-table[data-variant='divided']
+    > :global(tbody)
+    > :global(tr:nth-child(even))
+    > :global(*) {
+    background: var(--mc-colour-surface-low);
   }
 
   .mc-table :global(th) {
@@ -66,12 +76,7 @@
   }
 
   .mc-table > :global(thead) :global(th) {
-    background: var(--mc-colour-surface);
-  }
-
-  .mc-table > :global(tbody:last-child) > :global(tr:last-child) > :global(*),
-  .mc-table > :global(tfoot:last-child) > :global(tr:last-child) > :global(*) {
-    border-block-end: 0;
+    background: var(--mc-colour-surface-high);
   }
 
   .mc-table[data-size='compact'] :global(th),
@@ -86,7 +91,7 @@
 
     .mc-table[data-variant='divided'] {
       background: Canvas;
-      border-color: CanvasText;
+      border: var(--mc-border-width-default) solid CanvasText;
     }
 
     .mc-table :global(th),
