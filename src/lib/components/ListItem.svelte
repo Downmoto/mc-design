@@ -29,11 +29,9 @@
   .mc-list-item {
     display: grid;
     grid-template-columns: minmax(0, 1fr);
-    gap: var(--mc-space-3);
     align-items: center;
     box-sizing: border-box;
     min-inline-size: 0;
-    padding: var(--mc-space-4);
   }
 
   .mc-list-item[data-leading] {
@@ -46,11 +44,6 @@
 
   .mc-list-item[data-leading][data-trailing] {
     grid-template-columns: auto minmax(0, 1fr) auto;
-  }
-
-  :global(.mc-list[data-size='compact']) > .mc-list-item {
-    gap: var(--mc-space-2);
-    padding: var(--mc-space-3);
   }
 
   .mc-list-item__content {

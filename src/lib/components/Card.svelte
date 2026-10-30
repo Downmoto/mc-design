@@ -86,17 +86,4 @@
     > :global(.mc-card-header) {
     grid-column: 1 / -1;
   }
-
-  @media (forced-colors: active) {
-    .mc-card {
-      color: CanvasText;
-      background: Canvas;
-      border: var(--mc-border-width-default) solid CanvasText;
-    }
-
-    .mc-card:has(> :global(.mc-card-hero)) > :global(.mc-card-header) {
-      background: Canvas;
-      border: var(--mc-border-width-default) solid CanvasText;
-    }
-  }
 </style>

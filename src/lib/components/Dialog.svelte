@@ -189,24 +189,6 @@
     );
   }
 
-  .mc-dialog:not([open]) {
-    opacity: 0;
-    transform: translateY(var(--mc-motion-distance-entrance));
-  }
-
-  .mc-dialog::backdrop {
-    background: color-mix(
-      in srgb,
-      var(--mc-colour-backdrop) var(--mc-opacity-dialog-backdrop),
-      transparent
-    );
-    transition:
-      background-color var(--mc-motion-duration-large)
-        var(--mc-motion-easing-default),
-      display var(--mc-motion-duration-large) allow-discrete,
-      overlay var(--mc-motion-duration-large) allow-discrete;
-  }
-
   .mc-dialog__surface {
     display: grid;
     max-block-size: inherit;
@@ -270,11 +252,6 @@
   }
 
   @starting-style {
-    .mc-dialog[open] {
-      opacity: 0;
-      transform: translateY(var(--mc-motion-distance-entrance));
-    }
-
     .mc-dialog[open]::backdrop {
       background: transparent;
     }
@@ -293,14 +270,6 @@
   }
 
   @media (forced-colors: active) {
-    .mc-dialog {
-      color: CanvasText;
-      background: Canvas;
-      border: var(--mc-border-width-default) solid CanvasText;
-      box-shadow: none;
-      forced-color-adjust: auto;
-    }
-
     .mc-dialog::backdrop {
       background: Canvas;
     }

@@ -39,12 +39,4 @@
   .mc-list[data-variant='divided'] > :global(.mc-list-item) {
     background: var(--mc-colour-surface);
   }
-
-  @media (forced-colors: active) {
-    .mc-list[data-variant='divided'] {
-      color: CanvasText;
-      background: Canvas;
-      border: var(--mc-border-width-default) solid CanvasText;
-    }
-  }
 </style>

@@ -444,18 +444,6 @@
     --mc-select-icon-size: var(--mc-size-icon-compact);
   }
 
-  .mc-select__native {
-    position: absolute;
-    inline-size: 1px;
-    block-size: 1px;
-    margin: -1px;
-    padding: 0;
-    overflow: hidden;
-    white-space: nowrap;
-    border: 0;
-    clip-path: inset(50%);
-  }
-
   .mc-select__control {
     display: grid;
     grid-template-columns: minmax(0, 1fr) max-content;
@@ -487,11 +475,6 @@
     color: var(--mc-colour-text-secondary);
     pointer-events: none;
     transform: translateY(-50%);
-  }
-
-  .mc-select__option[data-active='true'] {
-    color: var(--mc-colour-background);
-    background: var(--mc-colour-interactive);
   }
 
   .mc-select[data-disabled='true'] .mc-select__icon {

@@ -396,14 +396,4 @@
       transition-duration: var(--mc-motion-duration-direct);
     }
   }
-
-  @media (forced-colors: active) {
-    .mc-menu__content {
-      color: CanvasText;
-      background: Canvas;
-      border: var(--mc-border-width-default) solid CanvasText;
-      box-shadow: none;
-      forced-color-adjust: auto;
-    }
-  }
 </style>

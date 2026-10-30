@@ -232,7 +232,7 @@
     min-block-size: 0;
     background: color-mix(
       in srgb,
-      var(--mc-colour-interactive) 10%,
+      var(--mc-colour-interactive) var(--mc-opacity-control-stepper),
       var(--mc-colour-surface-high)
     );
   }
@@ -272,7 +272,7 @@
     color: var(--mc-colour-interactive);
     background: color-mix(
       in srgb,
-      var(--mc-colour-interactive) 20%,
+      var(--mc-colour-interactive) var(--mc-opacity-control-stepper-hover),
       var(--mc-colour-surface-high)
     );
   }

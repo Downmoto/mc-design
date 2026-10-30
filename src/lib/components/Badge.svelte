@@ -64,9 +64,4 @@
   .mc-badge[data-tone='danger'] {
     color: var(--mc-colour-danger);
   }
-
-  .mc-badge__icon {
-    inline-size: var(--mc-size-icon-compact);
-    block-size: var(--mc-size-icon-compact);
-  }
 </style>

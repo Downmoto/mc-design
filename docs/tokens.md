@@ -108,8 +108,16 @@ Generated from `tokens/tokens.json`. Edit the source and run
 | `shadow-1` | `--mc-shadow-1` | `0 2px 8px rgb(0 0 0 / 24%)` | Slightly raised controls and local overlays |
 | `shadow-2` | `--mc-shadow-2` | `0 8px 24px rgb(0 0 0 / 32%)` | Menus, popovers, and elevated panels |
 | `shadow-3` | `--mc-shadow-3` | `0 16px 48px rgb(0 0 0 / 40%)` | Dialogs and major temporary surfaces |
+| `brightness-interactive-hover` | `--mc-brightness-interactive-hover` | `1.15` | Interactive control hover brightness multiplier |
 | `opacity-focus-shadow` | `--mc-opacity-focus-shadow` | `75%` | Focus shadow colour opacity |
 | `opacity-disabled` | `--mc-opacity-disabled` | `50%` | Disabled control and content opacity |
+| `opacity-control-rest` | `--mc-opacity-control-rest` | `8%` | Resting control background tint |
+| `opacity-control-hover` | `--mc-opacity-control-hover` | `14%` | Hovered control background tint |
+| `opacity-control-focus` | `--mc-opacity-control-focus` | `18%` | Focused control background tint |
+| `opacity-control-stepper` | `--mc-opacity-control-stepper` | `10%` | Numeric input stepper background tint |
+| `opacity-control-stepper-hover` | `--mc-opacity-control-stepper-hover` | `20%` | Hovered numeric input stepper background tint |
+| `opacity-status-subtle` | `--mc-opacity-status-subtle` | `12%` | Subtle status background tint |
+| `opacity-status-emphasised` | `--mc-opacity-status-emphasised` | `24%` | Emphasised status background tint |
 | `opacity-menu-separator` | `--mc-opacity-menu-separator` | `50%` | Menu separator opacity |
 | `opacity-menu-item-hover` | `--mc-opacity-menu-item-hover` | `15%` | Menu item hover background opacity |
 | `opacity-dialog-backdrop` | `--mc-opacity-dialog-backdrop` | `75%` | Modal backdrop opacity |
