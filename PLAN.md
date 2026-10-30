@@ -87,7 +87,7 @@ For each approved component:
 - [ ] Implement accessible naming, state, and status communication.
 - [ ] Verify dark, light, standard-density, and applicable compact-density treatments.
 - [ ] Test loading, error, disabled, selected, and responsive behaviour where applicable.
-- [ ] Add usage documentation and focused examples.
+- [ ] Add usage documentation in docs/ and focused examples.
 
 Implement components in design-approval and consumer-need order. Avoid speculative variants.
 
