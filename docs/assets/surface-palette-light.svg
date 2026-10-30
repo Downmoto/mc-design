@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1580" height="620" viewBox="0 0 1580 620" role="img" aria-labelledby="title description">
+  <title id="title">MemoryCore light tonal surface palette</title>
+  <desc id="description">Five light theme surface levels from base through highest</desc>
+  <defs>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="8" stdDeviation="16" flood-color="#050507" flood-opacity="0.12" />
+    </filter>
+  </defs>
+
+  <rect width="1580" height="620" fill="#E8E1D2" />
+  <rect x="22" y="16" width="1536" height="604" rx="32" fill="#FFFDF8" filter="url(#shadow)" />
+
+  <g font-family="Inter, Roboto, Arial, sans-serif" font-size="28" fill="#1C1A20">
+    <text x="70" y="94">Base surface</text>
+    <text x="1510" y="94" text-anchor="end" fill="#5F584D">#FFFDF8</text>
+
+    <rect x="46" y="143" width="1488" height="88" rx="16" fill="#F3EBDD" />
+    <text x="70" y="198">Surface low</text>
+    <text x="1510" y="198" text-anchor="end" fill="#5F584D">#F3EBDD</text>
+
+    <rect x="46" y="247" width="1488" height="88" rx="16" fill="#E8E1D2" />
+    <text x="70" y="302">Surface</text>
+    <text x="1510" y="302" text-anchor="end" fill="#5F584D">#E8E1D2</text>
+
+    <rect x="46" y="351" width="1488" height="88" rx="16" fill="#D8CFBF" />
+    <text x="70" y="406">Surface high</text>
+    <text x="1510" y="406" text-anchor="end" fill="#5F584D">#D8CFBF</text>
+
+    <rect x="46" y="455" width="1488" height="88" rx="16" fill="#C7BCA9" />
+    <text x="70" y="510">Surface highest</text>
+    <text x="1510" y="510" text-anchor="end" fill="#5F584D">#C7BCA9</text>
+
+    <text x="46" y="587" fill="#6C655B">MemoryCore light tonal surface palette</text>
+  </g>
+</svg>
