@@ -20,6 +20,7 @@ export interface CatalogueEntry {
     | '/components/dialog'
     | '/components/empty-state'
     | '/components/list'
+    | '/components/logo'
     | '/components/menu'
     | '/components/numeric-input'
     | '/components/progress-indicator'
@@ -78,6 +79,12 @@ export const catalogue: CatalogueEntry[] = [
     description: 'Provides named semantic patterns for common text structures',
     name: 'Typography',
     route: '/components/typography',
+  },
+  {
+    category: 'Structure',
+    description: 'Renders approved MemoryCore marks and wordmarks',
+    name: 'Logo',
+    route: '/components/logo',
   },
   {
     category: 'Structure',

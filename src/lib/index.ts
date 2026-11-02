@@ -40,6 +40,13 @@ export {
   type TypographyVariant,
 } from './components/typography.types.js';
 
+export { default as Logo } from './components/Logo.svelte';
+export {
+  type LogoAppearance,
+  type LogoProps,
+  type LogoVariant,
+} from './components/logo.types.js';
+
 export { default as TextInput } from './components/TextInput.svelte';
 export {
   type TextInputProps,

@@ -13,6 +13,7 @@
   import DialogPreview from './_components/previews/DialogPreview.svelte';
   import EmptyStatePreview from './_components/previews/EmptyStatePreview.svelte';
   import ListPreview from './_components/previews/ListPreview.svelte';
+  import LogoPreview from './_components/previews/LogoPreview.svelte';
   import NumericInputPreview from './_components/previews/NumericInputPreview.svelte';
   import ProgressIndicatorPreview from './_components/previews/ProgressIndicatorPreview.svelte';
   import PanelPreview from './_components/previews/PanelPreview.svelte';
@@ -50,6 +51,7 @@
     '/components/dialog': DialogPreview,
     '/components/empty-state': EmptyStatePreview,
     '/components/list': ListPreview,
+    '/components/logo': LogoPreview,
     '/components/menu': MenuPreview,
     '/components/numeric-input': NumericInputPreview,
     '/components/progress-indicator': ProgressIndicatorPreview,
