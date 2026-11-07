@@ -19,8 +19,8 @@
   function handleClick(
     event: MouseEvent & { currentTarget: HTMLButtonElement },
   ): void {
-    (onclick as HTMLButtonAttributes['onclick'])?.(event);
     if (!event.defaultPrevented) pressed = !pressed;
+    (onclick as HTMLButtonAttributes['onclick'])?.(event);
   }
 </script>
 

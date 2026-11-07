@@ -237,8 +237,14 @@
 .mc-button:not([data-appearance='link']):active:not(:disabled):not(
     [aria-disabled='true']
   ),
-.mc-button[aria-pressed='true']:not(:disabled),
 .mc-select__option[data-active='true'] {
+  color: var(--mc-colour-background);
+  background: var(--mc-colour-interactive);
+}
+
+button.mc-button[aria-pressed='true'][data-appearance]:not(:disabled):not(
+    [aria-disabled='true']
+  ) {
   color: var(--mc-colour-background);
   background: var(--mc-colour-interactive);
 }

@@ -1,6 +1,6 @@
 {
   "name": "@memorycore/design",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Shared Svelte design tokens and components for MemoryCore products",
   "type": "module",
   "private": true,
